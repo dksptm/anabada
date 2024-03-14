@@ -31,17 +31,19 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init 실행.");
 		
+		// 효주.
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
 		
-		//item
+		// 영재.
 		controls.put("/item.do", new ItemControl());
 
 
-		//장바구니(찜) 리스트
+		// 진경.
 		controls.put("/cartList.do", new CartListControl());
-
 		controls.put("/testAjax.do", new TestAjaxControl());
+		
+		// 주완.
 
 	}
 	
