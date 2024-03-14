@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.item.ItemControl;
+
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> controls;
@@ -24,6 +26,9 @@ public class FrontController extends HttpServlet {
 		
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
+		
+		//item
+		controls.put("/item.do", new ItemControl());
 	}
 	
 	@Override
