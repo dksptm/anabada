@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.test.TestAjaxControl;
+import co.anabada.test.TestControl;
+
 public class FrontController extends HttpServlet {
 	
 	Map<String, Control> controls;
@@ -24,6 +27,7 @@ public class FrontController extends HttpServlet {
 		
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
+		controls.put("/testAjax.do", new TestAjaxControl());
 	}
 	
 	@Override

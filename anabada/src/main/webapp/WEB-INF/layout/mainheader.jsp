@@ -58,7 +58,7 @@
 					</a> <a href="tivo-1.0.0/log-in.html"
 						class="position-relative me-4 my-auto"> <i
 						class="fas fa-user fa-2x"></i> <span></span>
-					</a> <a href="tivo-1.0.0/sign-up.html"
+					</a> <a href="test.do"
 						class="position-relative me-4 my-auto"> <i
 						class="fas fa-solid fa-user-plus fa-2x"></i> <span></span>
 					</a> <a href="tivo-1.0.0/calendar.html" class="my-auto"> <i
