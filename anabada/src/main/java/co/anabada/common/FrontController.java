@@ -23,6 +23,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("init 실행.");
 		
 		controls.put("/main.do", new MainControl());
+		controls.put("/test.do", new TestControl());
 	}
 	
 	@Override
