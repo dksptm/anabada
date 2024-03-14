@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import co.anabada.cart.CartListControl;
+import co.anabada.test.TestAjaxControl;
+import co.anabada.test.TestControl;
 
 public class FrontController extends HttpServlet {
 	
@@ -28,8 +30,12 @@ public class FrontController extends HttpServlet {
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
 
+
 		//장바구니(찜) 리스트
 		controls.put("/cartList.do", new CartListControl());
+
+		controls.put("/testAjax.do", new TestAjaxControl());
+
 	}
 	
 	@Override
