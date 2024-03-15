@@ -26,5 +26,18 @@
             #{memberName},
             #{memberPhone})
   </insert>
+  
+  <select id="selectMember" parameterType="string">
+  	SELECT member_num
+	      ,member_id
+	      ,member_password
+	      ,member_name
+	      ,member_phone
+	      ,member_score
+	      ,account_num
+	FROM   member
+	WHERE  member_id = #{memberId}
+	AND    member_password = #{memberPassword}
+  </select>
 
 </mapper>

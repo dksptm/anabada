@@ -7,7 +7,16 @@
 	<div class="container py-5">
 		<div class="row g-5 align-items-center">
 			<div class="col-md-12 col-lg-7">
-				<h4 class="mb-3 text-secondary">Welcome to Anavada</h4>
+				<!-- 로그인하면 -->
+				<c:choose>
+            	  <c:when test="${empty member_name }">
+            	  	<h4 class="mb-3 text-secondary">Welcome to Anavada</h4>
+            	  </c:when>
+            	  <c:otherwise>
+            	  	<h4 class="mb-3 text-secondary">${member_name}님 환영합니다.</h4>
+            	  </c:otherwise>
+            	</c:choose>
+            	<!--  -->
 				<h1 class="mb-5 display-3 text-primary">어떤 상품을 찾으시나요? </h1>
 				<div class="position-relative mx-auto">
 					<input
