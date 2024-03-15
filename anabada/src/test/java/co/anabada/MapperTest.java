@@ -2,10 +2,9 @@ package co.anabada;
 
 import java.util.List;
 
+import co.anabada.cart.Cart;
 import co.anabada.cart.mapper.CartMapper;
 import co.anabada.common.DataSource;
-import co.anabada.member.Member;
-import co.anabada.member.mapper.MemberMapper;
 
 public class MapperTest {
 	public static void main(String[] args) {
@@ -15,14 +14,16 @@ public class MapperTest {
 		//List<Member> list = mapper.memberList();
 		//for (Member m : list) {
 			//System.out.println(m.toString());
-		//}
+		//}	
 		
-		/*
-		 * CartMapper mapper1 =
-		 * DataSource.getInstance().openSession(true).getMapper(CartMapper.class);
-		 * 
-		 * System.out.println(mapper1.cartList());
-		 */
+		  CartMapper mapper =
+		  DataSource.getInstance().openSession(true).getMapper(CartMapper.class);
+		  
+		List<Cart> list = mapper.cartList();
+		for(Cart c : list) {
+			System.out.println(c.toString());
+		}
+		 
 	}
 }
 
