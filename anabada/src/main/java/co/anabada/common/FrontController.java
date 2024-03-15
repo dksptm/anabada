@@ -65,13 +65,16 @@ public class FrontController extends HttpServlet {
 		System.out.println("service 실행.");
 		
 		req.setCharacterEncoding("utf-8");
-		String uri = req.getRequestURI();
-		String context = req.getContextPath();
-		String path = uri.substring(context.length());
+		String uri = req.getRequestURI(); //  http://localhost:8080/anabada/item.do
+		String context = req.getContextPath(); // /anabada
+		String path = uri.substring(context.length()); // /item.do
 		System.out.println("path: " + path);
+		// path = item.do
 		
 		Control control = controls.get(path);
+		// controls.get(path) = ItemControl
 		control.exec(req, resp);
+		// ItemControl 실행
 	}
 	
 	
