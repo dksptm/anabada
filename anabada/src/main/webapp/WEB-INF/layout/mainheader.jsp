@@ -61,7 +61,7 @@
 					</a> <a href="signUpForm.do"
 						class="position-relative me-4 my-auto"> <i
 						class="fas fa-solid fa-user-plus fa-2x"></i> <span></span>
-					</a> <a href="tivo-1.0.0/calendar.html" class="my-auto"> <i
+					</a> <a href="diaryForm.do" class="my-auto"> <i
 						class="fas fa-regular fa-calendar fa-2x"></i> <span></span>
 					</a>
 

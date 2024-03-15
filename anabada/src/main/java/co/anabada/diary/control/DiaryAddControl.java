@@ -20,15 +20,13 @@ public class DiaryAddControl implements Control { //일정등록
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8"); // json 글형식으로 저장
-		String diaryId = req.getParameter("diaryId");
-		String memberNum = req.getParameter("memberNum");
+		String memberNum = req.getParameter("memberNum"); // 나중에 로그인멤버의 num을 받아오도록 처리예정.
 		String diaryName = req.getParameter("diaryName");
 		String diaryContent = req.getParameter("diaryContent");
 		String diaryType = req.getParameter("diaryType");
 		
 		/*		  ---------------------------	     */
 		Diary diary = new Diary();
-		diary.setDiaryId(Integer.parseInt(diaryId));
 		diary.setMemberNum(Integer.parseInt(memberNum));
 		diary.setDiaryName(diaryName);
 		diary.setDiaryContent(diaryContent);
@@ -42,6 +40,8 @@ public class DiaryAddControl implements Control { //일정등록
 		if (dvc.addDairy(diary)) {
 			map.put("retCode", "OK");
 			map.put("retVal", diary);
+			
+			
 		}else {
 			map.put("retCode", "NG");
 		}
