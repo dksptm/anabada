@@ -1,4 +1,4 @@
-package co.anabada.item;
+package co.anabada.item.control;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class ItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "main/item.tiles";
+		String path = "item/item.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
 

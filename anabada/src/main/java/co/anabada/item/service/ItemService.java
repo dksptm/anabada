@@ -1,4 +1,4 @@
-package co.anabada.item;
+package co.anabada.item.service;
 
 
 public interface ItemService {

@@ -1,4 +1,4 @@
-package co.anabada.diary;
+package co.anabada.diary.control;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,36 +12,37 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
+import co.anabada.diary.Diary;
+import co.anabada.diary.service.DiaryService;
+import co.anabada.diary.service.DiaryServicelmpl;
 
-public class DiaryModifyControl implements Control { //일정수정
-
-	@Override
+public class DiaryAddControl implements Control { //일정등록
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.setContentType("text/json;charset=utf-8");
+		resp.setContentType("text/json;charset=utf-8"); // json 글형식으로 저장
 		String diary_id = req.getParameter("diary_id");
+		String member_num = req.getParameter("member_num");
 		String diary_name = req.getParameter("diary_name");
 		String diary_content = req.getParameter("diary_content");
 		String diary_type = req.getParameter("diary_type");
-		String diary_mondify = req.getParameter("diary_modify");
 		
 		/*		  ---------------------------	     */
 		Diary diary = new Diary();
 		diary.setDiary_id(Integer.parseInt(diary_id));
+		diary.setMember_num(Integer.parseInt(member_num));
 		diary.setDiary_name(diary_name);
 		diary.setDiary_content(diary_content);
 		diary.setDiary_type(diary_type);
-		diary.setDiary_modify(diary_mondify);
 		
 		/*		  ---------------------------	     */
 		DiaryService dvc = new DiaryServicelmpl();
 		Map<String, Object> map = new HashMap<>();
 		
 		/*		  ---------------------------	     */
-		if (dvc.modifyDiary(diary)) {
+		if (dvc.addDairy(diary)) {
 			map.put("retCode", "OK");
 			map.put("retVal", diary);
-		} else {
+		}else {
 			map.put("retCode", "NG");
 		}
 		Gson gson = new GsonBuilder().create();

@@ -31,7 +31,7 @@
 			<div class="collapse navbar-collapse bg-white" id="navbarCollapse">
 				<div class="navbar-nav mx-auto">
 					<a href="index.html" class="nav-item nav-link active">Home</a> <a
-						href="shop.html" class="nav-item nav-link">Shop</a> <a
+						href="item.do" class="nav-item nav-link">상품</a> <a
 						href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle"
@@ -43,7 +43,7 @@
 								href="404.html" class="dropdown-item">404 Page</a>
 						</div>
 					</div>
-					<a href="contact.html" class="nav-item nav-link">Contact</a>
+					<a href="test.do" class="nav-item nav-link">테스트(리스트)</a>
 				</div>
 				<div class="d-flex m-3 me-0">
 					<button

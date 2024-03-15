@@ -28,7 +28,7 @@ public class TestControl implements Control {
 		req.setAttribute("list", list);
 		
 		// JSP.
-		String path = "main/test.tiles";
+		String path = "member/test.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
 		

@@ -1,8 +1,7 @@
-package co.anabada.diary;
+package co.anabada.diary.control;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +11,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
+import co.anabada.diary.Diary;
+import co.anabada.diary.service.DiaryService;
+import co.anabada.diary.service.DiaryServicelmpl;
 
-public class DiaryRemoveControl implements Control{
+public class DiaryListControl implements Control { //일정목록
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -22,20 +24,18 @@ public class DiaryRemoveControl implements Control{
 		String diary_id = req.getParameter("diary_id");
 		
 		/*		  ---------------------------	     */
-		DiaryService dvc = new DiaryServicelmpl();
-		Map<String, String> map = new HashMap<>();
+		Diary diaryList = new Diary();
+		diaryList.setDiary_id(Integer.parseInt(diary_id));
 		
-		/*		  ---------------------------		 */
-		if (dvc.removeDiary(Integer.parseInt(diary_id))) {
-			map.put("retCode", "OK");
-			map.put("retMsg", "삭제되었습니다");
-		} else {
-			map.put("retCode", "NG");
-			map.put("retMsg", "삭제할 일정이 없습니다");
-		}
+		/*		  ---------------------------	     */
+		DiaryService dvc = new DiaryServicelmpl();
+		List<Diary> list = dvc.diaryList(diaryList);
+		
+		/*		  ---------------------------	     */
 		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(map);
+		String json = gson.toJson(list);
 		resp.getWriter().print(json);
+		
 	}
-	
+
 }

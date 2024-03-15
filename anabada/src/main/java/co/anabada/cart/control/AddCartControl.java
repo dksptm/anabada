@@ -1,4 +1,4 @@
-package co.anabada.cart;
+package co.anabada.cart.control;
 
 import java.io.IOException;
 
@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.cart.Cart;
 import co.anabada.cart.service.CartService;
 import co.anabada.cart.service.CartServiceImpl;
 import co.anabada.common.Control;

@@ -1,9 +1,10 @@
-package co.anabada.item;
+package co.anabada.item.service;
 
 
 import org.apache.ibatis.session.SqlSession;
 
 import co.anabada.common.DataSource;
+import co.anabada.item.mapper.ItemMapper;
 
 public class ItemServiceImpl implements ItemService{
 	
