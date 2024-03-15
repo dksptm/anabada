@@ -15,6 +15,10 @@ import co.anabada.item.ItemControl;
 
 
 import co.anabada.cart.CartListControl;
+import co.anabada.diary.DiaryAddControl;
+import co.anabada.diary.DiaryListControl;
+import co.anabada.diary.DiaryModifyControl;
+import co.anabada.diary.DiaryRemoveControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
 
@@ -44,7 +48,10 @@ public class FrontController extends HttpServlet {
 		controls.put("/testAjax.do", new TestAjaxControl());
 		
 		// 주완.
-
+		controls.put("diaryList.do",   new DiaryListControl());
+		controls.put("diaryAdd.do",    new DiaryAddControl());
+		controls.put("diaryModify.do", new DiaryModifyControl());
+		controls.put("diaryRemove.do", new DiaryRemoveControl());
 	}
 	
 	@Override
