@@ -21,21 +21,21 @@ public class DiaryListControl implements Control { //일정목록
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8");
-		String diary_id = req.getParameter("diary_id");
-		
+		String diaryId = req.getParameter("diaryId");
+		System.out.println("list:1 " +diaryId);
 		/*		  ---------------------------	     */
 		Diary diaryList = new Diary();
-		diaryList.setDiary_id(Integer.parseInt(diary_id));
-		
+		diaryList.setDiaryId(Integer.parseInt(diaryId));
+		System.out.println("list:2 " +diaryId);
 		/*		  ---------------------------	     */
 		DiaryService dvc = new DiaryServicelmpl();
 		List<Diary> list = dvc.diaryList(diaryList);
-		
+		System.out.println("list:3 " +diaryList);
 		/*		  ---------------------------	     */
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
 		resp.getWriter().print(json);
-		
+		System.out.println("list:4 " +json);
 	}
 
 }

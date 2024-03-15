@@ -20,19 +20,19 @@ public class DiaryAddControl implements Control { //일정등록
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8"); // json 글형식으로 저장
-		String diary_id = req.getParameter("diary_id");
-		String member_num = req.getParameter("member_num");
-		String diary_name = req.getParameter("diary_name");
-		String diary_content = req.getParameter("diary_content");
-		String diary_type = req.getParameter("diary_type");
+		String diaryId = req.getParameter("diaryId");
+		String memberNum = req.getParameter("memberNum");
+		String diaryName = req.getParameter("diaryName");
+		String diaryContent = req.getParameter("diaryContent");
+		String diaryType = req.getParameter("diaryType");
 		
 		/*		  ---------------------------	     */
 		Diary diary = new Diary();
-		diary.setDiary_id(Integer.parseInt(diary_id));
-		diary.setMember_num(Integer.parseInt(member_num));
-		diary.setDiary_name(diary_name);
-		diary.setDiary_content(diary_content);
-		diary.setDiary_type(diary_type);
+		diary.setDiaryId(Integer.parseInt(diaryId));
+		diary.setMemberNum(Integer.parseInt(memberNum));
+		diary.setDiaryName(diaryName);
+		diary.setDiaryContent(diaryContent);
+		diary.setDiaryType(diaryType);
 		
 		/*		  ---------------------------	     */
 		DiaryService dvc = new DiaryServicelmpl();

@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class Diary {
-	private int 	diary_id;
-	private int 	member_num;
-	private String 	diary_name;
-	private String 	diary_content;
-	private String  diary_Date;
-	private String 	diary_modify;
-	private String 	diary_type;
-	private String 	diary_startDate;
-	private String 	diary_endDate;
+	private int 	diaryId;
+	private int 	memberNum;
+	private String 	diaryName;
+	private String 	diaryContent;
+	private String  diaryDate;
+	private String 	diaryModify;
+	private String 	diaryType;
+	private String 	diaryStartDate;
+	private String 	diaryEndDate;
 }

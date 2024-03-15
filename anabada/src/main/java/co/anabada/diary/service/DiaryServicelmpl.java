@@ -22,14 +22,14 @@ public class DiaryServicelmpl implements DiaryService{
 	
 	//일정등록
 	@Override
-	public boolean addDairy(Diary diary_content) {
-		return mapper.insertDiary(diary_content) == 1;
+	public boolean addDairy(Diary diaryContent) {
+		return mapper.insertDiary(diaryContent) == 1;
 	}
 	
 	//일정삭제
 	@Override
-	public boolean removeDiary(int diary_id) {
-		return mapper.deleteDiary(diary_id) == 1;
+	public boolean removeDiary(int diaryId) {
+		return mapper.deleteDiary(diaryId) == 1;
 	}
 
 	//일정수정

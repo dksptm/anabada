@@ -22,19 +22,19 @@ public class DiaryModifyControl implements Control { //일정수정
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8");
-		String diary_id = req.getParameter("diary_id");
-		String diary_name = req.getParameter("diary_name");
-		String diary_content = req.getParameter("diary_content");
-		String diary_type = req.getParameter("diary_type");
-		String diary_mondify = req.getParameter("diary_modify");
+		String diaryId = req.getParameter("diaryId");
+		String diaryName = req.getParameter("diaryName");
+		String diaryContent = req.getParameter("diaryContent");
+		String diaryType = req.getParameter("diaryType");
+		String diaryMondify = req.getParameter("diaryModify");
 		
 		/*		  ---------------------------	     */
 		Diary diary = new Diary();
-		diary.setDiary_id(Integer.parseInt(diary_id));
-		diary.setDiary_name(diary_name);
-		diary.setDiary_content(diary_content);
-		diary.setDiary_type(diary_type);
-		diary.setDiary_modify(diary_mondify);
+		diary.setDiaryId(Integer.parseInt(diaryId));
+		diary.setDiaryName(diaryName);
+		diary.setDiaryContent(diaryContent);
+		diary.setDiaryType(diaryType);
+		diary.setDiaryModify(diaryMondify);
 		
 		/*		  ---------------------------	     */
 		DiaryService dvc = new DiaryServicelmpl();

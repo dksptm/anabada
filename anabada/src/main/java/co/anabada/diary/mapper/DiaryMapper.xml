@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.anabada.diary.DiaryMapper" >
+<mapper namespace="co.anabada.diary.mapper.DiaryMapper" >
 	
 	<!-- 일정목록 -->
 	<select id="diaryList" resultType= "diary">
@@ -18,7 +18,7 @@
 	
 	<!-- 일정등록 -->
 	<insert id = "insertDiary" parameterType = "diary">
-	<selectKey resultType="int" keyProperty="diary_Id"
+	<selectKey resultType="int" keyProperty="diaryId"
 	order = "BEFORE">
 	  SELECT diary_id
 	  FROM 	 dual 
@@ -28,10 +28,10 @@
 						  diary_Date,
 						  diary_type)
 						  
-	  VALUES	        ( #{diary_name},
-		     			  #{diary_content},
+	  VALUES	        ( #{diaryName},
+		     			  #{diaryContent},
 		    			  #sysdate,
-		   				  #{diary_type})
+		   				  #{diaryType})
 	</insert>
 	
 	
@@ -39,18 +39,18 @@
 	<delete id ="deleteDiary" parameterType="int">
 	  DELETE  
 	  FROM 	 diary
-	  WHERE  diary_id  =  #{diary_id}
+	  WHERE  diary_id  =  #{diaryId}
 	</delete>
 	
 	
 	<!-- 일정수정 -->
 	<update id="updateDiary" parameterType="diary">
 	  UPDATE diary
-	  SET	 diary_name    = #{diary_name},
-		     diary_content = #{diary_content}
-		     diary_type    = #{diary_type}
+	  SET	 diary_name    = #{diaryName},
+		     diary_content = #{diaryContent}
+		     diary_type    = #{diaryType}
 		     diary_modify  = #sysdate
-	  WHERE  diary_id      = #{diary_id}
+	  WHERE  diary_id      = #{diaryId}
 	</update>
 
 </mapper>

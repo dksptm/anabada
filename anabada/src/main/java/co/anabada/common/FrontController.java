@@ -50,10 +50,10 @@ public class FrontController extends HttpServlet {
 		controls.put("/cartAdd.do", new AddCartControl());
 		
 		// 주완.
-		controls.put("diaryList.do",   new DiaryListControl());
-		controls.put("diaryAdd.do",    new DiaryAddControl());
-		controls.put("diaryModify.do", new DiaryModifyControl());
-		controls.put("diaryRemove.do", new DiaryRemoveControl());
+		controls.put("/diaryList.do",   new DiaryListControl());
+		controls.put("/diaryAdd.do",    new DiaryAddControl());
+		controls.put("/diaryModify.do", new DiaryModifyControl());
+		controls.put("/diaryRemove.do", new DiaryRemoveControl());
 	}
 	
 	@Override
@@ -67,6 +67,7 @@ public class FrontController extends HttpServlet {
 		System.out.println("path: " + path);
 		
 		Control control = controls.get(path);
+		
 		control.exec(req, resp);
 	}
 	
