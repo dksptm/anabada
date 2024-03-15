@@ -8,4 +8,5 @@ import co.anabada.member.Member;
 public interface MemberMapper {
 	List<Member> memberList();
 	int insertMember(Member member);
+	Member selectMember(Member member);
 }
