@@ -12,6 +12,7 @@
 	<typeAliases>
   		<typeAlias alias="member" type="co.anabada.member.Member" />
   		<typeAlias alias="diary" type="co.anabada.diary.Diary" />
+  		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -29,5 +30,6 @@
 	<mappers>
 		<mapper resource="co/anabada/member/mapper/MemberMapper.xml" />
 		<mapper resource="co/anabada/diary/mapper/DiaryMapper.xml" />
+		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
 	</mappers>
 </configuration>
