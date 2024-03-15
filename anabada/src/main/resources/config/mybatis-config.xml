@@ -31,7 +31,7 @@
 	<mappers>
 		<mapper resource="co/anabada/member/mapper/MemberMapper.xml" />
 		<mapper resource="co/anabada/diary/mapper/DiaryMapper.xml" />
-		<mapper resource="co/anabada/item/ItemMapper.xml" />
+		<mapper resource="co/anabada/item/mapper/ItemMapper.xml" />
 		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
 	</mappers>
 </configuration>
