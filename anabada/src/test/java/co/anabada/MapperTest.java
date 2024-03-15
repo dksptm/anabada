@@ -17,9 +17,12 @@ public class MapperTest {
 			//System.out.println(m.toString());
 		//}
 		
-		CartMapper mapper1 = DataSource.getInstance().openSession(true).getMapper(CartMapper.class);
-		
-		System.out.println(mapper1.cartList());
+		/*
+		 * CartMapper mapper1 =
+		 * DataSource.getInstance().openSession(true).getMapper(CartMapper.class);
+		 * 
+		 * System.out.println(mapper1.cartList());
+		 */
 	}
 }
 

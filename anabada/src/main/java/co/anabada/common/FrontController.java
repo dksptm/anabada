@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import co.anabada.item.ItemControl;
 import co.anabada.member.control.signUpControl;
 import co.anabada.member.control.signUpForm;
-import co.anabada.cart.AddCartControl;
-import co.anabada.cart.CartListControl;
-import co.anabada.diary.DiaryAddControl;
-import co.anabada.diary.DiaryListControl;
-import co.anabada.diary.DiaryModifyControl;
-import co.anabada.diary.DiaryRemoveControl;
+import co.anabada.cart.control.AddCartControl;
+import co.anabada.cart.control.CartListControl;
+import co.anabada.diary.control.DiaryAddControl;
+import co.anabada.diary.control.DiaryListControl;
+import co.anabada.diary.control.DiaryModifyControl;
+import co.anabada.diary.control.DiaryRemoveControl;
+import co.anabada.item.control.ItemControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
 
@@ -46,11 +45,9 @@ public class FrontController extends HttpServlet {
 		// 영재.
 		controls.put("/item.do", new ItemControl());
 
-
 		// 진경.
 		controls.put("/cartList.do", new CartListControl());
 		controls.put("/cartAdd.do", new AddCartControl());
-		controls.put("/testAjax.do", new TestAjaxControl());
 		
 		// 주완.
 		controls.put("diaryList.do",   new DiaryListControl());
