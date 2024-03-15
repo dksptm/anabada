@@ -29,9 +29,9 @@ public class loginControl implements Control {
 		member = svc.loginMember(member);
 		
 		System.out.println(member);
-		if(member == null) {
+		if(member != null) {
 			HttpSession session = req.getSession();
-			session.setAttribute("member_name", member.getMemberName());
+			session.setAttribute("memberName", member.getMemberName());
 			session.setAttribute("member", member);
 			resp.sendRedirect("main.do");
 		} else {

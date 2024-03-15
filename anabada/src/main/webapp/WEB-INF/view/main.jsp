@@ -9,11 +9,11 @@
 			<div class="col-md-12 col-lg-7">
 				<!-- 로그인하면 -->
 				<c:choose>
-            	  <c:when test="${empty member_name }">
+            	  <c:when test="${empty memberName }">
             	  	<h4 class="mb-3 text-secondary">Welcome to Anavada</h4>
             	  </c:when>
             	  <c:otherwise>
-            	  	<h4 class="mb-3 text-secondary">${member_name}님 환영합니다.</h4>
+            	  	<h4 class="mb-3 text-secondary">${memberName}님 환영합니다.</h4>
             	  </c:otherwise>
             	</c:choose>
             	<!--  -->
