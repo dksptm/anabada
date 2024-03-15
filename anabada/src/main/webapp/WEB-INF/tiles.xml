@@ -19,8 +19,8 @@
 	<definition name="WILDCARD:main/*" extends="bada.homepage">
 		<put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
 	</definition>
-	<definition name="WILDCARD:member/*" extends="bada.homepage">
-		<put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
+	<definition name="WILDCARD:*/*" extends="bada.homepage">
+		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp" />
 	</definition>
 
 </tiles-definitions>

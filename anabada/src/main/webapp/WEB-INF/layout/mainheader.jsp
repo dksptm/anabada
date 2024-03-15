@@ -43,7 +43,7 @@
 								href="404.html" class="dropdown-item">404 Page</a>
 						</div>
 					</div>
-					<a href="contact.html" class="nav-item nav-link">Contact</a>
+					<a href="test.do" class="nav-item nav-link">테스트(리스트)</a>
 				</div>
 				<div class="d-flex m-3 me-0">
 					<button
