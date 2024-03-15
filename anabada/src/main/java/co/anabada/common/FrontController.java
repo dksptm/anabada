@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 import co.anabada.item.ItemControl;
-
-
+import co.anabada.member.control.signUpControl;
+import co.anabada.member.control.signUpForm;
 import co.anabada.cart.CartListControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
@@ -34,6 +34,9 @@ public class FrontController extends HttpServlet {
 		// 효주.
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
+		controls.put("/testAjax.do", new TestAjaxControl());
+		controls.put("/signUpForm.do", new signUpForm());
+		controls.put("/signUp.do", new signUpControl());
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());
@@ -41,7 +44,6 @@ public class FrontController extends HttpServlet {
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl());
-		controls.put("/testAjax.do", new TestAjaxControl());
 		
 		// 주완.
 

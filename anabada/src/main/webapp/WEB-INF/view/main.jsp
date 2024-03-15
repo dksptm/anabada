@@ -8,7 +8,7 @@
 		<div class="row g-5 align-items-center">
 			<div class="col-md-12 col-lg-7">
 				<h4 class="mb-3 text-secondary">Welcome to Anavada</h4>
-				<h1 class="mb-5 display-3 text-primary">어떤 상품을 찾으시나요?</h1>
+				<h1 class="mb-5 display-3 text-primary">어떤 상품을 찾으시나요? </h1>
 				<div class="position-relative mx-auto">
 					<input
 						class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill"
@@ -57,7 +57,7 @@
 		<div class="tab-class text-center">
 			<div class="row g-4">
 				<div class="col-lg-4 text-start">
-					<h1>실시간 인기상품</h1>
+					<h1>${member }</h1>
 				</div>
 				<div class="col-lg-8 text-end">
 					<ul class="nav nav-pills d-inline-flex text-center mb-5">

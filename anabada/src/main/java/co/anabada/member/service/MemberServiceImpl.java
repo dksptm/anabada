@@ -18,4 +18,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.memberList();
 	}
 
+	@Override
+	public boolean signUpMember(Member member) {
+		return mapper.insertMember(member) == 1;
+	}
+
 }

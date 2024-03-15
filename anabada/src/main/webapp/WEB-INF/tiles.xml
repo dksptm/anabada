@@ -2,17 +2,25 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-       
+
 <tiles-definitions>
 
-  <definition name="bada.homepage" template="/WEB-INF/layout/template.jsp">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
-    <put-attribute name="header" value="/WEB-INF/layout/mainheader.jsp" />
-    <put-attribute name="body" value="/WEB-INF/layout/mainbody.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/layout/mainfooter.jsp" />
-  </definition>
-  <definition name="WILDCARD:main/*" extends="bada.homepage">
-    <put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
-  </definition>
-  
+	<definition name="bada.homepage"
+		template="/WEB-INF/layout/template.jsp">
+		<put-attribute name="title"
+			value="Tiles tutorial homepage" />
+		<put-attribute name="header"
+			value="/WEB-INF/layout/mainheader.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/layout/mainbody.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/layout/mainfooter.jsp" />
+	</definition>
+	<definition name="WILDCARD:main/*" extends="bada.homepage">
+		<put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
+	</definition>
+	<definition name="WILDCARD:member/*" extends="bada.homepage">
+		<put-attribute name="body" value="/WEB-INF/view/{1}.jsp" />
+	</definition>
+
 </tiles-definitions>
