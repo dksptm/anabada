@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.anabada.member.control.loginControl;
-import co.anabada.member.control.loginForm;
-import co.anabada.member.control.signUpControl;
-import co.anabada.member.control.signUpForm;
+import co.anabada.member.control.LoginControl;
+import co.anabada.member.control.LoginForm;
+import co.anabada.member.control.SignUpControl;
+import co.anabada.member.control.SignUpForm;
 import co.anabada.cart.control.AddCartControl;
 import co.anabada.cart.control.CartListControl;
 import co.anabada.diary.control.DiaryAddControl;
@@ -22,6 +22,8 @@ import co.anabada.diary.control.DiaryListControl;
 import co.anabada.diary.control.DiaryModifyControl;
 import co.anabada.diary.control.DiaryRemoveControl;
 import co.anabada.item.control.ItemControl;
+import co.anabada.item.control.AddItemControl;
+import co.anabada.item.control.AddItemForm;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
 
@@ -41,11 +43,13 @@ public class FrontController extends HttpServlet {
 		// 효주.
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
-		controls.put("/testAjax.do", new TestAjaxControl());
-		controls.put("/signUpForm.do", new signUpForm());
-		controls.put("/signUp.do", new signUpControl());
-		controls.put("/loginForm.do", new loginForm());
-		controls.put("/login.do", new loginControl());
+		controls.put("/testAjax.do", new TestAjaxControl()); // 멤버관련.
+		controls.put("/signUpForm.do", new SignUpForm());
+		controls.put("/signUp.do", new SignUpControl());
+		controls.put("/loginForm.do", new LoginForm());
+		controls.put("/login.do", new LoginControl());
+		controls.put("/addItemForm.do", new AddItemForm()); // 상품관련.
+		controls.put("/addItem.do", new AddItemControl()); 
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());

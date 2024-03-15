@@ -41,6 +41,9 @@
 						<p class="mb-4">새로운 리자몽이 생겨서 팔아요</p>
 						<p class="mb-4">직거래만 합니다</p>
 						<p class="mb-4">네고 사절</p>
+						
+						<p class="mb-4">방금등록한 아이템확인.</p>
+						<p class="mb-4">${item }</p>
 
 						<div class="input-group quantity mb-5" style="width: 100px;">
 
