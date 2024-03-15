@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.member.control.loginControl;
+import co.anabada.member.control.loginForm;
 import co.anabada.member.control.signUpControl;
 import co.anabada.member.control.signUpForm;
 import co.anabada.cart.control.AddCartControl;
@@ -41,6 +43,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/testAjax.do", new TestAjaxControl());
 		controls.put("/signUpForm.do", new signUpForm());
 		controls.put("/signUp.do", new signUpControl());
+		controls.put("/loginForm.do", new loginForm());
+		controls.put("/login.do", new loginControl());
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());
@@ -61,13 +65,16 @@ public class FrontController extends HttpServlet {
 		System.out.println("service 실행.");
 		
 		req.setCharacterEncoding("utf-8");
-		String uri = req.getRequestURI();
-		String context = req.getContextPath();
-		String path = uri.substring(context.length());
+		String uri = req.getRequestURI(); //  http://localhost:8080/anabada/item.do
+		String context = req.getContextPath(); // /anabada
+		String path = uri.substring(context.length()); // /item.do
 		System.out.println("path: " + path);
+		// path = item.do
 		
 		Control control = controls.get(path);
+		// controls.get(path) = ItemControl
 		control.exec(req, resp);
+		// ItemControl 실행
 	}
 	
 	

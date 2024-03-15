@@ -14,9 +14,14 @@ public class ItemControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "item/item.tiles";
+		// path = item.do 
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		//dispatch = item.do
+		
 		dispatch.forward(req, resp);
+		// item.do로 페이지 이동
 
+		
 	}
 
 }
