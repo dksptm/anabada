@@ -138,24 +138,8 @@
 	margin-left: 8px;
 }
 
-/* ----- */
-.dropdown-submenu {
-	position: relative; /* 상대적 위치 설정으로, 절대 위치를 가진 자식 요소들의 기준점을 설정합니다. */
-}
+/* ---카테고리--- */
 
-.dropdown-submenu a::after {
-	transform: rotate(-90deg); /* 가상 요소(대개 화살표)를 -90도 회전시킵니다. */
-	position: absolute; /* 가상 요소를 상대적 위치를 가진 부모 요소 내에서 절대 위치로 설정합니다. */
-	right: 6px; /* 부모 요소의 오른쪽 가장자리에서 6px 떨어진 곳에 위치시킵니다. */
-	top: .8em; /* 부모 요소의 상단에서 .8em 떨어진 곳에 위치시킵니다. */
-}
-
-.dropdown-submenu .dropdown-menu {
-	top: 0; /* 서브메뉴의 상단을 부모 메뉴의 상단과 맞춥니다. */
-	left: 100%; /* 서브메뉴를 부모 메뉴의 바로 오른쪽에 위치시킵니다. */
-	margin-left: .1rem; /* 부모 메뉴와의 간격을 위해 왼쪽 여백을 조금 추가합니다. */
-	margin-right: .1rem; /* 일관된 간격을 위해 오른쪽 여백을 조금 추가합니다. */
-}
 /* ----- */
 
 @media ( min-width : 1200px) {
@@ -169,21 +153,21 @@
 		transition: .5s;
 		opacity: 0;
 	}
-}
+} 
 
 .dropdown .dropdown-menu a:hover {
 	background: var(--bs-secondary);
 	color: var(--bs-primary);
 }
 
-.navbar .nav-item:hover .dropdown-menu {
+.navbar .nav-item:hover > .dropdown-menu {
 	transform: rotateX(0deg);
 	visibility: visible;
 	background: var(--bs-light) !important;
 	border-radius: 10px !important;
 	transition: .5s;
 	opacity: 1;
-}
+} 
 
 #searchModal .modal-content {
 	background: rgba(255, 255, 255, .8);

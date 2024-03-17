@@ -34,7 +34,6 @@
 <link href="static/lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 
-
 <!-- Customized Bootstrap Stylesheet -->
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
