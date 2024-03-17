@@ -20,8 +20,7 @@ public class AddItemControl implements Control {
 	// (파라미터에 이미지파일이 있음)
 	// addItemForm.jsp -> addItem.
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 문자인코딩.
 		req.setCharacterEncoding("utf-8");
 		
