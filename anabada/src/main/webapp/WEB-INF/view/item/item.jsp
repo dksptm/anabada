@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<link href = "//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
 
 
 <!-- Single Page Header start -->
@@ -23,24 +26,23 @@
 				<div class="row g-4">
 					<div class="col-lg-6">
 						<div class="border rounded">
-							<a href="#"> <img src="static/img/리자몽 피규어.jpg"
+							<a href="#"> <img src="static/img/${item.itemImage })"
 								class="img-fluid rounded" alt="Image">
 							</a>
 						</div>
 					</div>
 					<div class="col-lg-6">
-						<p class="mb-3">카테고리> 취미</p>
-						<h4 class="fw-bold mb-3">리자몽 피규어 팔아요~</h4>
-						<h5 class="fw-bold mb-3">10,000 원</h5>
+						<p class="mb-3">${item.categoryId}</p>
+						<h4 class="fw-bold mb-3">${item.itemName }</h4>
+						<h5 class="fw-bold mb-3">${item.itemPrice}</h5>
 						<div class="d-flex mb-4">
 							<i class="fa fa-star text-secondary"></i> <i
 								class="fa fa-star text-secondary"></i> <i
 								class="fa fa-star text-secondary"></i> <i
 								class="fa fa-star text-secondary"></i> <i class="fa fa-star"></i>
 						</div>
-						<p class="mb-4">새로운 리자몽이 생겨서 팔아요</p>
-						<p class="mb-4">직거래만 합니다</p>
-						<p class="mb-4">네고 사절</p>
+						<p class="mb-4">${item.itemInfo }</p>
+						
 
 						<div class="input-group quantity mb-5" style="width: 100px;">
 
@@ -69,9 +71,8 @@
 						<div class="tab-content mb-5">
 							<div class="tab-pane active" id="nav-about" role="tabpanel"
 								aria-labelledby="nav-about-tab">
-								<p>새로운 리자몽이 생겨서 팔아요</p>
-								<p>직거래만 합니다</p>
-								<p>네고 사절</p>
+								<p>${item.itemDate }</p>
+								
 								<div class="px-2">
 									<div class="row g-4">
 										<div class="col-6">
