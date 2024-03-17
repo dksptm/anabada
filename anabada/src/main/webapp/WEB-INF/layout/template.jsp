@@ -76,6 +76,9 @@
 
 	<!-- Template Javascript -->
 	<script src="static/js/main.js"></script>
+	
+	<!-- Javascript -->
+	<script src="static/js/mainheader.js"></script>
 </body>
 
 </html>

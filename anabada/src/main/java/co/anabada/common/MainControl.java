@@ -20,12 +20,10 @@ public class MainControl implements Control {
 		ItemService ivc = new ItemServiceImpl();
 		List<Item> recentList = ivc.recentItem();
 		List<Item> likeList = ivc.likeItem();
-		List<Category> category = ivc.cateList();
 		
-		if(recentList.size() != 0 && category.size() != 0 && likeList.size() != 0) {
+		if(recentList.size() != 0 && likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
-			req.setAttribute("category", category);
 			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
