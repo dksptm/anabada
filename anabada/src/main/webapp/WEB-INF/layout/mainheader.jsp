@@ -30,9 +30,9 @@
 			</button>
 			<div class="collapse navbar-collapse bg-white" id="navbarCollapse">
 				<div class="navbar-nav mx-auto">
-					<a href="index.html" class="nav-item nav-link active">Home</a> <a
-						href="item.do" class="nav-item nav-link">상품</a> <a
-						href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+					<a href="main.do" class="nav-item nav-link active">Home</a> <a
+						href="itemList.do" class="nav-item nav-link">상품</a> <a
+						href="item.do" class="nav-item nav-link">상품 상세</a>
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown">Pages</a>
@@ -61,7 +61,7 @@
 					</a> <a href="signUpForm.do"
 						class="position-relative me-4 my-auto"> <i
 						class="fas fa-solid fa-user-plus fa-2x"></i> <span></span>
-					</a> <a href="diaryForm.do" class="my-auto"> <i
+					</a> <a href="diaryList.do" class="my-auto"> <i
 						class="fas fa-regular fa-calendar fa-2x"></i> <span></span>
 					</a>
 

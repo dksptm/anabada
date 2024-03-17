@@ -25,6 +25,7 @@ import co.anabada.diary.control.DiaryListControl;
 import co.anabada.diary.control.DiaryModifyControl;
 import co.anabada.diary.control.DiaryRemoveControl;
 import co.anabada.item.control.ItemControl;
+import co.anabada.item.control.ItemListControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
 
@@ -52,6 +53,7 @@ public class FrontController extends HttpServlet {
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());
+		controls.put("/itemList.do", new ItemListControl());
 
 		// 진경.
 		// cart
