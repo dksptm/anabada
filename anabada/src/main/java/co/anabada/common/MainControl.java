@@ -22,8 +22,6 @@ public class MainControl implements Control {
 		List<Item> likeList = ivc.likeItem();
 		List<Category> category = ivc.cateList();
 		
-		System.out.println(category);
-		
 		if(recentList.size() != 0 && category.size() != 0 && likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
