@@ -10,9 +10,11 @@ import co.anabada.member.mapper.MemberMapper;
 
 public class MemberServiceImpl implements MemberService {
 	
+	// mapper 만들기.
 	SqlSession session = DataSource.getInstance().openSession(true); //자동커밋.
 	MemberMapper mapper = session.getMapper(MemberMapper.class);
 
+	// 효주.
 	@Override
 	public List<Member> memberList() {
 		return mapper.memberList();

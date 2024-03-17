@@ -17,6 +17,72 @@
       from    item
       where   item_num = #{ino}
   </select>
+  
+  <insert id="insertItem" parameterType="Item">
+  	<selectKey resultType="int" keyProperty="itemNum" order="AFTER">
+  	  SELECT ISEQ$$_77876.CURRVAL
+	  FROM DUAL
+  	</selectKey>
+	  INSERT INTO item(category_id
+                      ,member_num
+                      ,item_name
+                      ,item_price
+                      ,item_image
+                      ,item_info
+                      ,item_status)
+      VALUES(#{categoryId}
+            ,#{memberNum}
+            ,#{itemName}
+            ,#{itemPrice}
+            ,#{itemImage}
+            ,#{itemInfo}
+	        ,#{itemStatus})
+  </insert>
+  
+  <select id="recentItem" resultType="Item">
+	  SELECT item_num
+	        ,category_id
+	        ,member_num
+	        ,item_name
+	        ,item_price
+	        ,item_image
+	        ,item_info
+	        ,item_status
+	  FROM  (SELECT item.*
+	               ,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent 
+	         FROM   item 
+	         WHERE  item_status = '판매중')
+	  WHERE recent <![CDATA[<= 10]]>
+  </select>
+  
+  <select id="likeItem" resultType="Item">
+      SELECT item.item_num
+             ,category_id
+             ,member_num
+             ,item_name
+             ,item_price
+             ,item_image
+             ,item_info
+             ,a.zzim
+      FROM      
+        (SELECT COUNT(*) AS zzim,
+                item_num
+         FROM   cart
+         GROUP BY item_num
+         ORDER BY zzim DESC) a, item
+      WHERE a.item_num = item.item_num 
+      AND rownum <![CDATA[<= 10]]>
+  </select>
+  
+  <select id="cateList" resultType="category">
+      SELECT level
+            ,category_id
+            ,category_name
+            ,parent_category
+      FROM  category
+      START WITH parent_category IS NULL
+      CONNECT BY PRIOR category_id = parent_category
+  </select>
 
  <select id="ItemList" resultType="item" parameterType="co.anabada.common.SearchVO">
  select    item_num,
@@ -29,6 +95,6 @@
               item_status,
               item_date
       from    item
- 
  </select>
+ 
 </mapper>

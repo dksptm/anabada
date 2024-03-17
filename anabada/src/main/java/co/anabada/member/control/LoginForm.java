@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
 
-public class loginForm implements Control {
+public class LoginForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

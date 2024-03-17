@@ -12,7 +12,7 @@ import co.anabada.member.Member;
 import co.anabada.member.service.MemberService;
 import co.anabada.member.service.MemberServiceImpl;
 
-public class loginControl implements Control {
+public class LoginControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +25,8 @@ public class loginControl implements Control {
 		member.setMemberId(id);
 		member.setMemberPassword(pw);
 		
-		MemberService svc = new MemberServiceImpl();
-		member = svc.loginMember(member);
+		MemberService mvc = new MemberServiceImpl();
+		member = mvc.loginMember(member);
 		
 		System.out.println(member);
 		if(member != null) {
