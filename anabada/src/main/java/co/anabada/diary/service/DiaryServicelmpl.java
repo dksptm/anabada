@@ -19,10 +19,10 @@ public class DiaryServicelmpl implements DiaryService{
 	public List<Diary> diaryList(Diary diary) {
 		return mapper.diaryList(diary);
 	}
-	
+
 	//일정등록
 	@Override
-	public boolean addDairy(Diary diaryContent) {
+	public boolean addDiary(Diary diaryContent) {
 		return mapper.insertDiary(diaryContent) == 1;
 	}
 	
