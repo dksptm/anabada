@@ -2,6 +2,7 @@ package co.anabada.item.service;
 
 import java.util.List;
 
+import co.anabada.item.Category;
 import co.anabada.item.Item;
 
 public interface ItemService {
@@ -11,4 +12,7 @@ public interface ItemService {
 	
 	// 효주.
 	boolean addItem(Item item);
+	List<Item> recentItem();
+	List<Item> likeItem();
+	List<Category> cateList();
 }

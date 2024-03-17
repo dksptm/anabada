@@ -17,6 +17,7 @@ public class Item {
 	private String itemInfo;
 	private String itemStatus;
 	private Date itemDate;
+	private int zzim;
 	
 	
 	// AddItemControl에서 사용하기 위함.
