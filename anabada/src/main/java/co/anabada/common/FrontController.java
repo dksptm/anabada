@@ -14,8 +14,11 @@ import co.anabada.member.control.loginControl;
 import co.anabada.member.control.loginForm;
 import co.anabada.member.control.signUpControl;
 import co.anabada.member.control.signUpForm;
+import co.anabada.review.control.ReviewListControl;
 import co.anabada.cart.control.AddCartControl;
 import co.anabada.cart.control.CartListControl;
+import co.anabada.cart.control.RemoveCartControl;
+import co.anabada.cart.control.RemoveCartForm;
 import co.anabada.diary.control.DiaryAddControl;
 import co.anabada.diary.control.DiaryForm;
 import co.anabada.diary.control.DiaryListControl;
@@ -51,8 +54,14 @@ public class FrontController extends HttpServlet {
 		controls.put("/item.do", new ItemControl());
 
 		// 진경.
+		// cart
 		controls.put("/cartList.do", new CartListControl());
-		controls.put("/cartAdd.do", new AddCartControl());
+		controls.put("/AddCart.do", new AddCartControl());
+		controls.put("/RemoveCart.do", new RemoveCartControl());
+		controls.put("/RemoveCartForm.do", new RemoveCartForm());
+		
+		// review
+		controls.put("/reviewList.do", new ReviewListControl());
 		
 		// 주완.
 		controls.put("/diaryForm.do",   new DiaryForm());

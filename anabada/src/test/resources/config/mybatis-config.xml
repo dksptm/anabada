@@ -14,6 +14,7 @@
   		<typeAlias alias="diary" type="co.anabada.diary.Diary" />
   		<typeAlias alias="Item" type="co.anabada.item.Item" />
   		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
+  		<typeAlias alias="review" type="co.anabada.review.Review" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -33,5 +34,6 @@
 		<mapper resource="co/anabada/diary/mapper/DiaryMapper.xml" />
 		<mapper resource="co/anabada/item/ItemMapper.xml" />
 		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
+		<mapper resource="co/anabada//mapper/ReviewMapper.xml" />
 	</mappers>
 </configuration>
