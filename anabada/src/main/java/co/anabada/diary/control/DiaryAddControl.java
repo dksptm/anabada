@@ -19,7 +19,7 @@ import co.anabada.diary.service.DiaryServicelmpl;
 public class DiaryAddControl implements Control { //일정등록
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.setContentType("text/json;charset=utf-8"); // json 글형식으로 저장
+		resp.setContentType("application/json;charset=utf-8"); // json 글형식으로 저장
 		String memberNum = req.getParameter("memberNum"); // 나중에 로그인멤버의 num을 받아오도록 처리예정.
 		String diaryName = req.getParameter("diaryName");
 		String diaryContent = req.getParameter("diaryContent");
@@ -37,7 +37,7 @@ public class DiaryAddControl implements Control { //일정등록
 		Map<String, Object> map = new HashMap<>();
 		
 		/*		  ---------------------------	     */
-		if (dvc.addDairy(diary)) {
+		if (dvc.addDiary(diary)) {
 			map.put("retCode", "OK");
 			map.put("retVal", diary);
 			

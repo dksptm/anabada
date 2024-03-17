@@ -5,24 +5,21 @@
 <mapper namespace="co.anabada.diary.mapper.DiaryMapper" >
 	
 	<!-- 일정목록 -->
-	<select id="diaryList" resultType= "diary">
-	  SELECT diary_name,
-	  		 diary_content,
-	  		 diary_type,
-	  		 diary_Date
-	  		 diary_modify
-	  		 
-	  FROM   diary
-	</select>
+	<select id="diaryList" resultType="co.anabada.diary.Diary">
+ 	  SELECT 	diary_id,
+  		 		member_num,
+  				diary_name,
+  				diary_content,
+  		 		diary_type,
+         		diary_date,
+         		diary_startDate,
+        		diary_endDate
+ 	  FROM  	diary
+</select>
 	
 	
 	<!-- 일정등록 -->
-	<insert id = "insertDiary" parameterType = "diary">
-	<selectKey resultType="int" keyProperty="diaryId"
-	order = "BEFORE">
-	  SELECT diary_id
-	  FROM 	 dual 
-	</selectKey>
+	<insert id = "insertDiary" parameterType = "co.anabada.diary.Diary">
 	  INSERT INTO diary ( diary_name,
 						  diary_content,
 						  diary_Date,
@@ -30,8 +27,9 @@
 						  
 	  VALUES	        ( #{diaryName},
 		     			  #{diaryContent},
-		    			  #sysdate,
+		    			  sysdate,
 		   				  #{diaryType})
+	  RETURNING diary_id INTO #{diaryId}
 	</insert>
 	
 	
@@ -44,13 +42,12 @@
 	
 	
 	<!-- 일정수정 -->
-	<update id="updateDiary" parameterType="diary">
+	<update id="updateDiary" parameterType="co.anabada.diary.Diary">
 	  UPDATE diary
 	  SET	 diary_name    = #{diaryName},
-		     diary_content = #{diaryContent}
-		     diary_type    = #{diaryType}
-		     diary_modify  = #sysdate
+		     diary_content = #{diaryContent},
+		     diary_type    = #{diaryType},
+		     diary_modify  = sysdate
 	  WHERE  diary_id      = #{diaryId}
 	</update>
-
 </mapper>

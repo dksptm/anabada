@@ -9,33 +9,44 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import co.anabada.common.Control;
 import co.anabada.diary.Diary;
 import co.anabada.diary.service.DiaryService;
 import co.anabada.diary.service.DiaryServicelmpl;
 
-public class DiaryListControl implements Control { //일정목록
+public class DiaryListControl implements Control {
+    @Override
+    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json;charset=utf-8");
+        
+        DiaryService dvc = new DiaryServicelmpl();
+        List<Diary> list = dvc.diaryList(new Diary()); // 모든 일정 정보를 불러옴
 
-	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		resp.setContentType("text/json;charset=utf-8");
-		String diaryId = req.getParameter("diaryId");
-		System.out.println("list:1 " +diaryId);
-		/*		  ---------------------------	     */
-		Diary diaryList = new Diary();
-		diaryList.setDiaryId(Integer.parseInt(diaryId));
-		System.out.println("list:2 " +diaryId);
-		/*		  ---------------------------	     */
-		DiaryService dvc = new DiaryServicelmpl();
-		List<Diary> list = dvc.diaryList(diaryList);
-		System.out.println("list:3 " +diaryList);
-		/*		  ---------------------------	     */
-		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(list);
-		resp.getWriter().print(json);
-		System.out.println("list:4 " +json);
-	}
-
+        // Diary 객체 리스트를 FullCalendar 형식에 맞는 JSON으로 변환
+        Gson gson = new GsonBuilder().create();
+        String json = gson.toJson(list.stream().map(diary -> {
+            var event = new java.util.HashMap<String, Object>();
+            event.put("name", diary.getDiaryName());
+            event.put("start", diary.getDiaryStartDate());
+            event.put("end", diary.getDiaryEndDate());
+            return event;
+        }).toList());
+        resp.getWriter().print(json);
+    }
 }
+
+//		resp.setContentType("application/json;charset=utf-8");
+//		String diaryId = req.getParameter("diaryId");
+//		/*		  ---------------------------	     */
+//		Diary diaryList = new Diary();
+////		diaryList.setDiaryId(Integer.parseInt(diaryId));
+//		/*		  ---------------------------	     */
+//		DiaryService dvc = new DiaryServicelmpl();
+//		List<Diary> list = dvc.diaryList(diaryList);
+//		/*		  ---------------------------	     */
+//		Gson gson = new GsonBuilder().create();
+//		String json = gson.toJson(list);
+//		resp.getWriter().print(json);
