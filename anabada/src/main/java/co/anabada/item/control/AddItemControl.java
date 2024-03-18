@@ -49,7 +49,7 @@ public class AddItemControl implements Control {
 		try {
 			if(ivc.addItem(item)) {
 				req.setAttribute("item", item);
-				String path = "item/item.tiles";
+				String path = "item/item2.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);
 			} else {
 				req.setAttribute("message", "상품등록 중 에러가 발생했습니다.");
