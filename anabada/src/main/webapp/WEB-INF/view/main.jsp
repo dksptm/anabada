@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 		<!-- Hero Start -->
 		<div class="container-fluid py-5 mb-5 hero-header">
@@ -55,7 +55,8 @@
 			</div>
 		</div>
 		<!-- Hero End -->
-
+		<c:choose>
+		<c:when test="${not empty likeList }">
 		<!-- 찜순서대로 10건 조회하기-->
 		<div class="container-fluid vesitable py-5">
 			<div class="container py-5">
@@ -84,10 +85,14 @@
 				</div>
 			</div>
 		</div>
+		</c:when>
+		</c:choose>
 		<!-- Vesitable Shop End -->
 
 
 		<!--아이템날짜 최근 10건 조회하기-->
+		<c:choose>
+		<c:when test="${not empty recentList }">
 		<div class="container-fluid vesitable py-5">
 			<div class="container py-5">
 				<h1 class="mb-0">최근 등록된 상품</h1>
@@ -114,4 +119,6 @@
 				</div>
 			</div>
 		</div>
+		</c:when>
+		</c:choose>
 		<!-- Vesitable Shop End -->

@@ -27,8 +27,9 @@ public class MainControl implements Control {
 			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
-			req.setAttribute("message", "메인에러가 발생했습니다.");
-			String path = "main/error.tiles";
+			req.setAttribute("recentList", null);
+			req.setAttribute("likeList", null);
+			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
 	}

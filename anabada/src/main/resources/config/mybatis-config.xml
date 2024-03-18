@@ -13,7 +13,6 @@
   		<typeAlias alias="member" type="co.anabada.member.Member" />
   		<typeAlias alias="diary" type="co.anabada.diary.Diary" />
   		<typeAlias alias="Item" type="co.anabada.item.Item" />
-  		<typeAlias alias="category" type="co.anabada.item.Category" />
   		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
 	</typeAliases>
 	
@@ -34,5 +33,6 @@
 		<mapper resource="co/anabada/diary/mapper/DiaryMapper.xml" />
 		<mapper resource="co/anabada/item/mapper/ItemMapper.xml" />
 		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
+		<mapper resource="co/anabada/review/mapper/ReviewMapper.xml" />
 	</mappers>
 </configuration>

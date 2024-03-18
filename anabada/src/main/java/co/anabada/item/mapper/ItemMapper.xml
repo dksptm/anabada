@@ -74,7 +74,7 @@
       AND rownum <![CDATA[<= 10]]>
   </select>
   
-  <select id="cateList" resultType="category">
+  <select id="cateList" resultType="co.anabada.item.Category">
       SELECT level
             ,category_id
             ,category_name
