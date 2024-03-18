@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link href = "//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link
+	href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css"
+	rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">

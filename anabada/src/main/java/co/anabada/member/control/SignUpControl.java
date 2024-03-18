@@ -24,6 +24,7 @@ public class SignUpControl implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		
 		Member member = new Member(req.getParameter("member_id"), req.getParameter("member_pw"), req.getParameter("member_name"), req.getParameter("member_phone"));
+		System.out.println(member);
 		MemberService mvc = new MemberServiceImpl();
 		
 		try {

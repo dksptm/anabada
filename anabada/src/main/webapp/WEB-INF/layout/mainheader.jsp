@@ -26,34 +26,16 @@
 					</a>
 					<div class="collapse navbar-collapse bg-white" id="navbarCollapse">
 						<div class="navbar-nav mx-auto">
-							<div class="nav-item dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-									카테고리
-								</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" role="button" href="#" data-bs-toggle="dropdown">
-											상위카테고리
-										</a>
-										<ul class="dropdown-submenu">
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-										</ul>
-									</li>
-									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" role="button" href="#" data-bs-toggle="dropdown">
-											상위카테고리2
-										</a>
-										<ul class="dropdown-submenu">
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-											<li><a class="dropdown-item" href="#">하위카테고리</a></li>
-										</ul>
-									</li>
-								</ul>
+						
+						<!--카테고리 start.--> 
+							<div class="nav-item" style="position:relative;">
+								<a href="#" class="nav-link" id="cate">카테고리</a>
+								<ul style="position:absolute;background-color;#fff;" id="ulTag"></ul>
 							</div>
-							<a href="itemList.do" class="nav-item nav-link">상품상세</a>
+						<!--카테고리 end. -->
+
+							<a href="itemList.do" class="nav-item nav-link">상품리스트</a>
+							<a href="item.do" class="nav-item nav-link">상품상세</a>
 							<div class="nav-item dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -90,4 +72,4 @@
 			</div>
 		</div>
 		<!-- Navbar End -->
-
+		

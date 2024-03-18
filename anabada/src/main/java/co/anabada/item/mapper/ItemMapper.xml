@@ -84,7 +84,7 @@
       CONNECT BY PRIOR category_id = parent_category
   </select>
 
- <select id="ItemList" resultType="item" parameterType="co.anabada.common.SearchVO">
+ <select id="ItemList" resultType="Item" >
  select    item_num,
               category_id,
               member_num,

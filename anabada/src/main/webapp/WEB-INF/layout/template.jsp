@@ -34,7 +34,6 @@
 <link href="static/lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 
-
 <!-- Customized Bootstrap Stylesheet -->
 <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
@@ -77,6 +76,9 @@
 
 	<!-- Template Javascript -->
 	<script src="static/js/main.js"></script>
+	
+	<!-- Javascript -->
+	<script src="static/js/mainheader.js"></script>
 </body>
 
 </html>

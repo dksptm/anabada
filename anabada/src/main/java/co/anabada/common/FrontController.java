@@ -15,6 +15,7 @@ import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
 import co.anabada.member.control.SignUpControl;
 import co.anabada.member.control.SignUpForm;
+import co.anabada.order.control.OrderForm;
 import co.anabada.cart.control.AddCartControl;
 import co.anabada.cart.control.CartListControl;
 import co.anabada.cart.control.RemoveCartControl;
@@ -28,6 +29,7 @@ import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
 import co.anabada.item.control.AddItemControl;
 import co.anabada.item.control.AddItemForm;
+import co.anabada.item.control.CateListControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
 
@@ -54,6 +56,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/login.do", new LoginControl());
 		controls.put("/addItemForm.do", new AddItemForm()); // 상품관련.
 		controls.put("/addItem.do", new AddItemControl()); 
+		controls.put("/cateList.do", new CateListControl()); 
+		controls.put("/orderForm.do", new OrderForm()); 
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());
