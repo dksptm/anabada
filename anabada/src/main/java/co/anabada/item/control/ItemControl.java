@@ -21,9 +21,10 @@ public class ItemControl implements Control {
 		
 		// path = item.do 
 		ItemService svc = new ItemServiceImpl();
-		List<Item> list = svc.ItemList();
+		Item item = new Item();
+		item = svc.Item();
 		
-		req.setAttribute("list", list);
+		req.setAttribute("item", item);
 		
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		//dispatch = item.do

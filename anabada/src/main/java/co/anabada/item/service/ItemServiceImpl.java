@@ -18,16 +18,16 @@ public class ItemServiceImpl implements ItemService{
 	
 	// 영재
 	@Override
-	public List<Item> ItemList(SearchVO search) {
-		return mapper.ItemList(search);
+	public List<Item> ItemList() {
+		return mapper.ItemList();
 	}
 	@Override
 	public int itemTotalCnt(SearchVO search) {
 		return mapper.getTotalCnt(search);
 	}
 	@Override
-	public List<Item> ItemList(){
-		return mapper.ItemList();
+	public Item Item(){
+		return mapper.Item();
 	}
 	
 	// 효주.

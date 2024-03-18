@@ -40,7 +40,9 @@ public class ItemListControl implements Control {
 		 * req.setAttribute("page", pageDTO); req.setAttribute("searchCondition",
 		 * searchCond); req.setAttribute("keyword", keyword);
 		 */
-
+		ItemService svc = new ItemServiceImpl();
+		List<Item> itemList = svc.ItemList();
+		req.setAttribute("itemList", itemList);
 		
 		String path = "item/itemList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);

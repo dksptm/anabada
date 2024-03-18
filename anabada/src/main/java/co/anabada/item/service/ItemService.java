@@ -9,8 +9,8 @@ import co.anabada.item.Item;
 public interface ItemService {
 	
 	// 영재.
+	Item Item();
 	List<Item> ItemList();
-	List<Item> ItemList(SearchVO search);
 	int itemTotalCnt(SearchVO search);
 	
 	// 효주.

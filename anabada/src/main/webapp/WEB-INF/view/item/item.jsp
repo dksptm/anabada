@@ -19,7 +19,7 @@
 	</ol>
 </div>
 <!-- Single Page Header End -->
-
+${item }
 <!-- 상품내용, 가격, 이미지 -->
 <div class="container-fluid py-5 mt-5">
 	<div class="container py-5">
@@ -28,14 +28,14 @@
 				<div class="row g-4">
 					<div class="col-lg-6">
 						<div class="border rounded">
-							<a href="#"> <img src="static/img/${item.itemImage })"
+							<a href="#"> <img src="static/img/${item.itemImage }"
 								class="img-fluid rounded" alt="Image">
 							</a>
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<p class="mb-3">${item.categoryId}</p>
-						<h4 class="fw-bold mb-3">${item.itemName }</h4>
+						<h4 class="fw-bold mb-3">여기 넣었다${item.itemName }</h4>
 						<h5 class="fw-bold mb-3">${item.itemPrice}</h5>
 						<div class="d-flex mb-4">
 							<i class="fa fa-star text-secondary"></i> <i
