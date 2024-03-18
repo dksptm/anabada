@@ -23,7 +23,6 @@
 			<table class="table">
 				<thead>
 					<tr>
-
 						<th scope="col">주문번호</th>
 						<th scope="col">이미지</th>
 						<th scope="col">회원명</th>

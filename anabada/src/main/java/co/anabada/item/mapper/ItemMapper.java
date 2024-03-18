@@ -20,4 +20,6 @@ public interface ItemMapper {
 	List<Item> likeItem();
 	List<Category> cateList();
 
+	// 진경.
+	List<Item> shopList();
 }
