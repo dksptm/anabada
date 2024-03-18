@@ -22,7 +22,7 @@ public class CartListControl implements Control {
 		
 		CartService svc = new CartServiceImpl();
 		List<Cart> list = svc.cartList();
-		
+		System.out.println(list);
 		req.setAttribute("list", list);
 		
 		//JSP

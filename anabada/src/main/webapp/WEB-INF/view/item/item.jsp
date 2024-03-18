@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link href = "//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link
+	href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css"
+	rel="stylesheet" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
-
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
@@ -41,17 +43,14 @@
 								class="fa fa-star text-secondary"></i> <i
 								class="fa fa-star text-secondary"></i> <i class="fa fa-star"></i>
 						</div>
-<<<<<<< HEAD
 						<p class="mb-4">${item.itemInfo }</p>
 						
-=======
 						<p class="mb-4">새로운 리자몽이 생겨서 팔아요</p>
 						<p class="mb-4">직거래만 합니다</p>
 						<p class="mb-4">네고 사절</p>
 						
 						<p class="mb-4">방금등록한 아이템확인.</p>
 						<p class="mb-4">${item }</p>
->>>>>>> refs/heads/hyojoo
 
 						<div class="input-group quantity mb-5" style="width: 100px;">
 

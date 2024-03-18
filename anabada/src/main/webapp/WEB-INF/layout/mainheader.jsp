@@ -34,7 +34,8 @@
 							</div>
 						<!--카테고리 end. -->
 
-							<a href="itemList.do" class="nav-item nav-link">상품상세</a>
+							<a href="itemList.do" class="nav-item nav-link">상품리스트</a>
+							<a href="item.do" class="nav-item nav-link">상품상세</a>
 							<div class="nav-item dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
