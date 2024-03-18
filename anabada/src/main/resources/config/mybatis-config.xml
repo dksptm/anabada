@@ -14,6 +14,7 @@
   		<typeAlias alias="diary" type="co.anabada.diary.Diary" />
   		<typeAlias alias="Item" type="co.anabada.item.Item" />
   		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
+  		<typeAlias alias="review" type="co.anabada.review.Review" />
 	</typeAliases>
 	
 	<environments default="development">

@@ -9,4 +9,5 @@ public interface MemberMapper {
 	List<Member> memberList();
 	int insertMember(Member member);
 	Member selectMember(Member member);
+	int countMemberId(String id);
 }

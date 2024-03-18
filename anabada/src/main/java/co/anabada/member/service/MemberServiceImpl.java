@@ -30,4 +30,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.selectMember(member);
 	}
 
+	@Override
+	public boolean idCheck(String id) {
+		return mapper.countMemberId(id) == 0;
+	}
+
 }

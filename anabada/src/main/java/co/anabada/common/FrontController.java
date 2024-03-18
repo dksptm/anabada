@@ -23,6 +23,7 @@ import co.anabada.diary.control.DiaryModifyControl;
 import co.anabada.diary.control.DiaryRemoveControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
+import co.anabada.member.control.IdChk;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
 import co.anabada.member.control.SignUpControl;
@@ -52,6 +53,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/testAjax.do", new TestAjaxControl()); // 멤버관련.
 		controls.put("/signUpForm.do", new SignUpForm());
 		controls.put("/signUp.do", new SignUpControl());
+		controls.put("/idchk.do", new IdChk()); 
 		controls.put("/loginForm.do", new LoginForm());
 		controls.put("/login.do", new LoginControl());
 		controls.put("/addItemForm.do", new AddItemForm()); // 상품관련.

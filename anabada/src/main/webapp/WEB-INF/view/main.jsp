@@ -61,9 +61,9 @@
 		<div class="container-fluid vesitable py-5">
 			<div class="container py-5">
 				<h1 class="mb-0">인기상품</h1>
-				<div class="owl-carousel vegetable-carousel justify-content-center" id="here">
+				<div class="owl-carousel vegetable-carousel justify-content-center">
 					<c:forEach items="${likeList }" var="item">
-						<div class="border border-primary rounded position-relative vesitable-item" id="this">
+						<div class="border border-primary rounded position-relative vesitable-item">
 							<div class="vesitable-img">
 								<img src="images/itemimages/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">

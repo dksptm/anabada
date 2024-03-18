@@ -19,10 +19,6 @@
   </select>
   
   <insert id="insertItem" parameterType="Item">
-  	<selectKey resultType="int" keyProperty="itemNum" order="AFTER">
-  	  SELECT ISEQ$$_77876.CURRVAL
-	  FROM DUAL
-  	</selectKey>
 	  INSERT INTO item(category_id
                       ,member_num
                       ,item_name

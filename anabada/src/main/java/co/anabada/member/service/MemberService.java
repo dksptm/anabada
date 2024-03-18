@@ -10,4 +10,5 @@ public interface MemberService {
 	List<Member> memberList();
 	boolean signUpMember(Member member);
 	Member loginMember(Member member);
+	boolean idCheck(String id);
 }
