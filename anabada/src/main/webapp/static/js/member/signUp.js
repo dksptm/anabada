@@ -55,9 +55,10 @@ $(document).ready(function(e){
 		}
 		$.ajax({
 			url: 'idchk.do?id=' + inputId,
+			method: 'get',
 			dataType: 'json'
-		}, 
-		result => {
+		})
+		.done(result => {
 			if(result.retCode == 'OK') {
 				console.log(result);
 				alert('성공');
@@ -67,8 +68,9 @@ $(document).ready(function(e){
 				alert('실패')
 				$('#member_id').val('');
 			}
-		}, 
-		err => {console.log(err)})
+		})
+		.fail(err => {console.log(err)}) 
+		
 	});
 	
 	// 버튼활성화
