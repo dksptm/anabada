@@ -35,10 +35,6 @@
  
  <!-- ㅎㅈ  -->
   <insert id="insertItem" parameterType="Item">
-  	<selectKey resultType="int" keyProperty="itemNum" order="AFTER">
-  	  SELECT ISEQ$$_77876.CURRVAL
-	  FROM DUAL
-  	</selectKey>
 	  INSERT INTO item(category_id
                       ,member_num
                       ,item_name
@@ -100,5 +96,21 @@
       CONNECT BY PRIOR category_id = parent_category
   </select>
 
+ 
+ <select id="shopList" resultType="Item">
+ select  r.review_score AS reviewScore
+      ,r.review_comment AS reviewComment
+      ,i.item_num AS itemNum
+      ,i.category_id AS categoryId
+      ,i.item_name AS itemName
+      ,i.item_price AS itemPrice
+      ,i.item_image AS itemImage
+      ,i.item_status AS itemStatus
+      ,i.item_date AS itemDate
+      ,o.order_status AS orderStatus
+FROM  item i  
+          JOIN anvd_order o ON o.order_id = i.member_num
+          JOIN review r ON r.order_id = o.order_id;
+ </select>
  
 </mapper>

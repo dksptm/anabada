@@ -10,4 +10,5 @@ public class Review {
 	private int reviewScore;
 	private Date reviewDate;
 	private String reviewComment;
+	private String memberName;
 }

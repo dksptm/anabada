@@ -25,7 +25,7 @@ public class AddItemControl implements Control {
 		req.setCharacterEncoding("utf-8");
 		
 		// MultipartRequest 생성을 위한 정보.
-		String savePath = req.getServletContext().getRealPath("images/itemimages"); // 이미지 저장경로.
+		String savePath = req.getServletContext().getRealPath("images"); // 이미지 저장경로.
 		int maxSize = 1024 * 1024 * 5; // 최대크기(5mb로 설정).
 		String enc = "utf-8"; // 인코딩방식.
 

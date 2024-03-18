@@ -39,5 +39,11 @@
 	WHERE  member_id = #{memberId}
 	AND    member_password = #{memberPassword}
   </select>
+  
+  <select id="countMemberId" parameterType="string">
+  	SELECT COUNT(member_num)
+	FROM   member
+	WHERE  member_id = #{id}
+  </select>
 
 </mapper>

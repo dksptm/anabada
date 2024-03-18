@@ -48,6 +48,12 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.cateList();
 	}
 	
+	// 진경
+	@Override
+	public List<Item> shopList() {
+		return mapper.shopList();
+	}
+	
 	
 	
 	

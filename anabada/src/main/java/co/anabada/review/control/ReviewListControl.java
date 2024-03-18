@@ -23,6 +23,8 @@ public class ReviewListControl implements Control {
 		ReviewService svc = new ReviewServiceImpl();
 		List<Review> list = svc.reviewList();
 		
+		req.setAttribute("list", list);
+		
 		//JSP
 		String path = "review/reviewList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
