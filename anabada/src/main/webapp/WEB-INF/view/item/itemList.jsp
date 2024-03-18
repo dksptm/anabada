@@ -128,7 +128,7 @@ ${item }
 								<div class="col-md-6 col-lg-6 col-xl-4">
 									<div class="rounded position-relative fruite-item">
 										<div class="fruite-img">
-											<img src="images/itemimages/${item.itemImage }"
+											<img src="images/${item.itemImage }"
 												class="img-fluid w-100 rounded-top" alt="" width="10px"
 												height="10px">
 										</div>
