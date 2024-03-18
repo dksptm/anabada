@@ -65,7 +65,7 @@
 					<c:forEach items="${likeList }" var="item">
 						<div class="border border-primary rounded position-relative vesitable-item">
 							<div class="vesitable-img">
-								<img src="images/itemimages/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
+								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
@@ -100,7 +100,7 @@
 					<c:forEach items="${recentList }" var="item">
 						<div class="border border-primary rounded position-relative vesitable-item">
 							<div class="vesitable-img">
-								<img src="images/itemimages/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
+								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">

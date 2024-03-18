@@ -33,6 +33,10 @@ public class Item {
 		this.itemStatus = itemStatus;
 	}
 	
+	// shopInfo(상점)
+	private int reviewScore;
+	private String reviewComment;
+	
 }
 
 

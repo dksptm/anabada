@@ -34,8 +34,8 @@
                                         <label class="form-label my-3" for="cate">카테고리<sup>*</sup></label>
                         				<select class="form-select" name="cate" id="cate">
   											<option>선택하세요</option>
-											<option value="tban">반팔</option>
-											<option value="tgin">긴팔</option>
+											<option value="t1">반팔</option>
+											<option value="t2">긴팔</option>
 										</select>
                                     </div>
                                 </div>
