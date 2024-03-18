@@ -33,6 +33,7 @@ public class AddItemControl implements Control {
 		MultipartRequest multi = 
 				new MultipartRequest(req, savePath, maxSize, enc, new DefaultFileRenamePolicy());
 		
+		
 		// 이제 req가 아니라 multi에서 파라미터를 가져옴.
 		String cate = multi.getParameter("cate");
 		String memNum = multi.getParameter("mem_num");
