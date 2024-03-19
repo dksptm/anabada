@@ -66,6 +66,9 @@
 							<a href="diaryList.do" class="my-auto">
 								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
 							</a>
+							<a href="purchaseList.do" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
+							</a>
 						</div>
 					</div>
 				</nav>
