@@ -4,11 +4,10 @@
 
 console.log('mainheader.js');
 
-
 $(document).ready(function(){
 
 	$.ajax({
-		url: 'cateList.do',
+		url: 'categoryList.do',
 		method: 'get',
 		dataType: 'json'
 	})

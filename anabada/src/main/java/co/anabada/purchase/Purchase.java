@@ -6,7 +6,8 @@ import lombok.Data;
 
 @Data
 public class Purchase {
-	private int orderId;
+	private int purchase_num;
+	private int orderNum;
 	private int totalPrice;
 	private Date dueDate;
 	private String paymentOk;

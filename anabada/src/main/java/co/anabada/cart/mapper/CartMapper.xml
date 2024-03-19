@@ -5,14 +5,14 @@
 <mapper namespace="co.anabada.cart.mapper.CartMapper">
 
 	<select id="cartList" resultType="cart">
-		SELECT c.cart_id AS cartId
-				,c.cart_status AS cartStatus
-				,i.item_num AS itemNum
-				,i.item_name AS itemName
-				,i.item_price AS itemPrice
-				,i.item_image  AS itemImage
-				,m.member_num AS memberNum
-				,m.member_name AS memberName
+		SELECT  c.cart_num 
+				,c.cart_status 
+				,i.item_num 
+				,i.item_name 
+				,i.item_price
+				,i.item_image 
+				,m.member_num
+				,m.member_name
 		FROM cart c
 				JOIN member m ON c.member_num = m.member_num
 				JOIN item i ON m.member_num = i.item_num

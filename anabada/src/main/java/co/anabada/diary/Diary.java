@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Diary {
-	private int 	diaryId;
+	private int 	diaryNum;
 	private int 	memberNum;
 	private String 	diaryName;
 	private String 	diaryContent;

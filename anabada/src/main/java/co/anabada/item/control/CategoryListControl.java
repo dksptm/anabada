@@ -15,7 +15,7 @@ import co.anabada.item.Category;
 import co.anabada.item.service.ItemService;
 import co.anabada.item.service.ItemServiceImpl;
 
-public class CateListControl implements Control {
+public class CategoryListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
