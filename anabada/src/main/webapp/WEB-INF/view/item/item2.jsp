@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -43,7 +42,7 @@
 
 				<a href="#"> <img src="images/${item.itemImage }" class="img"
 					alt="Image"
-					style="float: left; width: 600px; height: 470px; border-radius: 20px;">
+					style="float: left; width: 500px; height: 470px; border-radius: 20px;">
 				</a>
 				<!-- </div> -->
 			</div>
@@ -53,13 +52,12 @@
 
 				<div>
 					<div>
-						<div class="flex items-center justify-between mb-1">
-							<h1
-								class="text-lg font-semibold leading-6 md:text-2xl md:leading-[28.64px] text-jnblack mr-2">
-								${item.itemName }</h1>
+						<div class="flex items-center justify-between p-3">
+							<h1 class="text-lg font-semibold leading-6 md:text-2xl md:leading-[28.64px] text-jnblack mr-2">
+							상품명 ${item.itemName }</h1>
 						</div>
-						<div class="" style="">
-							<div class="">${item.itemPrice }원</div>
+						<div class="px-3" style="">
+							<h4><b>${item.itemPrice }원</b></h4>
 						</div>
 						<div
 							class="flex items-center justify-between mb-4 text-xs font-normal">
