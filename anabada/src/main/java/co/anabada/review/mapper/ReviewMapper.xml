@@ -5,12 +5,12 @@
 <mapper namespace="co.anabada.review.mapper.ReviewMapper">
 
 	<select id="reviewList" resultType="review">
-		Select r.review_num AS reviewNum 
-		,r.review_score AS reviewScore
-		,r.review_date AS reviewDate
-		,r.review_comment AS reviewComment
-		,o.order_id AS orderId
-		,m.member_name AS memberName
+		Select r.review_num
+				,r.review_score
+				,r.review_date
+				,r.review_comment
+				,o.order_id
+				,m.member_name
 		FROM review r
 		JOIN anvd_order o ON r.order_id = o.order_id
 		JOIN member m ON o.order_id = m.member_num

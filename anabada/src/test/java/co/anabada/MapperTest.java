@@ -3,8 +3,8 @@ package co.anabada;
 import java.util.List;
 
 import co.anabada.common.DataSource;
-import co.anabada.item.mapper.ItemMapper;
-import oracle.ucp.common.FailoverStats.Item;
+import co.anabada.member.Member;
+import co.anabada.member.mapper.MemberMapper;
 
 public class MapperTest {
 	public static void main(String[] args) {
@@ -16,13 +16,19 @@ public class MapperTest {
 		 * List<Member> list = mapper.memberList(); for (Member m : list) {
 		 * System.out.println(m.toString());
 		 */
-
+		
+//		MemberMapper mapper =
+//		DataSource.getInstance().openSession(true).getMapper(MemberMapper.class);
+//				  
+//		List<Member> mylist = mapper.memberList(); for (Member m : mylist) {
+//		System.out.println(m.toString());
+//		}
+		
 		// List<Member> list = mapper.memberList();
 		// for (Member m : list) {
 		// System.out.println(m.toString());
 		// }
 
-		
 
 		 /* 
 		 * CartMapper mapper1 =

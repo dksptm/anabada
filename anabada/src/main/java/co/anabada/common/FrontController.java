@@ -27,6 +27,7 @@ import co.anabada.member.control.IdChk;
 import co.anabada.item.control.ShopInfoControl;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
+import co.anabada.member.control.MypageControl;
 import co.anabada.member.control.SignUpControl;
 import co.anabada.member.control.SignUpForm;
 import co.anabada.item.control.AddItemControl;
@@ -73,11 +74,12 @@ public class FrontController extends HttpServlet {
 		controls.put("/RemoveCart.do", new RemoveCartControl()); // 장바구니상품삭제
 		controls.put("/RemoveCartForm.do", new RemoveCartForm());
 		
+		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게
+		controls.put("/myPage.do", new MypageControl()); // 마이페이지
+		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
-		
-		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게 페이지
-		
+				
 		// 주완.
 		controls.put("/diaryForm.do",   new DiaryForm());
 		controls.put("/diaryList.do",   new DiaryListControl());
@@ -104,6 +106,4 @@ public class FrontController extends HttpServlet {
 		// ItemControl 실행
 	}
 	
-	
-
 }

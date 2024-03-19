@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">장바구니</h1>
+	<h1 class="text-center text-white display-6">상점</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<!-- <li class="breadcrumb-item"><a href="#" onclick="">cartList<i class="fas fa-star"></i></a></li> -->
-		<li class="breadcrumb-item active text-white">cartList.do</li>
+		<li class="breadcrumb-item active text-white">shopInfo.do</li>
 	</ol>
 </div>
 <!-- Single Page Header End -->

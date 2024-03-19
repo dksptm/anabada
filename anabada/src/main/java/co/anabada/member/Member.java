@@ -23,5 +23,11 @@ public class Member {
 		this.memberPhone = memberPhone;
 	}	
 	
+	// myPage
+	private int itemNum;
+	private String itemName;
+	private int itemPrice;
+	private String itemImage;
+	private String itemStatus;
 }
 
