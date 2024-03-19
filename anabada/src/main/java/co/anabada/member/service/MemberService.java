@@ -11,4 +11,8 @@ public interface MemberService {
 	boolean signUpMember(Member member);
 	Member loginMember(Member member);
 	boolean idCheck(String id);
+	
+	// myPage
+	List<Member> myList();
+	List<Member> myInfoList();
 }

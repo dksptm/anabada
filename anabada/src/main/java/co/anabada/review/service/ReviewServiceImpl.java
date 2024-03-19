@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.anabada.common.DataSource;
+import co.anabada.item.Item;
 import co.anabada.review.Review;
 import co.anabada.review.mapper.ReviewMapper;
 
@@ -14,6 +15,10 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public List<Review> reviewList() {
 		return mapper.reviewList();
+	}
+	@Override
+	public Item addreviewList() {
+		return mapper.addreviewList();
 	}
 
 }

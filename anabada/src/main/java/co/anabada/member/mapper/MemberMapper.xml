@@ -4,46 +4,67 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.member.mapper.MemberMapper">
 
-  <select id="memberList" resultType="member">
-    SELECT /*+ INDEX(PK_MEMBER) */
-            member_num
-           ,member_id
-           ,member_password
-           ,member_name
-           ,member_phone
-           ,member_score
-           ,account_num
-    FROM member
-  </select>
-  
-  <insert id="insertMember" parameterType="member">
-  	INSERT INTO member (member_id,
-                        member_password,
-                        member_name,
-                        member_phone)
-	VALUES (#{memberId},
-            #{memberPassword},
-            #{memberName},
-            #{memberPhone})
-  </insert>
-  
-  <select id="selectMember" parameterType="string">
-  	SELECT member_num
-	      ,member_id
-	      ,member_password
-	      ,member_name
-	      ,member_phone
-	      ,member_score
-	      ,account_num
-	FROM   member
-	WHERE  member_id = #{memberId}
-	AND    member_password = #{memberPassword}
-  </select>
-  
-  <select id="countMemberId" parameterType="string">
-  	SELECT COUNT(member_num)
-	FROM   member
-	WHERE  member_id = #{id}
-  </select>
+	<select id="memberList" resultType="member">
+		SELECT /*+ INDEX(PK_MEMBER) */
+		member_num
+		,member_id
+		,member_password
+		,member_name
+		,member_phone
+		,member_score
+		,account_num
+		FROM member
+	</select>
+
+	<insert id="insertMember" parameterType="member">
+		INSERT INTO member (member_id,
+		member_password,
+		member_name,
+		member_phone)
+		VALUES (#{memberId},
+		#{memberPassword},
+		#{memberName},
+		#{memberPhone})
+	</insert>
+
+	<select id="selectMember" parameterType="string">
+		SELECT member_num
+		,member_id
+		,member_password
+		,member_name
+		,member_phone
+		,member_score
+		,account_num
+		FROM member
+		WHERE member_id = #{memberId}
+		AND member_password = #{memberPassword}
+	</select>
+
+	<select id="countMemberId" parameterType="string">
+		SELECT COUNT(member_num)
+		FROM member
+		WHERE member_id = #{id}
+	</select>
+
+	<select id="myList" resultType="member">
+		SELECT m.member_num
+		,m.member_num
+		,m.member_score
+		,i.item_name
+		,i.item_num
+		,i.item_image
+		,i.item_status
+		,i.item_price
+		FROM member m JOIN item i ON m.member_num = i.member_num
+	</select>
+
+	<select id="myInfoList" resultType="member">
+		SELECT member_num,
+		member_name,
+		member_phone,
+		account_num
+		FROM member
+		WHERE member_num = #{memberNum}
+	</select>
 
 </mapper>

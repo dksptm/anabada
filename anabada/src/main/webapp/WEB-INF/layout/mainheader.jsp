@@ -37,39 +37,62 @@
 							<a href="itemList.do" class="nav-item nav-link">상품리스트</a>
 							<a href="item.do" class="nav-item nav-link">상품상세</a>
 							<div class="nav-item dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">1조페이지</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
-									<a href="#" class="dropdown-item">Cart</a>
-									<a href="#" class="dropdown-item">Chackout</a>
-									<a href="#" class="dropdown-item">Testimonial</a>
-									<a href="#" class="dropdown-item">404 Page</a>
+									<a href="reviewList.do" class="dropdown-item">리뷰리스트</a>
+									<a href="shopInfo.do" class="dropdown-item">가게정보(판매자정보)(ㅈㄱ)</a>
+									<a href="myPage.do" class="dropdown-item">마이페이지(ㅈㄱ)</a>
+									<a href="#" class="dropdown-item">내정보페이지(ㅈㄱ)</a>
+									<a href="addreview.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 								</div>
 							</div>
 						</div>
-						<div class="d-flex m-3 me-0">
-							<a href="addItemForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
+
+						<c:choose>
+							<c:when test="${empty member.memberName }">
+							<div class="d-flex m-3 me-0">
+								<a href="loginForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-user fa-2x"></i> <sup>로그인</sup>
+								</a>
+								<a href="signUpForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-solid fa-user-plus fa-2x"></i> <sup>회원가입</sup>
+								</a>
+
+							</div>
+							</c:when>
+							<c:otherwise>
+							<div class="d-flex m-3 me-0">
+								<a href="login.do?login=logout" class="position-relative me-4 my-auto">
+									<i class="fas fa-user fa-2x"></i> <sup>로그아웃</sup>
+								</a>
+								<a href="addItemForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
+								</a>
+								<a href="cartList.do" class="position-relative me-4 my-auto">
+									<i class="fa fa-shopping-bag fa-2x"></i>
+									<span
+										class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+										style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+									<sup>장바구니</sup>	
+								</a>
+								<a href="diaryList.do" class="my-auto">
+									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
+								</a>
+                				<a href="purchaseList.do?memberNum=${member.memberNum }" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
 							</a>
-							<a href="cartList.do" class="position-relative me-4 my-auto">
-								<i class="fa fa-shopping-bag fa-2x"></i>
-								<span
-									class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-									style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-								<sup>장바구니</sup>	
+							<a href="sellItemList.do?memberNum=${member.memberNum }" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
 							</a>
-							<a href="loginForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-user fa-2x"></i> <sup>로그인</sup>
-							</a>
-							<a href="signUpForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-solid fa-user-plus fa-2x"></i> <sup>회원가입</sup>
-							</a>
-							<a href="diaryList.do" class="my-auto">
-								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
-							</a>
-						</div>
+							</div>
+							</c:otherwise>
+						</c:choose>
+						
+						
 					</div>
 				</nav>
 			</div>
 		</div>
 		<!-- Navbar End -->
+		<script></script>
 		

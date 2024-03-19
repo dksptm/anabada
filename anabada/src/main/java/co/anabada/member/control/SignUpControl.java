@@ -23,16 +23,20 @@ public class SignUpControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		
-		Member member = new Member(req.getParameter("member_id"), req.getParameter("member_pw"), req.getParameter("member_name"), req.getParameter("member_phone"));
-		System.out.println(member);
+		String meberId = req.getParameter("member_id");
+		Member member = new Member(meberId, req.getParameter("member_pw"), req.getParameter("member_name"), req.getParameter("member_phone"));
 		MemberService mvc = new MemberServiceImpl();
 		
 		try {
 			if (mvc.signUpMember(member)) {
-				HttpSession session = req.getSession();
-				session.setAttribute("memberName", member.getMemberName());
-				session.setAttribute("member", member);
-				resp.sendRedirect("main.do");
+				String path = "member/loginForm.tiles";
+				req.setAttribute("member_id", meberId);
+				req.getRequestDispatcher(path).forward(req, resp);
+				/*
+				 * HttpSession session = req.getSession(); session.setAttribute("memberName",
+				 * member.getMemberName()); session.setAttribute("member", member);
+				 * resp.sendRedirect("main.do");
+				 */
 				/*
 				 * req.setAttribute("member", member); String path = "main/main.tiles";
 				 * req.getRequestDispatcher(path).forward(req, resp);

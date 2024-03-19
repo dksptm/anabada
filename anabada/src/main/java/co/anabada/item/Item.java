@@ -37,6 +37,15 @@ public class Item {
 	private int reviewScore;
 	private String reviewComment;
 	
+	
+	// category
+	private String categoryName;
+	private String parentCategory;
+	
+	//member
+	private String memberId;
+	private int memberScore;
+	
 }
 
 

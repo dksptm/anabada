@@ -10,4 +10,8 @@ public interface MemberMapper {
 	int insertMember(Member member);
 	Member selectMember(Member member);
 	int countMemberId(String id);
+	
+	// myPage
+	List<Member> myList();
+	List<Member> myInfoList();
 }

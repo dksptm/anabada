@@ -10,7 +10,5 @@ public interface CartMapper {
 	// 등록
 	int insertCart(Cart cart);
 	// 삭제
-	int deleteCart(String cartId);
-
-	
+	int deleteCart(String cartNum);
 }

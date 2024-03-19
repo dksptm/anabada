@@ -21,4 +21,13 @@ public interface ItemService {
 	
 	// 진경
 	List<Item> shopList();
+	
+	
+	// 주완
+	List<Item> sellItemList(int memberNum);
+	boolean removeSellItemList(int itemum);
+	
+	
+	
+	
 }

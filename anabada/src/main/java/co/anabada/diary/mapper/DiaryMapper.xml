@@ -6,7 +6,7 @@
 	
 	<!-- 일정목록 -->
 	<select id="diaryList" resultType="co.anabada.diary.Diary">
- 	  SELECT 	diary_id,
+ 	  SELECT 	diary_num,
   		 		member_num,
   				diary_name,
   				diary_content,

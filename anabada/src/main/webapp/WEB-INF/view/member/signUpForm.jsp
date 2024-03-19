@@ -23,14 +23,14 @@ em.warning{
 <div class="container-fluid py-5">
 	<div class="container py-5">
 		<h1 class="mb-4 row justify-content-center">회원정보를 입력해주세요.</h1>
-		<form action="signUp.do" onsubmit="formChk()" method="post" id="sign">
+		<form action="signUp.do" method="post" id="sign">
 			<div class="row g-3 justify-content-center">
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item d-flex justify-content-between flex-lg-wrap">
 						<label class="form-label my-3" for="member_id" placeholder="이메일 주소를 입력해주세요.">이메일<sup>*</sup>
 						<a href="#" class="btn border-secondary" id="idChk">이메일 중복확인</a>
 						</label>
-						<input type="email" class="form-control" name="member_id" id="member_id" required><em></em>
+						<input type="text" class="form-control" name="member_id" id="member_id" required><em></em>
 					</div>
 					<div class="form-item">
 					

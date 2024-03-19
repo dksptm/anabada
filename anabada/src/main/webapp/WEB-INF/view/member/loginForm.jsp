@@ -16,13 +16,21 @@
 <!-- Checkout Page Start -->
 <div class="container-fluid py-5">
 	<div class="container py-5">
-		<h1 class="mb-4 row justify-content-center">로그인 정보를 입력해주세요.</h1>
-		<form action="login.do" method="post" id="sign">
+		<c:choose>
+			<c:when test="${empty member_id }">
+			<h1 class="mb-4 row justify-content-center">로그인 정보를 입력해주세요.</h1>
+			</c:when>
+			<c:otherwise>
+			<h1 class="mb-4 row justify-content-center">다시 로그인해주세요.</h1>
+			</c:otherwise>
+		</c:choose>
+		<form action="login.do?login=login" method="post" id="sign">
 			<div class="row g-3 justify-content-center">
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item">
-						<label class="form-label my-3" for="member_id">이메일<sup>*</sup></label> <input
-							type="text" class="form-control" name="member_id" id="member_id">
+						<label class="form-label my-3" for="member_id">이메일<sup>*</sup></label> 
+						<input type="text" class="form-control" name="member_id" id="member_id">
+						<c:out value="${empty member_id ? '' : member_id}"></c:out>
 					</div>
 					<div class="form-item">
 						<label class="form-label my-3" for="member_pw">비밀번호<sup>*</sup></label> <input
