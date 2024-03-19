@@ -16,7 +16,7 @@
               item_status,
               item_date
       from    item
-      where   item_num = 14
+      where   item_num = 1
   </select>
   
  <select id="ItemList" resultType="Item" >
