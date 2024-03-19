@@ -43,7 +43,7 @@
 									<a href="shopInfo.do" class="dropdown-item">가게정보(판매자정보)(ㅈㄱ)</a>
 									<a href="myPage.do" class="dropdown-item">마이페이지(ㅈㄱ)</a>
 									<a href="#" class="dropdown-item">내정보페이지(ㅈㄱ)</a>
-									<a href="addreview.do" class="dropdown-item">내정보페이지(ㅇㅈ)</a>
+									<a href="addreview.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 								</div>
 							</div>
 						</div>
@@ -57,25 +57,7 @@
 								<a href="signUpForm.do" class="position-relative me-4 my-auto">
 									<i class="fas fa-solid fa-user-plus fa-2x"></i> <sup>회원가입</sup>
 								</a>
-								<a href="addItemForm.do" class="position-relative me-4 my-auto">
-									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
-								</a>
-								<a href="cartList.do" class="position-relative me-4 my-auto">
-									<i class="fa fa-shopping-bag fa-2x"></i>
-									<span
-										class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-										style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-									<sup>장바구니</sup>	
-								</a>
-								<a href="diaryList.do" class="my-auto">
-									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
-								</a>
-								<a href="purchaseList.do" class="my-auto">
-								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
-							</a>
-							<a href="sellItemList.do" class="my-auto">
-								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의판매</sup>
-							</a>
+
 							</div>
 							</c:when>
 							<c:otherwise>
@@ -96,9 +78,8 @@
 								<a href="diaryList.do" class="my-auto">
 									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
 								</a>
-                				<a href="purchaseList.do" class="my-auto">
+                				<a href="purchaseList.do?memberNum=${member.memberNum }" class="my-auto">
 								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
-							</a>
 							</a>
 							<a href="sellItemList.do?memberNum=${member.memberNum }" class="my-auto">
 								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
