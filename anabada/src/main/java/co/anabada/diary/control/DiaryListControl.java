@@ -27,14 +27,14 @@ public class DiaryListControl implements Control {
 
         // Diary 객체 리스트를 FullCalendar 형식에 맞는 JSON으로 변환
         Gson gson = new GsonBuilder().create();
-        String json = gson.toJson(list.stream().map(diary -> {
-            var event = new java.util.HashMap<String, Object>();
-            event.put("name", diary.getDiaryName());
-            event.put("start", diary.getDiaryStartDate());
-            event.put("end", diary.getDiaryEndDate());
-            return event;
-        }).toList());
-        resp.getWriter().print(json);
+//        String json = gson.toJson(list.stream().map(diary -> {
+//            var event = new java.util.HashMap<String, Object>();
+//            event.put("name", diary.getDiaryName());
+//            event.put("start", diary.getDiaryStartDate());
+//            event.put("end", diary.getDiaryEndDate());
+//            return event;
+//        }).toList());
+//        resp.getWriter().print(json);
     }
 }
 

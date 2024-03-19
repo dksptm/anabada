@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.review.control.AddReviewControl;
 import co.anabada.review.control.ReviewListControl;
 import co.anabada.order.control.OrderForm;
 import co.anabada.cart.control.AddCartControl;
@@ -75,7 +76,7 @@ public class FrontController extends HttpServlet {
 		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
-		
+		controls.put("/addreview.do", new AddReviewControl());
 		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게 페이지
 		
 		// 주완.
