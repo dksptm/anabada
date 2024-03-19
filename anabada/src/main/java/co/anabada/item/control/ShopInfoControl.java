@@ -28,5 +28,6 @@ public class ShopInfoControl implements Control {
 		req.setAttribute("shopList", shopList);
 
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		dispatch.forward(req, resp);
 	}
 }
