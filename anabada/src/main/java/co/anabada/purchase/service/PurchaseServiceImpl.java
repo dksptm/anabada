@@ -19,7 +19,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
 	@Override
-	public boolean removePurchaseList(int orderId) {
-		return mapper.deletePurchaseList(orderId) == 1;
+	public boolean removePurchaseList(int orderNum) {
+		return mapper.deletePurchaseList(orderNum) == 1;
 	}
 }

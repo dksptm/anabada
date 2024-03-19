@@ -47,7 +47,7 @@
 							</td>
 							<td>
 								<button type="button"
-									onclick="deletePurchase(${purchase.orderId });"
+									onclick="deletePurchase(${purchase.orderNum });"
 									class="btn btn-md rounded-circle bg-light border mt-4">X</button>
 							</td>
 						</tr>

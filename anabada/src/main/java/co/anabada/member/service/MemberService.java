@@ -14,4 +14,5 @@ public interface MemberService {
 	
 	// myPage
 	List<Member> myList();
+	List<Member> myInfoList();
 }
