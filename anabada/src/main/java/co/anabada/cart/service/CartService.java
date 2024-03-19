@@ -13,7 +13,7 @@ public interface CartService {
 	boolean addCart(Cart cart);
 	
 	//삭제 
-	boolean removeCart(String cartId);
+	boolean removeCart(String cartNum);
 	
 	
 }

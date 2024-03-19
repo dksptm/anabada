@@ -18,7 +18,7 @@ public class RemoveCartForm implements Control {
 
 		String path = "cart/deleteForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-
+		
 	}
 
 }

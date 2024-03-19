@@ -4,13 +4,14 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">마이페이지</h1>
+	<h1 class="text-center text-white display-6">내 정보</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<!-- <li class="breadcrumb-item"><a href="#" onclick="">cartList<i class="fas fa-star"></i></a></li> -->
-		<li class="breadcrumb-item active text-white">myPage.do</li>
+		<li class="breadcrumb-item active text-white">myInfo.do</li>
 	</ol>
 </div>
 <!-- Single Page Header End -->
+
 
 <html>
 <head>
@@ -32,24 +33,29 @@ th {
 }
 </style>
 </head>
+
 <body>
 	<div class="container">
 		<div>
-			<h2>판매목록</h2>
+			<h1>내 정보</h1>
 			<table>
 				<thead>
 					<tr>
-						<th>상품명</th>
-						<th>가격</th>
-						<th>상태</th>
+						<th>회원번호</th>
+						<th>이름</th>
+						<th>아이디</th>
+						<th>연락처</th>
+						<th>계좌</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${myList}" var="item">
+					<c:forEach items="${myInfoList}" var="item">
 						<tr>
-							<td>${item.itemName }</td>
-							<td>${item.itemPrice }</td>
-							<td>${item.itemStatus}</td>
+							<td>${item.memberNum}</td>
+							<td>${item.memberName}</td>
+							<td>${item.memberId}</td>
+							<td>${item.memberPhone}</td>
+							<td>${item.accountNum}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
