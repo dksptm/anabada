@@ -20,5 +20,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public Item addreviewList() {
 		return mapper.addreviewList();
 	}
+	@Override
+	public Review insertreview(Review review) {
+		return mapper.insertreview(review);
+	}
 
 }
