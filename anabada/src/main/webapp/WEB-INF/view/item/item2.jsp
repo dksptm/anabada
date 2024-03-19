@@ -39,7 +39,7 @@ div.durlek {
 			<div class="col-lg-6">
 				<!-- <div class="border rounded"> -->
 ${item }
-				<a href="#"> <img src="images/itemimages/${item.itemImage }"
+				<a href="#"> <img src="images/${item.itemImage }"
 					class="img-fluid rounded" alt="Image" width="500px" height="1000px">
 				</a>
 				<!-- </div> -->

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.anabada.purchase.mapper.PurchaseMapper">
+
+   <!-- <select id="purchaseList" resultType="purchase">
+   
+         select order_id,
+                total_price,
+                due_date,
+                payment_ok,
+                payment_date,
+                purchase_ok,
+                payment_refund
+         from   purchase
+         
+               
+    </select>  -->
+    
+     <select id="purchaseList" resultType="purchase">
+   SELECT
+            o.order_id AS orderId,
+            o.member_num AS memberNum,
+            o.order_date AS orderDate,
+            o.order_status AS orderStatus,
+            i.item_name AS itemName,
+            i.item_price AS itemPrice,
+            i.item_image AS itemImage,
+            i.item_info AS itemInfo,
+            i.item_status AS itemStatus,
+            i.item_date AS itemDate,
+            p.total_price AS totalPrice,
+            p.purchase_ok AS purchaseOk,
+            p.payment_date AS paymentDate
+        FROM purchase p
+        JOIN anvd_order o ON p.order_id = o.order_id
+        JOIN item i ON o.item_num = i.item_num
+        WHERE p.purchase_ok = '구매완료'
+              
+        ORDER BY o.order_date DESC 
+               
+    </select>  
+    
+    <delete id ="deletePurchaseList" parameterType="int">
+    	delete from purchase
+    	where order_id = #{orderId}
+    </delete>
+
+</mapper>

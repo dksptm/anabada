@@ -5,33 +5,33 @@
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
 
-	<select id="Item" resultType="Item">
-		select item_num,
-		category_id,
-		member_num,
-		item_name,
-		item_price,
-		item_image,
-		item_info,
-		item_status,
-		item_date
-		from item
-		where item_num = 14
-	</select>
+  <select id="Item" resultType="Item"> 
+    select    item_num,
+              category_id,
+              member_num,
+              item_name,
+              item_price,
+              item_image,
+              item_info,
+              item_status,
+              item_date
+      from    item
+      where   item_num = 1
+  </select>
+  
+ <select id="ItemList" resultType="Item" >
+    select    item_num,
+              category_id,
+              member_num,
+              item_name,
+              item_price,
+              item_image,
+              item_info,
+              item_status,
+              item_date
+      from    item
+      </select>
 
-	<select id="ItemList" resultType="Item">
-		select item_num,
-		category_id,
-		member_num,
-		item_name,
-		item_price,
-		item_image,
-		item_info,
-		item_status,
-		item_date
-		from item
-
-	</select>
 
 	<!-- ㅎㅈ -->
 	<insert id="insertItem" parameterType="Item">
