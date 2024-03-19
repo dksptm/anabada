@@ -36,7 +36,7 @@
 					<c:forEach var="cart" items="${list }">
 						<tr>
 							<td>
-								<p class="mb-0 mt-4">${cart.cartId }</p>
+								<p class="mb-0 mt-4">${cart.cartNum }</p>
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">

@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Review {
 	private int reviewNum;
-	private int orderId;
+	private int orderNum;
 	private int reviewScore;
 	private Date reviewDate;
 	private String reviewComment;

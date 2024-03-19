@@ -55,10 +55,8 @@
 			</div>
 		</div>
 		<!-- Hero End -->
-		<!--영재  -->
- 		 ${item }
-	<%-- 	${likeList } --%>
-		<%-- ${recentList } --%>
+		
+ 	
 		<c:choose>
 		<c:when test="${not empty likeList }">
 		<!-- 찜순서대로 10건 조회하기-->
@@ -125,4 +123,10 @@
 		</div>
 		</c:when>
 		</c:choose>
+		
+		<script>
+		document.querySelector(".").addEventListener("click"function(){
+			
+		})
+		</script>
 		<!-- Vesitable Shop End -->
