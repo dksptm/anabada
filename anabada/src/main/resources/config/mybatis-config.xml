@@ -7,6 +7,7 @@
 	
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
 	
 	<typeAliases>
@@ -15,6 +16,7 @@
   		<typeAlias alias="Item" type="co.anabada.item.Item" />
   		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
   		<typeAlias alias="review" type="co.anabada.review.Review" />
+  		<typeAlias alias="purchase" type="co.anabada.purchase.Purchase" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -35,5 +37,6 @@
 		<mapper resource="co/anabada/item/mapper/ItemMapper.xml" />
 		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
 		<mapper resource="co/anabada/review/mapper/ReviewMapper.xml" />
+		<mapper resource="co/anabada/purchase/mapper/PurchaseMapper.xml" />
 	</mappers>
 </configuration>

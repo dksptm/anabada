@@ -4,16 +4,17 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">상점</h1>
+	<h1 class="text-center text-white display-6">마이페이지</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<!-- <li class="breadcrumb-item"><a href="#" onclick="">cartList<i class="fas fa-star"></i></a></li> -->
-		<li class="breadcrumb-item active text-white">shopInfo.do</li>
+		<li class="breadcrumb-item active text-white">myPage.do</li>
 	</ol>
 </div>
 <!-- Single Page Header End -->
+
 <html>
 <head>
-<title>Shop List</title>
+<title>My List</title>
 <style>
 table {
 	width: 80%;
@@ -35,19 +36,20 @@ th {
 <body>
 	<div class="container">
 		<div>
-			<h2>상점</h2>
+			<h2>판매목록</h2>
 			<table>
 				<thead>
 					<tr>
+					
 						<th>상품명</th>
 						<th>가격</th>
 						<th>상태</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${shopList}" var="item">
+					<c:forEach items="${myList}" var="item">
 						<tr>
-							<td>${item.itemName}</td>
+							<td>${item.itemName }</td>
 							<td>${item.itemPrice }</td>
 							<td>${item.itemStatus}</td>
 						</tr>

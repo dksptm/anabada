@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.review.control.AddReviewControl;
 import co.anabada.review.control.ReviewListControl;
 import co.anabada.order.control.OrderForm;
+import co.anabada.purchase.control.PurchaseListControl;
+import co.anabada.purchase.control.deletePurchaseControl;
 import co.anabada.cart.control.AddCartControl;
 import co.anabada.cart.control.CartListControl;
 import co.anabada.cart.control.RemoveCartControl;
@@ -27,6 +30,7 @@ import co.anabada.member.control.IdChk;
 import co.anabada.item.control.ShopInfoControl;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
+import co.anabada.member.control.MypageControl;
 import co.anabada.member.control.SignUpControl;
 import co.anabada.member.control.SignUpForm;
 import co.anabada.item.control.AddItemControl;
@@ -73,9 +77,12 @@ public class FrontController extends HttpServlet {
 		controls.put("/RemoveCart.do", new RemoveCartControl()); // 장바구니상품삭제
 		controls.put("/RemoveCartForm.do", new RemoveCartForm());
 		
+		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게
+		controls.put("/myPage.do", new MypageControl()); // 마이페이지
+		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
-		
+		controls.put("/addreview.do", new AddReviewControl());
 		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게 페이지
 		
 		// 주완.
@@ -84,6 +91,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/diaryAdd.do",    new DiaryAddControl());
 		controls.put("/diaryModify.do", new DiaryModifyControl());
 		controls.put("/diaryRemove.do", new DiaryRemoveControl());
+		controls.put("/purchaseList.do", new PurchaseListControl());
+		controls.put("/deletePurchase.do", new deletePurchaseControl());
 	}
 	
 	@Override
@@ -104,6 +113,4 @@ public class FrontController extends HttpServlet {
 		// ItemControl 실행
 	}
 	
-	
-
 }

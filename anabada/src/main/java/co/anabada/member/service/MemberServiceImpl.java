@@ -35,4 +35,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.countMemberId(id) == 0;
 	}
 
+	@Override
+	public List<Member> myList() {
+		return mapper.myList();
+	}
+
 }

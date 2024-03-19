@@ -5,10 +5,10 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">장바구니</h1>
+	<h1 class="text-center text-white display-6">후기</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<!-- <li class="breadcrumb-item"><a href="#" onclick="">cartList<i class="fas fa-star"></i></a></li> -->
-		<li class="breadcrumb-item active text-white">cartList.do</li>
+		<li class="breadcrumb-item active text-white">reviewList.do</li>
 	</ol>
 </div>
 <!-- Single Page Header End -->
@@ -31,17 +31,17 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <!-- <link href="css/styles.css" rel="stylesheet" /> -->
 <style>
-
-section{
-    margin: 0 auto;
-    width: 600px;
-    height: 700px;
-    padding: 10px;
-    text-align: center;
-    float: left;
+section {
+	margin: 0 auto;
+	width: 600px;
+	height: 700px;
+	padding: 10px;
+	text-align: center;
+	float: left;
 }
+
 .box {
-float: left;
+	float: left;
 }
 </style>
 
@@ -50,13 +50,17 @@ float: left;
 	<!-- Header-->
 	<header class="py-5">
 		<div class="container px-lg-5" justify-content-center>
+			<h1>후기</h1>
+			<h2>이런 점이 좋았어요</h2>
+			<h2>더 상세한 후기도 있어요</h2>
 			<div class="p-4 p-lg-5 bg-light rounded-3 text-center">
+
 				<div class="m-4 m-lg-5">
 					<h1 class="display-5 fw-bold">후기페이지</h1>
 					<c:forEach begin="1" end="${review.reviewScore }">
-											<div class="bi-star-fill"></div>
-											</c:forEach>
-					
+						<div class="bi-star-fill"></div>
+					</c:forEach>
+
 					<!--  <a class="btn btn-primary btn-lg" href="#!">Call to action</a> -->
 				</div>
 			</div>
@@ -64,18 +68,17 @@ float: left;
 	</header>
 	<!-- Page Content-->
 	<section>
-	<c:forEach var="review" items="${list }">
-		<div class="box" content-center>
-			<div class="card bg-light border-0 h-100">
-				<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
-					</div>
-					<h2 class="fs-4 fw-bold">${review.memberName }님의 후기</h2>
+		<c:forEach var="review" items="${list }">
+			<div class="box" content-center>
+				<div class="card bg-light border-0 h-100">
+					<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0"></div>
+					<h2 class="fs-4 fw-bold">${review.memberName }님의후기</h2>
 					<h2 class="fs-4 fw-bold">후기날짜 ${review.reviewDate}</h2>
 					<p class="mb-0">${review.reviewComment }</p>
 				</div>
 			</div>
-		</div>
-	</c:forEach>
+			</div>
+		</c:forEach>
 	</section>
 </body>
 </html>

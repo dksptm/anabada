@@ -1,4 +1,4 @@
-package co.anabada.item.control;
+package co.anabada.review.control;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,23 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
 import co.anabada.item.Item;
-import co.anabada.item.service.ItemService;
-import co.anabada.item.service.ItemServiceImpl;
+import co.anabada.review.service.ReviewService;
+import co.anabada.review.service.ReviewServiceImpl;
 
-public class ShopInfoControl implements Control {
+public class AddReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		String path ="item/shopInfo.tiles";
-		
-		resp.setContentType("text/json;charset=utf-8");
-		
-		ItemService svc = new ItemServiceImpl();
-		List<Item> shopList = svc.ItemList();
-		
-		req.setAttribute("shopList", shopList);
+		String path = "review/addreview.tiles";
+
+		ReviewService svc = new ReviewServiceImpl();
+		Item item = new Item();
+		item = svc.addreviewList();
+		req.setAttribute("item", item);
+		System.out.println(item);
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
+
 	}
+
 }

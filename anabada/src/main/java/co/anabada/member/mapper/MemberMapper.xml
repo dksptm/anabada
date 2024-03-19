@@ -45,5 +45,17 @@
 	FROM   member
 	WHERE  member_id = #{id}
   </select>
+  
+  <select id= "myList" resultType="member">
+  	SELECT   m.member_num
+			,m.member_id
+			,m.member_score
+			,i.item_name
+			,i.item_num
+			,i.item_image
+			,i.item_status
+			,i.item_price
+	FROM member m JOIN item i ON (m.member_num = i.member_num)
+  </select>
 
 </mapper>
