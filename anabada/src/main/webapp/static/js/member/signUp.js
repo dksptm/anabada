@@ -4,7 +4,7 @@
 
 console.log('signUp.js')
  
-let chk = true;
+let chk; 
  
 $(document).ready(function(e){
 	
@@ -12,37 +12,53 @@ $(document).ready(function(e){
 	$('#signBtn').prop('disabled', true);
 	
 	// 공백체크
-	$("input").on('blur', emptyChk);
+	$("input").not('input#Account-1').on('blur', emptyChk);
 	
 	// 비번체크
-	$("#member_pw").on('blur', function(e){
+	$("#member_pw").on('propertychange change keyup paste input blur', function(e){
 		if($(this).val().length < 4){
 			$(this).next().text("비밀번호는 4자리 이상입력.").addClass('warning');
-			chk = false;
+		} else {
+			$(this).next().text("").removeClass('warning');
+			// 비번재확인
+			if($(this).val() != $("#member_pw2").val()){
+				$("#member_pw2").next().text("비밀번호 불일치.").addClass('warning');
+			} else if ($(this).val() == $("#member_pw2").val()){
+				$("#member_pw2").next().text("").removeClass('warning');
+			}
 		}
 	})
-	
-	// 비번재확인
-	$("#member_pw2").on('blur', function(e){
-		if($(this).val() == $("#member_pw").text()){
+	// 비번 재확인.
+	$("#member_pw2").on('propertychange change keyup paste input blur', function(e){
+		if($(this).val() != $("#member_pw").val()){
 			$(this).next().text("비밀번호 불일치.").addClass('warning');
-			chk = false;
+		} else if ($(this).val() == $("#member_pw").val()){
+			$(this).next().text("").removeClass('warning');
 		}
 	})
 	
 	// 정규식확인. 
 	$('#member_phone').on('blur', function(e){
 		let phone = $(this).val();
-		let phoneRule = /^(070|02|0[3-9]{1}[0-9]{1})[0-9]{3,4}[0-9]{4}$/;
-		if(phoneRule.test(phone)){
-			chk = false;
+		let phoneRule = /^(01[0-9]{1}-?[0-9]{4}-?[0-9]{4}|01[0-9]{8})$/;;
+		if(!phoneRule.test(phone)){
+			$(this).next().text("하이픈사용 휴대폰번호를 입력.").addClass('warning');
+		} else {
+			$(this).next().text("").removeClass('warning');
 		}
 	})
 	
-	let myId;
 	// 아이디 중복체크.
+	let chkid = false;
+	let myId; 
+	let inputId;
+	$('#member_id').on('change keyup blur', function(e){
+		inputId = $('#member_id').val();
+		$('#Account-1').prop('checked', false);
+		$('#signBtn').prop('disabled', true);
+	})
 	$('#idChk').on('click', function(e){
-		let inputId = $('#member_id').val();
+		inputId = $('#member_id').val();
 		console.log(inputId)
 		if(!inputId){
 			alert('이메일을 입력해주세요.');
@@ -61,7 +77,8 @@ $(document).ready(function(e){
 		.done(result => {
 			if(result.retCode == 'OK') {
 				console.log(result);
-				alert('성공');
+				alert('중복검사 성공. 이 아이디로 설정.');
+				chkid = true;
 				myId = inputId;
 			} else {
 				console.log(result)
@@ -74,13 +91,27 @@ $(document).ready(function(e){
 	});
 	
 	// 버튼활성화
-	$('#Account-1').on('click', function(e){
-		if(!myId){
-			alert('이메일 중복확인 필요.');
+	$('#Account-1').on('change', function(e){
+		if(!$("input").not('input#Account-1').not('input#member_id').val()){
+			alert('정보입력.');
+			$(this).prop('checked', false);
+			return;
 		}
-		if(chk && myId){
-			$('#signBtn').prop('disabled', false);
-		} 
+		if(this.checked){
+			if($('em').hasClass('warning') == false){
+				if(chkid && myId == inputId){
+					$('#signBtn').prop('disabled', false);
+				} else {
+					alert('중복체크 해야함.');
+					$(this).prop('checked', false);
+				}
+			} else {
+				console.log($('em').hasClass('warning'))
+				console.log($('em'));
+				alert('다시 확인.');
+				$(this).prop('checked', false);
+			}
+		}
 	})
 	
 })
@@ -88,10 +119,9 @@ $(document).ready(function(e){
 function emptyChk(e){
 	if(e.target.value == ''){
 		$(this).next().text("필수입력값입니다.").addClass('warning');
-		e.target.focus();
-		chk = false;
 	} else{
-		$(this).next().text("");
+		$(this).next().text("").removeClass('warning');
+		chk = true;
 	}
 }
 
