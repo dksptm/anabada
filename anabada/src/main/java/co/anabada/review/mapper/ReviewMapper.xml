@@ -9,11 +9,11 @@
 				,r.review_score
 				,r.review_date
 				,r.review_comment
-				,o.order_id
+				,o.order_num
 				,m.member_name
 		FROM review r
-		JOIN anvd_order o ON r.order_id = o.order_id
-		JOIN member m ON o.order_id = m.member_num
+		JOIN anvd_order o ON r.order_num = o.order_num
+		JOIN member m ON o.order_num = m.member_num
 
 	</select>
 	
@@ -26,7 +26,7 @@
            i.item_date,
            c.category_name,
            c.parent_category
-     from  item i join category c on (i.category_id = c.category_id)
+     from  item i join category c on (i.category_ = c.category_id)
      where item_num = 1
 
 	</select>

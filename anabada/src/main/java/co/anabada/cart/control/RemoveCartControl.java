@@ -15,11 +15,11 @@ public class RemoveCartControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		 String cartId = req.getParameter("cartId");
+		 String cartNum = req.getParameter("cartNum");
 		 
 		 CartService svc = new CartServiceImpl();
 		 
-		 if(svc.removeCart(cartId)) {
+		 if(svc.removeCart(cartNum)) {
 			 resp.sendRedirect("cartRemove.do");
 		 } else {
 			 req.setAttribute("message", "삭제 중 에러가 발생했습니다.");

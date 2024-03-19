@@ -40,4 +40,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.myList();
 	}
 
+	@Override
+	public List<Member> myInfoList() {
+		return mapper.myInfoList();
+	}
+
 }

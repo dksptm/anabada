@@ -13,4 +13,5 @@ public interface MemberMapper {
 	
 	// myPage
 	List<Member> myList();
+	List<Member> myInfoList();
 }

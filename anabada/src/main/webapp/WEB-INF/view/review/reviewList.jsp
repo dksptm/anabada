@@ -86,7 +86,7 @@ section {
 
 
 
-<script>
+<!-- <script>
 
 $.ajax({
     url: 'reviewList.do',
@@ -101,7 +101,7 @@ $.ajax({
 
 </script>
 
-
+ -->
 
 
 <!--  후기입력 페이지 <div class="col-lg-6">
