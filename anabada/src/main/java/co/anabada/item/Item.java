@@ -42,6 +42,10 @@ public class Item {
 	private String categoryName;
 	private String parentCategory;
 	
+	//member
+	private String memberId;
+	private int memberScore;
+	
 }
 
 

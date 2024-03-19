@@ -6,17 +6,20 @@
 	<!-- ㅇㅈ -->
 
   <select id="Item" resultType="Item"> 
-    select    item_num,
-              category_id,
-              member_num,
-              item_name,
-              item_price,
-              item_image,
-              item_info,
-              item_status,
-              item_date
-      from    item
-      where   item_num = 1
+ select       i.item_num,
+              i.category_id,
+              i.member_num,
+              i.item_name,
+              i.item_price,
+              i.item_image,
+              i.item_info,
+              i.item_status,
+              i.item_date,
+              m.member_id,
+              m.member_score
+from item i 
+join member m on (i.member_num = m.member_num)
+where item_num =1
   </select>
   
  <select id="ItemList" resultType="Item" >

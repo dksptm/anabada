@@ -10,8 +10,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
 <style>
-div.durlek {
-	display: inline-block;
+.col-lg-6 {
+	border-width: 2px;
+	border-color: black;
 }
 </style>
 
@@ -36,16 +37,19 @@ div.durlek {
 		<div class="row g-4">
 			<!-- 반나눔 -->
 
-			<div class="col-lg-6">
+			<div class="col-lg-6"
+				style="border: 1px solid black; border-radius: 20px;">
 				<!-- <div class="border rounded"> -->
-${item }
-				<a href="#"> <img src="images/${item.itemImage }"
-					class="img-fluid rounded" alt="Image" width="500px" height="1000px">
+
+				<a href="#"> <img src="images/${item.itemImage }" class="img"
+					alt="Image"
+					style="float: left; width: 600px; height: 470px; border-radius: 20px;">
 				</a>
 				<!-- </div> -->
 			</div>
 
-			<div class="col-lg-6">
+			<div class="col-lg-6"
+				style="border: 1px solid black; border-radius: 20px;">
 
 				<div>
 					<div>
@@ -54,15 +58,13 @@ ${item }
 								class="text-lg font-semibold leading-6 md:text-2xl md:leading-[28.64px] text-jnblack mr-2">
 								${item.itemName }</h1>
 						</div>
-						<div class="flex items-center mb-2 lg:mb-3">
-							<div
-								class="font-bold md:text-[32px] mr-2 text-[26px] leading-9 md:leading-[38.19px] text-heading">
-								${item.itemPrice }원</div>
+						<div class="" style="">
+							<div class="">${item.itemPrice }원</div>
 						</div>
 						<div
 							class="flex items-center justify-between mb-4 text-xs font-normal">
-							<span class="text-jnGray-500 leading-[15px]">1시간 전 · 조회 1
-								· 찜 0</span>
+							<span class="text-jnGray-500 leading-[15px]">${item.itemDate },
+								${item.zzim }1시간 전 · 조회 1· 찜 0</span>
 						</div>
 					</div>
 					<div
@@ -160,11 +162,12 @@ ${item }
 									type="checkbox" class="a11yHidden">
 							</div>
 							<button data-variant="slim"
-								class="text-[13px] md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold font-body text-center justify-center placeholder-white focus-visible:outline-none focus:outline-none rounded-md h-11 md:h-12 px-5 py-2 transform-none normal-case hover:shadow-cart ga4_product_detail_bottom w-full bg-white hover:bg-white/90 text-jnblack hover:text-jnblack border-[1px] border-jnblack">바로
-								구매</button>
+								style="background-color: black; color: white;">
+								바로구매</button>
 						</div>
 
 					</ul>
+
 
 
 				</div>
@@ -173,105 +176,107 @@ ${item }
 
 
 			<!-- 상품정보 가게정보 -->
-			<div class="durlek">
-			<div class="col-lg-6">
-				<div
-					class="block lg:flex lg:min-h-[591px] space-y-12 lg:space-y-0 mb-12">
-					<div name="product-description"
-						class="w-full lg:mr-[72px] lg:w-[680px] flex flex-col flex-auto false">
-						<h3
-							class="md:text-[22px] lg:pb-5 w-full border-b border-gray-300 basis-[48px] font-bold pb-3 text-jnblack text-lg">
-							상품정보</h3>
+			<!--  -->
+			<div>
+				<div class="1" style="float: left; width: auto; height: auto;">
+					<div class="col-lg-6">
 						<div
-							class="flex-1 basis-[465px] lg:basis-[475px] flex flex-col overflow-visible">
-							<div class="h-auto flex flex-col">
-								<article class="flex flex-col flex-1">
-									<p
-										class="flex-1 py-5 text-base font-normal break-words break-all whitespace-pre-line text-jnGray-900">
-										※${item.itemInfo }</p>
-								</article>
-							</div>
-						</div>
+							class="block lg:flex lg:min-h-[591px] space-y-12 lg:space-y-0 mb-12">
+							<div name="product-description"
+								class="w-full lg:mr-[72px] lg:w-[680px] flex flex-col flex-auto false">
+								<h3
+									class="md:text-[22px] lg:pb-5 w-full border-b border-gray-300 basis-[48px] font-bold pb-3 text-jnblack text-lg"
+									style="width: 500px;">상품정보</h3>
+								<hr style="width: 500px;">
 
-					</div>
-				</div>
-			</div>
-
-
-			</div>
-			<div class="durlek">
-			<div class="basis-[420px]">
-				<div name="product-store" class="w-full lg:w-[420px]">
-
-					<a
-						class="flex items-center justify-between w-full pb-3 border-b border-gray-300 lg:pb-5"
-						href="/store/3416679"><h3
-							class="md:text-[22px] font-bold text-jnBlack text-lg">가게정보</h3> <svg
-							stroke="currentColor" fill="currentColor" stroke-width="0"
-							viewBox="0 0 512 512" height="24" width="24"
-							xmlns="http://www.w3.org/2000/svg">
-										<path
-								d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"></path></svg></a>
-
-
-					<div class="row g-4">
-						<div>
-							<div class="flex">
-								<a
-									class="flex items-center justify-between w-full pt-5 lg:pt-[28px] lg:pb-5"
-									href="/store/3416679"><p
-										class="text-[22px] font-semibold text-jnGray-900">오늘은쉽니다</p>
-									<div class="flex items-center translate-x-4">
-										<img alt="프로파일"
-											src="https://img2.joongna.com/common/Profile/Default/profile_m.png"
-											width="60" height="60" decoding="async" data-nimg="1"
-											class="rounded-full max-w-none h-[60px] box-content border-4 border-white -translate-x-4"
-											loading="lazy" style="color: transparent;">
-									</div></a>
-							</div>
-
-							<div>
-								<div class="flex justify-between mt-2 text-[#0CB650]">
-									<p class="text-base font-medium">
-										신뢰지수<span class="ml-1 text-lg font-semibold">324</span>
-									</p>
-									<span class="text-sm text-jnGray-500">1,000</span>
-								</div>
-								<div class="w-full h-2 bg-[#F1F4F6] rounded overflow-hidden">
-									<div class="h-full" style="width: 32.4%;">
-										<div
-											class="rounded bg-gradient-to-r from-[#0DCC5A] from-0% to-[#019FB1] to-107.5% w-full h-full animate-width"></div>
+								<div
+									class="flex-1 basis-[465px] lg:basis-[475px] flex flex-col overflow-visible">
+									<div class="h-auto flex flex-col">
+										<article class="flex flex-col flex-1">
+											<p
+												class="flex-1 py-5 text-base font-normal break-words break-all whitespace-pre-line text-jnGray-900">
+												※${item.itemInfo }</p>
+										</article>
 									</div>
 								</div>
-							</div>
-
-							<div>
-								<ul
-									class="box-border flex text-center border border-gray-300 rounded items-center py-[18px] mt-5">
-									<li
-										class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
-										class="text-xs font-normal text-jnGray-600 break-keep">안전거래</span>
-										<button disabled=""
-											class="block text-sm font-semibold text-jnblack mt-1 ">0</button></li>
-									<li
-										class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
-										class="text-xs font-normal text-jnGray-600 break-keep">거래후기</span>
-										<button
-											class="block text-sm font-semibold text-jnblack mt-1 underline underline-offset-[3px]">0</button></li>
-									<li
-										class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
-										class="text-xs font-normal text-jnGray-600 break-keep">단골</span>
-										<button disabled=""
-											class="block text-sm font-semibold text-jnblack mt-1 ">0</button></li>
-								</ul>
 
 							</div>
-			</div>
 						</div>
+					</div>
+				</div>
+
+				<div class="durlek" style="float: right; width: auto; height: auto;">
+					<div class="basis-[420px]">
+						<div name="product-store" class="flex" style="width: auto;">
+
+							<a
+								class="flex items-center justify-between w-full pb-3 border-b border-gray-300 lg:pb-5"
+								href="/store/3416679">
+								<h3 class="" style="width: 230px;">가게정보</h3>
+								<h3 style="float: right;">></h3>
+							</a>
+							<hr style="width: 500px;">
+
+						</div>
+
+						<div class="row g-4">
+							<div>
+								<div class="flex">
+									<a
+										class="flex items-center justify-between w-full pt-5 lg:pt-[28px] lg:pb-5"
+										href="/store/3416679"><p
+											class="text-[22px] font-semibold text-jnGray-900">${item.memberId }</p>
+										<div class="flex items-center translate-x-4">
+											<img alt="프로파일"
+												src="https://img2.joongna.com/common/Profile/Default/profile_m.png"
+												width="60" height="60" decoding="async" data-nimg="1"
+												class="rounded-full max-w-none h-[60px] box-content border-4 border-white -translate-x-4"
+												loading="lazy" style="color: transparent;">
+										</div></a>
+								</div>
+
+								<div>
+									<div class="flex justify-between mt-2 text-[#0CB650]">
+										<p class="text-base font-medium">
+											평점:<span class="ml-1 text-lg font-semibold">${item.memberScore }</span>
+										</p>
+									</div>
+									<div class="w-full h-2 bg-[#F1F4F6] rounded overflow-hidden">
+										<div class="h-full" style="width: 32.4%;">
+											<div
+												class="rounded bg-gradient-to-r from-[#0DCC5A] from-0% to-[#019FB1] to-107.5% w-full h-full animate-width"></div>
+										</div>
+									</div>
+								</div>
+
+								<div>
+									<ul
+										class="box-border flex text-center border border-gray-300 rounded items-center py-[18px] mt-5">
+										<li
+											class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
+											class="text-xs font-normal text-jnGray-600 break-keep">안전거래</span>
+											<button disabled=""
+												class="block text-sm font-semibold text-jnblack mt-1 ">0</button></li>
+										<li
+											class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
+											class="text-xs font-normal text-jnGray-600 break-keep">거래후기</span>
+											<button
+												class="block text-sm font-semibold text-jnblack mt-1 underline underline-offset-[3px]">0</button></li>
+										<li
+											class="flex flex-col flex-1 basis-[33%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center"><span
+											class="text-xs font-normal text-jnGray-600 break-keep">단골</span>
+											<button disabled=""
+												class="block text-sm font-semibold text-jnblack mt-1 ">0</button></li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
 
 					</div>
 				</div>
 			</div>
-		</div><!-- row 4 -->
+		</div>
+		<!-- row 4 -->
 	</div>
-			
