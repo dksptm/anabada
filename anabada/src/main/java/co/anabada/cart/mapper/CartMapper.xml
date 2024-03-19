@@ -15,7 +15,7 @@
 				,m.member_name
 
 		FROM cart c JOIN member m ON c.member_num = m.member_num
-				    JOIN item i   ON m.member_num = i.item_num
+				    JOIN item i   ON i.item_num = i.item_num
 	</select>
 
 	<insert id="insertCart" parameterType="cart">

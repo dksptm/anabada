@@ -27,7 +27,7 @@
            i.item_date,
            c.category_name,
            c.parent_category
-     from  item i join category c on (i.category_ = c.category_id)
+     from  item i join category c on (i.category_id = c.category_id)
      where item_num = 1
 
 	</select>

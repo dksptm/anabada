@@ -123,11 +123,11 @@ where item_num =1
 		select *
 		from item
 		where item_status = '판매완료' 
-		And   member_Num = #{memberNum}
+		And   member_num = #{memberNum}
 	</select>
 	
 	<delete id = "deleteSellItemList" parameterType="int">
 		delete From item
-		where itemNum = #{itemNum}
+		where item_num = #{itemNum}
 	</delete>
 </mapper>

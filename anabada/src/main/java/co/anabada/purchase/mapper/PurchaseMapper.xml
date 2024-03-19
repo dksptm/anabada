@@ -5,21 +5,21 @@
 <mapper namespace="co.anabada.purchase.mapper.PurchaseMapper">
      <select id="purchaseList" resultType="purchase">
    SELECT
-            o.order_num AS orderId,
-            o.member_num AS memberNum,
-            o.order_date AS orderDate,
-            o.order_status AS orderStatus,
-            i.item_name AS itemName,
-            i.item_price AS itemPrice,
-            i.item_image AS itemImage,
-            i.item_info AS itemInfo,
-            i.item_status AS itemStatus,
-            i.item_date AS itemDate,
-            p.total_price AS totalPrice,
-            p.purchase_ok AS purchaseOk,
-            p.payment_date AS paymentDate
+            o.order_num,
+            o.member_num,
+            o.order_date,
+            o.order_status,
+            i.item_name,
+            i.item_price,
+            i.item_image,
+            i.item_info,
+            i.item_status,
+            i.item_date,
+            p.total_price,
+            p.purchase_ok,
+            p.payment_date
         FROM purchase p
-        JOIN anvd_order o ON p.order_id = o.order_id
+        JOIN anvd_order o ON p.order_num = o.order_num
         JOIN item i ON o.item_num = i.item_num
         WHERE p.purchase_ok = '구매완료'
               
