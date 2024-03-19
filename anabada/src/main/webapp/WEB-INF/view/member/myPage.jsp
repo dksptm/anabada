@@ -11,3 +11,52 @@
 	</ol>
 </div>
 <!-- Single Page Header End -->
+
+<html>
+<head>
+<title>My List</title>
+<style>
+table {
+	width: 80%;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 8px;
+	text-align: left;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div>
+			<h2>판매목록</h2>
+			<table>
+				<thead>
+					<tr>
+					
+						<th>상품명</th>
+						<th>가격</th>
+						<th>상태</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${myList}" var="item">
+						<tr>
+							<td>${item.itemName }</td>
+							<td>${item.itemPrice }</td>
+							<td>${item.itemStatus}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

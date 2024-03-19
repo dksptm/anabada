@@ -24,10 +24,12 @@ public class Member {
 	}	
 	
 	// myPage
-	private int itemNum;
-	private String itemName;
-	private int itemPrice;
-	private String itemImage;
-	private String itemStatus;
+		private int itemNum;
+		private String itemName;
+		private int itemPrice;
+		private String itemStatus;
+		private String itemImage;
+		
+		
 }
 

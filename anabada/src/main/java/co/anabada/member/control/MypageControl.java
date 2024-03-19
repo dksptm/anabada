@@ -17,14 +17,16 @@ public class MypageControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		
 		String path = "member/myPage.tiles";
 		
-		resp.setContentType("text/json;charset=uft-8");
+		//resp.setContentType("text/json;charset=uft-8");
 		
 		MemberService svc = new MemberServiceImpl();
-		List<Member> myList = svc.memberList();
-		
+		List<Member> myList = svc.myList();
+		System.out.println("111111");
+		System.out.println(myList);
 		req.setAttribute("myList", myList);
 		
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
