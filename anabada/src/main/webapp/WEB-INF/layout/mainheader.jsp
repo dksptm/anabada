@@ -46,30 +46,56 @@
 								</div>
 							</div>
 						</div>
-						<div class="d-flex m-3 me-0">
-							<a href="addItemForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
-							</a>
-							<a href="cartList.do" class="position-relative me-4 my-auto">
-								<i class="fa fa-shopping-bag fa-2x"></i>
-								<span
-									class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-									style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
-								<sup>장바구니</sup>	
-							</a>
-							<a href="loginForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-user fa-2x"></i> <sup>로그인</sup>
-							</a>
-							<a href="signUpForm.do" class="position-relative me-4 my-auto">
-								<i class="fas fa-solid fa-user-plus fa-2x"></i> <sup>회원가입</sup>
-							</a>
-							<a href="diaryList.do" class="my-auto">
-								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
-							</a>
-							<a href="purchaseList.do" class="my-auto">
+
+						<c:choose>
+							<c:when test="${empty memberName }">
+							<div class="d-flex m-3 me-0">
+								<a href="loginForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-user fa-2x"></i> <sup>로그인</sup>
+								</a>
+								<a href="signUpForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-solid fa-user-plus fa-2x"></i> <sup>회원가입</sup>
+								</a>
+								<a href="addItemForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
+								</a>
+								<a href="cartList.do" class="position-relative me-4 my-auto">
+									<i class="fa fa-shopping-bag fa-2x"></i>
+									<span
+										class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+										style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+									<sup>장바구니</sup>	
+								</a>
+								<a href="diaryList.do" class="my-auto">
+									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
+								</a>
+							</div>
+							</c:when>
+							<c:otherwise>
+							<div class="d-flex m-3 me-0">
+								<a href="login.do?login=logout" class="position-relative me-4 my-auto">
+									<i class="fas fa-user fa-2x"></i> <sup>로그아웃</sup>
+								</a>
+								<a href="addItemForm.do" class="position-relative me-4 my-auto">
+									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
+								</a>
+								<a href="cartList.do" class="position-relative me-4 my-auto">
+									<i class="fa fa-shopping-bag fa-2x"></i>
+									<span
+										class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
+										style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+									<sup>장바구니</sup>	
+								</a>
+								<a href="diaryList.do" class="my-auto">
+									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
+								</a>
+                				<a href="purchaseList.do" class="my-auto">
 								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
 							</a>
-						</div>
+							</div>
+							</c:otherwise>
+						</c:choose>
+						
 					</div>
 				</nav>
 			</div>
