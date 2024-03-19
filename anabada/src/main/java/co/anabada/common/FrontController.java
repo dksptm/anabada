@@ -26,8 +26,10 @@ import co.anabada.diary.control.DiaryModifyControl;
 import co.anabada.diary.control.DiaryRemoveControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
+import co.anabada.item.control.SellItemListControl;
 import co.anabada.member.control.IdChk;
 import co.anabada.item.control.ShopInfoControl;
+import co.anabada.item.control.deleteSellItemControl;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
 import co.anabada.member.control.MypageControl;
@@ -93,6 +95,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/diaryRemove.do", new DiaryRemoveControl());
 		controls.put("/purchaseList.do", new PurchaseListControl());
 		controls.put("/deletePurchase.do", new deletePurchaseControl());
+		controls.put("/sellItemList.do" , new SellItemListControl());
+		controls.put("/deleteSellItem.do", new deleteSellItemControl());
 	}
 	
 	@Override

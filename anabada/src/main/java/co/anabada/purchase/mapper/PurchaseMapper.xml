@@ -3,21 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.purchase.mapper.PurchaseMapper">
-
-   <!-- <select id="purchaseList" resultType="purchase">
-   
-         select order_id,
-                total_price,
-                due_date,
-                payment_ok,
-                payment_date,
-                purchase_ok,
-                payment_refund
-         from   purchase
-         
-               
-    </select>  -->
-    
      <select id="purchaseList" resultType="purchase">
    SELECT
             o.order_id AS orderId,
@@ -39,7 +24,6 @@
         WHERE p.purchase_ok = '구매완료'
               
         ORDER BY o.order_date DESC 
-               
     </select>  
     
     <delete id ="deletePurchaseList" parameterType="int">

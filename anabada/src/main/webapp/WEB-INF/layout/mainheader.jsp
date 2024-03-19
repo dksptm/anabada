@@ -48,7 +48,7 @@
 						</div>
 
 						<c:choose>
-							<c:when test="${empty memberName }">
+							<c:when test="${empty member.memberName }">
 							<div class="d-flex m-3 me-0">
 								<a href="loginForm.do" class="position-relative me-4 my-auto">
 									<i class="fas fa-user fa-2x"></i> <sup>로그인</sup>
@@ -69,6 +69,12 @@
 								<a href="diaryList.do" class="my-auto">
 									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
 								</a>
+								<a href="purchaseList.do" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
+							</a>
+							<a href="sellItemList.do" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
+							</a>
 							</div>
 							</c:when>
 							<c:otherwise>
@@ -92,9 +98,14 @@
                 				<a href="purchaseList.do" class="my-auto">
 								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
 							</a>
+							</a>
+							<a href="sellItemList.do?memberNum=${member.memberNum }" class="my-auto">
+								<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의구매</sup>
+							</a>
 							</div>
 							</c:otherwise>
 						</c:choose>
+						
 						
 					</div>
 				</nav>

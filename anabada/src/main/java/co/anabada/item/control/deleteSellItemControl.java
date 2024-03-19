@@ -1,4 +1,4 @@
-package co.anabada.purchase.control;
+package co.anabada.item.control;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,33 +12,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
-import co.anabada.purchase.service.PurchaseService;
-import co.anabada.purchase.service.PurchaseServiceImpl;
+import co.anabada.item.service.ItemService;
+import co.anabada.item.service.ItemServiceImpl;
 
-public class deletePurchaseControl implements Control {
+public class deleteSellItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//		String orderId = req.getParameter("orderId");
-//
-//		PurchaseService svc = new PurchaseServiceImpl();
-//
-//		if (svc.removePurchaseList(Integer.parseInt(orderId))) {
-//			resp.sendRedirect("purchaseList.do");
-//		} else {
-//			req.setAttribute("message", "삭제 중 에러가 발생했습니다.");
-//			String path = "WEB-INF/view/error.jsp";
-//			req.getRequestDispatcher(path).forward(req, resp);
-//		}
-//	}
-
 		resp.setContentType("text/json;charset=utf-8");
-		String orderId = req.getParameter("orderId");
+		String itemNum = req.getParameter("itemNum");
 
-		PurchaseService svc = new PurchaseServiceImpl();
+		ItemService svc = new ItemServiceImpl();
 		Map<String, String> map = new HashMap<>();
 
-		if (svc.removePurchaseList(Integer.parseInt(orderId))) {
+		if (svc.removeSellItemList(Integer.parseInt(itemNum))) {
 			map.put("retCode", "OK");
 			map.put("retMsg", "정상적으로 삭제되었습니다");
 		} else {
@@ -50,4 +37,5 @@ public class deletePurchaseControl implements Control {
 
 		resp.getWriter().print(json);
 	}
+
 }

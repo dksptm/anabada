@@ -102,7 +102,7 @@
 	</select>
 
 
-	<select id="shopList" resultType="Item">
+	<select id="shopList" resultType="Item" >
 		select r.review_score
 		,r.review_comment
 		,i.item_num
@@ -115,5 +115,16 @@
 		FROM item i
 		JOIN review r ON r.order_id = i.member_num
 	</select>
-
+	
+	<select id = "sellItemList" resultType="Item" parameterType="int">
+		select *
+		from item
+		where item_status = '판매완료' 
+		And   member_Num = #{memberNum}
+	</select>
+	
+	<delete id = "deleteSellItemList" parameterType="int">
+		delete From item
+		where itemNum = #{itemNum}
+	</delete>
 </mapper>

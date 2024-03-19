@@ -22,4 +22,11 @@ public interface ItemMapper {
 
 	// 진경.
 	List<Item> shopList();
+	
+	// 주완
+	List<Item> sellItemList(int memberNum);
+	
+	int deleteSellItemList(int itemNum);
+	
+	
 }

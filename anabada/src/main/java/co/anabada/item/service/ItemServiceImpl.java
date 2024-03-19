@@ -53,6 +53,16 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> shopList() {
 		return mapper.shopList();
 	}
+
 	
+	@Override
+	public List<Item> sellItemList(int memberNum) {
+		return mapper.sellItemList(memberNum);
+	}
+	@Override
+	public boolean removeSellItemList(int itemNum) {
+		return mapper.deleteSellItemList(itemNum) == 1;
+	}
+
 	
 }
