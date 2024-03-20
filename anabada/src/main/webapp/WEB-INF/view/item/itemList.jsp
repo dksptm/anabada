@@ -71,31 +71,31 @@
 									<ul class="list-unstyled fruite-categorie">
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>하의</a>
 												<span>(3)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>상의</a>
 												<span>(5)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>반팔</a>
 												<span>(2)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>긴팔</a>
 												<span>(8)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>청바지</a>
 												<span>(5)</span>
 											</div>
 										</li>
@@ -116,7 +116,6 @@
 							<!-- 조회화면 -->
 					
 
-${itemList }
 
 							<div class="col-lg-12"></div>
 						</div>
@@ -136,7 +135,7 @@ ${itemList }
 										</div>
 										<div
 											class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-											style="top: 10px; left: 10px;">Fruits</div>
+											style="top: 10px; left: 10px;">${item.itemNum }</div>
 
 										<div
 											class="p-4 border border-secondary border-top-0 rounded-bottom">

@@ -2,19 +2,18 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<style>
-li{
-text-align : left
-
-}
-</style>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link
 	href="//cdn.datatables.net/2.0.2/css/dataTables.dataTables.min.css"
 	rel="stylesheet" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
+<style>
+li {
+	text-align: left
+}
+</style>
 <body>
 	<div class="container-fluid page-header py-5">
 		<h1 class="text-center text-white display-6">제품 상세페이지</h1>
@@ -29,26 +28,28 @@ text-align : left
 		<div class="container px-4 px-lg-5 my-5">
 			<div class="row gx-4 gx-lg-5 align-items-center">
 				<div class="col-md-6">
-					<img class=""
-						src="images/${item.itemImage }" alt="..." style="float:right; height:630px;"/>
+					<input type="hidden" value="${item.itemNum }" name="bno"> <img
+						class="" src="images/${item.itemImage }" alt="..."
+						style="float: right; height: 630px;" />
 				</div>
 				<div class="col-md-6">
 					<div class="small mb-1">${item.categoryName }</div>
 					<h1 class="display-5 fw-bolder">${item.itemName }</h1>
 					<div class="fs-5 mb-5">
-						<span class="text-decoration-line-through"></span>가격: <span><fmt:formatNumber value="${item.itemPrice }" pattern="#,###"/>원 </span>
+						<span class="text-decoration-line-through"></span>가격: <span><fmt:formatNumber
+								value="${item.itemPrice }" pattern="#,###" />원 </span>
 					</div>
 					<ul
 						class="box-border flex text-center border border-gray-300 rounded items-center py-6 mb-6">
 						<li
 							class="flex flex-col flex-1 basis-[25%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center">
-							<span class="text-xs font-normal text-jnGray-600 break-keep">제품상태: &emsp;</span>
-							<a>${item.itemStatus }</a>
+							<span class="text-xs font-normal text-jnGray-600 break-keep">제품상태:
+								&emsp;</span> <a>${item.itemStatus }</a>
 						</li>
 						<li
 							class="flex flex-col flex-1 basis-[25%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center">
-							<span class="text-xs font-normal text-jnGray-600 break-keep">거래방식: &emsp;</span>
-							<span>직거래</span>
+							<span class="text-xs font-normal text-jnGray-600 break-keep">거래방식:
+								&emsp;</span> <span>직거래</span>
 
 						</li>
 						<li
@@ -58,24 +59,26 @@ text-align : left
 						</li>
 						<li
 							class="flex flex-col flex-1 basis-[25%] px-3 sm:px-4 relative after:absolute [&amp;:not(:first-child)]:after:content-['']  after:bg-gray-300 after:h-[20px] [&amp;:not(:first-child)]:after:w-[1px] after:left-0 justify-center items-center">
-							<span class="text-xs font-normal text-jnGray-600 break-keep">안전거래: &emsp;</span>
-							<span>미사용</span>
+							<span class="text-xs font-normal text-jnGray-600 break-keep">안전거래:
+								&emsp;</span> <span>미사용</span>
 						</li>
 					</ul>
 					<p class="lead">${item.itemInfo }</p>
 					<div class="d-flex">
-						<button class="btn btn-outline-dark flex-shrink-0" type="button" style="margin:10px;" onclick="location.href='cartList.do'">
+						<button class="btn btn-outline-dark flex-shrink-0" type="button"
+							style="margin: 10px;" onclick="location.href='cartList.do'">
 							<i class="bi-cart-fill me-1"></i> 장바구니 담기
 						</button>
-						<button class="btn btn-outline-dark flex-shrink-0" type="button" style="margin:10px;" onclick="location.href='orderForm.do'">
+						<button class="btn btn-outline-dark flex-shrink-0" type="button"
+							style="margin: 10px;" onclick="location.href='orderForm.do'">
 							<i class=""></i> 바로 구매
 						</button>
 					</div>
-					
+
 					<!--가게정보  -->
-					
+
 				</div>
-				<div class="durlek" style="float: right; width: auto; height: auto; ">
+				<div class="durlek" style="float: right; width: auto; height: auto;">
 					<div class="basis-[420px]">
 						<div name="product-store" class="flex" style="width: auto;">
 
@@ -125,12 +128,12 @@ text-align : left
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
-		
+
 	</section>
 	<!-- 가게정보  -->
-	
+
 	<!-- Related items section-->
 	<section class="py-5 bg-light">
 		<div class="container px-4 px-lg-5 mt-5">

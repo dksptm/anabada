@@ -10,7 +10,7 @@ em.warning {
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">회원가입(추가수정 필요)</h1>
+	<h1 class="text-center text-white display-6">리뷰 등록</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item"><a href="#">Home</a></li>
 		<li class="breadcrumb-item"><a href="#">Pages</a></li>
@@ -19,6 +19,7 @@ em.warning {
 </div>
 <!-- Single Page Header End -->
 
+${addreview}
 <!-- Checkout Page Start -->
 <div class="container-fluid py-5">
 	<div class="container py-5">

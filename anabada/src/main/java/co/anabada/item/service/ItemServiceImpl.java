@@ -26,8 +26,8 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.getTotalCnt(search);
 	}
 	@Override
-	public Item Item(){
-		return mapper.Item();
+	public Item getItem(int in){
+		return mapper.selectItem(in);
 	}
 	
 	// 효주.

@@ -5,23 +5,24 @@
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
 
-  <select id="Item" resultType="Item"> 
- select       i.item_num,
-              i.category_id,
-              i.member_num,
-              i.item_name,
-              i.item_price,
-              i.item_image,
-              i.item_info,
-              i.item_status,
-              i.item_date,
-              m.member_id,
-              m.member_score,
-              c.category_name
-from item i 
-join member m on (i.member_num = m.member_num)
-join category c on (c.category_id = i.category_id)
-where item_num =101
+  <select id="selectItem" resultType="Item"> 
+           select       i.item_num,
+                        i.category_id,
+                        i.member_num,
+                        i.item_name,
+                        i.item_price,
+                        i.item_image,
+                        i.item_info,
+                        i.item_status,
+                        i.item_date,
+                        m.member_id,
+                        m.member_score,
+                        c.category_name
+          from item i 
+          join member m on (i.member_num = m.member_num)
+          join category c on (c.category_id = i.category_id)
+          where item_num = #{itemNum}
+
   </select>
   
  <select id="ItemList" resultType="Item" >

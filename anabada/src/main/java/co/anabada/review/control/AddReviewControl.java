@@ -27,6 +27,9 @@ public class AddReviewControl implements Control {
 		
 		ReviewService svc = new ReviewServiceImpl();
 		svc.addreview(review);
+	    
+		req.setAttribute("review", review);
+		System.out.println(review);
 		
 		String path = "review/reviewList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);

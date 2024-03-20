@@ -65,7 +65,7 @@
 				<h1 class="mb-0">인기상품</h1>
 				<div class="owl-carousel vegetable-carousel justify-content-center">
 					<c:forEach items="${likeList }" var="item">
-						<div class="border border-primary rounded position-relative vesitable-item">
+						<div class="border border-primary rounded position-relative vesitable-item" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 							<div class="vesitable-img">
 								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
@@ -100,7 +100,7 @@
 				<h1 class="mb-0">최근 등록된 상품</h1>
 				<div class="owl-carousel vegetable-carousel justify-content-center">
 					<c:forEach items="${recentList }" var="item">
-						<div class="border border-primary rounded position-relative vesitable-item">
+						<div class="border border-primary rounded position-relative vesitable-item" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 							<div class="vesitable-img">
 								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">

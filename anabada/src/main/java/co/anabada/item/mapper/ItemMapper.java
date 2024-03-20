@@ -12,7 +12,7 @@ public interface ItemMapper {
 	List<Item> ItemList();
 	Item selectItem(int ino);
 	int getTotalCnt(SearchVO search);
-	Item Item();
+	Item Item(int in);
 	
 	// 효주.
 	int insertItem(Item item);
