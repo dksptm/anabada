@@ -20,7 +20,7 @@ public class RemoveCartControl implements Control {
 		 CartService svc = new CartServiceImpl();
 		 
 		 if(svc.removeCart(cartNum)) {
-			 resp.sendRedirect("cartRemove.do");
+			 resp.sendRedirect("removeCart.do");
 		 } else {
 			 req.setAttribute("message", "삭제 중 에러가 발생했습니다.");
 			 String path = "anabada/errors.tiles";

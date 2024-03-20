@@ -30,7 +30,6 @@ public class ReviewListControl implements Control {
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
 		
-		
 	}
 
 }

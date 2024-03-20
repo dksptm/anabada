@@ -25,39 +25,35 @@
 					<tr>
 						<th scope="col">주문번호</th>
 						<th scope="col">이미지</th>
-						<th scope="col">회원명</th>
+						<!-- <th scope="col">판매자</th> -->
 						<th scope="col">상품명</th>
 						<th scope="col">가격</th>
-<!-- 						<th scope="col">갯수</th> -->
 						<th scope="col">삭제</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="cart" items="${list }">
+					<c:forEach var="cart" items="${list}">
 						<tr>
 							<td>
-								<p class="mb-0 mt-4">${cart.cartNum }</p>
+								<p class="mb-0 mt-4"> ${cart.cartNum }</p>
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">
-									<img src="img/vegetable-item-3.png"
+									<img src="itemimages/${cart.itemImage }"  
 										class="img-fluid me-5 rounded-circle"
 										style="width: 80px; height: 80px;" alt="">
 								</div>
 							</th>
+<%-- 							<td>
+								<p class="mb-0 mt-4">${cart.memberName}</p>
+							</td> --%>
 							<td>
-								<p class="mb-0 mt-4">${cart.memberName }</p>
-							</td>
-							<td>
-								<p class="mb-0 mt-4">${cart.itemName }</p>
+								<p class="mb-0 mt-4">${cart.itemName}</p>
 							</td>
 							<td>
 								<p class="mb-0 mt-4">${cart.itemPrice }</p>
 							</td>
 
-							<td>
-								<p class="mb-0 mt-4"></p>
-							</td>
 							<td>
 								<button class="btn btn-md rounded-circle bg-light border mt-4" onclick="deleteCart()">
 									<i class="fa fa-times text-danger"></i>

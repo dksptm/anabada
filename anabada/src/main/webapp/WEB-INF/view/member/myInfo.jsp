@@ -48,16 +48,14 @@ th {
 						<th>계좌</th>
 					</tr>
 				</thead>
-				<tbody>
-					<c:forEach items="${myInfoList}" var="item">
+				<tbody class= "${myInfoList}" >
 						<tr>
-							<td>${item.memberNum}</td>
-							<td>${item.memberName}</td>
-							<td>${item.memberId}</td>
-							<td>${item.memberPhone}</td>
-							<td>${item.accountNum}</td>
+							<td>${myInfoList.memberNum}</td>
+							<td>${myInfoList.memberName}</td>
+							<td>${myInfoList.memberId}</td>
+							<td>${myInfoList.memberPhone}</td>
+							<td>${myInfoList.accountNum}</td>
 						</tr>
-					</c:forEach>
 				</tbody>
 			</table>
 		</div>

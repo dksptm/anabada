@@ -2,18 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!-- Single Page Header start -->
-<div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">후기</h1>
-	<ol class="breadcrumb justify-content-center mb-0">
-		<!-- <li class="breadcrumb-item"><a href="#" onclick="">cartList<i class="fas fa-star"></i></a></li> -->
-		<li class="breadcrumb-item active text-white">reviewList.do</li>
-	</ol>
-</div>
-<!-- Single Page Header End -->
-<html>
-<body>
-	<!-- Projects Section-->
+<form action="removeReview.do">	
 	<section class="py-5">
 		<div class="container px-5 mb-5">
 			<div class="text-center mb-5">
@@ -53,33 +42,17 @@
 			</div>
 		</div>
 	</section>
-	
-</body>
-</html>
+</form>
 
-
-
-
-
-
-<!-- <button type="submit" class="btn btn-primary">삭제</button> -->
-<%-- <c:forEach begin="1" end="${review.reviewScore }">
-					<div class="bi-star-fill"></div>
-				</c:forEach> --%>
 
 <script>
+const reviewNum = "${review.reviewNum }";
 
-$.ajax({
-    url: 'reviewList.do',
-    method: 'post',
-    dataType: 'json'
-  })
-  .done(result => {
-    result.forEach(review => {
-    })
-  })
-  .fail(err => console.log(err))
 
+function removefunc() {
+	let form = document.querySelector('form');
+}
+
+
+	
 </script>
-
-

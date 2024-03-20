@@ -10,4 +10,7 @@ public interface ReviewMapper {
 	// 목록
 	List<Review> reviewList();
 	Item  addreviewList();
+	
+	// 삭제
+	int deleteReview(String reviewNum);
 }
