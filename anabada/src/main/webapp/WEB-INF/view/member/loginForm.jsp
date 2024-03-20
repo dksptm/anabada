@@ -4,7 +4,7 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">로그인(추가수정 필요)</h1>
+	<h1 class="text-center text-white display-6">로그인(완료)</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item"><a href="#">Home</a></li>
 		<li class="breadcrumb-item"><a href="#">Pages</a></li>
@@ -22,13 +22,13 @@
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item">
 						<label class="form-label my-3" for="member_id">이메일<sup>*</sup></label> 
-						<input type="text" class="form-control" name="member_id" id="member_id" 
+						<input type="text" required class="form-control" name="member_id" id="member_id" 
 						value="<c:out value="${empty member_id ? '' : member_id}"></c:out>">
 						
 					</div>
 					<div class="form-item">
 						<label class="form-label my-3" for="member_pw">비밀번호<sup>*</sup></label> <input
-							type="text" class="form-control" name="member_pw" id="member_pw">
+							type="text" class="form-control" name="member_pw" id="member_pw" required>
 					</div>
 					<div class="d-flex text-center align-items-center justify-content-between pt-4">
 						<button type="submit" id="signBtn" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">로그인</button>
