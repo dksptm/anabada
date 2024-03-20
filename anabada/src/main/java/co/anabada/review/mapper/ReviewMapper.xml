@@ -31,6 +31,17 @@
      where item_num = 1
 
 	</select>
+	
+	<select id="insertreview" resultType="review">
+		insert into review (order_num,
+                    review_score,
+                    review_comment)
+        values      (1,
+                     5,
+                    #{reviewComment})
+
+
+	</select>
 
 
 </mapper>

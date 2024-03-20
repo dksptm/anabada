@@ -191,6 +191,8 @@
 		</div>
 	</div>
 </div>
-</div>
-</div>
+
+<script>
+
+</script>
 <!-- Fruits Shop End-->
