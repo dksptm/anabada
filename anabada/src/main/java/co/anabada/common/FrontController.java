@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.anabada.review.control.AddReviewControl;
 import co.anabada.review.control.AddReviewForm;
 import co.anabada.review.control.RemoveReviewControl;
+import co.anabada.review.control.RemoveReviewForm;
 import co.anabada.review.control.ReviewListControl;
 import co.anabada.order.control.OrderForm;
 import co.anabada.purchase.control.PurchaseListControl;
@@ -43,6 +44,7 @@ import co.anabada.item.control.AddItemForm;
 import co.anabada.item.control.CategoryListControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
+import co.anabada.test.TestPageControl;
 
 
 public class FrontController extends HttpServlet {
@@ -60,6 +62,7 @@ public class FrontController extends HttpServlet {
 		// 효주.
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
+		controls.put("/testPage.do", new TestPageControl());
 		controls.put("/testAjax.do", new TestAjaxControl()); // 멤버관련.
 		controls.put("/signUpForm.do", new SignUpForm());
 		controls.put("/signUp.do", new SignUpControl());
@@ -77,19 +80,20 @@ public class FrontController extends HttpServlet {
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl()); // 장바구니 리스트
-		controls.put("/AddCart.do", new AddCartControl());
-		controls.put("/RemoveCart.do", new RemoveCartControl()); // 장바구니상품삭제
-		controls.put("/RemoveCartForm.do", new RemoveCartForm()); // 
+		controls.put("/addCart.do", new AddCartControl());
+		controls.put("/removeCart.do", new RemoveCartControl()); // 장바구니상품삭제
+		controls.put("/removeCartForm.do", new RemoveCartForm()); // 
 		
 		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게
 		controls.put("/myPage.do", new MypageControl()); // 마이페이지
 		controls.put("/myInfo.do", new MyInfoControl()); // 내 정보
-	
+		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
 		controls.put("/addreview.do", new AddReviewControl());
 		controls.put("/addreviewForm.do", new AddReviewForm());
 		controls.put("/RemoveReview.do", new RemoveReviewControl());
+		controls.put("/removeReviewForm.do", new RemoveReviewForm());
 		
 		// 주완.
 		controls.put("/diaryForm.do",   new DiaryForm());

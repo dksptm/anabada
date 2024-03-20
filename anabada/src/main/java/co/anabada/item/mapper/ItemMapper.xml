@@ -42,20 +42,26 @@
 	<!-- ㅎㅈ -->
 	<insert id="insertItem" parameterType="Item">
 		INSERT INTO
-		item(category_id
+		item(item_num
+		,category_id
 		,member_num
 		,item_name
 		,item_price
 		,item_image
 		,item_info
-		,item_status)
-		VALUES(#{categoryId}
+		,item_status
+		,p_select
+		,d_select)
+		VALUES(item_num_seq.nextval
+		,#{categoryId}
 		,#{memberNum}
 		,#{itemName}
 		,#{itemPrice}
 		,#{itemImage}
 		,#{itemInfo}
-		,#{itemStatus})
+		,#{itemStatus}
+		,#{pSelect}
+		,#{dSelect})
 	</insert>
 
 	<select id="recentItem" resultType="Item">
@@ -103,7 +109,7 @@
 		,parent_category
 		FROM category
 		START WITH parent_category
-		IS NULL
+		IS NULL	
 		CONNECT BY PRIOR category_id = parent_category
 	</select>
 

@@ -29,7 +29,6 @@
            c.parent_category
      from  item i join category c on (i.category_id = c.category_id)
      where item_num = 1
-
 	</select>
 	
 	<insert id="insertreview" parameterType="review">
@@ -43,5 +42,9 @@
 
 	</insert>
 
+	<delete id="deleteReview" parameterType="int">
+	DELETE review
+	WHERE review_num = #{reviewNum}
+	</delete>
 
 </mapper>

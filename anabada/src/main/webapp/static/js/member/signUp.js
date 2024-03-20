@@ -3,20 +3,18 @@
  */
 
 console.log('signUp.js')
- 
-let chk; 
- 
+
+let idDupl = false;
+let emptyChk = false;
+	
 $(document).ready(function(e){
 	
 	// 일단 버튼 비활성화.
 	$('#signBtn').prop('disabled', true);
 	
-	// 공백체크
-	$("input").not('input#Account-1').on('blur', emptyChk);
-	
-	// 비번체크
+	// 비번체크.
 	$("#member_pw").on('propertychange change keyup paste input blur', function(e){
-		if($(this).val().length < 4){
+		if($(this).val().length < 4 || $(this).val() == null){
 			$(this).next().text("비밀번호는 4자리 이상입력.").addClass('warning');
 		} else {
 			$(this).next().text("").removeClass('warning');
@@ -28,6 +26,7 @@ $(document).ready(function(e){
 			}
 		}
 	})
+	
 	// 비번 재확인.
 	$("#member_pw2").on('propertychange change keyup paste input blur', function(e){
 		if($(this).val() != $("#member_pw").val()){
@@ -37,10 +36,10 @@ $(document).ready(function(e){
 		}
 	})
 	
-	// 정규식확인. 
-	$('#member_phone').on('blur', function(e){
-		let phone = $(this).val();
+	// 휴대폰 정규식확인. 
+	$('#member_phone').on('blur change keyup', function(e){
 		let phoneRule = /^(01[0-9]{1}-?[0-9]{4}-?[0-9]{4}|01[0-9]{8})$/;;
+		let phone = $(this).val();
 		if(!phoneRule.test(phone)){
 			$(this).next().text("하이픈사용 휴대폰번호를 입력.").addClass('warning');
 		} else {
@@ -49,79 +48,79 @@ $(document).ready(function(e){
 	})
 	
 	// 아이디 중복체크.
-	let chkid = false;
-	let myId; 
-	let inputId;
+	$('#idChk').on('click', idChkFnc);
+
+	// 만약 아이디 중복검사후 변경하면.
 	$('#member_id').on('change keyup blur', function(e){
-		inputId = $('#member_id').val();
+		idDupl = false;
 		$('#Account-1').prop('checked', false);
 		$('#signBtn').prop('disabled', true);
 	})
-	$('#idChk').on('click', function(e){
-		inputId = $('#member_id').val();
-		console.log(inputId)
-		if(!inputId){
-			alert('이메일을 입력해주세요.');
-			return;
-		}
-		let format = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-		if(!format.test(inputId)){
-			alert('이메일을 형식이 아닙니다.');
-			return;
-		}
-		$.ajax({
-			url: 'idchk.do?id=' + inputId,
-			method: 'get',
-			dataType: 'json'
-		})
-		.done(result => {
-			if(result.retCode == 'OK') {
-				console.log(result);
-				alert('중복검사 성공. 이 아이디로 설정.');
-				chkid = true;
-				myId = inputId;
-			} else {
-				console.log(result)
-				alert('실패')
-				$('#member_id').val('');
-			}
-		})
-		.fail(err => {console.log(err)}) 
-		
-	});
+	
+	// 공백체크.
+	$('#Account-1').on('change', isEmpty);
 	
 	// 버튼활성화
 	$('#Account-1').on('change', function(e){
-		if(!$("input").not('input#Account-1').not('input#member_id').val()){
+		isEmpty();
+		//console.log(emptyChk);
+		$(this).prop('checked', false);
+		$('#signBtn').prop('disabled', true);
+		if(!emptyChk){
 			alert('정보입력.');
-			$(this).prop('checked', false);
-			return;
-		}
-		if(this.checked){
-			if($('em').hasClass('warning') == false){
-				if(chkid && myId == inputId){
-					$('#signBtn').prop('disabled', false);
-				} else {
-					alert('중복체크 해야함.');
-					$(this).prop('checked', false);
-				}
-			} else {
-				console.log($('em').hasClass('warning'))
-				console.log($('em'));
-				alert('다시 확인.');
-				$(this).prop('checked', false);
-			}
+		} else if (!idDupl) {
+			alert('이메일 중복체크.');
+		} else if ($('em').hasClass('warning')) {
+			alert('이메일 중복체크.');
+		} else {
+			$(this).prop('checked', true);
+			$('#signBtn').prop('disabled', false);
 		}
 	})
-	
 })
 
-function emptyChk(e){
-	if(e.target.value == ''){
-		$(this).next().text("필수입력값입니다.").addClass('warning');
-	} else{
-		$(this).next().text("").removeClass('warning');
-		chk = true;
-	}
+// 공백체크 함수.
+function isEmpty(){
+	let formInput = $('#sign input[type=text]');
+	formInput.each((e, ele) => {
+		if(ele.value == ''){
+			$('#Account-1').prop('checked', false);
+			$('#signBtn').prop('disabled', true);
+			emptyChk = false;
+			return;
+		}
+		emptyChk = true;
+	})
 }
+
+// 아이디 중복체크 함수.
+function idChkFnc(){
+	let inputId = $('#member_id').val();
+	if(!inputId){
+		alert('이메일 입력.');
+		return;
+	}
+	let emailRule = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+	if(!emailRule.test(inputId)){
+		alert('이메일형식 아님.');
+		return;
+	}
+	$.ajax({
+		url: 'idchk.do?id=' + inputId,
+		method: 'get',
+		dataType: 'json'
+	})
+	.done(result => {
+		if(result.retCode == 'OK'){
+			idDupl = true;
+			alert('중복검사 성공.');
+		} else {
+			alert('이미 있는 이메일.');
+			$('#member_id').val('')
+		}
+	})
+	.fail((err) => console.log(err));
+}
+
+
 
