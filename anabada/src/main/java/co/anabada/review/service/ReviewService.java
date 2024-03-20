@@ -10,6 +10,9 @@ public interface ReviewService {
 	// 후기목록
 	List<Review> reviewList();
 	Item addreviewList();
+	boolean addreview(Review review);
 	
+	// 삭제
+	boolean removeReview(String reviewNum);
 	
 }

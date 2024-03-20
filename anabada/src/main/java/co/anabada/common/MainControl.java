@@ -22,14 +22,14 @@ public class MainControl implements Control {
 		List<Item> likeList = ivc.likeItem();
 		
 		//영재
-		Item item = new Item();
-		item = ivc.Item();
+//		Item item = new Item();
+//		item = ivc.Item();
 		
 		if(recentList.size() != 0 && likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
 			//영재
-			req.setAttribute("item", item);
+//			req.setAttribute("item", item);
 			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {

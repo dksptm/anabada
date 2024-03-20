@@ -5,54 +5,64 @@
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
 
-	<select id="Item" resultType="Item">
-		select i.item_num,
-		i.category_id,
-		i.member_num,
-		i.item_name,
-		i.item_price,
-		i.item_image,
-		i.item_info,
-		i.item_status,
-		i.item_date,
-		m.member_id,
-		m.member_score
-		from item i
-		join member m on (i.member_num = m.member_num)
-		where item_num =1
-	</select>
 
-	<select id="ItemList" resultType="Item">
-		select item_num,
-		category_id,
-		member_num,
-		item_name,
-		item_price,
-		item_image,
-		item_info,
-		item_status,
-		item_date
-		from item
-	</select>
+  <select id="selectItem" resultType="Item"> 
+           select       i.item_num,
+                        i.category_id,
+                        i.member_num,
+                        i.item_name,
+                        i.item_price,
+                        i.item_image,
+                        i.item_info,
+                        i.item_status,
+                        i.item_date,
+                        m.member_id,
+                        m.member_score,
+                        c.category_name
+          from item i 
+          join member m on (i.member_num = m.member_num)
+          join category c on (c.category_id = i.category_id)
+          where item_num = #{itemNum}
+
+  </select>
+  
+ <select id="ItemList" resultType="Item" >
+    select    item_num,
+              category_id,
+              member_num,
+              item_name,
+              item_price,
+              item_image,
+              item_info,
+              item_status,
+              item_date
+      from    item
+      </select>
 
 
 	<!-- ㅎㅈ -->
 	<insert id="insertItem" parameterType="Item">
 		INSERT INTO
-		item(category_id
+		item(item_num
+		,category_id
 		,member_num
 		,item_name
 		,item_price
 		,item_image
 		,item_info
-		,item_status)
-		VALUES(#{categoryId}
+		,item_status
+		,p_select
+		,d_select)
+		VALUES(item_num_seq.nextval
+		,#{categoryId}
 		,#{memberNum}
 		,#{itemName}
 		,#{itemPrice}
 		,#{itemImage}
 		,#{itemInfo}
-		,#{itemStatus})
+		,#{itemStatus}
+		,#{pSelect}
+		,#{dSelect})
 	</insert>
 
 	<select id="recentItem" resultType="Item">
@@ -100,7 +110,7 @@
 		,parent_category
 		FROM category
 		START WITH parent_category
-		IS NULL
+		IS NULL	
 		CONNECT BY PRIOR category_id = parent_category
 	</select>
 

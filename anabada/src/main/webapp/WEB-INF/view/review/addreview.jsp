@@ -6,40 +6,48 @@
 div {
 	text-align: center;
 }
-#myform fieldset{
-    display: inline-block;
-    direction: rtl;
-    border:0;
+
+#myform fieldset {
+	display: inline-block;
+	direction: rtl;
+	border: 0;
 }
-#myform fieldset legend{
-    text-align: right;
+
+#myform fieldset legend {
+	text-align: right;
 }
-#myform input[type=radio]{
-    display: none;
+
+#myform input[type=radio] {
+	display: none;
 }
-#myform label{
-    font-size: 3em;
-    color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
+
+#myform label {
+	font-size: 3em;
+	color: transparent;
+	text-shadow: 0 0 0 #f0f0f0;
 }
-#myform label:hover{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+
+#myform label:hover {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#myform label:hover ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+
+#myform label:hover ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
-#myform input[type=radio]:checked ~ label{
-    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+
+#myform input[type=radio]:checked ~ label {
+	text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
 }
+
 #reviewContents {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: solid 1.5px #D3D3D3;
-    border-radius: 5px;
-    font-size: 16px;
-    resize: none;
+	width: 100%;
+	height: 150px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 1.5px #D3D3D3;
+	border-radius: 5px;
+	font-size: 16px;
+	resize: none;
 }
 </style>
 <!-- Single Page Header start -->
@@ -53,9 +61,9 @@ div {
 </div>
 <div class="my-review-write" id="reviewWrap">
 	<!-- 상품 -->
-	<div class="n-prd-row">
-		<a href="http://localhost:8080/anabada/item.do" class="img-block"> <img
-			src="images/${item.itemImage }" alt="">
+	<div class="">
+		<a href="http://localhost:8080/anabada/item.do" class="img-block">
+			<img src="images/${item.itemImage }" alt="">
 		</a>
 		<ul class="info">
 			<li class="brand"><a href="">${item.categoryName }</a></li>
@@ -66,37 +74,23 @@ div {
 	</div>
 	<!-- //상품 -->
 
-	<!-- 별점 -->
-	<!-- <div class="review-score" id="reviewScorePos">
-		<em class="label">별점을 매겨주세요</em>
-		<div class="n-score score-lg clickable goods_est_area"
-			id="startScoreWrap">
-			<a href="#" class="score score10" data-star="5"></a> <a href="#"
-				class="score score8" data-star="4"></a> <a href="#"
-				class="score score6" data-star="3"></a> <a href="#"
-				class="score score4" data-star="2"></a> <a href="#"
-				class="score score2" data-star="1"></a>
-		</div>
-	</div> -->
-	<link href="/assets/css/star.css" rel="stylesheet"/>
 
- 	<form class="mb-3" name="myform" id="myform" method="post">
-	<fieldset>
-		<span class="text-bold">별점을 선택해주세요</span>
-		<input type="radio" name="reviewStar" value="5" id="rate1"><label
-			for="rate1">★</label>
-		<input type="radio" name="reviewStar" value="4" id="rate2"><label
-			for="rate2">★</label>
-		<input type="radio" name="reviewStar" value="3" id="rate3"><label
-			for="rate3">★</label>
-		<input type="radio" name="reviewStar" value="2" id="rate4"><label
-			for="rate4">★</label>
-		<input type="radio" name="reviewStar" value="1" id="rate5"><label
-			for="rate5">★</label>
-	</fieldset>
-	
-</form>							
-	
+	<link href="/assets/css/star.css" rel="stylesheet" />
+
+	<form class="mb-3" name="myform" id="myform" method="post">
+		<fieldset>
+			<span class="text-bold">별점을 선택해주세요</span> <input type="radio"
+				name="reviewStar" value="5" id="rate1"><label for="rate1">★</label>
+			<input type="radio" name="reviewStar" value="4" id="rate2"><label
+				for="rate2">★</label> <input type="radio" name="reviewStar"
+				value="3" id="rate3"><label for="rate3">★</label> <input
+				type="radio" name="reviewStar" value="2" id="rate4"><label
+				for="rate4">★</label> <input type="radio" name="reviewStar"
+				value="1" id="rate5"><label for="rate5">★</label>
+		</fieldset>
+
+	</form>
+
 	<!-- 구매만족도 -->
 	<dl class="review-satisfaction-form">
 		<dt class="review-satisfaction-form__title satisfactionTitle">member_name님과의
@@ -160,6 +154,7 @@ div {
 
 
 	<!-- 후기 작성 -->
+
 	<div class="review-write--v2">
 		<div class="review-share">
 			<h2>내용</h2>
@@ -186,9 +181,12 @@ div {
 
 
 	<div class="n-btn-group">
-		<button type="button" class="n-btn btn-accent" id="btnSave">등록</button>
+		<form action="reviewList.do" method="post" id="addrievew">
+			<button type="submit" class="addreviewBtn" id="btnSave">등록</button>
+		</form>
 	</div>
 </div>
+
 
 <script>
 const rateWrap = document.querySelectorAll('.rating'),

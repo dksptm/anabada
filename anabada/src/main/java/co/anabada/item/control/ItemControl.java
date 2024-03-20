@@ -17,15 +17,15 @@ public class ItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "item/item2.tiles";
+		String path = "item/itemTest.tiles";
+		String in = req.getParameter("itemNum");
 		
 		// path = item.do 
-		ItemService svc = new ItemServiceImpl();
-		Item item = new Item();
-		item = svc.Item();
+		ItemService svc = new ItemServiceImpl();// 서비스 
+		Item item = new Item(); // 아이템 객채
+		item = svc.getItem(Integer.parseInt(in));
 		
 		req.setAttribute("item", item);
-		
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		//dispatch = item.do
 		
