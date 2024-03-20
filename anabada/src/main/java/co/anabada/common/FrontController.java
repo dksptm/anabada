@@ -43,6 +43,7 @@ import co.anabada.item.control.AddItemForm;
 import co.anabada.item.control.CategoryListControl;
 import co.anabada.test.TestAjaxControl;
 import co.anabada.test.TestControl;
+import co.anabada.test.TestPageControl;
 
 
 public class FrontController extends HttpServlet {
@@ -60,6 +61,7 @@ public class FrontController extends HttpServlet {
 		// 효주.
 		controls.put("/main.do", new MainControl());
 		controls.put("/test.do", new TestControl());
+		controls.put("/testPage.do", new TestPageControl());
 		controls.put("/testAjax.do", new TestAjaxControl()); // 멤버관련.
 		controls.put("/signUpForm.do", new SignUpForm());
 		controls.put("/signUp.do", new SignUpControl());

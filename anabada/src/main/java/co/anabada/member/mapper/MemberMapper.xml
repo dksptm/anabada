@@ -17,14 +17,20 @@
 	</select>
 
 	<insert id="insertMember" parameterType="member">
-		INSERT INTO member (member_id,
+		INSERT INTO member (
+		member_num,
+		member_id,
 		member_password,
 		member_name,
-		member_phone)
-		VALUES (#{memberId},
+		member_phone
+		)
+		VALUES (
+		member_num_seq.nextval,
+		#{memberId},
 		#{memberPassword},
 		#{memberName},
-		#{memberPhone})
+		#{memberPhone}
+		)
 	</insert>
 
 	<select id="selectMember" parameterType="string">
