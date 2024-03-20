@@ -33,11 +33,9 @@
                                 </div>
                                 <div class="col-md-12 col-lg-6">
                                     <div class="form-item w-100">
-                                        <label class="form-label my-3" for="cate">카테고리<sup>*</sup></label>
-                        				<select class="form-select" name="cate" id="cate">
+                                        <label class="form-label my-3" for="myCate">카테고리<sup>*</sup></label>
+                        				<select class="form-select" name="myCate" id="myCate">
   											<option>선택하세요</option>
-											<option value="t1">반팔</option>
-											<option value="t2">긴팔</option>
 										</select>
                                     </div>
                                 </div>
@@ -79,14 +77,6 @@
 	                        	</table>
 	                        </div>
 	                        <hr>
-	                        <div class="form-item">
-	                        	<label class="form-label my-3" for="account">계좌번호</label>
-	                        	<select class="form-select" id="account">
-									<option>나중에 데이터 가져와야함</option>
-	  								<option>111-1111-1111</option>
-	  								<option>222-2222-2222</option>
-								</select>
-	                        </div>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
 	                        	<button type="submit" id="signBtn" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품등록</button>
 								<button type="reset" class="btn btn-outline-dark py-3 px-4 w-100 text-primary">나가기</button>
@@ -97,3 +87,5 @@
             </div>
         </div>
         <!-- Checkout Page End -->
+        
+        <script src="static/js/item/additem.js"></script>
