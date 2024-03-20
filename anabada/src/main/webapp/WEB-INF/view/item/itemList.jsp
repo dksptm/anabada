@@ -76,7 +76,10 @@
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>상의</a> <span>(5)</span>
+
+												<a href="#"><i data-cid="t" class="fas fa-apple-alt me-2"></i>상의</a>
+												<span >()</span>
+
 											</div>
 										</li>
 										<li>
