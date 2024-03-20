@@ -16,10 +16,12 @@
               i.item_status,
               i.item_date,
               m.member_id,
-              m.member_score
+              m.member_score,
+              c.category_name
 from item i 
 join member m on (i.member_num = m.member_num)
-where item_num =1
+join category c on (c.category_id = i.category_id)
+where item_num =101
   </select>
   
  <select id="ItemList" resultType="Item" >

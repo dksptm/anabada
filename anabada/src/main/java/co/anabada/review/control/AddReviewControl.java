@@ -18,17 +18,17 @@ public class AddReviewControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		
-//		int orderNum = Integer.parseInt(req.getParameter("order_num"));
-//		int reviewScore = Integer.parseInt(req.getParameter("review_score"));
+		String orderNum = req.getParameter("order_num");
+		String reviewScore = req.getParameter("review_score");
 		String reviewComment = req.getParameter("review_comment");
 		
 //		Review review = new Review(orderNum, reviewScore, reviewComment);
-		Review review = new Review(reviewComment);
+		Review review = new Review(Integer.parseInt(orderNum),Integer.parseInt(reviewScore),reviewComment);
 		
 		ReviewService svc = new ReviewServiceImpl();
-		svc.insertreview(review);
+		svc.addreview(review);
 		
-		String path = "review/addreview.tiles";
+		String path = "review/reviewList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		//dispatch = item.do
 		

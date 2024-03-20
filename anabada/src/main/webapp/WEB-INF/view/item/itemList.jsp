@@ -116,16 +116,16 @@
 							<!-- 조회화면 -->
 					
 
-
+${itemList }
 
 							<div class="col-lg-12"></div>
 						</div>
 					</div>
 
 					<div class="col-lg-9">
-						<div class="row g-4 justify-content-center">
+						<div class="row g-4 justify-content-center" >
 							<c:forEach items="${itemList }" var="item">
-								<div class="col-md-6 col-lg-6 col-xl-4">
+								<div class="col-md-6 col-lg-6 col-xl-4" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 									<div class="rounded position-relative fruite-item">
 										<div class="fruite-img">
 

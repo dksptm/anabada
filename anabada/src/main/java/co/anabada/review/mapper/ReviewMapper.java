@@ -10,5 +10,5 @@ public interface ReviewMapper {
 	// 목록
 	List<Review> reviewList();
 	Item  addreviewList();
-	Review insertreview(Review review);
+	int insertreview(Review review);
 }

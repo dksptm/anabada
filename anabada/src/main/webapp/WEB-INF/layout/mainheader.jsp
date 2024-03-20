@@ -43,7 +43,7 @@
 									<a href="shopInfo.do" class="dropdown-item">가게정보(판매자정보)(ㅈㄱ)</a>
 									<a href="myPage.do" class="dropdown-item">마이페이지(ㅈㄱ)</a>
 									<a href="#" class="dropdown-item">내정보페이지(ㅈㄱ)</a>
-									<a href="addreview.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
+									<a href="addreviewForm.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 								</div>
 							</div>
 						</div>

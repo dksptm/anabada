@@ -19,7 +19,4 @@ public class Review {
 		this.reviewScore = reviewScore;
 		this.reviewComment = reviewComment;
 	}
-
-	public Review(String reviewComment2) {
-	}
 }

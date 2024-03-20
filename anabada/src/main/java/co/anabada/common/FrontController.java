@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.review.control.AddReviewControl;
+import co.anabada.review.control.AddReviewForm;
 import co.anabada.review.control.RemoveReviewControl;
 import co.anabada.review.control.ReviewListControl;
 import co.anabada.order.control.OrderForm;
@@ -87,6 +88,7 @@ public class FrontController extends HttpServlet {
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
 		controls.put("/addreview.do", new AddReviewControl());
+		controls.put("/addreviewForm.do", new AddReviewForm());
 		controls.put("/RemoveReview.do", new RemoveReviewControl());
 		
 		// 주완.

@@ -17,7 +17,7 @@ public class ItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "item/item2.tiles";
+		String path = "item/itemTest.tiles";
 		
 		// path = item.do 
 		ItemService svc = new ItemServiceImpl();
@@ -25,7 +25,7 @@ public class ItemControl implements Control {
 		item = svc.Item();
 		
 		req.setAttribute("item", item);
-		
+		System.out.println(item);
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		//dispatch = item.do
 		

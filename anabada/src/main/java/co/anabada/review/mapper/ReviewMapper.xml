@@ -32,16 +32,16 @@
 
 	</select>
 	
-	<select id="insertreview" resultType="review">
+	<insert id="insertreview" parameterType="review">
 		insert into review (order_num,
-                    review_score,
-                    review_comment)
-        values      (1,
-                     5,
-                    #{reviewComment})
+                            review_score,
+                            review_comment)
+        values             (1,
+                            #{reviewScore},
+                            #{reviewComment})
 
 
-	</select>
+	</insert>
 
 
 </mapper>

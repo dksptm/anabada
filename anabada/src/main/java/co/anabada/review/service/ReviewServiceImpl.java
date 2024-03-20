@@ -21,8 +21,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.addreviewList();
 	}
 	@Override
-	public Review insertreview(Review review) {
-		return mapper.insertreview(review);
+	public boolean addreview(Review review) {
+		return mapper.insertreview(review) == 1;
 	}
 
 }
