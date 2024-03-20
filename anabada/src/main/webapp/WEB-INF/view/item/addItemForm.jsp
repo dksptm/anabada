@@ -17,9 +17,11 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <h1 class="row mb-4 justify-content-center">상품을 등록하세요.</h1>
-                <form action="addItem.do" method="post" enctype="multipart/form-data">
+                <form action="addItem.do" method="post" enctype="multipart/form-data" onsubmit="data_select()">
                 	<input type="hidden" value="${member.memberNum }" name="mem_num">
                 	<input type="hidden" value="판매중" name="status">
+                	<input type="hidden" value="" name="d_select">
+                	<input type="hidden" value="" name="o_select">
                     <div class="row g-5 justify-content-center">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="row justify-content-between">
@@ -52,14 +54,29 @@
 	                        <hr>
 	                        <div class="form-item">
 		                        <div class="form-check my-3">
-	                                <input class="form-check-input bg-primary" type="checkbox" id="taec" name="taec" value="taec">
-	                                <label class="form-check-label" for="taec">택배거래</label>
+	                                <input class="form-check-input bg-primary" type="checkbox" name="d_select" value="taek">
+	                                <label class="form-check-label" for="taek">택배거래</label>
 		                        </div>
 	                        </div>
 	                        <div class="form-item">
-	                            <input class="form-check-input bg-primary" type="checkbox" id="jic" name="jic" value="jic">
-	                        	<label class="form-check-label me-5" for="jic">직거래</label>
+	                            <input class="form-check-input bg-primary" type="checkbox" name="d_select" value="jik">
+	                        	<label class="form-check-label me-5" for="jik">직거래</label>
 		                        <button type="button" id="jido" class="btn btn-outline-info btn-sm">장소추가</button>
+	                        </div>
+	                        <hr>
+	                        <div class="form-item">
+	                        	<table>
+	                        		<tr class="align-items-center justify-content-between">
+			                        	<th class="w-50">
+			                                <input class="form-check-input bg-primary o_select" name="d_select" type="radio" value="negoOK">
+			                                <label class="form-check-label" for="d_select">네고불가</label>
+			                        	</th>
+			                        	<th class="w-50">
+				                            <input class="form-check-input bg-primary o_select" name="d_select" type="radio" value="negoNG">
+				                        	<label class="form-check-label me-5" for="d_select">네고가능</label>		                        	
+			                        	</th>
+		                        	</tr>
+	                        	</table>
 	                        </div>
 	                        <hr>
 	                        <div class="form-item">

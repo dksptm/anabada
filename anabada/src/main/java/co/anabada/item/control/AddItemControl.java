@@ -42,7 +42,6 @@ public class AddItemControl implements Control {
 		String info = multi.getParameter("info");
 		String status = multi.getParameter("status");
 		String img = multi.getFilesystemName("img"); // 변경된 이미지파일의 이름.
-		
 		// 아이템 인스턴스 생성(ivc.addItem()에 넣기위함).
 		Item item = new Item(cate, Integer.parseInt(memNum), name, Integer.parseInt(price), img, info, status);
 		
