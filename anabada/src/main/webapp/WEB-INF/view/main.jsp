@@ -71,11 +71,11 @@
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-								${item.categoryId }</div>
+								${item.categoryName }</div>
 							<div class="p-4 rounded-bottom">
 								<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
-								<div class="d-flex justify-content-between flex-lg-wrap">
+								<div class="flex-lg-wrap">
 									<i class="fas fa-heart"></i><span>${item.zzim }</span>
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
 									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
@@ -106,14 +106,14 @@
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-								${item.categoryId }</div>
+								${item.categoryName }</div>
 							<div class="p-4 rounded-bottom">
 								<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
 								<div class="d-flex justify-content-between flex-lg-wrap">
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
-									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-											class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
+									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
+									<i class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
 								</div>
 							</div>
 						</div>

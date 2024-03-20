@@ -12,10 +12,10 @@ $(document).ready(function(){
 	}
 	if(memAcc == ''){
 		alert('계좌번호 등록 후 이용가능.');
-		window.location.href='/anabada/myInfo.do';
+		window.location.href='/anabada/myPage.do?mno='+mem;
 	}
 	
-	// 카테고리 가져오기.
+	// 카테고리 가져오기
 	$.ajax({
 		url: 'categoryList.do',
 		method: 'get',
@@ -54,22 +54,22 @@ function selectFnc(){
 		return false;
 	}
 	if(taek && jik){
-		$('input[name=d_select]').val('both');
+		$('input[name=dselect]').val('both');
 	} else if (taek) {
-		$('input[name=d_select]').val('taek');
+		$('input[name=dselect]').val('taek');
 	} else {
-		$('input[name=d_select]').val('jik');
+		$('input[name=dselect]').val('jik');
 	}
-	let pay = $('input:radio[name=p_select]:checked').val();
+	let pay = $('input:radio[name=pselect]:checked').val();
 	if(!pay){
 		alert('네고방법 선택.');
 		return false;
 	}
-	$('input:hidden[name=p_select]').val(pay);
+	$('input:hidden[name=pselect]').val(pay);
 	//console.log($('input[name=d_select]').val())
 	//console.log($('input:hidden[name=p_select]').val())
-	console.log($('#a').val());
-	console.log($('#b').val());
+	//console.log($('#a').val());
+	//console.log($('#b').val());
 	let form = $('#addItem');
 	form.submit();	
 }

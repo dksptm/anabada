@@ -5,11 +5,6 @@
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
             <h1 class="text-center text-white display-6">상품등록(완료)</h1>
-            <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                <li class="breadcrumb-item active text-white">Checkout</li>
-            </ol>
         </div>
         <!-- Single Page Header End -->
 
@@ -20,8 +15,8 @@
                 <form action="addItem.do" method="post" enctype="multipart/form-data" id="addItem">
                 	<input type="hidden" value="${member.memberNum }" name="mem_num">
                 	<input type="hidden" value="판매중" name="status">
-                	<input type="hidden" value="" name="d_select" id="a">
-                	<input type="hidden" value="" name="p_select" id="b">
+                	<input type="hidden" value="" name="dselect">
+                	<input type="hidden" value="" name="pselect">
                     <div class="row g-5 justify-content-center">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="row justify-content-between">
@@ -66,12 +61,12 @@
 	                        	<table>
 	                        		<tr class="align-items-center justify-content-between">
 			                        	<th class="w-50">
-			                                <input class="form-check-input bg-primary o_select" name="p_select" type="radio" value="negoOK">
-			                                <label class="form-check-label" for="d_select">네고가능</label>
+			                                <input class="form-check-input bg-primary" name="pselect" type="radio" value="negoOK">
+			                                <label class="form-check-label" for="pselect">네고가능</label>
 			                        	</th>
 			                        	<th class="w-50">
-				                            <input class="form-check-input bg-primary o_select" name="p_select" type="radio" value="negoNG">
-				                        	<label class="form-check-label me-5" for="d_select">네고불가</label>		                        	
+				                            <input class="form-check-input bg-primary" name="pselect" type="radio" value="negoNG">
+				                        	<label class="form-check-label me-5" for="pselect">네고불가</label>		                        	
 			                        	</th>
 		                        	</tr>
 	                        	</table>
@@ -111,7 +106,8 @@
         <!-- Checkout Page End -->
         
         <script>
-         const mem = "${memberName }";
+         const mem = "${member.memberNum }";
+         console.log(mem);
          const memAcc = "${member.accountNum }";
         </script>
         <script src="static/js/item/additem.js"></script>

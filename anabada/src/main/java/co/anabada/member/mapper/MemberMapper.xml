@@ -32,6 +32,17 @@
 		#{memberPhone}
 		)
 	</insert>
+	
+	<select id="perMemSellItems" resultType="Item">
+        SELECT item_num
+              ,item_name
+              ,item_price
+              ,item_image
+              ,item_info
+              ,item_status
+        FROM  item
+        WHERE member_num = ${mno}
+	</select>
 
 	<select id="selectMember" parameterType="string">
 		SELECT member_num

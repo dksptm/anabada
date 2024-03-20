@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.anabada.common.DataSource;
+import co.anabada.item.Item;
 import co.anabada.member.Member;
 import co.anabada.member.mapper.MemberMapper;
 
@@ -35,6 +36,11 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.countMemberId(id) == 0;
 	}
 
+	@Override
+	public List<Item> mySellItems(int mno) {
+		return mapper.perMemSellItems(mno);
+	}
+	
 	// 진경.
 	@Override
 	public List<Member> myList() {
@@ -45,5 +51,6 @@ public class MemberServiceImpl implements MemberService {
 	public List<Member> myInfoList() {
 		return mapper.myInfoList();
 	}
+
 
 }

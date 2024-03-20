@@ -16,14 +16,15 @@
                         i.item_info,
                         i.item_status,
                         i.item_date,
-                        m.member_id,
+                        m.member_name,
                         m.member_score,
-                        c.category_name
+                        c.category_name,
+                        i.dselect,
+                        i.pselect
           from item i 
           join member m on (i.member_num = m.member_num)
           join category c on (c.category_id = i.category_id)
-          where item_num = #{itemNum}
-
+          where item_num = #{in}
   </select>
   
  <select id="ItemList" resultType="Item" >
@@ -51,8 +52,8 @@
 		,item_image
 		,item_info
 		,item_status
-		,p_select
-		,d_select)
+		,pselect
+		,dselect)
 		VALUES(item_num_seq.nextval
 		,#{categoryId}
 		,#{memberNum}
@@ -61,30 +62,29 @@
 		,#{itemImage}
 		,#{itemInfo}
 		,#{itemStatus}
-		,#{pSelect}
-		,#{dSelect})
+		,#{pselect}
+		,#{dselect})
 	</insert>
 
 	<select id="recentItem" resultType="Item">
 		SELECT item_num
-		,category_id
-		,member_num
-		,item_name
-		,item_price
-		,item_image
-		,item_info
-		,item_status
-		FROM (SELECT item.*
-		,ROW_NUMBER() OVER
-		(ORDER BY item_date DESC) AS recent
-		FROM item
-		WHERE item_status = '판매중')
+		      ,(select category_name from category c where c.category_id = a.category_id) AS "category_name"
+		      ,member_num
+		      ,item_name
+		      ,item_price
+		      ,item_image
+		      ,item_info
+		      ,item_status
+		FROM (SELECT i.*
+                    ,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent
+              FROM item i
+		      WHERE item_status = '판매중') a
 		WHERE recent <![CDATA[<= 10]]>
 	</select>
 
 	<select id="likeItem" resultType="Item">
 		SELECT item.item_num
-		,category_id
+		,(select category_name from category c where c.category_id = item.category_id) AS "category_name"
 		,member_num
 		,item_name
 		,item_price
