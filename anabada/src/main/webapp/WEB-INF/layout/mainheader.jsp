@@ -41,7 +41,7 @@
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
 									<a href="reviewList.do" class="dropdown-item">리뷰리스트</a>
 									<a href="shopInfo.do" class="dropdown-item">가게정보(판매자정보)(ㅈㄱ)</a>
-									<a href="myPage.do" class="dropdown-item">마이페이지(ㅈㄱ)</a>
+									<a href="myPage.do?memberNum=${member.memberNum }" class="dropdown-item">마이페이지(ㅈㄱ)</a>
 									<a href="#" class="dropdown-item">내정보페이지(ㅈㄱ)</a>
 									<a href="addreviewForm.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 								</div>

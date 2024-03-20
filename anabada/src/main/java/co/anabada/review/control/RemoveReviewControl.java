@@ -1,10 +1,15 @@
 package co.anabada.review.control;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
 import co.anabada.review.service.ReviewService;
@@ -14,17 +19,20 @@ public class RemoveReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String reviewNum = req.getParameter("reviewNum");
+		req.setCharacterEncoding("UTF-8");
 		
+		String reviewNum = req.getParameter("reviewNum");
 		ReviewService svc = new ReviewServiceImpl();
+		Map<String, Object> map = new HashMap<>();
 		
 		if(svc.removeReview(reviewNum)) {
-			resp.sendRedirect("reviewRemove.do");
+			map.put("retCode", "OK");
 		} else {
-//			 req.setAttribute("message", "삭제 중 에러가 발생했습니다.");
-			 String path = "main/error.tiles";
-			 req.getRequestDispatcher(path).forward(req, resp);
+			map.put("retCode","NG");
 		 }
+		
+		Gson gson = new GsonBuilder().create();
+		resp.getWriter().print(gson.toJson(map));
 		
 	}
 

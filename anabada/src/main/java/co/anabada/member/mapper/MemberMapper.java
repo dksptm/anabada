@@ -12,6 +12,6 @@ public interface MemberMapper {
 	int countMemberId(String id);
 	
 	// myPage
-	List<Member> myList();
+	List<Member> myList(int memberNum);
 	List<Member> myInfoList();
 }

@@ -54,7 +54,6 @@
 
 	<select id="myList" resultType="member">
 		SELECT m.member_num
-		,m.member_num
 		,m.member_score
 		,i.item_name
 		,i.item_num
@@ -62,6 +61,7 @@
 		,i.item_status
 		,i.item_price
 		FROM member m JOIN item i ON m.member_num = i.member_num
+		WHERE m.member_num = #{memberNum}
 	</select>
 
 	<select id="myInfoList" resultType="member">
