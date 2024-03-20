@@ -71,32 +71,27 @@
 									<ul class="list-unstyled fruite-categorie">
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>하의</a>
-												<span>(3)</span>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>하의</a> <span>(3)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>상의</a>
-												<span>(5)</span>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>상의</a> <span>(5)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>반팔</a>
-												<span>(2)</span>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>반팔</a> <span>(2)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>긴팔</a>
-												<span>(8)</span>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>긴팔</a> <span>(8)</span>
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>청바지</a>
-												<span>(5)</span>
+												<a href="#"><i class="fas fa-apple-alt me-2"></i>청바지</a> <span>(5)</span>
 											</div>
 										</li>
 									</ul>
@@ -114,7 +109,7 @@
 								</div>
 							</div>
 							<!-- 조회화면 -->
-					
+
 
 
 							<div class="col-lg-12"></div>
@@ -122,14 +117,14 @@
 					</div>
 
 					<div class="col-lg-9">
-						<div class="row g-4 justify-content-center" >
+						<div class="row g-4 justify-content-center">
 							<c:forEach items="${itemList }" var="item">
-								<div class="col-md-6 col-lg-6 col-xl-4" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
+								<div class="col-md-6 col-lg-6 col-xl-4"
+									OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 									<div class="rounded position-relative fruite-item">
 										<div class="fruite-img">
 
 											<img src="images/${item.itemImage }"
-
 												class="img-fluid w-100 rounded-top" alt="" width="10px"
 												height="10px">
 										</div>
@@ -152,13 +147,13 @@
 									</div>
 								</div>
 							</c:forEach>
-							
+
 
 							<div class="center">
 								<div class="pagination">
 									<c:if test="${page.prev }">
 										<a
-											href="boardList.do?page=${page.starPage - 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
+											href="itemList.do?page=${page.starPage - 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
 											&laquo; </a>
 									</c:if>
 									<c:forEach begin="${page.starPage }" end="${page.endPage }"
@@ -166,18 +161,18 @@
 										<c:choose>
 											<c:when test="${p eq page.page }">
 												<a
-													href="boardList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }"
+													href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }"
 													class="active">${p }</a>
 											</c:when>
 											<c:otherwise>
 												<a
-													href="boardList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }">${p }</a>
+													href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }">${p }</a>
 											</c:otherwise>
 										</c:choose>
 									</c:forEach>
 									<c:if test="${page.next }">
 										<a
-											href="boardList.do?page=${page.endPage + 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
+											href="itemList.do?page=${page.endPage + 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
 											&raquo; </a>
 									</c:if>
 								</div>
@@ -192,6 +187,6 @@
 </div>
 
 <script>
-
+	
 </script>
 <!-- Fruits Shop End-->
