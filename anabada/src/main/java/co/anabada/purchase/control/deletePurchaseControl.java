@@ -33,12 +33,12 @@ public class deletePurchaseControl implements Control {
 //	}
 
 		resp.setContentType("text/json;charset=utf-8");
-		String orderId = req.getParameter("orderId");
-
+		String orderNum = req.getParameter("orderNum");
+		System.out.println(orderNum);
 		PurchaseService svc = new PurchaseServiceImpl();
 		Map<String, String> map = new HashMap<>();
 
-		if (svc.removePurchaseList(Integer.parseInt(orderId))) {
+		if (svc.removePurchaseList(Integer.parseInt(orderNum))) {
 			map.put("retCode", "OK");
 			map.put("retMsg", "정상적으로 삭제되었습니다");
 		} else {

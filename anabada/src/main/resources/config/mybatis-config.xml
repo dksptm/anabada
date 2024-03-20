@@ -17,6 +17,7 @@
   		<typeAlias alias="cart" type="co.anabada.cart.Cart" />
   		<typeAlias alias="review" type="co.anabada.review.Review" />
   		<typeAlias alias="purchase" type="co.anabada.purchase.Purchase" />
+  		<typeAlias alias="order" type="co.anabada.order.Order" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -38,5 +39,6 @@
 		<mapper resource="co/anabada/cart/mapper/CartMapper.xml" />
 		<mapper resource="co/anabada/review/mapper/ReviewMapper.xml" />
 		<mapper resource="co/anabada/purchase/mapper/PurchaseMapper.xml" />
+		<mapper resource="co/anabada/order/mapper/OrderMapper.xml" />
 	</mappers>
 </configuration>

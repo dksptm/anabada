@@ -14,6 +14,7 @@ import co.anabada.review.control.AddReviewControl;
 import co.anabada.review.control.RemoveReviewControl;
 import co.anabada.review.control.ReviewListControl;
 import co.anabada.order.control.OrderForm;
+import co.anabada.order.control.selectPurchaseOrderForm;
 import co.anabada.purchase.control.PurchaseListControl;
 import co.anabada.purchase.control.deletePurchaseControl;
 import co.anabada.cart.control.AddCartControl;
@@ -99,6 +100,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/deletePurchase.do", new deletePurchaseControl());
 		controls.put("/sellItemList.do" , new SellItemListControl());
 		controls.put("/deleteSellItem.do", new deleteSellItemControl());
+		controls.put("/selectPurchaseList.do", new selectPurchaseOrderForm());
 	}
 	
 	@Override

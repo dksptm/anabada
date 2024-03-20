@@ -59,7 +59,7 @@
 </div>
 
 
-<!-- <script>
+ <script>
 function deleteSellItem(itemNum) {
     if (confirm('판매내역을 삭제하시겠습니까? 삭제하면 다시는 보이지 않습니다')) {
         $.ajax({
@@ -69,7 +69,6 @@ function deleteSellItem(itemNum) {
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
-                    $(`#item-${itemNum}`).remove();
                     alert('판매내역을 삭제하였습니다.');
                     location.reload();
                 } else {
@@ -83,7 +82,7 @@ function deleteSellItem(itemNum) {
     }
 }
 
-</script> -->
+</script> 
 
 
 

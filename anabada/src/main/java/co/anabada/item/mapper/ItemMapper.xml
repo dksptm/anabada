@@ -5,35 +5,35 @@
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
 
-  <select id="Item" resultType="Item"> 
- select       i.item_num,
-              i.category_id,
-              i.member_num,
-              i.item_name,
-              i.item_price,
-              i.item_image,
-              i.item_info,
-              i.item_status,
-              i.item_date,
-              m.member_id,
-              m.member_score
-from item i 
-join member m on (i.member_num = m.member_num)
-where item_num =1
-  </select>
-  
- <select id="ItemList" resultType="Item" >
-    select    item_num,
-              category_id,
-              member_num,
-              item_name,
-              item_price,
-              item_image,
-              item_info,
-              item_status,
-              item_date
-      from    item
-      </select>
+	<select id="Item" resultType="Item">
+		select i.item_num,
+		i.category_id,
+		i.member_num,
+		i.item_name,
+		i.item_price,
+		i.item_image,
+		i.item_info,
+		i.item_status,
+		i.item_date,
+		m.member_id,
+		m.member_score
+		from item i
+		join member m on (i.member_num = m.member_num)
+		where item_num =1
+	</select>
+
+	<select id="ItemList" resultType="Item">
+		select item_num,
+		category_id,
+		member_num,
+		item_name,
+		item_price,
+		item_image,
+		item_info,
+		item_status,
+		item_date
+		from item
+	</select>
 
 
 	<!-- ㅎㅈ -->
@@ -105,7 +105,7 @@ where item_num =1
 	</select>
 
 
-	<select id="shopList" resultType="Item" >
+	<select id="shopList" resultType="Item">
 		select r.review_score
 		,r.review_comment
 		,i.item_num
@@ -116,18 +116,40 @@ where item_num =1
 		,i.item_status
 		,i.item_date
 		FROM item i
-		JOIN review r ON r.order_id = i.member_num
+		JOIN review r ON
+		r.order_id = i.member_num
 	</select>
-	
-	<select id = "sellItemList" resultType="Item" parameterType="int">
+
+	<select id="sellItemList" resultType="Item" parameterType="int">
 		select *
 		from item
-		where item_status = '판매완료' 
-		And   member_num = #{memberNum}
+		where item_status = '판매완료'
+		And member_num = #{memberNum}
 	</select>
-	
-	<delete id = "deleteSellItemList" parameterType="int">
+
+	 <delete id="deleteSellItemList" parameterType="int">
 		delete From item
 		where item_num = #{itemNum}
 	</delete>
+
+	<!--  <select id="sellItemList" resultType="Item" parameterType="int">
+		SELECT 	item_num,
+				category_id,
+				member_num,
+				item_name,
+				item_price,
+				item_image,
+				item_info,
+				item_status,
+				item_date
+				FROM item
+				WHERE member_num = #{memberNum}
+				AND (item_status = '판매중' OR item_status ='판매완료')
+				ORDER BY item_date DESC
+	</select>
+	<update id="deleteSellItemList" parameterType="int"> 
+		update 	item 
+		SET		item_status = 'x' 
+		where item_num = {itemNum} 
+	</update> -->
 </mapper>

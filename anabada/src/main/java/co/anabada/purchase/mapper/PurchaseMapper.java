@@ -7,7 +7,6 @@ import co.anabada.purchase.Purchase;
 public interface PurchaseMapper {
 	 List<Purchase> purchaseList();
 
-
-	int deletePurchaseList(int orderId);
+	int deletePurchaseList(int orderNum);
 	 
 }

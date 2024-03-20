@@ -9,7 +9,7 @@ public interface PurchaseService {
 	List<Purchase> purchaseList();
 
 
-	boolean removePurchaseList(int orderId);
+	boolean removePurchaseList(int orderNum);
 
 
 

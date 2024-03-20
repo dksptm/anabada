@@ -26,6 +26,7 @@
 				</thead>
 				<tbody>
 					<c:forEach var="purchase" items="${purchaselist }">
+						
 						<tr>
 							<td>
 							<fmt:formatDate value="${purchase.dueDate }"
@@ -42,15 +43,17 @@
 										style="width: 50px; height: 50px;">
 								</p>
 							</td>
-							<td>
-								<p class="mb-0 mt-4">${purchase.purchaseOk == 'Completed' ? '구매완료' : '진행중' }</p>
+							<td onClick="location.href='selectPurchaseList.do?orderNum=${purchase.orderNum }'">
+								<p class="mb-0 mt-4" >${purchase.purchaseOk == 'Completed' ? '구매완료' : '진행중' }</p>
 							</td>
+						
 							<td>
 								<button type="button"
 									onclick="deletePurchase(${purchase.orderNum });"
 									class="btn btn-md rounded-circle bg-light border mt-4">X</button>
 							</td>
 						</tr>
+						
 					</c:forEach> 
 				</tbody>
 			</table>
@@ -60,16 +63,17 @@
 
 
 <script>
-function deletePurchase(orderId) {
+function selectPurchaseList()
+function deletePurchase(orderNum) {
     if (confirm('이 상품을 삭제하시겠습니까?')) {
         $.ajax({
             url: 'deletePurchase.do',
             method: 'post',
-            data: { orderId: orderId },
+            data: { orderNum: orderNum },
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
-                    $(`#purchase-${orderId}`).remove();
+                    $(`#purchase-${orderNum}`).remove();
                     alert('주문이 취소되었습니다.');
                     location.reload();
                 } else {
