@@ -46,7 +46,9 @@ where item_num =1
 		,item_price
 		,item_image
 		,item_info
-		,item_status)
+		,item_status
+		,p_select
+		,d_select)
 		VALUES(item_num_seq.nextval
 		,#{categoryId}
 		,#{memberNum}
@@ -54,7 +56,9 @@ where item_num =1
 		,#{itemPrice}
 		,#{itemImage}
 		,#{itemInfo}
-		,#{itemStatus})
+		,#{itemStatus}
+		,#{pSelect}
+		,#{dSelect})
 	</insert>
 
 	<select id="recentItem" resultType="Item">

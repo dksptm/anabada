@@ -40,10 +40,11 @@
 				style="border: 1px solid black; border-radius: 20px;">
 				<!-- <div class="border rounded"> -->
 
-				<a href="#"> <img src="images/${item.itemImage }" class="img"
+				<a href="orderForm.do?oty='바로결제'&ino=${empty item.itemNum ? '108' : item.itemNum}&mno=${member.memberNum }"> <img src="images/${item.itemImage }" class="img"
 					alt="Image"
 					style="float: left; width: 500px; height: 470px; border-radius: 20px;">
 				</a>
+				<p>바로결제(네고는 페이지 따로예정)</p>
 				<!-- </div> -->
 			</div>
 
@@ -62,7 +63,7 @@
 						<div
 							class="flex items-center justify-between mb-4 text-xs font-normal">
 							<span class="text-jnGray-500 leading-[15px]">${item.itemDate },
-								${item.zzim }1시간 전 · 조회 1· 찜 0</span>
+								${item.zzim }</span>
 						</div>
 					</div>
 					<div

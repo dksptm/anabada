@@ -68,6 +68,8 @@ function selectFnc(){
 	$('input:hidden[name=p_select]').val(pay);
 	//console.log($('input[name=d_select]').val())
 	//console.log($('input:hidden[name=p_select]').val())
+	console.log($('#a').val());
+	console.log($('#b').val());
 	let form = $('#addItem');
 	form.submit();	
 }

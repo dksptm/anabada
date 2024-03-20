@@ -20,8 +20,8 @@
                 <form action="addItem.do" method="post" enctype="multipart/form-data" id="addItem">
                 	<input type="hidden" value="${member.memberNum }" name="mem_num">
                 	<input type="hidden" value="판매중" name="status">
-                	<input type="hidden" value="" name="d_select">
-                	<input type="hidden" value="" name="p_select">
+                	<input type="hidden" value="" name="d_select" id="a">
+                	<input type="hidden" value="" name="p_select" id="b">
                     <div class="row g-5 justify-content-center">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="row justify-content-between">
@@ -77,7 +77,7 @@
 	                        	</table>
 	                        </div>
 	                        <hr>
-	                        <div class="row justify-content-between">
+	                        <!-- <div class="row justify-content-between">
                                 <div class="col-md-12 col-lg-6">
                                     <div class="form-item w-100">
                                         <label class="form-label my-3" for="account1">은행명<sup>*</sup></label>
@@ -97,7 +97,7 @@
                                         <input type="text" class="form-control" name="account2" id="account2">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 	                        <hr>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
 	                        	<button type="button" onclick="selectFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품등록</button>
