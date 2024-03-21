@@ -10,6 +10,7 @@ public interface ItemService {
 	
 	// 영재.
 	Item getItem(int in);
+	List<Item> ItemList(String cname);
 	List<Item> ItemList();
 	int itemTotalCnt(SearchVO search);
 	

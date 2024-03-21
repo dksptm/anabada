@@ -46,16 +46,33 @@
   </select>
   
  <select id="ItemList" resultType="Item" >
-    select    item_num,
-              category_id,
-              member_num,
-              item_name,
-              item_price,
-              item_image,
-              item_info,
-              item_status,
-              item_date
-      from    item
+    select     i.item_num,
+               i.item_image,
+               i.item_name,
+               i.item_info,
+               i.item_date,
+               i.item_price,
+               c.category_name,
+               c.parent_category
+   from item i join category c on (i.category_id = c.category_id)
+   where category_name = #{categoryName}
+   <!-- <if test="cname != null and cname != ''">
+   </if> -->
+   
+      </select>
+      
+      <select id="ItemList1" resultType="Item" >
+    select item_num,
+           category_id,
+           member_num,
+           item_name,
+           item_price,
+           item_image,
+           item_info,
+           item_status,
+           item_date
+      
+     from   item
       </select>
 
 
