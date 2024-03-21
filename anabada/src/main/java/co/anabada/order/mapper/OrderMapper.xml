@@ -2,12 +2,39 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="co.anabada.order.mapper.OrderMapper">
+<mapper namespace="co.anabada.order.mapper.OrderMapper">
+
+	<select id="selectPurchaseOrder" resultType="Order">
+		SELECT
+		o.order_num,
+		o.payment_type,
+        o.delivery_how,
+        o.order_type,
+        o.order_status,
+		i.item_name,
+		i.item_image,
+		i.item_price,
+		i.d_select,
+		m.account_num,
+		m.member_id,
+        m.member_phone,
+		m.member_num,
+		p.due_date,
+		p.payment_date
+
+		FROM anvd_order o JOIN purchase p ON (o.order_num = p.order_num)
+		JOIN item i ON (o.item_num = i.item_num)
+		JOIN member m ON (o.member_num = m.member_num)
+		where o.order_num = #{orderNum}
+		AND  p.purchase_ok = '구매진행'
+	
+	</select>
+<!--   
   
 		<select id="selectPurchaseOrder" resultType="Order" >
 		select *
 		from   anvd_order
 		where order_num = #{orderNum}
-		</select>
+		</select> -->
 		
 </mapper>

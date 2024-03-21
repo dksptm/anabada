@@ -1,242 +1,204 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!-- <link rel="stylesheet" href="WEB-INF/view/purchase/css/orderDetail.css"> -->
- <style>
- @charset "UTF-8";
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>구매내역 상세 페이지</title>
+<style>
+/* CSS Reset */
+body, h1, h2, div, span {
+	margin: 10;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+h2 {
+	font-weight: bold;
+	margin-bottom: 10px
+}
+
+
+body {
+	line-height: 1;
+	font-family: 'Arial', sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+	padding: 20px;
+}
+
 main {
-	width: 800px;
-	margin : 0 auto 50px ;
-} 
- 
-.detail_box {
-	width: 95%;
-	margin-left: auto;
+	max-width: 800px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
- 
-section.title {
-    width: 100%;
-}
- 
-section.title h1 {
-    text-align: center;
-    margin : 30px 0 50px 0 ;
-}
- 
-main .order_cont {
-	margin-bottom: 30px;
-}
- 
-main div {
-    font-size: 1.5rem;
-}
- 
-main .order_cont .store_name {
+
+.title h1 {
+	text-align: center;
+	margin: 30px 0;
+	color: #fff;
+	background: #333;
+	padding: 20px 0;
 	font-size: 2rem;
-	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+
+.product_info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.product_info img {
+  margin-right: 150px;
+  margin-left: 150px;
+}
+
+.product_details div {
+  margin-bottom: 5px; 
+}
+
+
+.info_title {
+  
+  margin-right: 10px;
+}
+
+
+
+.info_section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.info_title, .info_content {
+	display: inline-block;
+	margin-bottom: 10px
+}
+
+.info_title {
 	
+	color: #333; 
+	font-weight: bold; 
+	margin-right: 10px; 
 }
- 
-main .order_cont .order_info {
-	margin-top: 10px;
-	font-size: 1.5rem;
+.order_info{
+	margin-bottom: 50px;
+}
+.info_content {
 	
+	color: #666; 
+	text-align: right; 
+	width: auto; 
+	flex-grow: 1; 
 }
- 
-main .order_menu  {
-    margin-bottom: 30px;
-}
- 
-main .order_menu li {
-    position: relative;
-}
- 
-main .order_menu li div,
-main .price div,
-main .total div {
-    display: flex;
-    justify-content: space-between;
- 
-}
- 
-main .order_menu li .menu_price,
-main .price div span:last-child,
-main .total div span:last-child {
-    position: relative;
-    right: 0;
-}
- 
-main .order_menu li ul li {
-    font-size: 1.5rem;
-    list-style: disc;
-    margin-left: 20px;
-    color: #a5a5a5;
-}
- 
-main .order_menu li ul li.menu_price_sum {
-	list-style: none;
-	margin: 0;
-	color: black;
-	font-weight: bold;
-	
-}
- 
-main .price {
-    margin-bottom: 30px;
-}
- 
- 
-main .price div {
-    font-size: 1.8rem;
-    font-weight: bold;
-}
- 
-main .total{
-    margin-bottom: 30px;
-}
- 
-main .total div {
-	font-size: 2rem;
-	font-weight: bold;
-}
- 
- 
- 
-main .address li {
-    color: #a5a5a5;
-}
- 
- 
- 
- 
-@media (max-width:1024px) {
-	main {
-		width: 95%;
+
+@media ( max-width : 767px) {
+	.info_section {
+		flex-direction: column;
+		align-items: flex-start;
 	}
-	.detail_box {
-		margin: 0 auto;
-		
+	.info_content {
+		text-align: left;
+		margin-top: 5px; 
 	}
 }
-@media  (max-width:767px) {
-	
-}
- </style>
- 
- 
-<section class="title">
-	<h1>주문 상세</h1>
-</section>
- 
-<main>
-	 <div class="detail_box">
-		<div class="order_cont">
-			<div>${selectPurchaseOrder.itemName }</div>
-			<div class="store_name">${selectPurchaseOrder.orderNum }</div> 
- 			${selectPurchaseOrder.orderNum}
- 			
-			< <div class="order_info">
-				<div>
-					주문일시 :
-					<fmt:formatDate value="${selectPurchaseOrder.orderDate }"
-						pattern="yyyy년 MM월 dd일 (E) a hh:mm" />
+</style>
+</head>
+<body>
+	<main>
+		<div class="detail_box">
+			<section class="title">
+				<h1>구매내역 상세</h1>
+			</section>
+
+			<div class="order_info_wrapper">
+				<div class="order_info">
+					<span class="info_title">주문번호</span> <span>${selectPurchaseOrder.orderNum}</span>
+
+					<span class="info_title">구매일자</span> <span><fmt:formatDate
+							value="${selectPurchaseOrder.orderDate}" pattern="yyyy년 MM월 dd일" /></span>
 				</div>
-				<div>주문번호 : ${selectPurchaseOrder.orderNum }</div>
+
+				<div class="product_info">
+					<img src="${selectPurchaseOrder.itemImage }"
+										style="width: 150px; height: 150px;" alt="상품 이미지">
+					<div class="product_details">
+						<div>
+							<span class="info_title">상품명</span> <span>${selectPurchaseOrder.itemName}</span>
+						</div>
+						<div>
+							<span class="info_title">상품가격</span> <span>${selectPurchaseOrder.itemPrice}</span>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
- 
-		<ul class="order_menu">
-			
-				<li>
-					<div><span>asdfasdf개</span></div>
-					
-					<ul>
-						<li>기본가격 원</li>
- 
-						<c:set var="foodTotalPrice"  />
-						
-						
-								<li>
-									<span></span> 
-									<span><fm:formatNumber  pattern="###,###" />원</span>
-								</li>
-								
-								
-							
-						
-						<li class="menu_price_sum"><fm:formatNumber  pattern="###,###" />원</li>
-					</ul>
-					<hr>
-				</li>
-			
-		</ul>
- 
- 
-		<div class="price">
-			<div>
-				<span>${selectPurchaseOrder.deliveryHow} </span><span>원</span>
-			</div>
-			<div>
-				<span>배달팁 </span><span>원</span>
-			</div>
-			<div>
-				
-				
-				
-			</div>
+
 			<hr>
-		</div>
- 
-		<div class="total">
-			<div>
-				<span>총 결제금액 </span>
-				<span class="sum"><fm:formatNumber value="${orderDetail.totalPrice + orderDetail.deliveryTip - orderDetail.usedPoint  }" pattern="###,###" />원</span>
+
+			<h2>입금정보</h2>
+			<div class="info_section">
+				<span class="info_title">입금은행</span> <span class="info_content">1</span>
 			</div>
-			
-			<div>
-				<span>결제방법 </span><span>${orderDetail.payMethod }</span>
+
+			<div class="info_section">
+				<span class="info_title">계좌번호</span> <span class="info_content">1</span>
 			</div>
-		</div>
-		<hr>
-		<hr>
- 
- 
-		<div class="address">
-			<div>배달주소</div>
-			<ul>
-				<li>${selectPurchaseOrder.deliveryAddress1 }</li>
-				<li>${selectPurchaseOrder.deliveryAddress2 }</li>
-				<li>${orderDetail.deliveryAddress3 }</li>
-			</ul>
+
+			<div class="info_section">
+				<span class="info_title">예금주</span> <span class="info_content">1</span>
+			</div>
+
+			<div class="info_section">
+				<span class="info_title">입금요청액</span> <span class="info_content">1</span>
+			</div>
+
+			<div class="info_section">
+				<span class="info_title">입금기한</span> <span class="info_content">1</span>
+			</div>
+
 			<hr>
- 
-		</div>
- 
-		<div>
-			<div>전화번호</div>
-			<div>${orderDetail.phone }</div>
+
+			<!-- 판매자 정보 Section -->
+			<h2>판매자 정보</h2>
+			<div class="info_section">
+				<span class="info_title">닉네임</span> <span class="info_content">1</span>
+			</div>
+
 			<hr>
- 
+
+			<!-- 거래정보 Section -->
+			<h2>거래정보</h2>
+			<div class="info_section">
+				<span class="info_title">거래방법</span> <span class="info_content">1</span>
+			</div>
+
+			<div class="info_section">
+				<span class="info_title">결제일시</span> <span class="info_content">1</span>
+			</div>
+
+			<div class="info_section">
+				<span class="info_title">결제수단</span> <span class="info_content">1</span>
+			</div>
+
+			<div class="info_section">
+				<span class="info_title">상품금액</span> <span class="info_content">1</span>
+			</div>
+			<!-- 계속해서 다른 정보들을 추가해주세요. -->
 		</div>
- 
-		<div>
-			<div>요청사항</div>
-			<div>${orderDetail.request }</div>
-			<hr>
- 
-		</div>
-	</div> --%>
-</main>
- 
- 
- 
-<!-- 하단 메뉴 -->
-	<%-- <%@ layout file="/WEB-INF/views/layout/nav.jsp"%> --%>
-<!-- 하단 메뉴 -->
- 
-<!-- 푸터 -->
-<!-- 푸터 -->
- 
- 
+	</main>
 </body>
 </html>
+
+
