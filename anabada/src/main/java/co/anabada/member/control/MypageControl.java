@@ -15,16 +15,19 @@ import co.anabada.member.service.MemberServiceImpl;
 
 public class MypageControl implements Control {
 
+
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/json;charset=utf-8");
+		String memberNum = req.getParameter("memberNum");
 		
 		String path = "member/myPage.tiles";
 		
 		//resp.setContentType("text/json;charset=uft-8");
 		
 		MemberService svc = new MemberServiceImpl();
-		List<Member> myList = svc.myList();
+		List<Member> myList = svc.myList(Integer.parseInt(memberNum));
+		
 		//System.out.println(myList);
 		req.setAttribute("myList", myList);
 		

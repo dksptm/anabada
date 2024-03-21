@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script>
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
@@ -12,6 +15,7 @@
 </div>
 <!-- Single Page Header End -->
 <html>
+<form action="removeReview.do">
 <body>
 	<!-- Projects Section-->
 	<section class="py-5">
@@ -35,12 +39,10 @@
 										<p>${review.reviewComment }</p>
 										<c:choose>
 											<c:when test="${review.memberName eq memberName }">
-												<button type="button" class="btn btn-warning"
-													onclick="removeFunc()">삭제</button>
+												<button id="deleteBtn" type="button" class="btn btn-warning">삭제</button>
 											</c:when>
 											<c:otherwise>
-												<button type="button" class="btn btn-warning" disabled
-													onclick="removeFunc()">삭제</button>
+												<button id="deleteBtn" type="button" class="btn btn-warning" disabled >삭제</button>
 											</c:otherwise>
 										</c:choose>
 									</div>
@@ -53,8 +55,8 @@
 			</div>
 		</div>
 	</section>
-	
 </body>
+	</form>
 </html>
 
 
@@ -69,7 +71,7 @@
 
 <script>
 
-$.ajax({
+/* $.ajax({
     url: 'reviewList.do',
     method: 'post',
     dataType: 'json'
@@ -78,8 +80,25 @@ $.ajax({
     result.forEach(review => {
     })
   })
-  .fail(err => console.log(err))
-
+  .fail(err => console.log(err));
+ */
+	// 삭제
+	$('.deleteBtn').on('click', function(){
+		 let reviewNum =$(this).data("reviewNum")
+		 console.log(reviewNum)
+		 
+		 fetch('RemoveReview.do?reviewNum=' + reviewNum)
+		 .then(result => result.json())
+		 .then(result => {
+			 if (result.retCode == "OK") {
+				 alert("후기가 삭제되었습니다.")
+			 } else {
+				 alert("후기 삭제 오류.")
+			 }
+		 })
+		 
+	}
+		 
 </script>
 
 

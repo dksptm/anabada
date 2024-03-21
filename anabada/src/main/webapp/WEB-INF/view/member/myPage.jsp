@@ -33,28 +33,47 @@ th {
 </style>
 </head>
 <body>
-	<div class="container">
-		<div>
-			<h2>판매목록</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>상품명</th>
-						<th>가격</th>
-						<th>상태</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${myList}" var="item">
-						<tr>
-							<td>${item.itemName }</td>
-							<td>${item.itemPrice }</td>
-							<td>${item.itemStatus}</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-	</div>
+	<!-- <div id="layoutSidenav">
+				<div class="sb-sidenav-menu">
+					<div class="nav">
+						<div class="sb-sidenav-menu-heading">Addons</div>
+						<a class="nav-link" href="charts.html">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-chart-area"></i>
+							</div> Charts
+						</a> <a class="nav-link" href="tables.html">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-table"></i>
+							</div> Tables
+						</a>
+					</div>
+				</div>
+				</div> -->
+
+
+			 <div class="container">
+					<div>
+						<h2>마이페이지</h2>
+						<h2>...</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>상품명</th>
+									<th>가격</th>
+									<th>상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${myList}" var="item">
+									<tr>
+										<td>${item.itemName }</td>
+										<td>${item.itemPrice }</td>
+										<td>${item.itemStatus}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div> 
 </body>
 </html>
