@@ -31,9 +31,19 @@
 						<div class="navbar-nav mx-auto">
 						
 							<!--카테고리--> 
-							<div class="nav-item" style="position:relative;">
+							<!-- <div class="nav-item" style="position:relative;">
 								<a href="#" class="nav-link" id="cate">카테고리</a>
 								<ul style="position:absolute;background-color;#fff;" id="ulTag"></ul>
+							</div>  -->
+							<div class="nav-item dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">카테고리</a>
+								<div class="dropdown-menu m-0 bg-secondary rounded-0">
+									<ul>
+										<li><a href="#" class="dropdown-item">상의</a></li>
+										<li><a href="#" class="dropdown-item">하의</a></li>
+										<li><a href="#" class="dropdown-item">기타</a></li>
+									</ul>
+								</div>
 							</div>
 
 							<!-- 다른 메뉴들. -->
