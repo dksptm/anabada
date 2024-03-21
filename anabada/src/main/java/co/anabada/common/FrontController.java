@@ -15,6 +15,8 @@ import co.anabada.review.control.AddReviewForm;
 import co.anabada.review.control.RemoveReviewControl;
 import co.anabada.review.control.RemoveReviewForm;
 import co.anabada.review.control.ReviewListControl;
+import co.anabada.order.control.AddOrderControl;
+import co.anabada.order.control.OrderComplete;
 import co.anabada.order.control.OrderForm;
 import co.anabada.order.control.selectPurchaseOrderForm;
 import co.anabada.purchase.control.PurchaseListControl;
@@ -75,6 +77,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/addItem.do", new AddItemControl()); 
 		controls.put("/categoryList.do", new CategoryListControl()); 
 		controls.put("/orderForm.do", new OrderForm()); 
+		controls.put("/addOrder.do", new AddOrderControl()); 
+		controls.put("/orderComplete.do", new OrderComplete()); 
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());

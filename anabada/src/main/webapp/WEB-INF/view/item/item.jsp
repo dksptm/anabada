@@ -25,7 +25,7 @@
                         </div>
                         <div class="fs-5 mb-5">
 	                        <p class="lead">${item.itemInfo }</p>
-	                        <p class="lead">${item.pselect eq 'negoNg' ? 'disabled' : '' }</p>
+	                        <p class="lead">${item.pselect }</p>
                         </div>
                         <table class="table table-borderless text-center fs-5 mb-5" style="background-color:#eee;">
                         	<tr>
@@ -37,14 +37,25 @@
 	                        	<td><c:out value="${item.memberName }" /></td>
                         	</tr>
                         </table>
-                        <div class="d-flex fs-5 mb-5">
-	                        <button class="btn btn-outline-dark me-auto col-4" 
-	                        		type="button" ${item.pselect eq 'negoNG' ? 'disabled' : '' }>
+                        <c:choose>
+                        <c:when test="${empty member }">
+                        	<span>구매하려면 로그인하세요.</span>
+                        	<button onclick ="location.href='loginForm.do'" class="btn btn-outline-dark me-auto col-3" type="button">
+		                        로그인
+			                </button>
+                        </c:when>
+                        <c:otherwise>
+                        <div class="d-flex fs-5 mb-5" id="btns">
+	                        <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=nego'" 
+	                        		class="btn btn-outline-dark me-auto col-3" 
+	                        		type="button" 
+	                        		${item.pselect eq 'negoNG' ? 'disabled' : '' }>
 		                        <i class="bi-cart-fill me-1"></i>
 		                        네고하기
 			                </button>
-			                <button onclick ="location.href='orderForm.do?ino=${item.itemNum }'" class="btn btn-outline-dark me-auto col-4" type="button">
-		                        <i class="bi-cart-fill me-1"></i>
+			                <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
+			                		class="btn btn-outline-dark me-auto col-3" type="button">
+		                        <i class="bi-cart-fill me-1"></i>``
 		                        바로결제
 			                </button>
 		                    <button class="btn btn-outline-dark col-3" type="button">
@@ -52,6 +63,8 @@
 		                        찜하기
 		                	</button>
                         </div>
+                        </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>

@@ -13,9 +13,9 @@ public class Order {
 		private String 	itemImage; 		// 상품이미지
 		private String	itemName; 		// 상품명
 		private String 	itemPrice; 		// 상품가격
-		private int		memberNum; 		// 판매자 정보(번호)
+		private int		memberNum; 		// 구매자 정보(번호)
 		private String	orderType;		// 거래방법
-		private String  deliveryHow; 	// 바로결제 or 네고
+		private String  deliveryHow; 	// 택배 or 직거래
 		private int		deliveryFee; 	// 택배가격
 		private String  accountNum;		// 계좌번호
 		private String	deliveryAddress;// 배송주소 .. 택배(구매자입력)

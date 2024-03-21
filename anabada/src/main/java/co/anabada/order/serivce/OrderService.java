@@ -7,4 +7,6 @@ public interface OrderService  {
 
 	Order selectPurchaseOrder(int OrderNum);
 
+	// 효주.
+	boolean addOrder(Order odr);
 }

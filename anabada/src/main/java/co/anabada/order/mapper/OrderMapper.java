@@ -8,4 +8,7 @@ public interface OrderMapper {
 
 	Order selectPurchaseOrder(int orderNum);
 	
+	// 효주.
+	int insertOrder(Order odr);
+	
 }

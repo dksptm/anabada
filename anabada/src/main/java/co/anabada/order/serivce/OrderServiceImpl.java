@@ -15,6 +15,12 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.selectPurchaseOrder(OrderNum);
 	}
 
+	// 효주.
+	@Override
+	public boolean addOrder(Order odr) {
+		return mapper.insertOrder(odr) == 1;
+	}
+
 	
 
 }

@@ -22,13 +22,10 @@ public class LoginControl implements Control {
 		String id = req.getParameter("member_id");
 		String pw = req.getParameter("member_pw");
 		
-		System.out.println(login + id + pw);
-		
 		if(!login.equals("logout")) {
 			Member member = new Member();
 			member.setMemberId(id);
 			member.setMemberPassword(pw);
-			
 			
 			MemberService mvc = new MemberServiceImpl();
 			member = mvc.loginMember(member);
