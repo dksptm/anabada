@@ -31,10 +31,6 @@
 	</select>
    
   
-<!-- 		<select id="selectPurchaseOrder" resultType="Order" >
-		select *
-		from   anvd_order
-		where order_num = #{orderNum}
-		</select> -->
+
 		
 </mapper>

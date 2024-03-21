@@ -18,8 +18,8 @@ public class ItemServiceImpl implements ItemService{
 	
 	// 영재
 	@Override
-	public List<Item> ItemList() {
-		return mapper.ItemList();
+	public List<Item> ItemList(String cname) {
+		return mapper.ItemList(cname);
 	}
 	@Override
 	public int itemTotalCnt(SearchVO search) {
@@ -62,6 +62,10 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public boolean removeSellItemList(int itemNum) {
 		return mapper.deleteSellItemList(itemNum) == 1;
+	}
+	@Override
+	public List<Item> ItemList() {
+		return mapper.ItemList1();
 	}
 
 	

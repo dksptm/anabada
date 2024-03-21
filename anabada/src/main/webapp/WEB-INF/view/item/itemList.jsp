@@ -66,35 +66,43 @@
 					<div class="col-lg-3">
 						<div class="row g-4">
 							<div class="col-lg-12">
-								<div class="mb-3">
+								<div class="mb-3 btnbox">
 									<h4>카테고리</h4>
 									<ul class="list-unstyled fruite-categorie">
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>하의</a> <span>(3)</span>
+												<input type="hidden" id="button" name="button" value=""
+													class="btn" />
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-
-												<a href="#"><i data-cid="t" class="fas fa-apple-alt me-2"></i>상의</a>
-												<span >()</span>
-
+												<input type="button" id="button" name="button" value="하의"
+													class="btn" />
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>반팔</a> <span>(2)</span>
+												<input type="button" id="button1" name="button" value="상의"
+													class="btn" />
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>긴팔</a> <span>(8)</span>
+												<input type="button" id="button2" name="button" value="반팔"
+													class="btn" />
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<a href="#"><i class="fas fa-apple-alt me-2"></i>청바지</a> <span>(5)</span>
+												<input type="button" id="button3" name="button" value="긴팔"
+													class="btn" />
+											</div>
+										</li>
+										<li>
+											<div class="d-flex justify-content-between fruite-name">
+												<input type="button" id="button4" name="button" value="청바지"
+													class="btn" />
 											</div>
 										</li>
 									</ul>
@@ -120,11 +128,12 @@
 					</div>
 
 					<div class="col-lg-9">
-						<div class="row g-4 justify-content-center">
-							<c:forEach items="${itemList }" var="item">
-								<div class="col-md-6 col-lg-6 col-xl-4"
-									OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
+						<div class="row g-4 justify-content-center" id="itemList">
+							 <c:forEach items="${itemList }" var="item" >
+								<div class="col-md-6 col-lg-6 col-xl-4 " id="itemRemove">
+									<a href="item.do?itemNum=${item.itemNum}">
 									<div class="rounded position-relative fruite-item">
+										
 										<div class="fruite-img">
 
 											<img src="images/${item.itemImage }"
@@ -133,55 +142,55 @@
 										</div>
 										<div
 											class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-											style="top: 10px; left: 10px;">${item.itemNum }</div>
+											style="top: 10px; left: 10px;">${item.itemNum }
+									   </div>
 
 										<div
 											class="p-4 border border-secondary border-top-0 rounded-bottom">
 											<h4>${item.itemName }</h4>
 											<p>${item.itemInfo }</p>
-											<div class="d-flex justify-content-between flex-lg-wrap">
-												<p class="text-dark fs-5 fw-bold mb-0">${item.itemPrice }</p>
-												<a href="#"
-													class="btn border border-secondary rounded-pill px-3 text-primary"><i
-													class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-													cart</a>
+											<div class="" style="">
+											<p class="" style="font-size:10; font-weight : bold; float:right; widht:250px; height:250; text-align:right;" ><fmt:formatNumber value="${item.itemPrice }"/>원</p>
+												<%-- <p class="text-dark fs-5 fw-bold mb-0">${item.itemPrice }원</p> --%>
+												
 											</div>
 										</div>
 									</div>
+									</a>
 								</div>
-							</c:forEach>
-
-
-							<div class="center">
-								<div class="pagination">
-									<c:if test="${page.prev }">
-										<a
-											href="itemList.do?page=${page.starPage - 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
-											&laquo; </a>
-									</c:if>
-									<c:forEach begin="${page.starPage }" end="${page.endPage }"
-										var="p">
-										<c:choose>
-											<c:when test="${p eq page.page }">
-												<a
-													href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }"
-													class="active">${p }</a>
-											</c:when>
-											<c:otherwise>
-												<a
-													href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }">${p }</a>
-											</c:otherwise>
-										</c:choose>
-									</c:forEach>
-									<c:if test="${page.next }">
-										<a
-											href="itemList.do?page=${page.endPage + 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
-											&raquo; </a>
-									</c:if>
-								</div>
-							</div>
-
+							</c:forEach> 
 						</div>
+
+
+						<div class="center">
+							<div class="pagination">
+								<c:if test="${page.prev }">
+									<a
+										href="itemList.do?page=${page.starPage - 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
+										&laquo; </a>
+								</c:if>
+								<c:forEach begin="${page.starPage }" end="${page.endPage }"
+									var="p">
+									<c:choose>
+										<c:when test="${p eq page.page }">
+											<a
+												href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }"
+												class="active">${p }</a>
+										</c:when>
+										<c:otherwise>
+											<a
+												href="itemList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }">${p }</a>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<c:if test="${page.next }">
+									<a
+										href="itemList.do?page=${page.endPage + 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
+										&raquo; </a>
+								</c:if>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -189,7 +198,6 @@
 	</div>
 </div>
 
-<script>
-	
-</script>
+<script src="static/js/item/itemList.js"></script>
+
 <!-- Fruits Shop End-->

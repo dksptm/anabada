@@ -39,7 +39,7 @@ public class ItemListControl implements Control {
 		
 
 		
-		List<Item> itemList = svc.ItemList();
+	    List<Item> itemList = svc.ItemList();
 		
 		req.setAttribute("itemList", itemList);
 		req.setAttribute("page", pageDTO);
