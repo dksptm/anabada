@@ -27,7 +27,7 @@
           where item_num = #{in}
   </select>
   
-  
+
  <select id="ItemList" resultType="Item" >
     select    item_num,
               category_id,

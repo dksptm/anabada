@@ -29,7 +29,7 @@
 		AND  p.purchase_ok = '구매진행'
 	
 	</select>
-  
+   
   
 <!-- 		<select id="selectPurchaseOrder" resultType="Order" >
 		select *
