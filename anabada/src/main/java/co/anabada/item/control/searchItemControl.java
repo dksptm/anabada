@@ -1,6 +1,7 @@
-package co.anabada.order.control;
+package co.anabada.item.control;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,18 +12,19 @@ import co.anabada.item.Item;
 import co.anabada.item.service.ItemService;
 import co.anabada.item.service.ItemServiceImpl;
 
-public class OrderForm implements Control {
+public class searchItemControl implements Control {
 
+	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
-		String ino = req.getParameter("ino");
 		
-		ItemService ivc = new ItemServiceImpl();
-		Item item = ivc.getItem(Integer.parseInt(ino));
 		
-		req.setAttribute("item", item);
-		String path = "order/orderForm.tiles";
-		req.getRequestDispatcher(path).forward(req, resp);
+		String cid = req.getParameter("cid");
+		ItemService svc = new ItemServiceImpl();
+		List<Item> list = svc.ItemList();
+		
+//		Gson gson = get
+		
+
 	}
 
 }

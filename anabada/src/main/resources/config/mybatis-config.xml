@@ -18,6 +18,7 @@
   		<typeAlias alias="review" type="co.anabada.review.Review" />
   		<typeAlias alias="purchase" type="co.anabada.purchase.Purchase" />
   		<typeAlias alias="order" type="co.anabada.order.Order" />
+  		<typeAlias alias="search" type="co.anabada.common.SearchVO" />
 	</typeAliases>
 	
 	<environments default="development">

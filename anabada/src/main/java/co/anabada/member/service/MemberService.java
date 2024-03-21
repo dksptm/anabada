@@ -2,6 +2,7 @@ package co.anabada.member.service;
 
 import java.util.List;
 
+import co.anabada.item.Item;
 import co.anabada.member.Member;
 
 public interface MemberService {
@@ -11,8 +12,10 @@ public interface MemberService {
 	boolean signUpMember(Member member);
 	Member loginMember(Member member);
 	boolean idCheck(String id);
+	// myPage(효주)
+	List<Item> mySellItems(int mno);
 	
 	// myPage
-	List<Member> myList();
+	List<Member> myList(int memberNum);
 	List<Member> myInfoList();
 }

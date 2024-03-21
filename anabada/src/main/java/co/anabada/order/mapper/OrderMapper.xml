@@ -27,5 +27,14 @@
 		JOIN member m ON (o.member_num = m.member_num)
 		where o.order_num = #{orderNum}
 		AND  p.purchase_ok = '구매진행'
+	
 	</select>
+  
+  
+		<select id="selectPurchaseOrder" resultType="Order" >
+		select *
+		from   anvd_order
+		where order_num = #{orderNum}
+		</select>
+		
 </mapper>
