@@ -28,13 +28,13 @@
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="ms-4 d-block">
-                                    <c:forEach items="${myList }" var="item">
+                                    <div class ="${myList }" var="item">
 	                                    <p class="mb-0">${item.itemName }</p>
 		                                <div class="bg-secondary rounded">
 		                                    <img src="images/${item.itemImage }" class="img-fluid rounded" style="width:100%;higth:100%;object-fit:cover;" alt="">
 		                                </div>
 		                                <p class="m-0 pb-3">${item.itemPrice }원</p>
-                                    </c:forEach>
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                     <hr>
                                 	<div class="mb-2">
                                         <a href="sellItemList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">판매내역</h5><a>
-                                        <a href="purchaseList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
+                                        <a href="purchaseList.domemberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
                                         <a href="#"><h5 class="text-primary text-end">리뷰내역</h5><a>
                                 	</div>
                                 </div>
@@ -58,9 +58,9 @@
                                 	<h5 class="text-dark text-end">나의정보</h5>
                                     <hr>
                                    	<div class="mb-2">
-                                    	<a href="#"><h5 class="text-primary text-end">나의계죄</h5><a>
+                                    	<a href="#"><h5 class="text-primary text-end">나의계좌</h5><a>
                                         <a href="addreviewForm.do"><h5 class="text-primary text-end">리뷰쓰기</h5><a>
-                                        <a href="#"><h5 class="text-primary text-end">나의정보</h5><a>
+                                        <a href="myInfo.domemberNum=${member.memberNum }"><h5 class="text-primary text-end">나의정보</h5><a>
                                 	</div>
                             	</div>
                     		</div>

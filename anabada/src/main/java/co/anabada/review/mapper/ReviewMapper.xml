@@ -13,7 +13,7 @@
 				,m.member_name
 		FROM review r
 		JOIN anvd_order o ON r.order_num = o.order_num
-		JOIN member m ON o.member_num = m.member_num
+		JOIN member m ON o.member_num = #{reviewNum}
 
 
 	</select>
