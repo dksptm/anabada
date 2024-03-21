@@ -4,14 +4,14 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">상품등록(완료)</h1>
+            <h1 class="text-center text-white display-6">상품수정(완료)</h1>
         </div>
         <!-- Single Page Header End -->
 
         <!-- Checkout Page Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
-                <h1 class="row mb-4 justify-content-center">상품을 등록하세요.</h1>
+                <h1 class="row mb-4 justify-content-center">상품수정 하세요.</h1>
                 <form action="addItem.do" method="post" enctype="multipart/form-data" id="addItem">
                 	<input type="hidden" value="${member.memberNum }" name="mem_num">
                 	<input type="hidden" value="판매중" name="status">
@@ -95,7 +95,7 @@
                             </div> -->
 	                        <hr>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
-	                        	<button type="button" onclick="selectFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품등록</button>
+	                        	<button type="button" onclick="mdfFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품수정</button>
 								<button type="reset" class="btn btn-outline-dark py-3 px-4 w-100 text-primary">나가기</button>
 	                        </div>
                         </div>
@@ -110,4 +110,4 @@
          console.log(mem);
          let memAcc = "${member.accountNum }";
         </script>
-        <script src="static/js/item/additem.js"></script>
+        <script src="static/js/item/modifyitem.js"></script>

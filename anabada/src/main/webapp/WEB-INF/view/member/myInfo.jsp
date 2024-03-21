@@ -66,7 +66,6 @@ console.log('여기서?',mno);
 function accUpdate() {
 	let inputAcc = prompt("수정할 계좌번호를 입력해주세요\n대구은행 111-1111");
 	console.log(inputAcc);
- 	
 	
 	$.ajax({
 		url: 'modifyAcc.do',
@@ -75,7 +74,11 @@ function accUpdate() {
 		dataType: 'json',
 	})
 	.done((result) => {
-		console.log(result);
+		if(result.retCode == 'OK') {
+			window.location.replace('myInfo.do?memberNum='+mno);
+		} else {
+			alert('수정실패');
+		}
 	})
 	.fail((err) => console.log(err))
 }

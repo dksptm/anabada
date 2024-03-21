@@ -19,6 +19,7 @@ public interface ItemService {
 	List<Item> recentItem();
 	List<Item> likeItem();
 	List<Category> cateList();
+	boolean changeItem(String sts, int ino);
 	
 	// 진경
 	List<Item> shopList();

@@ -1,7 +1,6 @@
 package co.anabada.item.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +24,6 @@ public class ItemControl implements Control {
 		ItemService svc = new ItemServiceImpl();// 서비스 
 		Item item = new Item(); // 아이템 객채
 		item = svc.getItem(Integer.parseInt(in));
-		System.out.println(item);
 		
 		req.setAttribute("item", item);
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);

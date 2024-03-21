@@ -11,6 +11,7 @@ public interface MemberService {
 	List<Member> memberList();
 	boolean signUpMember(Member member);
 	Member loginMember(Member member);
+	Member loginMemByNum(int mno);
 	boolean idCheck(String id);
 	// myPage(효주)
 	List<Item> mySellItems(int mno);

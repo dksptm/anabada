@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
+import co.anabada.item.service.ItemService;
+import co.anabada.item.service.ItemServiceImpl;
 import co.anabada.order.Order;
 import co.anabada.order.serivce.OrderService;
 import co.anabada.order.serivce.OrderServiceImpl;
@@ -39,15 +41,21 @@ public class AddOrderControl implements Control {
 		odr.setPaymentType(pty);
 		
 		OrderService ovc = new OrderServiceImpl();
+		ItemService ivc = new ItemServiceImpl();
 		
 		Map<String, Object> map = new HashMap<>();
 		
 		try {
 			if (ovc.addOrder(odr)) {
-				map.put("retCode", "OK");
-				map.put("retVal", "확인");
+				if(ivc.changeItem("예약중", Integer.parseInt(ino))) {
+					map.put("retCode", "OK");
+					map.put("retVal", "확인");
+					System.out.println("주문성공(예약중변경)");
+				} else {
+					map.put("retCode", "NG-1");
+				}
 			} else {
-				map.put("retCode", "NG");
+				map.put("retCode", "NG-2");
 			}			
 		} catch(Exception e) {
 			e.printStackTrace();
