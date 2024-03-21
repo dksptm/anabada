@@ -247,7 +247,6 @@ main {
 			</div>
 
 			<hr>
-
 			<h2>거래정보</h2>
 			<div class="info_section">
 				<span class="info_title">거래방법</span> <span class="info_content">${selectPurchaseOrder.deliveryHow }</span>
@@ -268,12 +267,12 @@ main {
 				<span class="info_title">결제금액</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
 			</div>
 			<c:choose>
-					<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
+					<c:when test="${selectPurchaseOrder.purchaseOk eq '구매완료'}">
 					<span><button type="button"  onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 구매확정</button></span>
 					</c:when>
 					
 					<c:otherwise>
-					<span><button type="button" disabled onclick="orderConfirm(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 리뷰쓰기</button></span>
+					<span><button type="button" onclick="location.href='addreview.do?orderNum=${selectPurchaseOrder.orderNum}';"class=" btn btn--stripe btn--large " > 리뷰쓰기</button></span>
 					</c:otherwise>
 					</c:choose>
 		</div>

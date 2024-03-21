@@ -29,5 +29,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public boolean removeReview(String reviewNum) {
 		return mapper.deleteReview(reviewNum) == 1;
 	}
+	@Override
+	public Item breview() {
+		return mapper.breview();
+	}
 
 }

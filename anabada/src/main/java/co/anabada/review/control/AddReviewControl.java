@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
+import co.anabada.item.Item;
 import co.anabada.review.Review;
 import co.anabada.review.service.ReviewService;
 import co.anabada.review.service.ReviewServiceImpl;
@@ -18,20 +19,27 @@ public class AddReviewControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		
-		String orderNum = req.getParameter("order_num");
+		int orderNum = Integer.parseInt(req.getParameter("orderNum"));
+		System.out.println(orderNum);
+		//
 		String reviewScore = req.getParameter("review_score");
+		System.out.println("review_score= "+reviewScore);
 		String reviewComment = req.getParameter("review_comment");
+		System.out.println("review_comment= "+reviewComment);
 		
-//		Review review = new Review(orderNum, reviewScore, reviewComment);
-		Review review = new Review(Integer.parseInt(orderNum),Integer.parseInt(reviewScore),reviewComment);
+//		Review review = new Review(Integer.parseInt(reviewScore),reviewComment);
+		//Review review = new Review(Integer.parseInt(ono),Integer.parseInt(reviewScore),reviewComment);
+		Review review = new Review(orderNum,reviewScore,reviewComment);
 		
 		ReviewService svc = new ReviewServiceImpl();
-		svc.addreview(review);
+		//svc.addreview(review);
 	    
-		req.setAttribute("review", review);
-		System.out.println(review);
+		req.setAttribute("orderNum", orderNum);
+		//req.setAttribute("review", review);
+		//System.out.println(review);
 		
-		String path = "review/reviewList.tiles";
+//		String path = "review/reviewList.tiles";
+		String path = "review/addreviewForm.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		//dispatch = item.do
 		

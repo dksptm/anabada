@@ -12,7 +12,8 @@ public interface ItemService {
 	Item getItem(int in);
 	List<Item> ItemList(String cname);
 	List<Item> ItemList();
-	//int itemTotalCnt(SearchVO search);
+	List<Item> ItemList1(SearchVO search);
+	int itemTotalCnt(SearchVO search);
 	
 	// 효주.
 	boolean addItem(Item item);

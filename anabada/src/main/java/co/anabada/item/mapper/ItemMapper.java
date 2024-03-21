@@ -10,9 +10,10 @@ public interface ItemMapper {
 	
 	// 영재.
 	List<Item> ItemList(String cname);
-	List<Item> ItemList1();
+	List<Item> ItemList();
+	List<Item> ItemList1(SearchVO search);
 	Item selectItem(int ino);
-	//int getTotalCnt(SearchVO search);
+	int getTotalCnt(SearchVO search);
 	Item Item(int in);
 	
 	// 효주.
