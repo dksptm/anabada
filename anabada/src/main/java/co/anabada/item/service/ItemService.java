@@ -25,7 +25,9 @@ public interface ItemService {
 	
 	// 주완
 	List<Item> sellItemList(int memberNum);
-	boolean removeSellItemList(int itemum);
+	
+	boolean sellItemCancle(int itemNum);
+	
 	
 	
 	

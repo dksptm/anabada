@@ -15,7 +15,7 @@ import co.anabada.common.Control;
 import co.anabada.item.service.ItemService;
 import co.anabada.item.service.ItemServiceImpl;
 
-public class deleteSellItemControl implements Control {
+public class SellItemCancleControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,7 +25,7 @@ public class deleteSellItemControl implements Control {
 		ItemService svc = new ItemServiceImpl();
 		Map<String, String> map = new HashMap<>();
 
-		if (svc.removeSellItemList(Integer.parseInt(itemNum))) {
+		if (svc.sellItemCancle(Integer.parseInt(itemNum))) {
 			map.put("retCode", "OK");
 			map.put("retMsg", "정상적으로 삭제되었습니다");
 		} else {

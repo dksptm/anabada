@@ -60,8 +60,8 @@ public class ItemServiceImpl implements ItemService{
 		return mapper.sellItemList(memberNum);
 	}
 	@Override
-	public boolean removeSellItemList(int itemNum) {
-		return mapper.deleteSellItemList(itemNum) == 1;
+	public boolean sellItemCancle(int itemNum) {
+		return mapper.sellItemCancle(itemNum) == 1;
 	}
 
 	

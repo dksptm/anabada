@@ -26,7 +26,7 @@ public interface ItemMapper {
 	// 주완
 	List<Item> sellItemList(int memberNum);
 	
-	int deleteSellItemList(int itemNum);
+	int sellItemCancle(int itemNum);
 	
 	
 }

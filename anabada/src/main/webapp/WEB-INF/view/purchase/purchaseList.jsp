@@ -24,6 +24,7 @@
 						<th scope="col">삭제</th>
 					</tr>
 				</thead>
+				
 				<tbody>
 					<c:forEach var="purchase" items="${purchaselist }">
 						
@@ -63,7 +64,7 @@
 
 
 <script>
-function selectPurchaseList()
+/* function selectPurchaseList()
 function deletePurchase(orderNum) {
     if (confirm('이 상품을 삭제하시겠습니까?')) {
         $.ajax({
@@ -86,7 +87,7 @@ function deletePurchase(orderNum) {
         });
     }
 }
-
+ */
 </script>
 
 

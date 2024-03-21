@@ -12,6 +12,9 @@ public interface PurchaseService {
 	boolean removePurchaseList(int orderNum);
 
 
+	boolean purchaseConfirm(int orderNum);
+
+
 
 
 

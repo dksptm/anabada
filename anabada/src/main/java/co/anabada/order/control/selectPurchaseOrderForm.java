@@ -1,7 +1,6 @@
 package co.anabada.order.control;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +19,12 @@ public class selectPurchaseOrderForm implements Control {
 		
 		resp.setContentType("text/json;charset=utf-8");
 		String orderNum = req.getParameter("orderNum");
-		System.out.println(orderNum);
+		System.out.println("orderNum " + orderNum);
 		
 		OrderService svc = new OrderServiceImpl();
         Order selectPurchaseOrder = svc.selectPurchaseOrder(Integer.parseInt(orderNum));
         req.setAttribute("selectPurchaseOrder", selectPurchaseOrder);
-        System.out.println(selectPurchaseOrder);
+        System.out.println("selectPurchaseOrder " + selectPurchaseOrder);
         System.out.println("실행?");
         
 		String path = "WEB-INF/view/order/jsp/selectPurchaseList.jsp";

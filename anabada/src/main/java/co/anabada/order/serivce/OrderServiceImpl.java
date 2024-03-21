@@ -1,5 +1,4 @@
 package co.anabada.order.serivce;
-import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import co.anabada.common.DataSource;
@@ -14,6 +13,12 @@ public class OrderServiceImpl implements OrderService {
 	public Order selectPurchaseOrder(int OrderNum) {
 		return mapper.selectPurchaseOrder(OrderNum);
 	}
+
+	@Override
+	public boolean orderCancle(int orderNum) {
+		return mapper.orderCancle(orderNum)==1;
+	}
+
 
 	
 

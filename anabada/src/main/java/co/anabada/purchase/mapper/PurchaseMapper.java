@@ -8,5 +8,7 @@ public interface PurchaseMapper {
 	 List<Purchase> purchaseList();
 
 	int deletePurchaseList(int orderNum);
+
+	int purchaseConfirm(int orderNum);
 	 
 }

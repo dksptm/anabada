@@ -22,4 +22,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public boolean removePurchaseList(int orderNum) {
 		return mapper.deletePurchaseList(orderNum) == 1;
 	}
+
+	@Override
+	public boolean purchaseConfirm(int orderNum) {
+		return mapper.purchaseConfirm(orderNum) == 1;
+	}
 }

@@ -7,4 +7,7 @@ public interface OrderService  {
 
 	Order selectPurchaseOrder(int OrderNum);
 
+	boolean orderCancle(int orderNum);
+
+
 }
