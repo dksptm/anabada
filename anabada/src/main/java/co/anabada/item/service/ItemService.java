@@ -11,7 +11,7 @@ public interface ItemService {
 	// 영재.
 	Item getItem(int in);
 	List<Item> ItemList();
-	int itemTotalCnt(SearchVO search);
+	//int itemTotalCnt(SearchVO search);
 	
 	// 효주.
 	boolean addItem(Item item);

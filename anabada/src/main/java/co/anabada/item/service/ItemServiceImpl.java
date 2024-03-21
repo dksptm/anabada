@@ -21,10 +21,11 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> ItemList() {
 		return mapper.ItemList();
 	}
-	@Override
-	public int itemTotalCnt(SearchVO search) {
-		return mapper.getTotalCnt(search);
-	}
+
+	/*
+	 * @Override public int itemTotalCnt(SearchVO search) { return
+	 * mapper.getTotalCnt(search); }
+	 */
 	@Override
 	public Item getItem(int in){
 		return mapper.selectItem(in);

@@ -4,8 +4,6 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
-
-
   <select id="selectItem" resultType="Item"> 
            select       i.item_num,
                         i.category_id,
@@ -25,24 +23,6 @@
           join member m on (i.member_num = m.member_num)
           join category c on (c.category_id = i.category_id)
           where item_num = #{in}
-  </select>
-  
-  <select id="getTotalCnt" resultType="int" parameterType="search">
-  select count(*) 
-    from item
-    <where>
-      <choose>
-        <when test="searchCondition == 'T'.toString() ">
-         title like '%'||#{keyword}||'%'
-        </when>
-        <when test="searchCondition == 'W'.toString() ">
-         writer like '%'||#{keyword}||'%'
-        </when>
-        <when test="searchCondition == 'TW'.toString() ">
-         (title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%')
-        </when>
-      </choose>
-    </where>
   </select>
   
  <select id="ItemList" resultType="Item" >

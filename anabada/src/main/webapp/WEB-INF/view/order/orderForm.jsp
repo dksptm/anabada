@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+
+
 		<div class="container-fluid page-header py-5">
 			<h1 class="text-center text-white display-6">구매페이지</h1>
 			<ol class="breadcrumb justify-content-center mb-0">
@@ -19,16 +21,18 @@
 					<div class="row g-3 justify-content-center">
 						<div class="col-md-12 col-lg-6 col-xl-7"><br><br>
 							<!-- 거래방법 -->
-							<h4 class="text-center">거래방법</h4>
-							<div class="d-flex text-center align-items-center justify-content-between">
-								<button type="button"
-										class="btn border-secondary py-3 px-4 me-4 w-100 text-primary"
-										style="background-color: #F2EFE5;"
-										${item.dselect eq 'jik' ? 'disabled' : '' } >택배거래</button>
-								<button type="button"
-										class="btn btn-outline-dark py-3 px-4 w-100 text-primary"
+							<h4 class="text-center">거래방법 </h4>
+							<div class="d-flex text-center align-items-center justify-content-between" id="jusoOpen">
+								<input type="radio" name="jusoOpen"
+										class="btn btn-outline-success border py-3 px-4 me-4 w-100 text-primary"
+										style="background-color: #CCD3CA;"
+										${item.dselect eq 'jik' ? 'disabled' : '' } >
+										택배거래
+								<input type="radio" name="jusoOpen"
+										class="btn btn-outline-success border py-3 px-4 me-4 w-100 text-primary"
+										style="background-color: #B5C0D0;"
 										${item.dselect eq 'taek' ? 'disabled' : '' } >
-										직거래</button>
+										직거래
 							</div>
 							<br>
 							<!-- 구매상품정보 -->
@@ -48,25 +52,33 @@
                     		</div>
 							<br><br>
 							<!-- 택배면 배송지, 직거래면 직거래장소 -->
-							<div id="juso">
+							<div id="jusot">
 							<h4 class="w-100 text-center">구매자 정보</h4>
 							<div class="form-item">
 								<label class="form-label my-3" for="dname">수령인 이름<sup>*</sup></label>
 								<input type="text" class="form-control" name="dname" id="dname" value="${member.memberName }">
 							</div>
-							
-							<div class="form-item" id="j">
+							<div class="form-item">
 								<label class="form-label my-3" for="tjuso">배송지 주소입력<sup>*</sup></label>
 								<input type="text" class="form-control" name="tjuso" id="tjuso">
 								<span style="color:red;">택배비 3000원 추가</span>
 							</div>
-							
-							<div class="form-item" id="t">
+							</div>
+							<div id="jusoj">
+							<h4 class="w-100 text-center">구매자 정보</h4>
+							<div class="form-item">
+								<label class="form-label my-3" for="dname">수령인 이름<sup>*</sup></label>
+								<input type="text" class="form-control" name="dname" id="dname" value="${member.memberName }">
+							</div>
+							<div class="form-item">
 								<label class="form-label my-3" for="jjuso">직거래 희망장소<sup>*</sup></label>
 								<input type="text" class="form-control" name="jjuso" id="jjuso">
 							</div>
+							</div>
+							
 							
 							<!-- 결제방법 -->
+							<div id="payment">
 							<div class="d-flex text-center align-items-center justify-content-between pt-4">
 								<label class="form-label my-3" for="">결제방법<sup>*</sup></label>
 								<button type="button" class="btn border-secondary col-4" id="pay">네이버페이</button>

@@ -34,7 +34,7 @@ public class ItemListControl implements Control {
 		
 		ItemService svc = new ItemServiceImpl();
 		
-		pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
+		//pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
 		
 		
 
@@ -42,7 +42,7 @@ public class ItemListControl implements Control {
 		List<Item> itemList = svc.ItemList();
 		
 		req.setAttribute("itemList", itemList);
-		req.setAttribute("page", pageDTO);
+		//req.setAttribute("page", pageDTO);
 		req.setAttribute("searchCondition", searchCond);
 		req.setAttribute("keyword", keyword);
 		

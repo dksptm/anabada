@@ -30,11 +30,6 @@
 						<!-- 중간메뉴 start. -->
 						<div class="navbar-nav mx-auto">
 						
-							<!--카테고리--> 
-							<!-- <div class="nav-item" style="position:relative;">
-								<a href="#" class="nav-link" id="cate">카테고리</a>
-								<ul style="position:absolute;background-color;#fff;" id="ulTag"></ul>
-							</div>  -->
 							<div class="nav-item dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">카테고리</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
