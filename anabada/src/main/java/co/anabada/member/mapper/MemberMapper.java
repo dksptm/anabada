@@ -15,6 +15,6 @@ public interface MemberMapper {
 	List<Item> perMemSellItems(int mno);
 	
 	// myPage
-	List<Member> myList();
+	List<Member> myList(int memberNum);
 	List<Member> myInfoList();
 }

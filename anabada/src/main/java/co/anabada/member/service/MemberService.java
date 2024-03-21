@@ -16,6 +16,6 @@ public interface MemberService {
 	List<Item> mySellItems(int mno);
 	
 	// myPage
-	List<Member> myList();
+	List<Member> myList(int memberNum);
 	List<Member> myInfoList();
 }

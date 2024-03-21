@@ -34,6 +34,7 @@ import co.anabada.item.control.SellItemListControl;
 import co.anabada.member.control.IdChk;
 import co.anabada.item.control.ShopInfoControl;
 import co.anabada.item.control.deleteSellItemControl;
+import co.anabada.item.control.searchItemControl;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
 import co.anabada.member.control.MyInfoControl;
@@ -78,6 +79,7 @@ public class FrontController extends HttpServlet {
 		// 영재.
 		controls.put("/item.do", new ItemControl());
 		controls.put("/itemList.do", new ItemListControl());
+		controls.put("/searchItem.do", new searchItemControl());
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl()); // 장바구니 리스트

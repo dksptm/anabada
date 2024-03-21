@@ -14,10 +14,12 @@ import co.anabada.member.service.MemberServiceImpl;
 
 public class MypageControl implements Control {
 
+
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		String mno = req.getParameter("mno");
+		
 		
 		MemberService mvc = new MemberServiceImpl();
 		List<Item> myList = mvc.mySellItems(Integer.parseInt(mno));
@@ -31,6 +33,13 @@ public class MypageControl implements Control {
 			req.setAttribute("myList", null);
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
+		//resp.setContentType("text/json;charset=uft-8");
+		
+		/*MemberService svc = new MemberServiceImpl();
+		List<Member> myList = svc.myList(Integer.parseInt(memberNum));*/
+		
+		//System.out.println(myList);
+//		req.setAttribute("myList", myList);
 		
 	}
 

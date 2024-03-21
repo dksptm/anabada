@@ -27,6 +27,24 @@
           where item_num = #{in}
   </select>
   
+  <select id="getTotalCnt" resultType="int" parameterType="search">
+  select count(*) 
+    from item
+    <where>
+      <choose>
+        <when test="searchCondition == 'T'.toString() ">
+         title like '%'||#{keyword}||'%'
+        </when>
+        <when test="searchCondition == 'W'.toString() ">
+         writer like '%'||#{keyword}||'%'
+        </when>
+        <when test="searchCondition == 'TW'.toString() ">
+         (title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%')
+        </when>
+      </choose>
+    </where>
+  </select>
+  
  <select id="ItemList" resultType="Item" >
     select    item_num,
               category_id,

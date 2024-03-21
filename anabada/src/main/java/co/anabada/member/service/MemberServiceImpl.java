@@ -43,8 +43,8 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 진경.
 	@Override
-	public List<Member> myList() {
-		return mapper.myList();
+	public List<Member> myList(int memberNum) {
+		return mapper.myList(memberNum);
 	}
 
 	@Override
