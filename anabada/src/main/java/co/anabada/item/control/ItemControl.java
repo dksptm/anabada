@@ -18,6 +18,7 @@ public class ItemControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "item/item.tiles";
+		
 		String in = req.getParameter("itemNum");
 		
 		// path = item.do 

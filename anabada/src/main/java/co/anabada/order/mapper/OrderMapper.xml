@@ -29,14 +29,6 @@
 		AND  p.purchase_ok = '구매진행'
 	
 	</select>
-<!--   
-  
-		<select id="selectPurchaseOrder" resultType="Order" >
-		select *
-		from   anvd_order
-		where order_num = #{orderNum}
-		</select> -->
-
 
 	<insert id="insertOrder" parameterType="Order">
         INSERT INTO anvd_order (item_num
@@ -54,5 +46,5 @@
                ,#{deliveryAddress}
                ,#{paymentType})
 	</insert>
-		
+
 </mapper>

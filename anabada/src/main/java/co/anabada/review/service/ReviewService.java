@@ -8,7 +8,7 @@ import co.anabada.review.Review;
 public interface ReviewService {
 	
 	// 후기목록
-	List<Review> reviewList();
+	List<Review> reviewList(int mno);
 	Item addreviewList();
 	boolean addreview(Review review);
 	

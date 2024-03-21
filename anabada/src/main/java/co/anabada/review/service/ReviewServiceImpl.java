@@ -14,8 +14,8 @@ public class ReviewServiceImpl implements ReviewService {
 	ReviewMapper mapper = session.getMapper(ReviewMapper.class);
 	
 	@Override
-	public List<Review> reviewList() {
-		return mapper.reviewList();
+	public List<Review> reviewList(int mno) {
+		return mapper.reviewList(mno);
 	}
 	@Override
 	public Item addreviewList() {

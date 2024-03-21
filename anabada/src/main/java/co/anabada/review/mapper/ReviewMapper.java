@@ -8,7 +8,7 @@ import co.anabada.review.Review;
 public interface ReviewMapper {
 	
 	// 목록
-	List<Review> reviewList();
+	List<Review> reviewList(int mno);
 	Item  addreviewList();
 	int insertreview(Review review);
 	

@@ -10,11 +10,12 @@
 				,r.review_date
 				,r.review_comment
 				,o.order_num
-				,m.member_name
+				,m.member_num
 		FROM review r
 		JOIN anvd_order o ON r.order_num = o.order_num
 		JOIN member m ON o.member_num = m.member_num
-
+		WHERE m.member_num = #{mno}
+	
 
 	</select>
 	

@@ -72,7 +72,7 @@
 		,i.item_status
 		,i.item_price
 		FROM member m JOIN item i ON m.member_num = i.member_num
-		WHERE m.member_num = #{memberNum}
+		WHERE m.member_num = ${memberNum}
 	</select>
 
 	<select id="myInfoList" resultType="member">
@@ -83,5 +83,11 @@
 		FROM member
 		WHERE member_num = #{memberNum}
 	</select>
+
+	<update id = "updateAcc" parameterType="member">
+	 UPDATE member 
+	 SET account_num = #{accountNum}
+	 WHERE member_num = #{memberNum}
+	</update>
 
 </mapper>

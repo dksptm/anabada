@@ -71,7 +71,7 @@
 
 <script>
 
-/* $.ajax({
+/*  $.ajax({
     url: 'reviewList.do',
     method: 'post',
     dataType: 'json'
@@ -82,6 +82,7 @@
   })
   .fail(err => console.log(err));
  */
+ 
 	// 삭제
 	$('.deleteBtn').on('click', function(){
 		 let reviewNum =$(this).data("reviewNum")
@@ -92,6 +93,7 @@
 		 .then(result => {
 			 if (result.retCode == "OK") {
 				 alert("후기가 삭제되었습니다.")
+				 location.reload();
 			 } else {
 				 alert("후기 삭제 오류.")
 			 }
