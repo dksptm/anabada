@@ -19,6 +19,11 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.orderCancle(orderNum)==1;
 	}
 
+	// 효주.
+	@Override
+	public boolean addOrder(Order odr) {
+		return mapper.insertOrder(odr) == 1;
+	}
 
 	
 

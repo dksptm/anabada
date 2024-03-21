@@ -10,6 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.anabada.review.control.AddReviewControl;
+import co.anabada.review.control.AddReviewForm;
+import co.anabada.review.control.RemoveReviewControl;
+import co.anabada.review.control.RemoveReviewForm;
+import co.anabada.review.control.ReviewListControl;
+import co.anabada.order.control.AddOrderControl;
+import co.anabada.order.control.OrderComplete;
+import co.anabada.order.control.OrderForm;
+import co.anabada.order.control.selectPurchaseOrderForm;
+import co.anabada.purchase.control.PurchaseListControl;
+import co.anabada.purchase.control.deletePurchaseControl;
 import co.anabada.cart.control.AddCartControl;
 import co.anabada.cart.control.CartListControl;
 import co.anabada.cart.control.RemoveCartControl;
@@ -31,6 +42,7 @@ import co.anabada.item.control.searchItemControl;
 import co.anabada.member.control.IdChk;
 import co.anabada.member.control.LoginControl;
 import co.anabada.member.control.LoginForm;
+import co.anabada.member.control.ModifyAccControl;
 import co.anabada.member.control.MyInfoControl;
 import co.anabada.member.control.MypageControl;
 import co.anabada.member.control.SignUpControl;
@@ -77,6 +89,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/addItem.do", new AddItemControl()); 
 		controls.put("/categoryList.do", new CategoryListControl()); 
 		controls.put("/orderForm.do", new OrderForm()); 
+		controls.put("/addOrder.do", new AddOrderControl()); 
+		controls.put("/orderComplete.do", new OrderComplete()); 
 		
 		// 영재.
 		controls.put("/item.do", new ItemControl());
@@ -92,6 +106,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/shopInfo.do", new ShopInfoControl()); // 상점,가게
 		controls.put("/myPage.do", new MypageControl()); // 마이페이지
 		controls.put("/myInfo.do", new MyInfoControl()); // 내 정보
+		controls.put("/modifyAcc.do", new ModifyAccControl()); // 계좌수정
+		
 		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록

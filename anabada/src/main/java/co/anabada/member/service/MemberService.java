@@ -17,5 +17,8 @@ public interface MemberService {
 	
 	// myPage
 	List<Member> myList(int memberNum);
-	List<Member> myInfoList();
+	List<Member> myInfoList(int memberNum);
+	
+	// 계좌수정
+	boolean modifyAcc(Member member);
 }

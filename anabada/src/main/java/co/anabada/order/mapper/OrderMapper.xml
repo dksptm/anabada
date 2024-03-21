@@ -45,4 +45,23 @@
 	
 	
 	
+	
+
+	<insert id="insertOrder" parameterType="Order">
+        INSERT INTO anvd_order (item_num
+                               ,member_num
+                               ,order_type
+                               ,delivery_how
+                               ,delivery_fee
+                               ,delivery_address
+                               ,payment_type)
+        VALUES (#{itemNum}
+               ,#{memberNum}
+               ,#{orderType}
+               ,#{deliveryHow}
+               ,#{deliveryFee}
+               ,#{deliveryAddress}
+               ,#{paymentType})
+	</insert>
+
 </mapper>

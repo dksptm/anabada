@@ -10,4 +10,6 @@ public interface OrderService  {
 	boolean orderCancle(int orderNum);
 
 
+	// 효주.
+	boolean addOrder(Order odr);
 }

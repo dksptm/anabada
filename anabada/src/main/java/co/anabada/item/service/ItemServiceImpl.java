@@ -18,13 +18,14 @@ public class ItemServiceImpl implements ItemService{
 	
 	// 영재
 	@Override
-	public List<Item> ItemList() {
-		return mapper.ItemList();
+	public List<Item> ItemList(String cname) {
+		return mapper.ItemList(cname);
 	}
-	@Override
-	public int itemTotalCnt(SearchVO search) {
-		return mapper.getTotalCnt(search);
-	}
+
+	/*
+	 * @Override public int itemTotalCnt(SearchVO search) { return
+	 * mapper.getTotalCnt(search); }
+	 */
 	@Override
 	public Item getItem(int in){
 		return mapper.selectItem(in);
@@ -62,6 +63,10 @@ public class ItemServiceImpl implements ItemService{
 	@Override
 	public boolean sellItemCancle(int itemNum) {
 		return mapper.sellItemCancle(itemNum) == 1;
+	}
+	@Override
+	public List<Item> ItemList() {
+		return mapper.ItemList1();
 	}
 
 	

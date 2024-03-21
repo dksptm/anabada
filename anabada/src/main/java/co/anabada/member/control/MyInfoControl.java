@@ -18,16 +18,29 @@ public class MyInfoControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-
-		String path = "member/myInfo.tiles";
-
+		String memberNum = req.getParameter("memberNum");
+		
 		MemberService svc = new MemberServiceImpl();
-		List<Member> myInfoList = svc.myInfoList();
-		System.out.println(myInfoList);
+		List<Member> myInfoList = svc.myInfoList(Integer.parseInt(memberNum));
+		
 		req.setAttribute("myInfoList", myInfoList);
-
-		RequestDispatcher dispatch = req.getRequestDispatcher(path);
-		dispatch.forward(req, resp);
+		//System.out.println(memberNum);
+		//System.out.println(myInfoList);
+		
+		 String path = "member/myInfo.tiles";
+		 RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		 dispatch.forward(req, resp);
+		
+		 
+	
+	
+		/*
+		 * System.out.println(myInfoList); 
+		 * req.setAttribute("myInfoList", myInfoList);
+		 * 
+		 * RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		 * dispatch.forward(req, resp);
+		 */
 	}
 
 }

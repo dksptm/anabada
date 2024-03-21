@@ -124,9 +124,4 @@
 		</c:when>
 		</c:choose>
 		
-		<script>
-		document.querySelector(".").addEventListener("click"function(){
-			
-		})
-		</script>
 		<!-- Vesitable Shop End -->

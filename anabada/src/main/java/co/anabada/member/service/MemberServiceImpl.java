@@ -48,9 +48,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Member> myInfoList() {
-		return mapper.myInfoList();
+	public List<Member> myInfoList(int memberNum) {
+		return mapper.myInfoList(memberNum);
 	}
 
+	@Override
+	public boolean modifyAcc(Member member) {
+		return mapper.updateAcc(member) == 1;
+	}
 
 }

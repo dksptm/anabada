@@ -9,9 +9,10 @@ import co.anabada.item.Item;
 public interface ItemMapper {
 	
 	// 영재.
-	List<Item> ItemList();
+	List<Item> ItemList(String cname);
+	List<Item> ItemList1();
 	Item selectItem(int ino);
-	int getTotalCnt(SearchVO search);
+	//int getTotalCnt(SearchVO search);
 	Item Item(int in);
 	
 	// 효주.

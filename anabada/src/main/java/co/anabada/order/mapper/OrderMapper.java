@@ -10,4 +10,7 @@ public interface OrderMapper {
 	int orderCancle(int orderNum);
 
 	
+	// 효주.
+	int insertOrder(Order odr);
+	
 }
