@@ -29,7 +29,8 @@
 		AND  p.purchase_ok = '구매진행'
 	
 	</select>
-  
+   
   
 
+		
 </mapper>

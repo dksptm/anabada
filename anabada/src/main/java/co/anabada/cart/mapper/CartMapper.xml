@@ -15,7 +15,7 @@
 				i.member_num, 
 				(SELECT m.member_name FROM member m WHERE m.member_num = i.member_num) 
 		FROM cart c JOIN item i ON (c.item_num = i.item_num)
-		WHERE c.member_num = 12
+		WHERE c.member_num = #{memberNum}
 	</select>
 
 	<insert id="insertCart" parameterType="cart">
@@ -28,10 +28,9 @@
 		,#{cartStatus})
 	</insert>
 
-	<delete id="deleteCart" parameterType="string">
+	<delete id="deleteCart" parameterType="int">
 		DELETE cart
-		WHERE cart_num
-		=#{cartNum}
+		WHERE cart_num=#{cartNum}
 
 	</delete>
 

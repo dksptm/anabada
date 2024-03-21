@@ -54,7 +54,7 @@
 									<a href="reviewList.do" class="dropdown-item">리뷰리스트</a>
 									<a href="shopInfo.do" class="dropdown-item">가게정보(판매자정보)(ㅈㄱ)</a>
 									<a href="myPage.do?memberNum=${member.memberNum }" class="dropdown-item">마이페이지(ㅈㄱ)</a>
-									<a href="#" class="dropdown-item">내정보페이지(ㅈㄱ)</a>
+									<a href="myInfo.do?memberNum=${memeber.memberNum} " class="dropdown-item">내정보페이지(ㅈㄱ)</a>
 									<a href="addreviewForm.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 									<a href="purchaseList.do?memberNum=${member.memberNum }" class="dropdown-item">나의구매(ㅈㅇ)</a>
 									<a href="sellItemList.do?memberNum=${member.memberNum }" class="dropdown-item">나의판매(ㅈㅇ)</a>
@@ -83,7 +83,7 @@
 								<a href="addItemForm.do" class="position-relative me-4 my-auto">
 									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
 								</a>
-								<a href="cartList.do" class="position-relative me-4 my-auto">
+								<a href="cartList.do?memberNum=${memeber.memberNum}" class="position-relative me-4 my-auto">
 									<i class="fa fa-shopping-bag fa-2x"></i><sup>장바구니</sup>	
 								</a>
 								<a href="diaryList.do" class="position-relative me-4 my-auto">
