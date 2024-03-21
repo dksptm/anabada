@@ -16,5 +16,6 @@ public interface MemberMapper {
 	
 	// myPage
 	List<Member> myList(int memberNum);
-	List<Member> myInfoList();
+	List<Member> myInfoList(int memberNum);
+	int updateAcc(Member member);
 }

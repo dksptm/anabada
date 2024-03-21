@@ -48,8 +48,8 @@
                                     <hr>
                                 	<div class="mb-2">
                                         <a href="sellItemList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">판매내역</h5><a>
-                                        <a href="purchaseList.domemberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
-                                        <a href="#"><h5 class="text-primary text-end">리뷰내역</h5><a>
+                                        <a href="purchaseList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
+                                        <a href="reviewList.do?mno=${member.memberNum }"><h5 class="text-primary text-end">리뷰내역</h5><a>
                                 	</div>
                                 </div>
                                 <br><br>
@@ -60,7 +60,7 @@
                                    	<div class="mb-2">
                                     	<a href="#"><h5 class="text-primary text-end">나의계좌</h5><a>
                                         <a href="addreviewForm.do"><h5 class="text-primary text-end">리뷰쓰기</h5><a>
-                                        <a href="myInfo.domemberNum=${member.memberNum }"><h5 class="text-primary text-end">나의정보</h5><a>
+                                        <a href="myInfo.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">나의정보</h5><a>
                                 	</div>
                             	</div>
                     		</div>
