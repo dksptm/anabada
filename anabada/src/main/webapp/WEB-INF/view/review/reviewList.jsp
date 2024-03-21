@@ -34,17 +34,16 @@
 								<div class="d-flex align-items-center">
 									<div class="p-5">
 										<h2 class="fw-bolder">${review.reviewNum }</h2>
-										<h2>${review.memberName }님의후기</h2>
+								<%-- 		<h2>${review.memberNum }님의후기</h2> --%>
 										<p>${review.reviewDate }</p>
 										<p>${review.reviewComment }</p>
-										<c:choose>
+<%-- 										<c:choose>
 											<c:when test="${review.memberName eq memberName }">
-												<button id="deleteBtn" type="button" class="btn btn-warning">삭제</button>
+												<button id="deleteReBtn" type="button" class="btn btn-warning">삭제</button>
 											</c:when>
 											<c:otherwise>
-												<button id="deleteBtn" type="button" class="btn btn-warning" disabled >삭제</button>
 											</c:otherwise>
-										</c:choose>
+										</c:choose> --%>
 									</div>
 
 								</div>
@@ -64,14 +63,36 @@
 
 
 
+
+<script>
+$(document).ready(function() {
+  // 삭제 버튼 클릭 시 이벤트 처리
+  $('#deleteBtn').click(function() {
+    var reviewNum = $(this).closest('.card').find('.fw-bolder').text(); // 리뷰의 ID를 추출합니다.
+    
+    // AJAX 요청을 통해 리뷰를 삭제합니다.
+    $.ajax({
+      url: 'removeReview.do', 
+      method: 'post',
+      data: { reviewNum: reviewNum }, 
+      dataType: 'json',
+      .done(function(result) => {
+      	console.log(result);
+      })
+      .fail((error) =>
+          console.error(err)) 
+         
+  }
+</script>
+
 <!-- <button type="submit" class="btn btn-primary">삭제</button> -->
 <%-- <c:forEach begin="1" end="${review.reviewScore }">
 					<div class="bi-star-fill"></div>
 				</c:forEach> --%>
+<!-- 
+<script> -->
 
-<script>
-
-/*  $.ajax({
+<!-- /*  $.ajax({
     url: 'reviewList.do',
     method: 'post',
     dataType: 'json'
@@ -83,8 +104,8 @@
   .fail(err => console.log(err));
  */
  
-	// 삭제
-	$('.deleteBtn').on('click', function(){
+	// 삭제 -->
+<!-- 	$('.deleteBtn').on('click', function(){
 		 let reviewNum =$(this).data("reviewNum")
 		 console.log(reviewNum)
 		 
@@ -100,7 +121,8 @@
 		 })
 		 
 	}
-		 
-</script>
 
+	
+</script>
+ -->
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
 	<h1 class="text-center text-white display-6">장바구니</h1>
@@ -48,8 +48,7 @@
 							</td>
 
 							<td>
-								<button id="deleteBtn"
-									class="btn btn-md rounded-circle bg-light border mt-4">
+								<button class="btn btn-md rounded-circle bg-light border mt-4" onclick="cartDelete()" >
 									<i class="fa fa-times text-danger"></i>
 								</button>
 							</td>
@@ -67,7 +66,28 @@
 
 <script>
 
-$.ajax({
+
+function cartDelete(){
+    let cartNum = $(this).data("cartNum");
+    console.log(cartNum);
+
+    $.ajax({
+        url: "removeCart.do", // 아이템 삭제를 처리하는 서버 엔드포인트 URL
+        method: "post",
+        data: { cartNum: cartNum }, // 삭제할 아이템의 cartNum을 전달합니다.
+        dataType: "json"
+    })
+    .done(function(result) => {
+    	console.log(result);
+    })
+    .fail((error) =>
+        console.error(err)) 
+       
+}
+  
+</script>
+
+ <!-- $.ajax({
     url: 'cartList.do',
     method: 'post',
     dataType: 'json'
@@ -76,27 +96,7 @@ $.ajax({
     result.forEach(cart => {
     })
   })
-  .fail(err => console.log(err))
+  .fail(err => console.log(err)) -->
 
   
-//아이템 삭제.
-$(".deleteBtn").on('click', function() {
-	let cartNum = $(this).data("cartNum");
-	console.log(cartNum);
-	fetch("removeCart.do?cartNum=" + cartNum)
-		.then(result => result.json())
-		.then(result => {
-		if (result.retCode == "OK") {
-			alert('삭제됨');
-			location.reload();
-		} else {
-			alert('삭제 중 오류 발생')
-			}
-		})
-	})
-//end of 아이템 삭제.
-  
-
-</script>
-
 
