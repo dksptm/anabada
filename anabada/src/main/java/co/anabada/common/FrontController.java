@@ -93,6 +93,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/myInfo.do", new MyInfoControl()); // 내 정보
 		controls.put("/modifyAcc.do", new ModifyAccControl()); // 계좌수정
 		
+		
 		// review
 		controls.put("/reviewList.do", new ReviewListControl()); // 후기목록
 		controls.put("/addreview.do", new AddReviewControl());
