@@ -66,11 +66,9 @@
 
 <script>
 $(document).ready(function() {
-  // 삭제 버튼 클릭 시 이벤트 처리
   $('#deleteBtn').click(function() {
-    var reviewNum = $(this).closest('.card').find('.fw-bolder').text(); // 리뷰의 ID를 추출합니다.
+    var reviewNum = $(this).closest('.card').find('.fw-bolder').text(); 
     
-    // AJAX 요청을 통해 리뷰를 삭제합니다.
     $.ajax({
       url: 'removeReview.do', 
       method: 'post',
