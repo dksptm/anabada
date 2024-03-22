@@ -5,13 +5,10 @@
 console.log('additem.js');
 
 $(document).ready(function(){
-	console.log('memAcc:', memAcc);
+
 	if(mem == ''){
 		alert('로그인 후 이용가능.');
 		window.location.href='/anabada/loginForm.do';
-	} else if(memAcc == ''){
-		alert('계좌번호 입력.');
-		window.location.href='/anabada/myInfo.do?memberNum=' + mem;
 	} 
 	// 판매자의 account 가져오기.
 	

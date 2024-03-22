@@ -55,7 +55,6 @@ function orderBtn() {
 	}
 	if(confirm(str)){
 		alert('주문진행');
-		//window.location.href='/anabada/';
 		let oty = '바로결제'; //고정.
 		let dhow = ptype == 'payj' || ptype == 'depositj' ? '직거래' : '택배발송';
 		let dfee = dhow == '택배발송' ? 3000 : 0;
@@ -71,10 +70,11 @@ function orderBtn() {
 		.done((result) => {
 			if(result.retCode == 'OK'){
 				alert('주문성공!');
-				window.location.href='/anabada/orderComplete.do';
+				alert('주문번호=>' + result.odrNo);
+				window.location.href='/anabada/orderComplete.do?odrNo=' + result.odrNo;
 			} else {
 				alert('주문실패!');
-				window.location.href='/anabada/error.jsp';
+				window.location.href='/anabada/main.do';
 			}
 		})
 		.fail((err) => console.log(err))

@@ -11,6 +11,7 @@
 
 <title>구매내역 상세 페이지</title>
 <style>
+<<<<<<< HEAD
 
 body, h1, h2, div, span {
 	margin: 10;

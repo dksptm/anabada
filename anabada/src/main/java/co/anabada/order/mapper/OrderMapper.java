@@ -12,5 +12,6 @@ public interface OrderMapper {
 	
 	// 효주.
 	int insertOrder(Order odr);
+	Order selectOdrCom(int orderNum);
 	
 }

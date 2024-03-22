@@ -54,11 +54,11 @@
 							<h4 class="w-100 text-center">구매자 정보</h4>
 							<div class="form-item">
 								<label class="form-label my-3" for="dname1">수령인 이름<sup>*</sup></label>
-								<input type="text" class="form-control" name="dname1" id="dname1" value="${member.memberName }" disabled>
+								<input type="text" class="form-control" name="dname1" id="dname1" value="${member.memberName }" readonly>
 							</div>
 							<div class="form-item">
 								<label class="form-label my-3" for="phone1">연락처<sup>*</sup></label>
-								<input type="text" class="form-control" name="phone1" id="phone1" value="${member.memberPhone }" disabled>
+								<input type="text" class="form-control" name="phone1" id="phone1" value="${member.memberPhone }" readonly>
 							</div>
 							<div class="form-item">
 								<label class="form-label my-3" for="tjuso">배송지 주소입력<sup>*</sup></label>

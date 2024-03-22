@@ -22,6 +22,8 @@ import co.anabada.diary.control.DiaryRemoveControl;
 import co.anabada.item.control.AddItemControl;
 import co.anabada.item.control.AddItemForm;
 import co.anabada.item.control.CategoryListControl;
+import co.anabada.item.control.ChangeItem;
+import co.anabada.item.control.InameListControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
 import co.anabada.item.control.SellItemCancleControl;
@@ -80,6 +82,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/login.do", new LoginControl());
 		controls.put("/addItemForm.do", new AddItemForm()); // 상품관련.
 		controls.put("/addItem.do", new AddItemControl()); 
+		controls.put("/changeItem.do", new ChangeItem()); 
 		controls.put("/categoryList.do", new CategoryListControl()); 
 		controls.put("/orderForm.do", new OrderForm()); 
 		controls.put("/addOrder.do", new AddOrderControl()); 
@@ -89,6 +92,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/item.do", new ItemControl());
 		controls.put("/itemList.do", new ItemListControl());
 		controls.put("/searchItem.do", new searchItemControl());
+		controls.put("/inameList.do", new InameListControl());
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl()); // 장바구니 리스트

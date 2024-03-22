@@ -24,11 +24,12 @@ public class Item {
 	
 	
 	// AddItemControl에서 사용하기 위함.
-	public Item(String categoryId, int memberNum, String itemName, int itemPrice, String itemImage, String itemInfo,
+	public Item(String categoryId, int memberNum, String memberName, String itemName, int itemPrice, String itemImage, String itemInfo,
 			String itemStatus, String pselect, String dselect) {
 		super();
 		this.categoryId = categoryId;
 		this.memberNum = memberNum;
+		this.memberName = memberName;
 		this.itemName = itemName;
 		this.itemPrice = itemPrice;
 		this.itemImage = itemImage;
@@ -52,6 +53,9 @@ public class Item {
 	//member
 	private String memberId;
 	private int memberScore;
+	
+	//order
+	private int orderNum;
 	
 }
 

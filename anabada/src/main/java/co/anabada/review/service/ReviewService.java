@@ -11,8 +11,9 @@ public interface ReviewService {
 	List<Review> reviewList(int mno);
 	Item addreviewList();
 	boolean addreview(Review review);
+	Item breview();
 	
 	// 삭제
-	boolean removeReview(String reviewNum);
+	boolean removeReview(Review review);
 	
 }

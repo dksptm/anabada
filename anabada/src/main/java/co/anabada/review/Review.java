@@ -12,6 +12,8 @@ public class Review {
 	private Date reviewDate;
 	private String reviewComment;//
 	private String memberName;
+	private int memberNum;
+	
 
 	public Review(int orderNum, int reviewScore, String reviewComment) {
 		super();
@@ -19,4 +21,12 @@ public class Review {
 		this.reviewScore = reviewScore;
 		this.reviewComment = reviewComment;
 	}
+
+
+	public Review() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	
 }

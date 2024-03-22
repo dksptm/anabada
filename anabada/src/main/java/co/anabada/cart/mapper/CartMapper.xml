@@ -21,17 +21,14 @@
 	<insert id="insertCart" parameterType="cart">
 		INSERT INTO
 		cart(member_num
-		,item_num
-		,cart_status)
+		,item_num)
 		VALUES (#{memberNum}
-		,#{itemNum}
-		,#{cartStatus})
+		,#{itemNum})
 	</insert>
 
 	<delete id="deleteCart" parameterType="int">
 		DELETE cart
 		WHERE cart_num=#{cartNum}
-
 	</delete>
 
 </mapper>

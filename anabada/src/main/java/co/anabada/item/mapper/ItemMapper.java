@@ -10,9 +10,13 @@ public interface ItemMapper {
 	
 	// 영재.
 	List<Item> ItemList(String cname);
+	List<Item> ItemList();
 	List<Item> ItemList1();
+	List<Item> ItemList1(SearchVO search);
+	
+	List<Item> inameList(String iname);
 	Item selectItem(int ino);
-	//int getTotalCnt(SearchVO search);
+	int getTotalCnt(SearchVO search);
 	Item Item(int in);
 	
 	// 효주.
@@ -20,6 +24,7 @@ public interface ItemMapper {
 	List<Item> recentItem();
 	List<Item> likeItem();
 	List<Category> cateList();
+	int changeItem(String sts, int ino);
 
 	// 진경.
 	List<Item> shopList();

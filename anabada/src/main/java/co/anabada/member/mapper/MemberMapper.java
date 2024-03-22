@@ -10,7 +10,9 @@ public interface MemberMapper {
 	List<Member> memberList();
 	int insertMember(Member member);
 	Member selectMember(Member member);
+	Member selectMemByNum(int mno);
 	int countMemberId(String id);
+	
 	// myPagy(효주)
 	List<Item> perMemSellItems(int mno);
 	

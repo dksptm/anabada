@@ -2,9 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">장바구니</h1>
+	<h1 class="text-center text-white display-6">찜목록</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item active text-white">cartList.do</li>
 	</ol>
@@ -19,7 +20,8 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th scope="col">주문번호</th>
+						<th scope="col">찜번호</th> 
+						<th scope="col">상품번호</th>
 						<th scope="col">이미지</th>
 						<th scope="col">상품명</th>
 						<th scope="col">가격</th>
@@ -31,6 +33,9 @@
 						<tr>
 							<td>
 								<p class="mb-0 mt-4">${cart.cartNum }</p>
+							</td> 
+							<td>
+								<p class="mb-0 mt-4">${cart.itemNum}</p>
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">
@@ -39,17 +44,14 @@
 										style="width: 80px; height: 80px;" alt="">
 								</div>
 							</th>
-							</td>
 							<td>
 								<p class="mb-0 mt-4">${cart.itemName}</p>
 							</td>
 							<td>
 								<p class="mb-0 mt-4">${cart.itemPrice }</p>
 							</td>
-
 							<td>
-								<button id="deleteBtn"
-									class="btn btn-md rounded-circle bg-light border mt-4">
+								<button class="btn btn-md rounded-circle bg-light border mt-4" onclick="cartDelete(${cart.cartNum })" >
 									<i class="fa fa-times text-danger"></i>
 								</button>
 							</td>
@@ -66,15 +68,18 @@
 
 
 <script>
+let mno = '${member.memberNum }';
+//console.log('멤버!',mno);
 
-$.ajax({
-    url: 'cartList.do',
-    method: 'post',
-    dataType: 'json'
-  })
-  .done(result => {
-    result.forEach(cart => {
+function cartDelete(cno){
+    //console.log(cno);
+    $.ajax({
+        url: "removeCart.do",
+        method: "get",
+        data: { cno: cno ,  mno: mno }, 
+        dataType: 'json',
     })
+<<<<<<< HEAD
   })
   .fail(err => console.log(err))
 
@@ -98,5 +103,3 @@ $(".deleteBtn").on('click', function() {
   
 
 </script>
-
-

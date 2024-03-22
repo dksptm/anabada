@@ -37,6 +37,7 @@ public class AddItemControl implements Control {
 		// 이제 req가 아니라 multi에서 파라미터를 가져옴.
 		String cate = multi.getParameter("myCate");
 		String memNum = multi.getParameter("mem_num");
+		String memName = multi.getParameter("mem_name");
 		String name = multi.getParameter("name");
 		String price = multi.getParameter("price");
 		String info = multi.getParameter("info");
@@ -46,11 +47,11 @@ public class AddItemControl implements Control {
 		String dselect = multi.getParameter("dselect");
 		
 		// 아이템 인스턴스 생성(ivc.addItem()에 넣기위함).
-		Item item = new Item(cate, Integer.parseInt(memNum), name, Integer.parseInt(price), img, info, status, pselect , dselect);
+		Item item = new Item(cate, Integer.parseInt(memNum), memName, name, Integer.parseInt(price), img, info, status, pselect , dselect);
 		
 		ItemService ivc = new ItemServiceImpl();
 		try {
-			if(ivc.addItem(item)) {
+  			if(ivc.addItem(item)) {
 				req.setAttribute("item", item);
 				String path = "item/item.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);

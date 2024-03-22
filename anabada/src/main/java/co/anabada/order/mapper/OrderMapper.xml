@@ -16,7 +16,7 @@
 		i.item_name,
 		i.item_image,
 		i.item_price,
-		i.d_select,
+		i.dselect,
         i.member_num,
 		m.account_num,
 		m.member_name,
@@ -32,7 +32,7 @@
 		JOIN item i ON (o.member_num = i.member_num)
 		JOIN member m ON (o.member_num = m.member_num)
 		where o.order_num = ${orderNum}
-
+		AND  p.purchase_ok = '구매진행'
 		
 	</select>
 	
@@ -42,20 +42,22 @@
 		SET	order_status = '주문취소'
 		WHERE order_num = ${orderNum}
 	</update>
-	
-	
-	
-	
 
-	<insert id="insertOrder" parameterType="Order">
-        INSERT INTO anvd_order (item_num
+	<insert id="insertOrder" parameterType="order">
+	  <selectKey resultType="int" keyProperty="orderNum" order="AFTER">
+  	    SELECT odr_num_seq.currval
+  	    FROM   dual
+  	  </selectKey>
+        INSERT INTO anvd_order (order_num
+                               ,item_num
                                ,member_num
                                ,order_type
                                ,delivery_how
                                ,delivery_fee
                                ,delivery_address
                                ,payment_type)
-        VALUES (#{itemNum}
+        VALUES (odr_num_seq.nextval
+               ,#{itemNum}
                ,#{memberNum}
                ,#{orderType}
                ,#{deliveryHow}
@@ -63,5 +65,9 @@
                ,#{deliveryAddress}
                ,#{paymentType})
 	</insert>
+	
+	<select id="selectOdrCom" resultType="order">
+	SELECT * FROM vu_odr_com WHERE order_num = #{orderNum}
+	</select>	
 
 </mapper>

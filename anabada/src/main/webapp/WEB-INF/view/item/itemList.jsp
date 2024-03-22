@@ -5,44 +5,34 @@
 
 
 
-
-<!-- Modal Search Start -->
-<div class="modal fade" id="searchModal" tabindex="-1"
-	aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-fullscreen">
-		<div class="modal-content rounded-0">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">검색</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"
-					aria-label="Close"></button>
-			</div>
-			<div class="modal-body d-flex align-items-center">
-				<div class="input-group w-75 mx-auto d-flex">
-					<input type="search" class="form-control p-3"
-						placeholder="keywords" aria-describedby="search-icon-1"> <span
-						id="search-icon-1" class="input-group-text p-3"><i
-						class="fa fa-search"></i></span>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container-fluid page-header py-5">
+	<h1 class="text-center text-white display-6">상품상세 페이지</h1>
+	<ol class="breadcrumb justify-content-center mb-0">
+		<li class="breadcrumb-item"><a href="#">Home</a></li>
+		<li class="breadcrumb-item"><a href="#">Pages</a></li>
+		<li class="breadcrumb-item active text-white">Product detail page</li>
+	</ol>
 </div>
+<!-- Modal Search Start -->
+
 <!-- Modal Search End -->
 
 <!-- Fruits Shop Start-->
 <div class="container-fluid fruite py-5">
 	<div class="container py-5">
-		<h1 class="mb-4">Fresh fruits shop</h1>
+		<h1 class="mb-4">avabada shop</h1>
 		<div class="row g-4">
 			<div class="col-lg-12">
 				<div class="row g-4">
 					<div class="col-xl-3">
-						<div class="input-group w-100 mx-auto d-flex">
-							<input type="search" class="form-control p-3"
-								placeholder="keywords" aria-describedby="search-icon-1">
-							<span id="search-icon-1" class="input-group-text p-3"><i
-								class="fa fa-search"></i></span>
-						</div>
+						<form action="inameList.do" method="get">
+							<div class="input-group w-100 mx-auto d-flex">
+								<input type="text" class="form-control p-3"
+									placeholder="keywords" aria-describedby="search-icon-1" name ="keyword" id="key">
+							
+									<input type="submit"  value="조회" class="input-group-text p-3">
+							</div>
+						</form>
 					</div>
 					<div class="col-6"></div>
 					<div class="col-xl-3">
@@ -60,6 +50,7 @@
 						</div>
 					</div>
 				</div>
+				
 
 				<!-- 카테고리 -->
 				<div class="row g-4">
@@ -71,26 +62,34 @@
 									<ul class="list-unstyled fruite-categorie">
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<input type="hidden" id="button" name="button" value=""
+												<input type="button" id="button" name="button" value="전체"
 													class="btn" />
+												<input type="radio" id="button" name="radio" value=""
+													class="btn" />전체
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
 												<input type="button" id="button" name="button" value="하의"
 													class="btn" />
+												<input type="radio" id="button" name="radio" value="하의"
+													class="btn" />하의
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
 												<input type="button" id="button1" name="button" value="상의"
 													class="btn" />
+												<input type="radio" id="button1" name="radio" value="상의"
+													class="btn" />상의
 											</div>
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
 												<input type="button" id="button2" name="button" value="반팔"
 													class="btn" />
+												<input type="radio" id="button2" name="radio" value="반팔"
+													class="btn" />반팔
 											</div>
 										</li>
 										<li>
@@ -145,6 +144,7 @@
 											style="top: 10px; left: 10px;">${item.itemNum }
 									   </div>
 
+<<<<<<< HEAD
 										<div
 											class="p-4 border border-secondary border-top-0 rounded-bottom">
 											<h4>${item.itemName }</h4>
@@ -153,14 +153,46 @@
 											<p class="" style="font-size:10; font-weight : bold; float:right; widht:250px; height:250; text-align:right;" ><fmt:formatNumber value="${item.itemPrice }"/>원</p>
 												<%-- <p class="text-dark fs-5 fw-bold mb-0">${item.itemPrice }원</p> --%>
 												
+=======
+											<div class="fruite-img">
+
+												<img src="images/${item.itemImage }"
+													class="img-fluid w-100 rounded-top" alt="" width="10px"
+													height="10px">
+											</div>
+											<div
+												class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+												style="top: 10px; left: 10px;">${item.itemNum }</div>
+
+											<div
+												class="p-4 border border-secondary border-top-0 rounded-bottom">
+												<h4>${item.itemName }</h4>
+												<p>${item.itemInfo }</p>
+												<div class="" style="">
+													<p class=""
+														style="font-size: 10; font-weight: bold; float: right; widht: 250px; height: 250; text-align: right;">
+														<fmt:formatNumber value="${item.itemPrice }" />
+														원
+													</p>
+
+												</div>
+>>>>>>> branch 'master' of https://github.com/dksptm/anabada.git
 											</div>
 										</div>
+<<<<<<< HEAD
 									</div>
+=======
+>>>>>>> branch 'master' of https://github.com/dksptm/anabada.git
 									</a>
 								</div>
+<<<<<<< HEAD
 							</c:forEach> 
+=======
+							</c:forEach>
+>>>>>>> branch 'master' of https://github.com/dksptm/anabada.git
 						</div>
 
+<<<<<<< HEAD
 
 						<div class="center">
 							<div class="pagination">
@@ -183,9 +215,36 @@
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
-								<c:if test="${page.next }">
+								<c:if test="${page.next }"></c:if>
 									<a
 										href="itemList.do?page=${page.endPage + 1 }&searchCondition=${searchCondition }&keyword=${keyword }">
+=======
+${page.prev }
+						<div class="center">
+							<div class="pagination">
+								<c:if test="${page.prev }">
+									<a
+										href="itemList.do?page=${page.starPage - 1 }&radio=${radio }&keyword=${keyword }">
+										&laquo; </a>
+								</c:if>
+								<c:forEach begin="${page.starPage }" end="${page.endPage }"
+									var="p">
+									<c:choose>
+										<c:when test="${p eq page.page }">
+											<a
+												href="itemList.do?page=${p }&radio=${radio }&keyword=${keyword }"
+												class="active">${p }</a>
+										</c:when>
+										<c:otherwise>
+											<a
+												href="itemList.do?page=${p }&radio=${radio }&keyword=${keyword }">${p }</a>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<c:if test="${page.next }">
+									<a
+										href="itemList.do?page=${page.endPage + 1 }&radio=${radio }&keyword=${keyword }">
+>>>>>>> branch 'master' of https://github.com/dksptm/anabada.git
 										&raquo; </a>
 								</c:if>
 							</div>

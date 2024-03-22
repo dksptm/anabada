@@ -24,7 +24,6 @@
           join category c on (c.category_id = i.category_id)
           where item_num = #{in}
   </select>
-  
 
  <select id="ItemList" resultType="Item" >
     select     i.item_num,
@@ -39,48 +38,28 @@
    where category_name = #{categoryName}
    <!-- <if test="cname != null and cname != ''">
    </if> -->
-   
       </select>
-      
-      <select id="ItemList1" resultType="Item" >
-    select item_num,
-           category_id,
-           member_num,
-           item_name,
-           item_price,
-           item_image,
-           item_info,
-           item_status,
-           item_date
-      
-     from   item
-      </select>
+	
+	<select id="inameList" resultType="Item">
+
+		select i.item_num,
+		i.item_image,
+		i.item_name,
+		i.item_info,
+		i.item_date,
+		i.item_price,
+		c.category_name,
+		c.parent_category
+		from item i join category c on (i.category_id = c.category_id)
+		<where>
+			<if test="iname != null and iname != ''">
+				item_name like '%'||#{itemName}||'%'
+			</if>
+		</where>
+	</select>
 
 
 	<!-- ㅎㅈ -->
-	<insert id="insertItem" parameterType="Item">
-		INSERT INTO
-		item(item_num
-		,category_id
-		,member_num
-		,item_name
-		,item_price
-		,item_image
-		,item_info
-		,item_status
-		,pselect
-		,dselect)
-		VALUES(item_num_seq.nextval
-		,#{categoryId}
-		,#{memberNum}
-		,#{itemName}
-		,#{itemPrice}
-		,#{itemImage}
-		,#{itemInfo}
-		,#{itemStatus}
-		,#{pselect}
-		,#{dselect})
-	</insert>
 
 	<select id="recentItem" resultType="Item">
 		SELECT item_num
@@ -130,7 +109,7 @@
 		CONNECT BY PRIOR category_id = parent_category
 	</select>
 
-
+	<!-- ㅈㄱ -->
 	<select id="shopList" resultType="Item">
 		select r.review_score
 		,r.review_comment
@@ -146,6 +125,7 @@
 		r.order_id = i.member_num
 	</select>
 
+	<!-- ㅈㅇ -->
 	<select id="sellItemList" resultType="Item" parameterType="int">
 	SELECT 	    i.item_num,
 				i.category_id,
@@ -170,4 +150,74 @@
 		where  item_num = #{itemNum}
 	</update>
 	
+
+	<select id="getTotalCnt" resultType="int" parameterType="search">
+		select
+		count(*)
+		from item
+		where item_name like '%'||#{keyword}||'%'
+	</select>
+
+	<select id="ItemList1" resultType="item" parameterType="search">
+		select rn,
+		item_num,
+		category_id,
+		member_num,
+		item_name,
+		item_price,
+		item_image,
+		item_info,
+		item_status,
+		item_date
+		<!-- from item -->
+		from (select /*+ INDEX_DESC(b SYS_C008616) */ rownum rn, b.*
+		from item
+		b
+		<where>
+			item_num like '%'||#{keyword}||'%'
+          <![CDATA[
+          and rownum <= (#{page} * 5) 
+          ]]>
+		</where>
+		) a
+		where a.rn > (#{page} - 1) * 5
+	</select>
+
+
+	<!-- ㅎㅈ -->
+	<insert id="insertItem" parameterType="Item">
+	<selectKey resultType="int" keyProperty="itemNum" order="AFTER">
+  	  SELECT item_num_seq.currval
+  	  FROM   dual
+  	</selectKey>	
+		INSERT INTO
+		item(item_num
+		,category_id
+		,member_num
+		,item_name
+		,item_price
+		,item_image
+		,item_info
+		,item_status
+		,pselect
+		,dselect)
+		VALUES(item_num_seq.nextval
+		,#{categoryId}
+		,#{memberNum}
+		,#{itemName}
+		,#{itemPrice}
+		,#{itemImage}
+		,#{itemInfo}
+		,#{itemStatus}
+		,#{pselect}
+		,#{dselect})
+	</insert>
+
+	<update id="changeItem" parameterType="hashMap">
+        UPDATE item
+        SET    item_status = #{param1}
+        WHERE  item_num = #{param2}		
+	</update>
+
+
 </mapper>

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
             <h1 class="text-center text-white display-6">상품상세</h1>
@@ -25,7 +26,6 @@
                         </div>
                         <div class="fs-5 mb-5">
 	                        <p class="lead">${item.itemInfo }</p>
-	                        <p class="lead">${item.pselect }</p>
                         </div>
                         <table class="table table-borderless text-center fs-5 mb-5" style="background-color:#eee;">
                         	<tr>
@@ -44,9 +44,29 @@
 		                        로그인
 			                </button>
                         </c:when>
+                        <c:when test="${member.memberNum eq item.memberNum }">
+                        <div class="d-flex fs-5 mb-5 justify-content-between" id="btns">
+				            <button class="btn btn-outline-dark col-3" type="button">
+			                수정하기 
+				            </button>
+	                        <div class="dropdown dropstart">
+	                        	<button type="button" class="btn btn-outline-danger dropdown-toggle" data-bs-toggle="dropdown">
+			                    <span>판매상태변경</span>
+				                </button>
+				                <ul class="dropdown-menu">
+				                	<li><a href="changeItem.do?sts=hold&ino=${item.itemNum }" class="dropdown-item">예약중</a></li>
+				                	<li><a href="changeItem.do?sts=cancel&ino=${item.itemNum }" class="dropdown-item">판매취소</a></li>
+				                	<li><a href="changeItem.do?sts=complete&ino=${item.itemNum }" class="dropdown-item">판매완료</a></li>
+				                </ul>
+	                        </div>
+			            </div>
+                        </c:when>
+                        <c:when test="${item.itemStatus != '판매중' }">
+                        	<span>현재 ${item.itemStatus }인 상품입니다.</span>
+                        </c:when>
                         <c:otherwise>
                         <div class="d-flex fs-5 mb-5" id="btns">
-	                        <button onclick ="location.href='negoForm.do?ino=${item.itemNum }'" 
+	                        <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=nego'" 
 	                        		class="btn btn-outline-dark me-auto col-3" 
 	                        		type="button" 
 	                        		${item.pselect eq 'negoNG' ? 'disabled' : '' }>
@@ -55,10 +75,10 @@
 			                </button>
 			                <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
 			                		class="btn btn-outline-dark me-auto col-3" type="button">
-		                        <i class="bi-cart-fill me-1"></i>``
+		                        <i class="bi-cart-fill me-1"></i>
 		                        바로결제
 			                </button>
-		                    <button class="btn btn-outline-dark col-3" type="button">
+		                    <button class="btn btn-outline-dark col-3" type="button"  onclick="addZzim(${item.itemNum })">
 		                    	<i class="fas fa-heart"></i>
 		                        찜하기
 		                	</button>
@@ -69,3 +89,27 @@
                 </div>
             </div>
         </section>
+
+
+<script>
+let mno = '${member.memberNum }';
+console.log('멤버!',mno);
+
+function addZzim(ino) {
+	console.log('아이템!', ino);
+		$.ajax({
+			url: 'addCart.do',
+			type: 'post',
+			data: { ino : ino, mno : mno },
+			dataType: 'json'
+		})
+		.done((result) => {
+      	console.log(result);
+      	//location.reload();
+      })
+      .fail((error) => console.error(err)) 
+	}
+
+
+</script>
+<!-- <script src="static/js/item/addZzim.js"></script> -->

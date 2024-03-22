@@ -9,7 +9,6 @@ import co.anabada.cart.mapper.CartMapper;
 import co.anabada.common.DataSource;
 
 public class CartServiceImpl implements CartService {
-
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CartMapper mapper = session.getMapper(CartMapper.class);
 
@@ -21,8 +20,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public boolean removeCart(String cartNum) {
-		return mapper.deleteCart(cartNum) == 1;
+	public boolean removeCart(Cart cart) {
+		return mapper.deleteCart(cart) == 1;
 	}
 
 	@Override
