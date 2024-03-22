@@ -33,23 +33,26 @@ public class AddItemControl implements Control {
 		MultipartRequest multi = 
 				new MultipartRequest(req, savePath, maxSize, enc, new DefaultFileRenamePolicy());
 		
+		
 		// 이제 req가 아니라 multi에서 파라미터를 가져옴.
-		String cate = multi.getParameter("cate");
+		String cate = multi.getParameter("myCate");
 		String memNum = multi.getParameter("mem_num");
 		String name = multi.getParameter("name");
 		String price = multi.getParameter("price");
 		String info = multi.getParameter("info");
 		String status = multi.getParameter("status");
 		String img = multi.getFilesystemName("img"); // 변경된 이미지파일의 이름.
+		String pselect = multi.getParameter("pselect");
+		String dselect = multi.getParameter("dselect");
 		
 		// 아이템 인스턴스 생성(ivc.addItem()에 넣기위함).
-		Item item = new Item(cate, Integer.parseInt(memNum), name, Integer.parseInt(price), img, info, status);
+		Item item = new Item(cate, Integer.parseInt(memNum), name, Integer.parseInt(price), img, info, status, pselect , dselect);
 		
 		ItemService ivc = new ItemServiceImpl();
 		try {
 			if(ivc.addItem(item)) {
 				req.setAttribute("item", item);
-				String path = "item/item2.tiles";
+				String path = "item/item.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);
 			} else {
 				req.setAttribute("message", "상품등록 중 에러가 발생했습니다.");

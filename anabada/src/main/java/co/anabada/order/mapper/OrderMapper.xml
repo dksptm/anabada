@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.anabada.order.mapper.OrderMapper">
+
+	<select id="selectPurchaseOrder" resultType="Order" parameterType="int">
+		 
+		 SELECT
+		o.order_num,
+		o.payment_type,
+        o.delivery_how,
+        o.order_type,
+        o.order_status,
+        o.member_num,
+		i.item_name,
+		i.item_image,
+		i.item_price,
+		i.d_select,
+        i.member_num,
+		m.account_num,
+		m.member_name,
+		m.member_id,
+        m.member_phone,
+		m.member_num,
+		p.due_date,
+		p.payment_date,
+		p.purchase_ok,
+        p.purchase_num,
+        o.delivery_fee
+		FROM anvd_order o JOIN purchase p ON (o.order_num = p.order_num)
+		JOIN item i ON (o.member_num = i.member_num)
+		JOIN member m ON (o.member_num = m.member_num)
+		where o.order_num = ${orderNum}
+
+		
+	</select>
+	
+		
+	<update id="orderCancle" parameterType="int">
+		UPDATE anvd_order
+		SET	order_status = '주문취소'
+		WHERE order_num = ${orderNum}
+	</update>
+	
+	
+	
+	
+
+	<insert id="insertOrder" parameterType="Order">
+        INSERT INTO anvd_order (item_num
+                               ,member_num
+                               ,order_type
+                               ,delivery_how
+                               ,delivery_fee
+                               ,delivery_address
+                               ,payment_type)
+        VALUES (#{itemNum}
+               ,#{memberNum}
+               ,#{orderType}
+               ,#{deliveryHow}
+               ,#{deliveryFee}
+               ,#{deliveryAddress}
+               ,#{paymentType})
+	</insert>
+
+</mapper>

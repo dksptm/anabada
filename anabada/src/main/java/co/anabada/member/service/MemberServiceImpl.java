@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.anabada.common.DataSource;
+import co.anabada.item.Item;
 import co.anabada.member.Member;
 import co.anabada.member.mapper.MemberMapper;
 
@@ -33,6 +34,27 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean idCheck(String id) {
 		return mapper.countMemberId(id) == 0;
+	}
+
+	@Override
+	public List<Item> mySellItems(int mno) {
+		return mapper.perMemSellItems(mno);
+	}
+	
+	// 진경.
+	@Override
+	public List<Member> myList(int memberNum) {
+		return mapper.myList(memberNum);
+	}
+
+	@Override
+	public List<Member> myInfoList(int memberNum) {
+		return mapper.myInfoList(memberNum);
+	}
+
+	@Override
+	public boolean modifyAcc(Member member) {
+		return mapper.updateAcc(member) == 1;
 	}
 
 }

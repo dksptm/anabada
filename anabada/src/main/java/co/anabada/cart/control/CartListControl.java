@@ -17,13 +17,13 @@ public class CartListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		resp.setContentType("text/json;charset=utf-8");
+		req.setCharacterEncoding("UTF-8");
+		String memberNum = req.getParameter("memberNum");
 		
 		CartService svc = new CartServiceImpl();
-		List<Cart> list = svc.cartList();
-		System.out.println(list);
-		req.setAttribute("list", list);
+		List<Cart> cartList = svc.cartList(Integer.parseInt(memberNum));
+		
+		req.setAttribute("list", cartList);
 		
 		//JSP
 		String path = "cart/cartList.tiles";

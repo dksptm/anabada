@@ -55,10 +55,8 @@
 			</div>
 		</div>
 		<!-- Hero End -->
-		<!--영재  -->
- 		 ${item }
-	<%-- 	${likeList } --%>
-		<%-- ${recentList } --%>
+		
+ 	
 		<c:choose>
 		<c:when test="${not empty likeList }">
 		<!-- 찜순서대로 10건 조회하기-->
@@ -67,17 +65,17 @@
 				<h1 class="mb-0">인기상품</h1>
 				<div class="owl-carousel vegetable-carousel justify-content-center">
 					<c:forEach items="${likeList }" var="item">
-						<div class="border border-primary rounded position-relative vesitable-item">
+						<div class="border border-primary rounded position-relative vesitable-item" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 							<div class="vesitable-img">
 								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-								${item.categoryId }</div>
+								${item.categoryName }</div>
 							<div class="p-4 rounded-bottom">
 								<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
-								<div class="d-flex justify-content-between flex-lg-wrap">
+								<div class="flex-lg-wrap">
 									<i class="fas fa-heart"></i><span>${item.zzim }</span>
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
 									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
@@ -102,20 +100,20 @@
 				<h1 class="mb-0">최근 등록된 상품</h1>
 				<div class="owl-carousel vegetable-carousel justify-content-center">
 					<c:forEach items="${recentList }" var="item">
-						<div class="border border-primary rounded position-relative vesitable-item">
+						<div class="border border-primary rounded position-relative vesitable-item" OnClick="location.href ='http://localhost:8080/anabada/item.do?itemNum=${item.itemNum}'">
 							<div class="vesitable-img">
 								<img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light"
 									onerror="this.onerror=null; this.src='static/img/errimg.png';">
 							</div>
 							<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
-								${item.categoryId }</div>
+								${item.categoryName }</div>
 							<div class="p-4 rounded-bottom">
 								<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
 								<div class="d-flex justify-content-between flex-lg-wrap">
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
-									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-											class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
+									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
+									<i class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
 								</div>
 							</div>
 						</div>
@@ -125,4 +123,5 @@
 		</div>
 		</c:when>
 		</c:choose>
+		
 		<!-- Vesitable Shop End -->

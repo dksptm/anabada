@@ -53,7 +53,7 @@ $(document).ready(function() {
 					url: '/diaryModify.do',
 					type: 'POST',
 					data: JSON.stringify({
-						diaryId: calEvent.id,
+						diaryNum: calEvent.id,
 						diaryName: newName,
 						diaryContent: newContent
 					}),
@@ -72,7 +72,7 @@ $(document).ready(function() {
 					$.ajax({
 						url: '/diaryRemove.do',
 						type: 'POST',
-						data: JSON.stringify({ diaryId: calEvent.id }),
+						data: JSON.stringify({ diaryNum: calEvent.id }),
 						contentType: 'application/json',
 						success: function(response) {
 							if (response.retCode == "OK") {

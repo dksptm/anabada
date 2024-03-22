@@ -6,11 +6,12 @@ import co.anabada.cart.Cart;
 // 카트 매퍼 인터페이스
 public interface CartMapper {
 	// 목록
-	List<Cart> cartList();
+	//List<Cart> cartList(String memberNum);
+	List<Cart> cartList(int memberNum);
 	// 등록
 	int insertCart(Cart cart);
 	// 삭제
-	int deleteCart(String cartId);
-
+	int deleteCart(String cartNum);
+	
 	
 }

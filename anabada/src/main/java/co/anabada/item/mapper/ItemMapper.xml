@@ -3,114 +3,171 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
-<!-- ㅇㅈ -->
-
-  <select id="Item" resultType="Item"> 
-    select    item_num,
-              category_id,
-              member_num,
-              item_name,
-              item_price,
-              item_image,
-              item_info,
-              item_status,
-              item_date
-      from    item
-      where   item_num = 14
+	<!-- ㅇㅈ -->
+  <select id="selectItem" resultType="Item"> 
+           select       i.item_num,
+                        i.category_id,
+                        i.member_num,
+                        i.item_name,
+                        i.item_price,
+                        i.item_image,
+                        i.item_info,
+                        i.item_status,
+                        i.item_date,
+                        m.member_name,
+                        m.member_score,
+                        c.category_name,
+                        i.dselect,
+                        i.pselect
+          from item i 
+          join member m on (i.member_num = m.member_num)
+          join category c on (c.category_id = i.category_id)
+          where item_num = #{in}
   </select>
   
+
  <select id="ItemList" resultType="Item" >
-    select    item_num,
-              category_id,
-              member_num,
-              item_name,
-              item_price,
-              item_image,
-              item_info,
-              item_status,
-              item_date
-      from    item
+    select     i.item_num,
+               i.item_image,
+               i.item_name,
+               i.item_info,
+               i.item_date,
+               i.item_price,
+               c.category_name,
+               c.parent_category
+   from item i join category c on (i.category_id = c.category_id)
+   where category_name = #{categoryName}
+   <!-- <if test="cname != null and cname != ''">
+   </if> -->
+   
+      </select>
+      
+      <select id="ItemList1" resultType="Item" >
+    select item_num,
+           category_id,
+           member_num,
+           item_name,
+           item_price,
+           item_image,
+           item_info,
+           item_status,
+           item_date
+      
+     from   item
+      </select>
 
- </select>
- 
- <!-- ㅎㅈ  -->
-  <insert id="insertItem" parameterType="Item">
-	  INSERT INTO item(category_id
-                      ,member_num
-                      ,item_name
-                      ,item_price
-                      ,item_image
-                      ,item_info
-                      ,item_status)
-      VALUES(#{categoryId}
-            ,#{memberNum}
-            ,#{itemName}
-            ,#{itemPrice}
-            ,#{itemImage}
-            ,#{itemInfo}
-	        ,#{itemStatus})
-  </insert>
-  
-  <select id="recentItem" resultType="Item">
-	  SELECT item_num
-	        ,category_id
-	        ,member_num
-	        ,item_name
-	        ,item_price
-	        ,item_image
-	        ,item_info
-	        ,item_status
-	  FROM  (SELECT item.*
-	               ,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent 
-	         FROM   item 
-	         WHERE  item_status = '판매중')
-	  WHERE recent <![CDATA[<= 10]]>
-  </select>
-  
-  <select id="likeItem" resultType="Item">
-      SELECT item.item_num
-             ,category_id
-             ,member_num
-             ,item_name
-             ,item_price
-             ,item_image
-             ,item_info
-             ,a.zzim
-      FROM      
-        (SELECT COUNT(*) AS zzim,
-                item_num
-         FROM   cart
-         GROUP BY item_num
-         ORDER BY zzim DESC) a, item
-      WHERE a.item_num = item.item_num 
-      AND rownum <![CDATA[<= 10]]>
-  </select>
-  
-  <select id="cateList" resultType="co.anabada.item.Category">
-      SELECT level
-            ,category_id
-            ,category_name
-            ,parent_category
-      FROM  category
-      START WITH parent_category IS NULL
-      CONNECT BY PRIOR category_id = parent_category
-  </select>
 
- 
- <select id="shopList" resultType="Item">
- select  r.review_score AS reviewScore
-      ,r.review_comment AS reviewComment
-      ,i.item_num AS itemNum
-      ,i.category_id AS categoryId
-      ,i.item_name AS itemName
-      ,i.item_price AS itemPrice
-      ,i.item_image AS itemImage
-      ,i.item_status AS itemStatus
-      ,i.item_date AS itemDate
-      ,o.order_status AS orderStatus
-FROM  item i  
-          JOIN anvd_order o ON o.order_id = i.member_num
-          JOIN review r ON r.order_id = o.order_id;
- </select>
- 
+	<!-- ㅎㅈ -->
+	<insert id="insertItem" parameterType="Item">
+		INSERT INTO
+		item(item_num
+		,category_id
+		,member_num
+		,item_name
+		,item_price
+		,item_image
+		,item_info
+		,item_status
+		,pselect
+		,dselect)
+		VALUES(item_num_seq.nextval
+		,#{categoryId}
+		,#{memberNum}
+		,#{itemName}
+		,#{itemPrice}
+		,#{itemImage}
+		,#{itemInfo}
+		,#{itemStatus}
+		,#{pselect}
+		,#{dselect})
+	</insert>
+
+	<select id="recentItem" resultType="Item">
+		SELECT item_num
+		      ,(select category_name from category c where c.category_id = a.category_id) AS "category_name"
+		      ,member_num
+		      ,item_name
+		      ,item_price
+		      ,item_image
+		      ,item_info
+		      ,item_status
+		FROM (SELECT i.*
+                    ,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent
+              FROM item i
+		      WHERE item_status = '판매중') a
+		WHERE recent <![CDATA[<= 10]]>
+	</select>
+
+	<select id="likeItem" resultType="Item">
+		SELECT item.item_num
+		,(select category_name from category c where c.category_id = item.category_id) AS "category_name"
+		,member_num
+		,item_name
+		,item_price
+		,item_image
+		,item_info
+		,a.zzim
+		FROM
+		(SELECT COUNT(*) AS zzim,
+		item_num
+		FROM
+		cart
+		GROUP BY item_num
+		ORDER BY zzim DESC) a, item
+		WHERE a.item_num =
+		item.item_num
+		AND rownum <![CDATA[<= 10]]>
+	</select>
+
+	<select id="cateList" resultType="co.anabada.item.Category">
+		SELECT level
+		,category_id
+		,category_name
+		,parent_category
+		FROM category
+		START WITH parent_category
+		IS NULL	
+		CONNECT BY PRIOR category_id = parent_category
+	</select>
+
+
+	<select id="shopList" resultType="Item">
+		select r.review_score
+		,r.review_comment
+		,i.item_num
+		,i.category_id
+		,i.item_name
+		,i.item_price
+		,i.item_image
+		,i.item_status
+		,i.item_date
+		FROM item i
+		JOIN review r ON
+		r.order_id = i.member_num
+	</select>
+
+	<select id="sellItemList" resultType="Item" parameterType="int">
+	SELECT 	    i.item_num,
+				i.category_id,
+				i.member_num,
+				i.item_name,
+				i.item_price,
+				i.item_image,
+				i.item_info,
+				i.item_status,
+				i.item_date,
+                m.member_num
+				FROM item i
+				JOIN member m ON  i.member_num = m.member_num
+                where i.member_num = ${memberNum}
+				AND i.item_status = '판매중'
+				ORDER BY item_date DESC
+	</select>
+
+	 <update id="sellItemCancle" parameterType="int">
+		UPDATE item
+		SET    item_status = '판매취소'
+		where  item_num = #{itemNum}
+	</update>
+	
 </mapper>

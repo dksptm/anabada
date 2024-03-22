@@ -9,9 +9,10 @@ import co.anabada.item.Item;
 public interface ItemService {
 	
 	// 영재.
-	Item Item();
+	Item getItem(int in);
+	List<Item> ItemList(String cname);
 	List<Item> ItemList();
-	int itemTotalCnt(SearchVO search);
+	//int itemTotalCnt(SearchVO search);
 	
 	// 효주.
 	boolean addItem(Item item);
@@ -21,4 +22,15 @@ public interface ItemService {
 	
 	// 진경
 	List<Item> shopList();
+	
+	
+	// 주완
+	List<Item> sellItemList(int memberNum);
+	
+	boolean sellItemCancle(int itemNum);
+	
+	
+	
+	
+	
 }

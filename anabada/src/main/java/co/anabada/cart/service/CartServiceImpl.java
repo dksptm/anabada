@@ -13,10 +13,7 @@ public class CartServiceImpl implements CartService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CartMapper mapper = session.getMapper(CartMapper.class);
 
-	@Override
-	public List<Cart> cartList() {
-		return mapper.cartList();
-	}
+
 
 	@Override
 	public boolean addCart(Cart cart) {
@@ -24,9 +21,12 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public boolean removeCart(String cartId) {
-		return mapper.deleteCart(cartId) == 1;
+	public boolean removeCart(String cartNum) {
+		return mapper.deleteCart(cartNum) == 1;
 	}
 
-
+	@Override
+	public List<Cart> cartList(int memberNum) {
+		return mapper.cartList(memberNum);
+	}
 }

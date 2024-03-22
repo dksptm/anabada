@@ -18,26 +18,33 @@ public class LoginControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		
+		String login = req.getParameter("login");
 		String id = req.getParameter("member_id");
 		String pw = req.getParameter("member_pw");
 		
-		Member member = new Member();
-		member.setMemberId(id);
-		member.setMemberPassword(pw);
-		
-		MemberService mvc = new MemberServiceImpl();
-		member = mvc.loginMember(member);
-		
-		System.out.println(member);
-		if(member != null) {
+		if(!login.equals("logout")) {
+			Member member = new Member();
+			member.setMemberId(id);
+			member.setMemberPassword(pw);
+			
+			MemberService mvc = new MemberServiceImpl();
+			member = mvc.loginMember(member);
+			
+			if(member != null) {
+				HttpSession session = req.getSession();
+				session.setAttribute("memberName", member.getMemberName());
+				session.setAttribute("member", member);
+				resp.sendRedirect("main.do");
+			} else {
+				req.setAttribute("message", "로그인 실패.");
+				String path = "main/error.tiles";
+				req.getRequestDispatcher(path).forward(req, resp);
+			}
+		}
+		else {
 			HttpSession session = req.getSession();
-			session.setAttribute("memberName", member.getMemberName());
-			session.setAttribute("member", member);
+			session.invalidate();
 			resp.sendRedirect("main.do");
-		} else {
-			req.setAttribute("message", "로그인 실패.");
-			String path = "main/error.tiles";
-			req.getRequestDispatcher(path).forward(req, resp);
 		}
 		
 	}

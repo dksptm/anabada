@@ -26,7 +26,7 @@ public class ShopInfoControl implements Control {
 		List<Item> shopList = svc.ItemList();
 		
 		req.setAttribute("shopList", shopList);
-
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		dispatch.forward(req, resp);
 	}
 }

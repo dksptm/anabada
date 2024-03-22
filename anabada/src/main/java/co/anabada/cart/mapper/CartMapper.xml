@@ -5,32 +5,33 @@
 <mapper namespace="co.anabada.cart.mapper.CartMapper">
 
 	<select id="cartList" resultType="cart">
-		SELECT c.cart_id AS cartId
-				,c.cart_status AS cartStatus
-				,i.item_num AS itemNum
-				,i.item_name AS itemName
-				,i.item_price AS itemPrice
-				,i.item_image  AS itemImage
-				,m.member_num AS memberNum
-				,m.member_name AS memberName
-		FROM cart c
-				JOIN member m ON c.member_num = m.member_num
-				JOIN item i ON m.member_num = i.item_num
+		SELECT c.cart_num,
+				c.item_num,
+				c.cart_status,
+				i.item_num ,
+				i.item_name,
+				i.item_price,
+				i.item_image,
+				i.member_num, 
+				(SELECT m.member_name FROM member m WHERE m.member_num = i.member_num) 
+		FROM cart c JOIN item i ON (c.item_num = i.item_num)
+		WHERE c.member_num = #{memberNum}
 	</select>
 
 	<insert id="insertCart" parameterType="cart">
-		INSERT INTO cart(member_num
-					,item_num
-					,cart_status)
+		INSERT INTO
+		cart(member_num
+		,item_num
+		,cart_status)
 		VALUES (#{memberNum}
-				,#{itemNum}
-				,#{cartStatus})
+		,#{itemNum}
+		,#{cartStatus})
 	</insert>
 
-	<delete id="deleteCart" parameterType="string">
+	<delete id="deleteCart" parameterType="int">
 		DELETE cart
-		WHERE cart_id =#{cartId}
-	
+		WHERE cart_num=#{cartNum}
+
 	</delete>
 
 </mapper>

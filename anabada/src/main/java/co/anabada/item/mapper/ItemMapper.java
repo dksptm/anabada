@@ -9,10 +9,11 @@ import co.anabada.item.Item;
 public interface ItemMapper {
 	
 	// 영재.
-	List<Item> ItemList();
+	List<Item> ItemList(String cname);
+	List<Item> ItemList1();
 	Item selectItem(int ino);
-	int getTotalCnt(SearchVO search);
-	Item Item();
+	//int getTotalCnt(SearchVO search);
+	Item Item(int in);
 	
 	// 효주.
 	int insertItem(Item item);
@@ -22,4 +23,11 @@ public interface ItemMapper {
 
 	// 진경.
 	List<Item> shopList();
+	
+	// 주완
+	List<Item> sellItemList(int memberNum);
+	
+	int sellItemCancle(int itemNum);
+	
+	
 }

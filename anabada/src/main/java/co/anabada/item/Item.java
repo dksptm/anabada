@@ -18,11 +18,14 @@ public class Item {
 	private String itemStatus;
 	private Date itemDate;
 	private int zzim;
+	private String pselect;
+	private String dselect;
+	private String memberName; //판매자명
 	
 	
 	// AddItemControl에서 사용하기 위함.
-	public Item(String categoryId, int memberNum, String itemName, int itemPrice, 
-			String itemImage, String itemInfo, String itemStatus) {
+	public Item(String categoryId, int memberNum, String itemName, int itemPrice, String itemImage, String itemInfo,
+			String itemStatus, String pselect, String dselect) {
 		super();
 		this.categoryId = categoryId;
 		this.memberNum = memberNum;
@@ -31,11 +34,24 @@ public class Item {
 		this.itemImage = itemImage;
 		this.itemInfo = itemInfo;
 		this.itemStatus = itemStatus;
+		this.pselect = pselect;
+		this.dselect = dselect;
 	}
-	
+
+
+
 	// shopInfo(상점)
 	private int reviewScore;
 	private String reviewComment;
+	
+	
+	// category
+	private String categoryName;
+	private String parentCategory;
+	
+	//member
+	private String memberId;
+	private int memberScore;
 	
 }
 

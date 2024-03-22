@@ -22,7 +22,7 @@ public class DiaryModifyControl implements Control { //일정수정
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("application/json;charset=utf-8");
-		String diaryId = req.getParameter("diaryId");
+		String diaryNum = req.getParameter("diaryNum"); 
 		String diaryName = req.getParameter("diaryName");
 		String diaryContent = req.getParameter("diaryContent");
 		String diaryType = req.getParameter("diaryType");
@@ -30,7 +30,7 @@ public class DiaryModifyControl implements Control { //일정수정
 		
 		/*		  ---------------------------	     */
 		Diary diary = new Diary();
-		diary.setDiaryId(Integer.parseInt(diaryId));
+		diary.setDiaryNum(Integer.parseInt(diaryNum));
 		diary.setDiaryName(diaryName);
 		diary.setDiaryContent(diaryContent);
 		diary.setDiaryType(diaryType);

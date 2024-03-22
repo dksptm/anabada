@@ -21,14 +21,14 @@ public class DiaryRemoveControl implements Control{
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8");
-		String diaryId = req.getParameter("diaryId");
+		String diaryNum = req.getParameter("diaryNum");
 		
 		/*		  ---------------------------	     */
 		DiaryService dvc = new DiaryServicelmpl();
 		Map<String, String> map = new HashMap<>();
 		
 		/*		  ---------------------------		 */
-		if (dvc.removeDiary(Integer.parseInt(diaryId))) {
+		if (dvc.removeDiary(Integer.parseInt(diaryNum))) {
 			map.put("retCode", "OK");
 			map.put("retMsg", "삭제되었습니다");
 		} else {
