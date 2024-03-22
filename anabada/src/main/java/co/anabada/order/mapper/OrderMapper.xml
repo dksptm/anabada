@@ -42,12 +42,12 @@
 		SET	order_status = '주문취소'
 		WHERE order_num = ${orderNum}
 	</update>
-	
-	
-	
-	
 
-	<insert id="insertOrder" parameterType="Order">
+	<insert id="insertOrder" parameterType="order">
+	  <selectKey resultType="int" keyProperty="orderNum" order="BEFORE">
+  	    SELECT ord_num_seq.nextval
+  	    FROM   dual
+  	  </selectKey>
         INSERT INTO anvd_order (item_num
                                ,member_num
                                ,order_type

@@ -14,7 +14,6 @@ import co.anabada.member.service.MemberServiceImpl;
 
 public class MypageControl implements Control {
 
-
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");

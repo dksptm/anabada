@@ -48,9 +48,9 @@ public class AddOrderControl implements Control {
 		try {
 			if (ovc.addOrder(odr)) {
 				if(ivc.changeItem("예약중", Integer.parseInt(ino))) {
-					map.put("retCode", "OK");
-					map.put("retVal", "확인");
 					System.out.println("주문성공(예약중변경)");
+					map.put("retCode", "OK");
+					map.put("odrNo", odr.getOrderNum());
 				} else {
 					map.put("retCode", "NG-1");
 				}
@@ -64,7 +64,6 @@ public class AddOrderControl implements Control {
 		
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
-
 	}
 
 }

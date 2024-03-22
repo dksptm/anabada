@@ -24,17 +24,17 @@
                         <div class="position-relative col-8 p-3">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                             <div class="mb-4 pb-4 border-bottom border-secondary">
-                            	<h4 class="text-dark">${memberName }님의 판매상품</h4>
+                            	<h4 class="text-dark">${member.memberName }님의 판매상품</h4>
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
-                                <div class="ms-4 d-block">
-                                    <div class ="${myList }" var="item">
+                                <div class="ms-4 d-flex">
+                                	<c:forEach items="${myList }" var="item">
 	                                    <p class="mb-0">${item.itemName }</p>
 		                                <div class="bg-secondary rounded">
 		                                    <img src="images/${item.itemImage }" class="img-fluid rounded" style="width:100%;higth:100%;object-fit:cover;" alt="">
 		                                </div>
 		                                <p class="m-0 pb-3">${item.itemPrice }원</p>
-                                     </div>
+                                     </c:forEach>
                                 </div>
                             </div>
                         </div>
