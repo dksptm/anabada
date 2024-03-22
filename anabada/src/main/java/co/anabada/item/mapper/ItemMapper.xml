@@ -28,7 +28,6 @@
 
 	<select id="ItemList" resultType="Item">
 	
-		<if test="cname == ''">
 		select i.item_num,
 		       i.item_image,
 		       i.item_name,
@@ -38,20 +37,12 @@
 		       c.category_name,
 		       c.parent_category
 		from item i join category c on (i.category_id = c.category_id)
-		</if>
-		
+		<where>
 		<if test="cname != null and cnamd != ''">
-		select i.item_num,
-		       i.item_image,
-		       i.item_name,
-		       i.item_info,
-		       i.item_date,
-		       i.item_price,
-		       c.category_name,
-		       c.parent_category
-			from item i join category c on (i.category_id = c.category_id)
-			where category_name = #{categoryName}
+		category_name = #{categoryName}
 		</if>
+		</where>
+		
 		
 	</select>
 

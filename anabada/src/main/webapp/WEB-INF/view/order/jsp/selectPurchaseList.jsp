@@ -272,7 +272,7 @@ main {
 					</c:when>
 					
 					<c:otherwise>
-					<span><button type="button" onclick="location.href='addreview.do?orderNum=${selectPurchaseOrder.orderNum}';"class=" btn btn--stripe btn--large " > 리뷰쓰기</button></span>
+					<span><button type="button" onclick="location.href='addreviewForm.do?orderNum=${selectPurchaseOrder.orderNum}';"class=" btn btn--stripe btn--large " > 리뷰쓰기</button></span>
 					</c:otherwise>
 					</c:choose>
 		</div>

@@ -17,19 +17,10 @@ public class AddReviewForm implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
+		System.out.println("현재 페이지 = reviewForm.do");
 		String orderNum = req.getParameter("orderNum");
-//		System.out.println("orderNum ="+orderNum);
-//		String reviewScore = req.getParameter("review_score");
-//		String reviewComment = req.getParameter("review_comment");
-//		
-//		ReviewService svc = new ReviewServiceImpl();
-//		System.out.println("review = " + review);
-//		ReviewService svc = new ReviewServiceImpl();
-//		svc.addreview(review);
-//		req.setAttribute("ono", ono);
-//		req.setAttribute("review", review);
-		
-		String path = "review/reviewList.tiles";
+		req.setAttribute("orderNum", orderNum);
+		String path = "review/addreviewForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
 		
 

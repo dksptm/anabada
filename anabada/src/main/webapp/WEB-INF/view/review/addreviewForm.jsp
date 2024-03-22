@@ -24,15 +24,16 @@ em.warning {
 <div class="container-fluid py-5">
 	<div class="container py-5">
 		<h1 class="mb-4 row justify-content-center">리뷰를 작성해주세요</h1>
-		<form action="addreview.do?orderNum=${orderNum }" method="post" id="sign">
+		<form action="addreview.do" method="get" id="sign">
+			<input type="hidden" name="orderNum" value="${orderNum }">
+			<input type="hidden" name="memberNum" value="${member.memberNum }">
 			<div class="row g-3 justify-content-center">
 				<div class="col-md-12 col-lg-6 col-xl-7">
-
 					<div class="form-item">
 					 <label class="form-label my-3" for="member_pw" required>order_num<sup>*</sup></label>
+						<p>${orderNum }</p>
 						<em></em> 
 					</div>
-					${orderNum }
 					<div class="form-item">
 						<label class="form-label my-3" for="member_pw2" required>review_score
 							<sup>*</sup>

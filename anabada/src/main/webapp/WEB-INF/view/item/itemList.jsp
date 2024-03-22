@@ -125,9 +125,6 @@
 							</div>
 							<!-- 조회화면 -->
 
-${page }
-${radio }
-${keyword }
 
 
 							<div class="col-lg-12"></div>
@@ -170,7 +167,7 @@ ${keyword }
 							</c:forEach>
 						</div>
 
-
+${page.prev }
 						<div class="center">
 							<div class="pagination">
 								<c:if test="${page.prev }">
