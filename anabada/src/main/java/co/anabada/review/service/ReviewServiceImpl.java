@@ -26,8 +26,8 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.insertreview(review) == 1;
 	}
 		
-	public boolean removeReview(String reviewNum) {
-		return mapper.deleteReview(reviewNum) == 1;
+	public boolean removeReview(Review review) {
+		return mapper.deleteReview(review) == 1;
 	}
 
 }

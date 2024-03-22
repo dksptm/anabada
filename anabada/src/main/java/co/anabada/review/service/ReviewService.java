@@ -13,6 +13,6 @@ public interface ReviewService {
 	boolean addreview(Review review);
 	
 	// 삭제
-	boolean removeReview(String reviewNum);
+	boolean removeReview(Review review);
 	
 }

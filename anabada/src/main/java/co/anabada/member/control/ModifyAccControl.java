@@ -24,8 +24,8 @@ public class ModifyAccControl implements Control {
 
 		String acc = req.getParameter("acc");
 		String mno = req.getParameter("mno");
-		System.out.println("acc => " + acc);
-		System.out.println("mno => " + mno);
+		//System.out.println("acc => " + acc);
+		//System.out.println("mno => " + mno);
 
 		Member member = new Member();
 		member.setAccountNum(acc);
@@ -36,15 +36,18 @@ public class ModifyAccControl implements Control {
 		boolean test = svc.modifyAcc(member);
 		System.out.println(test);
 
-		
-		  Map<String, Object> map = new HashMap<>();
-		  
-		  if(svc.modifyAcc(member)) { map.put("retCode", "OK");
-		  System.out.println("성공"); } else { map.put("retCode", "NG");
-		  System.out.println("실패"); }
-		  
-		  Gson gson = new GsonBuilder().create();
-		  resp.getWriter().print(gson.toJson(map));
-		 
+		Map<String, Object> map = new HashMap<>();
+
+		if (svc.modifyAcc(member)) {
+			map.put("retCode", "OK");
+			System.out.println("성공");
+		} else {
+			map.put("retCode", "NG");
+			System.out.println("실패");
+		}
+
+		Gson gson = new GsonBuilder().create();
+		resp.getWriter().print(gson.toJson(map));
+
 	}
 }

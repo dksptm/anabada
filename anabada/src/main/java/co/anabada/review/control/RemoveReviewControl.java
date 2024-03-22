@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
+import co.anabada.review.Review;
 import co.anabada.review.service.ReviewService;
 import co.anabada.review.service.ReviewServiceImpl;
 
@@ -19,16 +20,26 @@ public class RemoveReviewControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/json;charset=utf-8");
 		
-		String reviewNum = req.getParameter("reviewNum");
+		String rno = req.getParameter("rno");
+		String mno = req.getParameter("mno");
+		System.out.println("rno: " + rno );
+		
+		Review review = new Review();
+		review.setReviewNum(Integer.parseInt(rno));
+		review.setMemberNum(Integer.parseInt(mno));
+		
 		ReviewService svc = new ReviewServiceImpl();
+		
 		Map<String, Object> map = new HashMap<>();
 		
-		if(svc.removeReview(reviewNum)) {
+		if(svc.removeReview(review)) {
 			map.put("retCode", "OK");
+			System.out.println("성공");
 		} else {
 			map.put("retCode","NG");
+			System.out.println("실패");
 		 }
 		
 		Gson gson = new GsonBuilder().create();
