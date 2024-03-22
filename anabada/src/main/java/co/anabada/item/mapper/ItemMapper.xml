@@ -20,34 +20,56 @@
 		i.dselect,
 		i.pselect
 		from item i
-		join member m on (i.member_num = m.member_num)
-		join category c on (c.category_id = i.category_id)
+		join member m on
+		(i.member_num = m.member_num)
+		join category c on (c.category_id =
+		i.category_id)
 		where item_num = #{in}
 	</select>
-
-
-	<select id="ItemList" resultType="Item">
 	
+	<select id="inameList" resultType="Item">
+
 		select i.item_num,
-		       i.item_image,
-		       i.item_name,
-		       i.item_info,
-		       i.item_date,
-		       i.item_price,
-		       c.category_name,
-		       c.parent_category
+		i.item_image,
+		i.item_name,
+		i.item_info,
+		i.item_date,
+		i.item_price,
+		c.category_name,
+		c.parent_category
 		from item i join category c on (i.category_id = c.category_id)
 		<where>
-		<if test="cname != null and cnamd != ''">
-		category_name = #{categoryName}
-		</if>
+			<if test="iname != null and iname != ''">
+				item_name like '%'||#{itemName}||'%'
+			</if>
 		</where>
-		
-		
+
+
+	</select>
+
+	<select id="ItemList" resultType="Item">
+
+		select i.item_num,
+		i.item_image,
+		i.item_name,
+		i.item_info,
+		i.item_date,
+		i.item_price,
+		c.category_name,
+		c.parent_category
+		from item i join category c on (i.category_id = c.category_id)
+		<where>
+			<if test="cname != null and cnamd != ''">
+				category_name = #{categoryName}
+			</if>
+		</where>
+
+
 	</select>
 
 	<select id="getTotalCnt" resultType="int" parameterType="search">
-		select count(*)
+		select
+		count(*)
 		from item
 		where item_name like '%'||#{keyword}||'%'
 
@@ -66,7 +88,8 @@
 		item_date
 		<!-- from item -->
 		from (select /*+ INDEX_DESC(b SYS_C008616) */ rownum rn, b.*
-		from item b
+		from item
+		b
 		<where>
 			item_num like '%'||#{keyword}||'%'
           <![CDATA[
@@ -105,7 +128,8 @@
 
 	<select id="recentItem" resultType="Item">
 		SELECT item_num
-		,(select category_name from category c where c.category_id = a.category_id) AS
+		,(select category_name from category c where
+		c.category_id = a.category_id) AS
 		"category_name"
 		,member_num
 		,item_name
@@ -183,9 +207,11 @@
 		o.payment_ok
 		FROM item i
 		JOIN order o ON i.item_num = o.item_num
-		JOIN purchase p ON i.order_num = p.order_num
+		JOIN
+		purchase p ON i.order_num = p.order_num
 		WHERE p.payment_ok = '결제완료'
-		AND i.item_status = '판매중'
+		AND
+		i.item_status = '판매중'
 		ORDER BY item_date DESC
 	</select>
 

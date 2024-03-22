@@ -11,6 +11,7 @@ public interface ItemService {
 	// 영재.
 	Item getItem(int in);
 	List<Item> ItemList(String cname);
+	List<Item> InameList(String iname);
 	List<Item> ItemList();
 	List<Item> ItemList1(SearchVO search);
 	int itemTotalCnt(SearchVO search);

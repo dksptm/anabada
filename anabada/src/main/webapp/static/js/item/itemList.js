@@ -4,7 +4,7 @@
 
 $('.btnbox').on('click', '.btn', function(e) {
 	let cname = $(this).val();
-
+    console.log(this);
 	$.ajax({
 		type: 'post',
 		url: './searchItem.do',
@@ -43,18 +43,21 @@ $('.btnbox').on('click', '.btn', function(e) {
 		}
 	})
 })
+"${key}"
 $('#key').keydown(function(e){
-	let cname = $(this).val();
+	let iname = $(this).val();
+	console.log(this);
 
 	$.ajax({
 		type: 'post',
-		url: './searchItem.do',
-		data: { cname },
+		url: 'inameList.do',
+		data: {iname },
 		success: function(result) {
+			console.log(result);
 			$('#itemList').html('');
 
 			result.forEach(prop => {
-				console.log(prop.itemPrice)
+				console.log(prop.itemName);
 
 				$('#itemList').append(
 					$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
@@ -85,27 +88,5 @@ $('#key').keydown(function(e){
 	
 })
 
-const service = {
-	// 댓글목록(5개씩 보여주는)
-	replyList(param = { bno: 1, page: 1 }, successCall, errorCall) {
-		$.ajax({
-			url: 'replyList.do',
-			method: 'get',
-			data: param,
-			dataType: 'json'
-		})
-			.done(successCall)
-			.fail(errorCall)
-	},
-	// 페이징 목록
-	pageList(bno = 1, successCall, errorCall) {
-		$.ajax({
-			url: 'getTotal.do?bno=' + bno,
-			method: 'get',
-			dataType: 'json'
-		})
-			.done(successCall)
-			.fail(errorCall)
-	}
-	}
+
 	

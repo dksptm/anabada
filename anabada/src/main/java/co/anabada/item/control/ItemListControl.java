@@ -19,6 +19,7 @@ public class ItemListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("application/json; charset=UTF-8");
 		
 		String page = req.getParameter("page");
 		String radio = req.getParameter("radio");

@@ -25,12 +25,11 @@
 			<div class="col-lg-12">
 				<div class="row g-4">
 					<div class="col-xl-3">
-						<form action="itemList.do?=" method="get">
+						<form action="inameList.do" method="get">
 							<div class="input-group w-100 mx-auto d-flex">
 								<input type="text" class="form-control p-3"
 									placeholder="keywords" aria-describedby="search-icon-1" name ="keyword" id="key">
-								<!-- <span id="search-icon-1" class="input-group-text p-3"><i
-									class="fa fa-search"></i>검색</span> -->
+							
 									<input type="submit"  value="조회" class="input-group-text p-3">
 							</div>
 						</form>

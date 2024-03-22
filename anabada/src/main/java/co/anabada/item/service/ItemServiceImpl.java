@@ -78,6 +78,11 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.sellItemCancle(itemNum) == 1;
 	}
 
+	@Override
+	public List<Item> InameList(String iname) {
+		return mapper.inameList(iname);
+	}
+
 	
 
 }
