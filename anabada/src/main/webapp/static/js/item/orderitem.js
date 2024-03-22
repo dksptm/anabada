@@ -70,11 +70,11 @@ function orderBtn() {
 		.done((result) => {
 			if(result.retCode == 'OK'){
 				alert('주문성공!');
-				alert('주문번호=>', result.odrNo);
-				window.location.href='/anabada/orderComplete.do';
+				alert('주문번호=>' + result.odrNo);
+				window.location.href='/anabada/orderComplete.do?odrNo=' + result.odrNo;
 			} else {
 				alert('주문실패!');
-				window.location.href='/anabada/error.jsp';
+				window.location.href='/anabada/main.do';
 			}
 		})
 		.fail((err) => console.log(err))

@@ -44,18 +44,20 @@
 	</update>
 
 	<insert id="insertOrder" parameterType="order">
-	  <selectKey resultType="int" keyProperty="orderNum" order="BEFORE">
-  	    SELECT ord_num_seq.nextval
+	  <selectKey resultType="int" keyProperty="orderNum" order="AFTER">
+  	    SELECT odr_num_seq.currval
   	    FROM   dual
   	  </selectKey>
-        INSERT INTO anvd_order (item_num
+        INSERT INTO anvd_order (order_num
+                               ,item_num
                                ,member_num
                                ,order_type
                                ,delivery_how
                                ,delivery_fee
                                ,delivery_address
                                ,payment_type)
-        VALUES (#{itemNum}
+        VALUES (odr_num_seq.nextval
+               ,#{itemNum}
                ,#{memberNum}
                ,#{orderType}
                ,#{deliveryHow}
@@ -63,5 +65,9 @@
                ,#{deliveryAddress}
                ,#{paymentType})
 	</insert>
+	
+	<select id="selectOdrCom" resultType="order">
+	SELECT * FROM vu_odr_com WHERE order_num = #{orderNum}
+	</select>	
 
 </mapper>

@@ -34,6 +34,7 @@ public class LoginControl implements Control {
 			if(member != null) {
 				HttpSession session = req.getSession();
 				session.setAttribute("memberName", member.getMemberName());
+				session.setAttribute("memAcc", member.getAccountNum());
 				session.setAttribute("member", member);
 				resp.sendRedirect("main.do");
 			} else {

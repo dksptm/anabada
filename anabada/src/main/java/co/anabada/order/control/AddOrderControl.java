@@ -49,6 +49,7 @@ public class AddOrderControl implements Control {
 			if (ovc.addOrder(odr)) {
 				if(ivc.changeItem("예약중", Integer.parseInt(ino))) {
 					System.out.println("주문성공(예약중변경)");
+					System.out.println("번호?"+odr.getOrderNum());
 					map.put("retCode", "OK");
 					map.put("odrNo", odr.getOrderNum());
 				} else {

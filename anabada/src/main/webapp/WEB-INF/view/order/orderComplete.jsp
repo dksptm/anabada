@@ -13,11 +13,11 @@
         <div class="container-fluid contact py-5">
             <div class="container py-5">
                 <div class="d-flex p-5 bg-light rounded">
-                    <div class="row g-4">
+                    <div class="row col-12 g-4">
                         <div class="col-12">
-                            <div class="text-center mx-auto" style="max-width: 700px;">
-                                <h1 class="text-primary">주문접수 완료(직거래는 보류중인 상태)</h1>
-                                <p class="mb-4"> 계좌번호 안내, 또는 페이진행?</p>
+                            <div class="text-center mx-auto">
+                                <h1 class="text-primary">주문접수 완료</h1>
+                                <p class="mb-4"> 주문번호 - <c:out value="${odrNo }" /></p>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -25,30 +25,34 @@
                                 <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
                                 <div>
                                     <h4>입금정보</h4>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
+                                    <span class="mb-2">입금계좌: ${order.sellerAcc } </span>
+                                    <span class="mb-2"> / 예금주: ${order.sellerName }</span>
+                                    <span class="mb-2"> / 입금요청액: ${order.total }</span>
                                 </div>
                             </div>
                             <div class="d-flex p-4 rounded mb-4 bg-white">
                                 <i class="fas fa-envelope fa-2x text-primary me-4"></i>
                                 <div>
-                                    <h4>배송지정보 / 직거래장소</h4>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
+                                    <h4>배송지정보</h4>
+                                    <span class="mb-2">수령인: ${member.memberName }</span>
+                                    <span class="mb-2"> / 연락처: ${member.memberPhone }</span>
+                                    <span class="mb-2"> / 배송주소: ${empty order.deliveryAddress ? '직거래' : order.deliveryAddress }</span>
                                 </div>
                             </div>
                             <div class="d-flex p-4 rounded bg-white">
                                 <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
                                 <div>
                                     <h4>거래정보</h4>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
-                                    <span class="mb-2">입금은행:</span>
+                                    <span class="mb-2">거래방법: ${order.orderType }</span>
+                                    <span class="mb-2"> / 거래일시: ${order.orderDate }</span>
+                                    <span class="mb-2"> / 결제수단: ${order.paymentType }</span>
+                                    <span class="mb-2"> / 상품금액: ${order.itemPrice }상품</span>
+                                </div>
+                            </div>
+                            <div class="d-flex p-4 rounded bg-white">
+                                <div>
+                                    <p>로그인 회원번호 : <c:out value="${member.memberNum }" /></p>
+                                    <p>로그인 회원번호 : <c:out value="${order.memberNum }" /></p>
                                 </div>
                             </div>
                         </div>

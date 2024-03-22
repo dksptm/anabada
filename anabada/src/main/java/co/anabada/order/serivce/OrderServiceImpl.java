@@ -25,6 +25,9 @@ public class OrderServiceImpl implements OrderService {
 		return mapper.insertOrder(odr) == 1;
 	}
 
+	@Override
+	public Order odrComResult(int orderNum) {
+		return mapper.selectOdrCom(orderNum);
+	}
 	
-
 }

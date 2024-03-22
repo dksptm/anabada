@@ -28,13 +28,17 @@
                             </div>
                             <div class="d-flex align-items-center flex-nowrap">
                                 <div class="ms-4 d-flex">
+                                	<ul class="col-12">
                                 	<c:forEach items="${myList }" var="item">
-	                                    <p class="mb-0">${item.itemName }</p>
-		                                <div class="bg-secondary rounded">
+                                		<li>
+		                                <div class="bg-secondary rounded" style="width:100px;display:inline-block;">
 		                                    <img src="images/${item.itemImage }" class="img-fluid rounded" style="width:100%;higth:100%;object-fit:cover;" alt="">
 		                                </div>
-		                                <p class="m-0 pb-3">${item.itemPrice }원</p>
+	                                    <span class="mb-0">${item.itemName }</span>
+		                                <span class="m-0 pb-3">${item.itemPrice }원</span>
+		                                </li>
                                      </c:forEach>
+                                     </ul>
                                 </div>
                             </div>
                         </div>

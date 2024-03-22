@@ -14,6 +14,7 @@
                 <h1 class="row mb-4 justify-content-center">상품을 등록하세요.</h1>
                 <form action="addItem.do" method="post" enctype="multipart/form-data" id="addItem">
                 	<input type="hidden" value="${member.memberNum }" name="mem_num">
+                	<input type="hidden" value="${member.memberName }" name="mem_name">
                 	<input type="hidden" value="판매중" name="status">
                 	<input type="hidden" value="" name="dselect">
                 	<input type="hidden" value="" name="pselect">
@@ -108,6 +109,6 @@
         <script>
          const mem = "${member.memberNum }";
          console.log(mem);
-         let memAcc = "${member.accountNum }";
+         const memAcc = "${memAcc }";
         </script>
         <script src="static/js/item/additem.js"></script>

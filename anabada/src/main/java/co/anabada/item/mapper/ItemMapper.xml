@@ -120,6 +120,7 @@
 		ORDER BY zzim DESC) a, item
 		WHERE a.item_num =
 		item.item_num
+		AND item.item_status = '판매중'
 		AND rownum <![CDATA[<= 10]]>
 	</select>
 

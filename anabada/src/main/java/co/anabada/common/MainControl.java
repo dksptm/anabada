@@ -23,7 +23,7 @@ public class MainControl implements Control {
 //		Item item = new Item();
 //		item = ivc.Item();
 		
-		if(recentList.size() != 0 && likeList.size() != 0) {
+		if(recentList.size() != 0 || likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
 			//영재
