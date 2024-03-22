@@ -107,7 +107,7 @@ function addZzim(ino) {
 		})
 		.done((result) => {
       	console.log(result);
-      	location.reload();
+      	//location.reload();
       })
       .fail((error) => console.error(err)) 
 	}

@@ -23,7 +23,7 @@
 		cart(member_num
 		,item_num)
 		VALUES (#{memberNum}
-		,#{itemNum})
+		,{itemNum})
 	</insert>
 
 	<delete id="deleteCart" parameterType="int">
