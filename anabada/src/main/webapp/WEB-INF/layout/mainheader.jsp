@@ -79,7 +79,7 @@
 									<i class="fas fa-store fa-2x"></i><sup>판매하기</sup>
 								</a>
 								<a href="cartList.do?memberNum=${member.memberNum}" class="position-relative me-4 my-auto">
-									<i class="fa fa-shopping-bag fa-2x"></i><sup>장바구니</sup>	
+									<i class="fa fa-shopping-bag fa-2x"></i><sup>찜</sup>	
 								</a>
 								<a href="diaryList.do" class="position-relative me-4 my-auto">
 									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>

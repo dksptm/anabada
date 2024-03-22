@@ -33,15 +33,18 @@ public class ModifyAccControl implements Control {
 		MemberService svc = new MemberServiceImpl();
 
 		Map<String, Object> map = new HashMap<>();
-		  
-		if(svc.modifyAcc(member)) { 
+
+		if (svc.modifyAcc(member)) {
 			map.put("retCode", "OK");
+			System.out.println("성공");
 		} else {
 			map.put("retCode", "NG");
+			System.out.println("실패");
 		}
-		  
+
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
-		 
+
+
 	}
 }

@@ -51,7 +51,7 @@ public class AddItemControl implements Control {
 		
 		ItemService ivc = new ItemServiceImpl();
 		try {
-			if(ivc.addItem(item)) {
+  			if(ivc.addItem(item)) {
 				req.setAttribute("item", item);
 				String path = "item/item.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);

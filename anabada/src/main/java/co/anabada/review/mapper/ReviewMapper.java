@@ -13,5 +13,5 @@ public interface ReviewMapper {
 	int insertreview(Review review);
 	
 	// 삭제
-	int deleteReview(String reviewNum);
+	int deleteReview(Review review);
 }
