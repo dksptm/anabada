@@ -17,22 +17,24 @@ public class LoginControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/json;charset=utf-8");
 		
+		String mno = req.getParameter("mno");
 		String login = req.getParameter("login");
 		String id = req.getParameter("member_id");
 		String pw = req.getParameter("member_pw");
 		
-		if(!login.equals("logout")) {
+		MemberService mvc = new MemberServiceImpl();
+		
+		if(!login.equals("logout")) { // 로그아웃 값이 들어온것 아니면(로그인이면)
 			Member member = new Member();
 			member.setMemberId(id);
 			member.setMemberPassword(pw);
-			
-			MemberService mvc = new MemberServiceImpl();
 			member = mvc.loginMember(member);
-			
 			if(member != null) {
 				HttpSession session = req.getSession();
 				session.setAttribute("memberName", member.getMemberName());
+				session.setAttribute("memAcc", member.getAccountNum());
 				session.setAttribute("member", member);
 				resp.sendRedirect("main.do");
 			} else {

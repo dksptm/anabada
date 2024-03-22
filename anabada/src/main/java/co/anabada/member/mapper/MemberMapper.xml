@@ -62,6 +62,18 @@
 		FROM member
 		WHERE member_id = #{id}
 	</select>
+	
+	<select id="selectMemByNum" resultType="member">
+		SELECT member_num
+		      ,member_id
+		      ,member_password
+		      ,member_name
+		      ,member_phone
+		      ,member_score
+		      ,account_num
+		FROM member
+		WHERE member_num = #{mno} 
+	</select>
 
 	<select id="myList" resultType="member">
 		SELECT m.member_num

@@ -2,7 +2,6 @@ package co.anabada.item.mapper;
 
 import java.util.List;
 
-import co.anabada.common.SearchVO;
 import co.anabada.item.Category;
 import co.anabada.item.Item;
 
@@ -20,6 +19,7 @@ public interface ItemMapper {
 	List<Item> recentItem();
 	List<Item> likeItem();
 	List<Category> cateList();
+	int changeItem(String sts, int ino);
 
 	// 진경.
 	List<Item> shopList();

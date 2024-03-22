@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,11 +31,8 @@ public class ModifyAccControl implements Control {
 		Member member = new Member();
 		member.setAccountNum(acc);
 		member.setMemberNum(Integer.parseInt(mno));
-		System.out.println(member);
 
 		MemberService svc = new MemberServiceImpl();
-		boolean test = svc.modifyAcc(member);
-		System.out.println(test);
 
 		Map<String, Object> map = new HashMap<>();
 
@@ -49,5 +47,6 @@ public class ModifyAccControl implements Control {
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
 
+		 
 	}
 }

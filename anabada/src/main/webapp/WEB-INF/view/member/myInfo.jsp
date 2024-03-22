@@ -32,7 +32,7 @@ th {
 	<div class="container">
 	<%-- <p>${myInfoList }</p> --%>
 		 <div>
-			<h1>내 정보</h1>
+			<h1>내 정보 ${memAcc } </h1>
 			<table>
 				<thead>
 					<tr>
@@ -74,7 +74,11 @@ function accUpdate() {
 		dataType: 'json',
 	})
 	.done((result) => {
-		console.log(result);
+		if(result.retCode == 'OK') {
+			window.location.replace('myInfo.do?memberNum='+mno);
+		} else {
+			alert('수정실패');
+		}
 	})
 	.fail((err) => console.log(err))
 }

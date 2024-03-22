@@ -59,6 +59,10 @@
 
 	<!-- ㅎㅈ -->
 	<insert id="insertItem" parameterType="Item">
+	<selectKey resultType="int" keyProperty="itemNum" order="BEFORE">
+  	  SELECT item_num_seq.nextval
+  	  FROM   dual
+  	</selectKey>	
 		INSERT INTO
 		item(item_num
 		,category_id
@@ -116,6 +120,7 @@
 		ORDER BY zzim DESC) a, item
 		WHERE a.item_num =
 		item.item_num
+		AND item.item_status = '판매중'
 		AND rownum <![CDATA[<= 10]]>
 	</select>
 
@@ -129,6 +134,12 @@
 		IS NULL	
 		CONNECT BY PRIOR category_id = parent_category
 	</select>
+	
+	<update id="changeItem" parameterType="hashMap">
+        UPDATE item
+        SET    item_status = #{param1}
+        WHERE  item_num = #{param2}		
+	</update>
 
 
 	<select id="shopList" resultType="Item">

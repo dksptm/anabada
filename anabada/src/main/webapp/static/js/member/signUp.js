@@ -9,6 +9,7 @@ let emptyChk = false;
 	
 $(document).ready(function(e){
 	
+	
 	// 일단 버튼 비활성화.
 	$('#signBtn').prop('disabled', true);
 	
@@ -71,7 +72,7 @@ $(document).ready(function(e){
 		} else if (!idDupl) {
 			alert('이메일 중복체크.');
 		} else if ($('em').hasClass('warning')) {
-			alert('이메일 중복체크.');
+			alert('정보 재확인.');
 		} else {
 			$(this).prop('checked', true);
 			$('#signBtn').prop('disabled', false);

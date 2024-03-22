@@ -48,6 +48,10 @@ public class ItemServiceImpl implements ItemService{
 	public List<Category> cateList() {
 		return mapper.cateList();
 	}
+	@Override
+	public boolean changeItem(String sts, int ino) {
+		return mapper.changeItem(sts, ino) == 1;
+	}
 	
 	// 진경
 	@Override
@@ -68,6 +72,7 @@ public class ItemServiceImpl implements ItemService{
 	public List<Item> ItemList() {
 		return mapper.ItemList1();
 	}
+
 
 	
 }

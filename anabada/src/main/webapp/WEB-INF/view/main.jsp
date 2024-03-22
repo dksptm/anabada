@@ -91,7 +91,6 @@
 		</c:choose>
 		<!-- Vesitable Shop End -->
 
-
 		<!--아이템날짜 최근 10건 조회하기-->
 		<c:choose>
 		<c:when test="${not empty recentList }">

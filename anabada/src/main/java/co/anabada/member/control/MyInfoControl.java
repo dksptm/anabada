@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.anabada.common.Control;
 import co.anabada.member.Member;
@@ -22,6 +23,10 @@ public class MyInfoControl implements Control {
 		
 		MemberService svc = new MemberServiceImpl();
 		List<Member> myInfoList = svc.myInfoList(Integer.parseInt(memberNum));
+		Member mem = svc.loginMemByNum(Integer.parseInt(memberNum));
+		
+		HttpSession session = req.getSession();
+		session.setAttribute("memAcc", mem.getAccountNum());
 		
 		req.setAttribute("myInfoList", myInfoList);
 		//System.out.println(memberNum);
