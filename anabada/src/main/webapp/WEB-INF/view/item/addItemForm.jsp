@@ -73,27 +73,6 @@
 	                        	</table>
 	                        </div>
 	                        <hr>
-	                        <!-- <div class="row justify-content-between">
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="form-item w-100">
-                                        <label class="form-label my-3" for="acc">은행명<sup>*</sup></label>
-                        				<select class="form-select" name="acc" id="acc"> 
-  											<option>선택하세요</option>
-  											<option>대구은행</option>
-  											<option>신한은행</option>
-  											<option>우리은행</option>
-  											<option>국민은행</option>
-  											<option>기타</option>
-										</select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="form-item w-100">
-                                        <label class="form-label my-3" for="account2">계좌번호<sup>*</sup></label>
-                                        <input type="text" class="form-control" name="account2" id="account2">
-                                    </div>
-                                </div>
-                            </div> -->
 	                        <hr>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
 	                        	<button type="button" onclick="selectFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품등록</button>

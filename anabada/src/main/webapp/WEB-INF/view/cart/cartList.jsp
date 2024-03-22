@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
@@ -78,14 +79,27 @@ function cartDelete(cno){
         data: { cno: cno ,  mno: mno }, 
         dataType: 'json',
     })
-    .done((result) => {
-      	console.log(result);
-      	location.reload();
-      })
-      .fail((error) => console.error(err)) 
-}
+<<<<<<< HEAD
+  })
+  .fail(err => console.log(err))
 
-
-
+  
+//아이템 삭제.
+$(".deleteBtn").on('click', function() {
+	let cartNum = $(this).data("cartNum");
+	console.log(cartNum);
+	fetch("removeCart.do?cartNum=" + cartNum)
+		.then(result => result.json())
+		.then(result => {
+		if (result.retCode == "OK") {
+			alert('삭제됨');
+			location.reload();
+		} else {
+			alert('삭제 중 오류 발생')
+			}
+		})
+	})
+//end of 아이템 삭제.
+  
 
 </script>

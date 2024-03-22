@@ -53,6 +53,7 @@
 									<a href="addreviewForm.do" class="dropdown-item">후기작성페이지(ㅇㅈ)</a>
 									<a href="purchaseList.do?memberNum=${member.memberNum }" class="dropdown-item">나의구매(ㅈㅇ)</a>
 									<a href="sellItemList.do?memberNum=${member.memberNum }" class="dropdown-item">나의판매(ㅈㅇ)</a>
+									<a href="negoForm.do?memberNum=${member.memberNum }" class="dropdown-item">네고(ㅈㅇ)</a>
 								</div>
 							</div>
 						</div>

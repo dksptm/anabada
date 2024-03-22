@@ -2,14 +2,14 @@
  * addZzim
  */
 let mno = '${member.memberNum }';
-console.log('멤버!',mno);
+console.log('멤버!', mno);
 
 function addZzim(ino) {
 	
 		$.ajax({
 			url: 'addCart.do',
 			method: 'post',
-			data: {ino:ino, mno: mno},
+			data: {ino: ino, mno : mno},
 			dataType: 'json'
 		})
 		.done((result) => {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <!-- <script src="//cdn.datatables.net/2.0.2/js/dataTables.min.js"></script> -->
 
@@ -23,7 +24,9 @@
 					<h1 class="display-5 fw-bolder mb-0">
 						<span class="text-gradient d-inline">후기목록</span>
 					</h1>
-				</div>
+			</div>
+		</div>
+		</section>
 				<div class="row gx-5 justify-content-center">
 					<div class="col-lg-11 col-xl-9 col-xxl-8">
 						<!-- Project Card 1-->
@@ -58,8 +61,6 @@
 </form>
 </html>
 
-
-
 <script>
 let mno = '${member.memberNum }';
 //console.log('멤버!',mno);
@@ -89,6 +90,7 @@ function reviewDel(rno) {
 <script> -->
 
 <!--  $.ajax({
+>>>>>>> branch 'master' of https://github.com/dksptm/anabada.git
     url: 'reviewList.do',
     method: 'post',
     dataType: 'json'
@@ -98,4 +100,29 @@ function reviewDel(rno) {
     })
   })
   .fail(err => console.log(err));
+<<<<<<< HEAD
+ */
+ 
+	// 삭제
+	$('.deleteBtn').on('click', function(){
+		 let reviewNum =$(this).data("reviewNum")
+		 console.log(reviewNum)
+		 
+		 fetch('RemoveReview.do?reviewNum=' + reviewNum)
+		 .then(result => result.json())
+		 .then(result => {
+			 if (result.retCode == "OK") {
+				 alert("후기가 삭제되었습니다.")
+				 location.reload();
+			 } else {
+				 alert("후기 삭제 오류.")
+			 }
+		 })
+		 
+	}
+		 
+</script>
+
+
+=======
 } -->

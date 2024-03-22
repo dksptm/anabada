@@ -2,6 +2,7 @@ package co.anabada.item.mapper;
 
 import java.util.List;
 
+import co.anabada.common.SearchVO;
 import co.anabada.item.Category;
 import co.anabada.item.Item;
 
@@ -9,9 +10,13 @@ public interface ItemMapper {
 	
 	// 영재.
 	List<Item> ItemList(String cname);
+	List<Item> ItemList();
 	List<Item> ItemList1();
+	List<Item> ItemList1(SearchVO search);
+	
+	List<Item> inameList(String iname);
 	Item selectItem(int ino);
-	//int getTotalCnt(SearchVO search);
+	int getTotalCnt(SearchVO search);
 	Item Item(int in);
 	
 	// 효주.

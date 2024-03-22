@@ -42,8 +42,7 @@ public class LoginControl implements Control {
 				String path = "main/error.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);
 			}
-		}
-		else {
+		} else {
 			HttpSession session = req.getSession();
 			session.invalidate();
 			resp.sendRedirect("main.do");

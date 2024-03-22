@@ -6,46 +6,58 @@
 
 	<select id="reviewList" resultType="review">
 		Select r.review_num
-				,r.review_score
-				,r.review_date
-				,r.review_comment
-				,o.order_num
-				,m.member_num
+		,r.review_score
+		,r.review_date
+		,r.review_comment
+		,o.order_num
+		,m.member_num
 		FROM review r
-		JOIN anvd_order o ON r.order_num = o.order_num
-		JOIN member m ON o.member_num = m.member_num
-		WHERE m.member_num = #{mno}
-	
-
+		JOIN anvd_order o ON r.order_num =
+		o.order_num
+		JOIN member
+		m ON o.member_num = m.member_num
+		WHERE
+		m.member_num = #{mno}
 	</select>
 	
 	<select id="addreviewList" resultType="Item">
-	select i.item_num,
-           i.item_name,
-           i.item_image,
-           i.item_info,
-           i.item_status,
-           i.item_date,
-           c.category_name,
-           c.parent_category
-     from  item i join category c on (i.category_id = c.category_id)
-     where item_num = 1
+		select i.item_num,
+		i.item_name,
+		i.item_image,
+		i.item_info,
+		i.item_status,
+		i.item_date,
+		c.category_name,
+		c.parent_category
+		from item i join category c on
+		(i.category_id = c.category_id)
+		where item_num = 1
 	</select>
-	
+
+	<select id="breview" resultType="Item">
+		select o.order_num,
+		i.item_num,
+		i.item_image,
+		m.member_id,
+		m.member_name
+		from item i join anvd_order o on (i.item_num = o.item_num)
+		join member m on ( m.member_num=o.member_num)
+	</select>
+
 	<insert id="insertreview" parameterType="review">
-		insert into review (order_num,
-                            review_score,
-                            review_comment)
-        values             (#{orderNum},
-                            #{reviewScore},
-                            #{reviewComment})
-
-
+		insert into review
+		           (order_num,
+		            review_score,
+		            review_comment)
+		values (#{orderNum},
+		        #{reviewScore},
+		        #{reviewComment})
 	</insert>
 
 	<delete id="deleteReview" parameterType="int">
-	DELETE review
-	WHERE review_num = #{reviewNum}
+		DELETE review
+		WHERE
+		review_num = #{reviewNum}
 	</delete>
 
 </mapper>

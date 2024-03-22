@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
 import co.anabada.common.SearchVO;
+import co.anabada.common.pageDTO;
 import co.anabada.item.Item;
 import co.anabada.item.service.ItemService;
 import co.anabada.item.service.ItemServiceImpl;
@@ -19,8 +20,10 @@ public class ItemListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		resp.setContentType("application/json; charset=UTF-8");
+		
 		String page = req.getParameter("page");
-		String searchCond = req.getParameter("searchCondition");
+		String radio = req.getParameter("radio");
 		String keyword = req.getParameter("keyword");
 		
 		page = page == null ? "1" : page;
@@ -28,7 +31,7 @@ public class ItemListControl implements Control {
 		SearchVO search = new SearchVO();
 		
 		search.setPage(Integer.parseInt(page));
-		search.setSearchCondition(searchCond);
+		search.setRadio(radio);
 		search.setKeyword(keyword);
 		
 		ItemService svc = new ItemServiceImpl();
@@ -38,11 +41,15 @@ public class ItemListControl implements Control {
 		
 
 		
-	    List<Item> itemList = svc.ItemList();
+		pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
+		
+	    List<Item> itemList = svc.ItemList1(search);
 		
 		req.setAttribute("itemList", itemList);
 		//req.setAttribute("page", pageDTO);
-		req.setAttribute("searchCondition", searchCond);
+		//req.setAttribute("searchCondition", searchCond);
+		req.setAttribute("page", pageDTO);
+		req.setAttribute("radio", radio);
 		req.setAttribute("keyword", keyword);
 		
 		String path = "item/itemList.tiles";

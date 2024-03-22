@@ -11,7 +11,8 @@
 
 <title>구매내역 상세 페이지</title>
 <style>
-/* CSS Reset */
+<<<<<<< HEAD
+
 body, h1, h2, div, span {
 	margin: 10;
 	padding: 0;
@@ -20,11 +21,20 @@ body, h1, h2, div, span {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 h2 {
 	font-weight: bold;
-	margin-bottom: 10px
+	margin-bottom: 30px;
+	font-size: 25px;
 }
 
+.button-container {
+	display: flex;
+	justify-content: center; 
+	gap: 5px; 
+	margin-right: 260px;
+	margin-bottom: 16px; 
+}
 
 body {
 	line-height: 1;
@@ -52,29 +62,24 @@ main {
 	margin-bottom: 10px;
 }
 
-
 .product_info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
 }
 
 .product_info img {
-  margin-right: 150px;
-  margin-left: 150px;
+	margin-right: 150px;
+	margin-left: 150px;
 }
 
 .product_details div {
-  margin-bottom: 5px; 
+	margin-bottom: 5px;
 }
-
 
 .info_title {
-  
-  margin-right: 10px;
+	margin-right: 10px;
 }
-
-
 
 .info_section {
 	display: flex;
@@ -89,50 +94,53 @@ main {
 }
 
 .info_title {
-	
-	color: #333; 
-	font-weight: bold; 
-	margin-right: 10px; 
+	color: #333;
+	font-weight: bold;
+	margin-right: 10px;
 }
-.order_info{
+
+.order_info {
 	margin-bottom: 50px;
 }
+
 .info_content {
-	
-	color: #666; 
-	text-align: right; 
-	width: auto; 
-	flex-grow: 1; 
+	color: #666;
+	text-align: right;
+	width: auto;
+	flex-grow: 1;
 }
+
 .btn {
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  font: inherit;
-  line-height: normal;
-  cursor: pointer;
-  -moz-user-select: text;
-  display: block;
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 16px 36px 22px;
-  background-color: #fff;
-  color: #666;
-  border: 2px solid #666;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  transition: all 0.5s ease;
-  margin-left: 200px;
+	overflow: visible;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	font: inherit;
+	line-height: normal;
+	cursor: pointer;
+	-moz-user-select: text;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 16px 36px 22px;
+	background-color: #fff;
+	color: #666;
+	border: 2px solid #666;
+	border-radius: 6px;
+	margin-bottom: 16px;
+	transition: all 0.5s ease;
+	margin-left: 200px;
 }
+
 .btn:-moz-focus-inner {
-  padding: 0;
-  border: 0;
+	padding: 0;
+	border: 0;
 }
+
 .btn--stripe {
-  overflow: hidden;
-  position: relative;
+	overflow: hidden;
+	position: relative;
 }
 /* .btn--stripe:after {
   content: "";
@@ -149,22 +157,27 @@ main {
   background-size: 7px 7px;
 } */
 .btn--stripe:hover {
-  background-color: #666;
-  color: #fff;
-  border-color: #000;
+	background-color: #666;
+	color: #fff;
+	border-color: #000;
 }
+
 .btn--stripe:hover:after {
-  background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
-  border-top: 1px solid #000;
-  -webkit-animation: stripe-slide 12s infinite linear forwards;
-          animation: stripe-slide 12s infinite linear forwards;
+	background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px,
+		transparent 5px);
+	border-top: 1px solid #000;
+	-webkit-animation: stripe-slide 12s infinite linear forwards;
+	animation: stripe-slide 12s infinite linear forwards;
 }
+
 .btn--large {
-  width: 50%;
+	width: 50%;
 }
+
 .btn--radius {
-  border-radius: 36px;
+	border-radius: 36px;
 }
+
 @media ( max-width : 767px) {
 	.info_section {
 		flex-direction: column;
@@ -172,7 +185,7 @@ main {
 	}
 	.info_content {
 		text-align: left;
-		margin-top: 5px; 
+		margin-top: 5px;
 	}
 }
 </style>
@@ -194,7 +207,7 @@ main {
 
 				<div class="product_info">
 					<img src="${selectPurchaseOrder.itemImage }"
-										style="width: 150px; height: 150px;">
+						style="width: 150px; height: 150px;">
 					<div class="product_details">
 						<div>
 							<span class="info_title">상품명</span> <span>${selectPurchaseOrder.itemName}</span>
@@ -204,17 +217,21 @@ main {
 						</div>
 					</div>
 				</div>
-				</div>
-					<c:choose>
-					<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
-					<span><button type="button"  onclick="orderCancle(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 주문취소</button></span>
-					</c:when>
-					
-					<c:otherwise>
-					<span><button type="button" disabled onclick="orderCancle(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 주문취소</button></span>
-					</c:otherwise>
-					</c:choose>
-					
+			</div>
+			<c:choose>
+				<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
+					<span><button type="button"
+							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
+							class=" btn btn--stripe btn--large ">주문취소</button></span>
+				</c:when>
+
+				<c:otherwise>
+					<span><button type="button" disabled
+							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
+							class=" btn btn--stripe btn--large ">주문취소</button></span>
+				</c:otherwise>
+			</c:choose>
+
 			<hr>
 
 			<h2>입금정보</h2>
@@ -227,7 +244,8 @@ main {
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">예금주</span> <span class="info_content">1 </span>
+				<span class="info_title">예금주</span> <span class="info_content">1
+				</span>
 			</div>
 
 			<div class="info_section">
@@ -240,10 +258,10 @@ main {
 
 			<hr>
 
-		
+
 			<h2>판매자 정보</h2>
 			<div class="info_section">
-				<span class="info_title">닉네임</span> <span class="info_content">${selectPurchaseOrder.memberId}</span>
+				<span class="info_title">아이디</span> <span class="info_content">${selectPurchaseOrder.memberId}</span>
 			</div>
 
 			<hr>
@@ -263,31 +281,43 @@ main {
 			<div class="info_section">
 				<span class="info_title">배송비</span> <span class="info_content">${selectPurchaseOrder.deliveryFee }</span>
 			</div>
-			
+
 			<div class="info_section">
 				<span class="info_title">결제금액</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
 			</div>
-			<c:choose>
-					<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
-					<span><button type="button"  onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 구매확정</button></span>
-					</c:when>
-					
-					<c:otherwise>
-					<span><button type="button" disabled onclick="orderConfirm(${selectPurchaseOrder.orderNum});"class=" btn btn--stripe btn--large " > 리뷰쓰기</button></span>
-					</c:otherwise>
-					</c:choose>
+
 		</div>
+		<div class="button-container">
+    <c:choose>
+        <c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
+            <span><button type="button" onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});" class="btn btn--stripe btn--large">구매확정</button></span>
+        </c:when>
+        <c:otherwise>
+        
+        <span><button type="button" onclick="location.href='itemList.do'" class="btn btn--stripe btn--large">계속 쇼핑</button></span>
+            
+        </c:otherwise>
+    </c:choose>
+    
+    <c:choose>
+        <c:when test="${selectPurchaseOrder.purchaseOk eq '구매확정'}">
+            <span><button type="button" onclick="location.href='addreviewForm.do?orderNum=${selectPurchaseOrder.orderNum}'" class="btn btn--stripe btn--large">리뷰쓰기</button></span>
+        </c:when>
+        <c:otherwise>
+           <span><button type="button" onclick="location.href='cartList.do?memberNum=${member.memberNum}'" class="btn btn--stripe btn--large">장바구니</button></span>
+        </c:otherwise>
+    </c:choose>
+</div>
 	</main>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <script>
-
-
 function orderCancle(orderNum) {
     if (confirm('구매를 취소하시겠습니까?')) {
         $.ajax({
             url: 'orderCancle.do',
-            method: 'post',
+            method: 'POST',
             data: { orderNum: orderNum },
             dataType: 'json',
             success: function(response) {
@@ -305,30 +335,30 @@ function orderCancle(orderNum) {
         });
     }
 }
-function orderConfirm(orderNum) {
+
+
+function purchaseConfirm(orderNum) {
     if (confirm('구매를 확정하시겠습니까?')) {
         $.ajax({
-            url: 'purchaseConfirm.do',
-            method: 'post',
+            url: 'purchaseConfirm.do', 
+            method: 'POST',
             data: { orderNum: orderNum },
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
-                   alert(response);
-                	alert('구매를 확정하였습니다.');
+                    alert('구매가 확정되었습니다.');
                     location.reload();
                 } else {
-                	alert('구매를 취소할 수 없습니다.....');
+                    alert('구매 확정을 할 수 없습니다.');
                 }
             },
             error: function(xhr, status, error) {
-            	alert('에러에러에러.');
+                alert('처리 중 오류가 발생했습니다.');
             }
         });
     }
 }
 
-function reviewForm()
 </script>
 </html>
 

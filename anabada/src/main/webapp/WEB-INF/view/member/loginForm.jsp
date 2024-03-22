@@ -23,7 +23,6 @@
 						<label class="form-label my-3" for="member_id">이메일<sup>*</sup></label> 
 						<input type="text" required class="form-control" name="member_id" id="member_id" 
 						value="<c:out value="${!empty member_id ? member_id : '' }"></c:out>">
-						
 					</div>
 					<div class="form-item">
 						<label class="form-label my-3" for="member_pw">비밀번호<sup>*</sup></label> <input

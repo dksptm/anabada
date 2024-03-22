@@ -62,5 +62,4 @@ public class MemberServiceImpl implements MemberService {
 	public Member loginMemByNum(int mno) {
 		return mapper.selectMemByNum(mno);
 	}
-
 }

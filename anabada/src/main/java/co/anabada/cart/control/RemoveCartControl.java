@@ -20,7 +20,13 @@ public class RemoveCartControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/json;charset=utf-8");
+		
+		String cartNum = req.getParameter("cartNum");
+
+		CartService svc = new CartServiceImpl();
+		Map<String, Object> map = new HashMap<>(); 
 		
 		String cno = req.getParameter("cno");
 		String mno = req.getParameter("mno");
@@ -28,10 +34,7 @@ public class RemoveCartControl implements Control {
 		Cart cart = new Cart();
 		cart.setCartNum(Integer.parseInt(cno));
 		cart.setMemberNum(Integer.parseInt(mno));
-		
-		CartService svc = new CartServiceImpl();
-		
-		Map<String, Object> map = new HashMap<>(); 
+	
 		
 		if(svc.removeCart(cart)) {
 			map.put("retCode", "OK");

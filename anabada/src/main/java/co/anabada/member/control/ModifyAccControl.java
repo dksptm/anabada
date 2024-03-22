@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -25,8 +24,6 @@ public class ModifyAccControl implements Control {
 
 		String acc = req.getParameter("acc");
 		String mno = req.getParameter("mno");
-		//System.out.println("acc => " + acc);
-		//System.out.println("mno => " + mno);
 
 		Member member = new Member();
 		member.setAccountNum(acc);
@@ -46,7 +43,5 @@ public class ModifyAccControl implements Control {
 
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
-
-		 
 	}
 }

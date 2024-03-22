@@ -23,6 +23,7 @@ import co.anabada.item.control.AddItemControl;
 import co.anabada.item.control.AddItemForm;
 import co.anabada.item.control.CategoryListControl;
 import co.anabada.item.control.ChangeItem;
+import co.anabada.item.control.InameListControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
 import co.anabada.item.control.SellItemCancleControl;
@@ -37,6 +38,8 @@ import co.anabada.member.control.MyInfoControl;
 import co.anabada.member.control.MypageControl;
 import co.anabada.member.control.SignUpControl;
 import co.anabada.member.control.SignUpForm;
+import co.anabada.nego.control.NegoContentAddControl;
+import co.anabada.nego.control.NegoFormControl;
 import co.anabada.order.control.AddOrderControl;
 import co.anabada.order.control.OrderCancleControl;
 import co.anabada.order.control.OrderComplete;
@@ -89,6 +92,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/item.do", new ItemControl());
 		controls.put("/itemList.do", new ItemListControl());
 		controls.put("/searchItem.do", new searchItemControl());
+		controls.put("/inameList.do", new InameListControl());
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl()); // 장바구니 리스트
@@ -122,6 +126,8 @@ public class FrontController extends HttpServlet {
 		controls.put("/selectPurchaseList.do", new selectPurchaseOrderForm());
 		controls.put("/orderCancle.do", new OrderCancleControl());
 		controls.put("/purchaseConfirm.do", new PurchaseConfirmControl());
+		controls.put("/negoForm.do", new NegoFormControl());
+		controls.put("/addContents.do", new NegoContentAddControl());
 	}
 	
 	@Override

@@ -19,6 +19,7 @@
   		<typeAlias alias="purchase" type="co.anabada.purchase.Purchase" />
   		<typeAlias alias="order" type="co.anabada.order.Order" />
   		<typeAlias alias="search" type="co.anabada.common.SearchVO" />
+  		<typeAlias alias="nego" type="co.anabada.nego.Nego" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -41,5 +42,6 @@
 		<mapper resource="co/anabada/review/mapper/ReviewMapper.xml" />
 		<mapper resource="co/anabada/purchase/mapper/PurchaseMapper.xml" />
 		<mapper resource="co/anabada/order/mapper/OrderMapper.xml" />
+		<mapper resource="co/anabada/nego/mapper/NegoMapper.xml" />
 	</mappers>
 </configuration>
