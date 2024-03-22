@@ -26,6 +26,7 @@ public class ItemListControl implements Control {
 		String radio = req.getParameter("radio");
 		String keyword = req.getParameter("keyword");
 		
+		keyword = keyword == null ? "" : keyword;
 		page = page == null ? "1" : page;
 		
 		SearchVO search = new SearchVO();
