@@ -15,33 +15,24 @@ import co.anabada.item.Item;
 import co.anabada.item.service.ItemService;
 import co.anabada.item.service.ItemServiceImpl;
 
-public class searchItemControl implements Control {
+public class InameListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json; charset=UTF-8");
-		
-		String cname = req.getParameter("cname");
-		
+		String iname = req.getParameter("iname");
+		String key = req.getParameter("keyword");
 		ItemService svc = new ItemServiceImpl();
-		List<Item> list = svc.ItemList(cname);
+		List<Item> ilist = svc.InameList(iname);
 		
-		
-		req.setAttribute("list", list);
-		
-		
+		req.setAttribute("key", key);
+		req.setAttribute("ilist", ilist);
 		
 		Gson gson = new Gson();
-		String jsonText = gson.toJson(list);
 		
-		System.out.println(jsonText);
+		String jsonText1 = gson.toJson(ilist);
 		
 		PrintWriter writer = resp.getWriter();
-		
-		writer.write(jsonText);
-		
-		writer.flush();
-		
+		writer.write(jsonText1);
 		
 
 	}

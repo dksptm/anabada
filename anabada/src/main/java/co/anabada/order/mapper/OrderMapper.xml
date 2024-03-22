@@ -16,7 +16,7 @@
 		i.item_name,
 		i.item_image,
 		i.item_price,
-		i.d_select,
+		i.dselect,
         i.member_num,
 		m.account_num,
 		m.member_name,

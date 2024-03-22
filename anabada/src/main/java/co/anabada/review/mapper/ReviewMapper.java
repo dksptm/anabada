@@ -11,6 +11,7 @@ public interface ReviewMapper {
 	List<Review> reviewList(int mno);
 	Item  addreviewList();
 	int insertreview(Review review);
+	Item breview();
 	
 	// 삭제
 	int deleteReview(Review review);

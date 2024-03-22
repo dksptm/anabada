@@ -54,6 +54,9 @@ public class Item {
 	private String memberId;
 	private int memberScore;
 	
+	//order
+	private int orderNum;
+	
 }
 
 

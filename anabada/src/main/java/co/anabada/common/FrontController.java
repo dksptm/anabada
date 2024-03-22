@@ -23,6 +23,7 @@ import co.anabada.item.control.AddItemControl;
 import co.anabada.item.control.AddItemForm;
 import co.anabada.item.control.CategoryListControl;
 import co.anabada.item.control.ChangeItem;
+import co.anabada.item.control.InameListControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
 import co.anabada.item.control.SellItemCancleControl;
@@ -89,6 +90,7 @@ public class FrontController extends HttpServlet {
 		controls.put("/item.do", new ItemControl());
 		controls.put("/itemList.do", new ItemListControl());
 		controls.put("/searchItem.do", new searchItemControl());
+		controls.put("/inameList.do", new InameListControl());
 
 		// 진경.
 		controls.put("/cartList.do", new CartListControl()); // 장바구니 리스트

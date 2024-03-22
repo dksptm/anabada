@@ -18,7 +18,7 @@
 						<!--  -->
 						<h1 class="mb-5 display-3 text-primary">어떤 상품을 찾으시나요? </h1>
 						<div class="position-relative mx-auto">
-							<input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number"
+							<input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text"
 								placeholder="Search">
 							<button type="submit"
 								class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
@@ -78,8 +78,6 @@
 								<div class="flex-lg-wrap">
 									<i class="fas fa-heart"></i><span>${item.zzim }</span>
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
-									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i
-											class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
 								</div>
 							</div>
 						</div>
@@ -111,8 +109,6 @@
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
 								<div class="d-flex justify-content-between flex-lg-wrap">
 									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
-									<a href="#" class="btn border border-secondary rounded-pill px-3 text-primary">
-									<i class="fa fa-shopping-bag me-2 text-primary"></i> 찜하기</a>
 								</div>
 							</div>
 						</div>

@@ -14,13 +14,13 @@ public class Review {
 	private String memberName;
 	private int memberNum;
 	
+
 	public Review(int orderNum, int reviewScore, String reviewComment) {
 		super();
 		this.orderNum = orderNum;
 		this.reviewScore = reviewScore;
 		this.reviewComment = reviewComment;
 	}
-
 
 
 	public Review() {
