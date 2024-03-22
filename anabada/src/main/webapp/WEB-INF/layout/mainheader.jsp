@@ -82,9 +82,9 @@
 								<a href="cartList.do?memberNum=${member.memberNum}" class="position-relative me-4 my-auto">
 									<i class="fa fa-shopping-bag fa-2x"></i><sup>찜</sup>	
 								</a>
-								<a href="diaryList.do" class="position-relative me-4 my-auto">
+								<!-- <a href="diaryList.do" class="position-relative me-4 my-auto">
 									<i class="fas fa-regular fa-calendar fa-2x"></i> <sup>나의일정</sup>
-								</a>
+								</a> -->
 								<a href="myPage.do?mno=${member.memberNum }" class="position-relative me-4 my-auto">
 									<i class="fas fa-house-user fa-2x"></i> <sup>마이페이지</sup>
 								</a>

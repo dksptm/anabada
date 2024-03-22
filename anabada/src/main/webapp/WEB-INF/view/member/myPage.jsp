@@ -48,24 +48,17 @@
                             	<h4 class="mb-4 text-dark">마이페이지</h4>
                             	<hr>
                                 <div>
-                                    <h5 class="text-dark text-end">거래정보</h5>
+                                    <h5 class="text-dark text-end">나의 정보</h5>
                                     <hr>
                                 	<div class="mb-2">
                                         <a href="sellItemList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">판매내역</h5><a>
                                         <a href="purchaseList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
                                         <a href="reviewList.do?mno=${member.memberNum }"><h5 class="text-primary text-end">리뷰내역</h5><a>
+                                        <a href="myInfo.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">계좌수정</h5><a>
                                 	</div>
                                 </div>
                                 <br><br>
                                 <hr>
-                                <div>
-                                	<h5 class="text-dark text-end">나의정보</h5>
-                                    <hr>
-                                   	<div class="mb-2">
-                                    	<a href="#"><h5 class="text-primary text-end">나의계좌</h5><a>
-                                        <a href="myInfo.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">나의정보</h5><a>
-                                	</div>
-                            	</div>
                     		</div>
                     	</div>
                     </div>

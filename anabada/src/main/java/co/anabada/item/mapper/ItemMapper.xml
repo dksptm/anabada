@@ -151,14 +151,14 @@
 	</update>
 	
 
-	<select id="getTotalCnt" resultType="int" parameterType="search">
+	<select id="getTotalCnt" resultType="int" parameterType="co.anabada.common.SearchVO">
 		select
 		count(*)
 		from item
 		where item_name like '%'||#{keyword}||'%'
 	</select>
 
-	<select id="ItemList1" resultType="item" parameterType="search">
+	<select id="ItemList1" resultType="item" parameterType="co.anabada.common.SearchVO">
 		select rn,
 		item_num,
 		category_id,
