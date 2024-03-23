@@ -9,7 +9,7 @@ import co.anabada.item.Item;
 public interface ItemMapper {
 	
 	// 영재.
-	List<Item> ItemList(String cname);
+	List<Item> ItemList(String cname, int page);
 	List<Item> ItemList();
 	List<Item> ItemList1();
 	List<Item> ItemList1(SearchVO search);
@@ -19,12 +19,16 @@ public interface ItemMapper {
 	int getTotalCnt(SearchVO search);
 	Item Item(int in);
 	
+	// 카테고리 리스트를 위한 토탈카운트.
+	int getCateCnt(String cid);
+	
 	// 효주.
 	int insertItem(Item item);
 	List<Item> recentItem();
 	List<Item> likeItem();
 	List<Category> cateList();
 	int changeItem(String sts, int ino);
+	int updateItem(Item item);
 
 	// 진경.
 	List<Item> shopList();
