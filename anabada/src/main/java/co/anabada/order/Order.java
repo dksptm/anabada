@@ -25,13 +25,12 @@ public class Order {
 		private Date	paymentDate;	// 결제일시
 		private String	orderStatus; 	// 주문상태 - 주문진행/ 주문확인 / 주문취소 / 주문완료
 		private String  purchaseOk;
-		
+		private String  itemStatus;
 		//효주.
 		private int sellerNum;
 		private String sellerAcc;
 		private String sellerName;
 		private int total;
 
-		
-		
-}	
+
+}

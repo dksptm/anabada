@@ -13,7 +13,7 @@ public class TestPageControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String path = "WEB-INF/view/test/aaa.html";
-		req.getRequestDispatcher(path).forward(req, resp); 
+		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
 }

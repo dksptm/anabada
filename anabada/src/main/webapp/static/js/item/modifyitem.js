@@ -76,8 +76,8 @@ function modifyFnc(){
 		$('input[name=imgFlag]').val('NO');
 		$('input[name=firstImg]').val(img);
 	}
-	alert('사진수정여부? ' + imgFlag);
-	alert('imgFlag? ' + $('input[name=imgFlag]').val());
+	//alert('사진수정여부? ' + imgFlag);
+	//alert('imgFlag? ' + $('input[name=imgFlag]').val());
 	
 	// 모두 입력됐는지 확인.
 	let chkName = $('#name').val().trim() == '' ? false : true;
@@ -85,7 +85,7 @@ function modifyFnc(){
 	let chkPrice = $('#price').val().trim() == '' ? false : true;
 	let chkInfo = $('textarea[name=info]').val().trim() == '' ? false : true;
 	if(!chkName || !chkCate || !chkPrice || !chkInfo){
-		alert('모든항목 입력.');
+		alert('모든항목 입력하세요.');
 		return false;
 	} else {
 		alert('모든항목 입력완료.');

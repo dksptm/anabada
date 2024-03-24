@@ -21,17 +21,17 @@ public class CategoryListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 응답 인코딩.
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		// 매퍼사용.
 		ItemService ivc = new ItemServiceImpl();
 		List<Category> list = ivc.cateList();
-		
+
 		// 자바객체 -> Gson객체.
 		Gson gson = new GsonBuilder().create();
 		// -> json문자열로.
 		String json = gson.toJson(list);
 		// json문자열로 응답(전달).
 		resp.getWriter().print(json);
-		
+
 	}
 }

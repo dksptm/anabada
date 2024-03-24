@@ -40,7 +40,7 @@
 								<p class="mb-0 mt-4">${purchase.totalPrice }원</p>
 							</td>
 							<td>
-								<p class="mb-0 mt-4">${purchase.purchaseOk }</p>
+								<p class="mb-0 mt-4">${purchase.itemStatus }</p>
 							</td>
 							<td
 								onClick="toggleIframe('selectPurchaseList.do?orderNum=${purchase.orderNum}');"

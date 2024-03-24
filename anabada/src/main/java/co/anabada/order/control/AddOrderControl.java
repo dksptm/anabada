@@ -30,7 +30,7 @@ public class AddOrderControl implements Control {
 		String dfee = req.getParameter("dfee");
 		String daddr = req.getParameter("daddr");
 		String pty = req.getParameter("pty");
-		
+
 		Order odr = new Order();
 		odr.setItemNum(Integer.parseInt(ino));
 		odr.setMemberNum(Integer.parseInt(mno));
@@ -39,17 +39,17 @@ public class AddOrderControl implements Control {
 		odr.setDeliveryFee(Integer.parseInt(dfee));
 		odr.setDeliveryAddress(daddr);
 		odr.setPaymentType(pty);
-		
+
 		OrderService ovc = new OrderServiceImpl();
 		ItemService ivc = new ItemServiceImpl();
-		
+
 		Map<String, Object> map = new HashMap<>();
-		
+
 		try {
 			if (ovc.addOrder(odr)) {
-				if(ivc.changeItem("예약중", Integer.parseInt(ino))) {
+				if (ivc.changeItem("예약중", Integer.parseInt(ino))) {
 					System.out.println("주문성공(예약중변경)");
-					System.out.println("번호?"+odr.getOrderNum());
+					System.out.println("번호?" + odr.getOrderNum());
 					map.put("retCode", "OK");
 					map.put("odrNo", odr.getOrderNum());
 				} else {
@@ -57,12 +57,12 @@ public class AddOrderControl implements Control {
 				}
 			} else {
 				map.put("retCode", "NG-2");
-			}			
-		} catch(Exception e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 			map.put("retCode", "ERROR");
 		}
-		
+
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
 	}

@@ -222,7 +222,7 @@ main {
 
 			<h2>정보</h2>
 			<div class="info_section">
-				<span class="info_title">별점</span> <span class="info_content">${selectSellItemList.reviewScore }</span>
+				<span class="info_title">평점</span> <span class="info_content">${selectSellItemList.reviewScore }</span>
 			</div>
 
 			<div class="info_section">

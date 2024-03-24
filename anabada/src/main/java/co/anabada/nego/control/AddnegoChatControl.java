@@ -22,18 +22,23 @@ public class AddnegoChatControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		String itemNum = req.getParameter("itemNum");
 		String negoChat = req.getParameter("negoChat");
 		String memberNum = req.getParameter("memberNum");
 		String memberName = req.getParameter("memberName");
-		
+
 		Nego nego = new Nego();
 		nego.setItemNum(Integer.parseInt(itemNum));
 		nego.setMemberNum(Integer.parseInt(memberNum));
 		nego.setNegoChat(negoChat);
 		nego.setMemberName(memberName);
 		System.out.println("nego: " + nego);
+		
+		 System.out.println("itemNum " + itemNum);
+		    System.out.println("negoChat " + negoChat);
+		    System.out.println("memberNum " + memberNum);
+		
 		NegoService svc = new NegoServiceImpl();
 		Map<String, Object> map = new HashMap<>();
 		if (svc.AddnegoChat(nego)) {
@@ -47,7 +52,5 @@ public class AddnegoChatControl implements Control {
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
 
-	  }
 	}
-
-
+}

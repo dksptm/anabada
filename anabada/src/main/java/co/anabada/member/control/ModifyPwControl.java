@@ -41,7 +41,7 @@ public class ModifyPwControl implements Control {
 		}
 
 		Gson gson = new GsonBuilder().create();
-		resp.getWriter().print(gson.toJson(map));	
+		resp.getWriter().print(gson.toJson(map));
 
 	}
 

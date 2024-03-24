@@ -15,19 +15,20 @@
         JOIN item i ON n.item_num = i.item_num
         JOIN member m ON n.member_num = m.member_num
         WHERE n.item_num = #{itemNum}
+        order by n.nego_chat_date desc 
     </select>
   
   	
   	
-  	<insert id="AddnegoChat" parameterType="int">
+  	<insert id="AddnegoChat" parameterType="co.anabada.nego.Nego">
        insert into nego_chat (nego_num,
        						  member_num,
                               item_num,
                               nego_chat,
                               nego_chat_Date)
     values(nego_num_seq.nextval,
-    	   ${memberNum},
-           ${itemNum},
+    	   #{memberNum},
+           #{itemNum},
            #{negoChat},
            sysdate)
        </insert>
