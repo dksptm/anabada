@@ -69,7 +69,7 @@
 							<div class="d-flex text-center align-items-center justify-content-between pt-4">
 								<label class="form-label my-3" for="">결제방법<sup>*</sup></label>
 								<input type="radio" class="btn-check" name="pay" id="payt" value="payt">
-								<label class="btn border-secondary col-4" for="payt">네이버페이</label>
+								<label class="btn border-secondary col-4" for="payt">기타결제</label>
 								<input type="radio" class="btn-check" name="pay" id="depositt" value="depositt">
 								<label class="btn btn-outline-dark col-4" for="depositt">무통장입금</label>
 							</div>
