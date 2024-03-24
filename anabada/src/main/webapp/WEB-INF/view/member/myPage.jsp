@@ -9,7 +9,6 @@
 		<li class="breadcrumb-item active text-white"></li>
 	</ol>
 		<br>
-		<p>${pageDTO }</p>
 </div>
 <!-- Single Page Header End -->
 
@@ -17,8 +16,8 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <div class="text-center">
-                    <h4 class="text-primary">나의 판매, 나의 구매, 리뷰 등등..</h4>
-                    <h1 class="display-5 mb-5 text-dark">여기는 마이페이지.</h1>
+                    <h4 class="text-primary"></h4>
+                    <h1 class="display-5 mb-5 text-dark">마이페이지</h1>
                 </div>
                 <div class="">
                     <div class="d-flex img-border-radius bg-light rounded">

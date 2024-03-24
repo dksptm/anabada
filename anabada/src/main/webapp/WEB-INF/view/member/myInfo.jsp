@@ -32,7 +32,7 @@ th {
 	<div class="container">
 	<%-- <p>${myInfoList }</p> --%>
 		 <div>
-			<h1>내 정보 ${memPw } </h1>
+			<h1>내 정보</h1>
 			<table>
 				<thead>
 					<tr>
