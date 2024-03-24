@@ -13,17 +13,16 @@ public class PurchaseServiceImpl implements PurchaseService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	PurchaseMapper mapper = session.getMapper(PurchaseMapper.class);
 
-    @Override
-    public List<Purchase> purchaseList() {
-        return mapper.purchaseList();
-    }
+	@Override
+	public List<Purchase> purchaseList() {
+		return mapper.purchaseList();
+	}
 
 	@Override
 	public boolean removePurchaseList(int orderNum) {
 		return mapper.deletePurchaseList(orderNum) == 1;
 	}
- 
-	
+
 	@Override
 	public boolean purchaseConfirm(int orderNum) {
 		return mapper.purchaseConfirm(orderNum) == 1;

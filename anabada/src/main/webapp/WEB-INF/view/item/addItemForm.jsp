@@ -55,7 +55,7 @@
 	                        <div class="form-item">
 	                            <input class="form-check-input bg-primary" type="checkbox" id="jik" value="jik">
 	                        	<label class="form-check-label me-5" for="jik">직거래</label>
-		                        <button type="button" id="jido" class="btn btn-outline-info btn-sm">장소추가</button>
+		                        <!-- <button type="button" id="jido" class="btn btn-outline-info btn-sm">장소추가</button> -->
 	                        </div>
 	                        <hr>
 	                        <div class="form-item">

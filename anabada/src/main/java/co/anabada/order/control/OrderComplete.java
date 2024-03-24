@@ -18,8 +18,8 @@ public class OrderComplete implements Control {
 		String odrNo = req.getParameter("odrNo");
 		OrderService ovc = new OrderServiceImpl();
 		Order order = ovc.odrComResult(Integer.parseInt(odrNo));
-		
-		if(order != null) {
+
+		if (order != null) {
 			req.setAttribute("odrNo", odrNo);
 			req.setAttribute("order", order);
 			String path = "order/orderComplete.tiles";

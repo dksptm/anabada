@@ -20,19 +20,19 @@ public class searchItemControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json; charset=UTF-8");
-		
+
 		String cname = req.getParameter("cname");
 		String page = req.getParameter("page");
-		
+
 		ItemService svc = new ItemServiceImpl();
 		List<Item> list = svc.ItemList(cname, Integer.parseInt(page));
-		//req.setAttribute("list", list);
-		
+		// req.setAttribute("list", list);
+
 		Gson gson = new GsonBuilder().create();
 		String jsonText = gson.toJson(list);
-		
+
 		resp.getWriter().print(jsonText);
-		
+
 	}
 
 }

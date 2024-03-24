@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class DataSource {
 
 	// SqlSessionFactory 를 만들기위한 클래스.
-	
+
 	public static SqlSessionFactory getInstance() {
 		String resource = "config/mybatis-config.xml";
 		InputStream inputStream = null;
@@ -22,5 +22,5 @@ public class DataSource {
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		return sqlSessionFactory;
 	}
-	
+
 }

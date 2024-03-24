@@ -14,16 +14,15 @@ import co.anabada.item.service.ItemServiceImpl;
 public class ModifyItemForm implements Control {
 
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
-		
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.setCharacterEncoding("utf-8");
 		String ino = req.getParameter("ino");
 		String seller = req.getParameter("seller");
-		
+
 		ItemService ivc = new ItemServiceImpl();
 		Item item = ivc.getItem(Integer.parseInt(ino));
-		
+
 		req.setAttribute("ino", ino);
 		req.setAttribute("seller", seller);
 		req.setAttribute("item", item);
