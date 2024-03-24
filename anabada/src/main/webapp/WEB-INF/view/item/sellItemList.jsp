@@ -2,6 +2,42 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<style>
+.modal{
+            position:absolute;
+            display:none;
+            
+            justify-content: center;
+            top:0;
+            left:0;
+
+            width:100%;
+            height:100%;
+
+            
+
+            background-color: rgba(0,0,0,0.4);
+        }
+.modal_body{
+            position:absolute;
+            top:50%; //모달을 화면가운데 놓기위함. 
+        
+
+            width:400px;  //모달의 가로크기 
+            height:600px; //모달의 세로크기 
+
+            padding:40px;  
+
+            text-align: center;
+
+            background-color: rgb(255,255,255); //모달창 배경색 흰색
+            border-radius:10px; //테두리 
+            box-shadow:0 2px 3px 0 rgba(34,36,38,0.15); //테두리 그림자 
+
+            transform:translateY(-50%); //모듈창열었을때 위치설정 가운데로 
+        }
+</style>
+
 
 <div class="container-fluid page-header py-5">
 	<h1 class="text-center text-white display-6">현재 판매중인 상품목록</h1>
@@ -58,7 +94,7 @@
 
 
  <iframe name="contentFrame" id="contentFrame"
-		style="width: 100%; height: 600px; border: none; display: none; position: fixed; left: 0; top: 0;"></iframe>
+		style="width: 100%; height: 600px; border: none; display: none; position: fixed; left: 0; top: 0; object-fix"></iframe>
  <script>
 	
 	function toggleIframe(url) {

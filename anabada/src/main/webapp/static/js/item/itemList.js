@@ -1,11 +1,7 @@
-
-
-	
 /**
  * itemList
  */
 
-<<<<<<< HEAD
 console.log('itemList.js')
 
 let page = 1;
@@ -22,134 +18,8 @@ $(document).ready(function(e){
 		console.log('page ' + page);
 		searchList(cname, page);
 	})
-=======
-$('.btnbox').on('click', '.btn', function(e) {
-   let cname = $(this).val();
-    console.log(this);
-   $.ajax({
-      type: 'post',
-      url: './searchItem.do',
-      data: { cname },
-      success: function(result) {
-         console.log(result);
-         $('#itemList').html('');
-
-         result.forEach(prop => {
-            console.log(prop.page)
-
-            $('#itemList').append(
-               $('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
-                  $('<a>', { href: 'item.do?itemNum=' + prop.itemNum }).append(
-                     $('<div>', { class: 'rounded position-relative fruite-item' }).append(
-                        $('<div>', { class: 'fruite-img' }).append(
-                           $('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top', width: '100px', height: '200px' }),
-                           $('<div>', { class: 'text-white bg-secondary px-3 py-1 rounded position-absolute', style: 'top: 10px; left: 10px;' }).text(prop.itemNum),
-                           $('<div>', { class: 'p-4 border border-secondary border-top-0 rounded-bottom' }).append(
-                              $('<h4>').text(prop.itemName),
-                              $('<p>').text(prop.itemInfo),
-                              $('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-                                 $('<p>', { class: 'text-dark fs-5 fw-bold mb-0' }).text(prop.itemPrice + '원')
-                              )
-                           )
-                        )
-                     )
-                  )
-               )
-            )//end #itemList 
-         })//end forEach
-
-      },
-      error: function(err) {
-         alert('error');
-      }
-   })
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
 })
-<<<<<<< HEAD
 
-
-$('#key').keyup(function(e) {
-	let iname = $(this).val();
-=======
-"${key}"
-$('#key').keydown(function(e){
-   let iname = $(this).val();
-   console.log(this);
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
-
-<<<<<<< HEAD
-	$.ajax({
-		type: 'post',
-		url: 'inameList.do',
-		data: { iname }
-	}).done(function(result) {
-		console.log(result); // 검색어에 해당하는 상품 찍혀야함
-		$('#itemList').html('');
-=======
-   $.ajax({
-      type: 'post',
-      url: 'inameList.do',
-      data: {iname },
-      success: function(result) {
-         console.log(result);
-         $('#itemList').html('');
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
-
-<<<<<<< HEAD
-		result.forEach(prop => {
-			console.log(prop.itemName);
-=======
-         result.forEach(prop => {
-            console.log(prop.itemName);
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
-
-<<<<<<< HEAD
-			$('#itemList').append(
-				$('<div>').addClass('col-md-6 col-lg-6 col-xl-4 vesitable').append(
-					$('<div>').addClass('border border-primary rounded position-relative vesitable-item').prop('onclick', 'itemLink('+prop.itemNum+')').append(
-						$('<div>', { class: 'vesitable-img' }).append(
-							$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top bg-light', onerror: "this.onerror=null; this.src='static/img/errimg.png';" }),
-							$('<div>', { class: 'text-white bg-primary px-3 py-1 rounded position-absolute', style: 'top: 10px; right: 10px;' }).text(prop.itemNum),
-							$('<div>', { class: 'p-4 rounded-bottom' }).append(
-								$('<h4>', { style: 'height:29px;overflow:hidden;' }).text(prop.itemName),
-								$('<p>', { style: 'height:85px;overflow:hidden;' }).text(prop.itemInfo),
-								$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-									$('<p>', { class: 'text-dark fs-5 fw-bold mb-0 w-100' }).text('￦' + prop.itemPrice)
-								)
-							)
-						)
-					)
-				)
-=======
-            $('#itemList').append(
-               $('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
-                  $('<a>', { href: 'item.do?itemNum=' + prop.itemNum }).append(
-                     $('<div>', { class: 'rounded position-relative fruite-item' }).append(
-                        $('<div>', { class: 'fruite-img' }).append(
-                           $('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top', width: '100px', height: '200px' }),
-                           $('<div>', { class: 'text-white bg-secondary px-3 py-1 rounded position-absolute', style: 'top: 10px; left: 10px;' }).text(prop.itemNum),
-                           $('<div>', { class: 'p-4 border border-secondary border-top-0 rounded-bottom' }).append(
-                              $('<h4>').text(prop.itemName),
-                              $('<p>').text(prop.itemInfo),
-                              $('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-                                 $('<p>', { class: 'text-dark fs-5 fw-bold mb-0' }).text(prop.itemPrice + '원')
-                              )
-                           )
-                        )
-                     )
-                  )
-               )
-            )
-         })
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
-
-<<<<<<< HEAD
-			); //end #itemList 
-		}); //end forEach
-	}).fail(function(err) {
-		alert('error');
-	});
-});
 
 function itemLink(ino) {
 	location.href = 'item.do?itemNum=' + ino;
@@ -187,6 +57,7 @@ function searchList(cname, page) {
 		$('#itemList').html('');
 		
 		$(result).each(function(idx, ele){
+			clone.find('div.vesitable-item').attr('onclick', 'itemLink('+ ele.itemNum +')');
 			clone.find('img').attr('src', 'images/' + ele.itemImage);
 			clone.find('#inum').text(ele.itemNum);
 			clone.find('h4').text(ele.itemName);
@@ -254,13 +125,4 @@ function pagingFunc(){
 				})
 			});	
 }
-=======
-      },
-      error: function(err) {
-         alert('error');
-      }
-   })
-   
-})
->>>>>>> branch '032402' of https://github.com/dksptm/anabada.git
 
