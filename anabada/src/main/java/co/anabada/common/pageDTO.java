@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class pageDTO {
 	private int page;
-	private int startPage, endPage; 
+	private int startPage, endPage;
 	private boolean prev, next;
 
 	public pageDTO(int page, int totalCnt) {

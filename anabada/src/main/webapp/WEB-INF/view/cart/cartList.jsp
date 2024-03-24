@@ -39,7 +39,7 @@
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">
-									<img src="itemimages/${cart.itemImage }"
+									<img src="images/${cart.itemImage }"
 										class="img-fluid me-5 rounded-circle"
 										style="width: 80px; height: 80px;" alt="">
 								</div>
@@ -64,8 +64,6 @@
 	</div>
 </div>
 <!-- Tastimonial End -->
-
-
 
 <script>
 // 찜목록삭제 

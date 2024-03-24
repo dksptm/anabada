@@ -12,8 +12,6 @@ public class CartServiceImpl implements CartService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CartMapper mapper = session.getMapper(CartMapper.class);
 
-
-
 	@Override
 	public boolean addCart(Cart cart) {
 		return mapper.insertCart(cart) == 1;

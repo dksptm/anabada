@@ -9,12 +9,9 @@
 						<small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
 								class="text-white">대구 중구 중앙대로 403</a></small>
 						<small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
-								class="text-white">abc@abc.com</a></small>
+								class="text-white">yedam@ydeam.do</a></small>
 					</div>
 					<div class="top-link pe-2">
-						<a href="#" class="text-white"><small class="text-white mx-2">링크1/</small></a>
-						<a href="#" class="text-white"><small class="text-white mx-2">링크2/</small></a>
-						<a href="#" class="text-white"><small class="text-white mx-2">링크3</small></a>
 					</div>
 				</div>
 			</div>
@@ -31,7 +28,7 @@
 						<div class="navbar-nav mx-auto">
 
 							<!-- 다른 메뉴들. -->
-							<a href="itemList.do" class="nav-item nav-link">상품리스트</a>
+							 <a href="itemList.do" class="nav-item nav-link">상품리스트</a>
 							<div class="nav-item dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">페이지들</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -44,9 +41,9 @@
 									<a href="sellItemList.do?memberNum=${member.memberNum }" class="dropdown-item">나의판매(ㅈㅇ)</a>
 									<a href="negoForm.do?memberNum=${member.memberNum }" class="dropdown-item">네고(ㅈㅇ)</a>
 								</div>
-							</div>
-						</div>
-						<!-- 중간메뉴 end. -->
+							</div> 
+						 </div> 
+						<!-- 중간메뉴 end.-->
 						
 						<!-- 회원메뉴(우측메뉴) start. -->
 						<c:choose>

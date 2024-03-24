@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
 
-public class PurchaseForm implements Control{
+public class PurchaseForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

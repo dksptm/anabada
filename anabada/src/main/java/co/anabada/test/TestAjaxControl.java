@@ -20,12 +20,12 @@ public class TestAjaxControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		MemberService svc = new MemberServiceImpl();
 		List<Member> list = svc.memberList();
-		
+
 		req.setAttribute("list", list);
-		
+
 		// 아작스.
 		Gson gson = new GsonBuilder().create(); // Gson객체 생성.
 		String json = gson.toJson(list); // Gson객체의 toJson()메소드가 자바객체를 json문자열로 변환.

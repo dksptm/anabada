@@ -8,35 +8,33 @@ import co.anabada.common.DataSource;
 import co.anabada.diary.Diary;
 import co.anabada.diary.mapper.DiaryMapper;
 
+public class DiaryServicelmpl implements DiaryService {
 
-public class DiaryServicelmpl implements DiaryService{
-	
-	SqlSession session = DataSource.getInstance().openSession(true); //자동커밋.
+	SqlSession session = DataSource.getInstance().openSession(true); // 자동커밋.
 	DiaryMapper mapper = session.getMapper(DiaryMapper.class);
-	
-	//일정목록
+
+	// 일정목록
 	@Override
 	public List<Diary> diaryList(Diary diary) {
 		return mapper.diaryList(diary);
 	}
 
-	//일정등록
+	// 일정등록
 	@Override
 	public boolean addDiary(Diary diaryContent) {
 		return mapper.insertDiary(diaryContent) == 1;
 	}
-	
-	//일정삭제
+
+	// 일정삭제
 	@Override
 	public boolean removeDiary(int diaryNum) {
 		return mapper.deleteDiary(diaryNum) == 1;
 	}
 
-	//일정수정
+	// 일정수정
 	@Override
 	public boolean modifyDiary(Diary diary) {
 		return mapper.updateDiary(diary) == 1;
 	}
-	
-	
+
 }

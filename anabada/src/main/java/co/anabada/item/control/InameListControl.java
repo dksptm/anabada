@@ -21,26 +21,25 @@ public class InameListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("application/json; charset=UTF-8");
 		String iname = req.getParameter("iname");
-		System.out.println("inameListControl(iname)= "+iname);
+		System.out.println("inameListControl(iname)= " + iname);
 		String page = req.getParameter("page");
-	
-		
+
 		ItemService svc = new ItemServiceImpl();
-		List<Item> ilist = svc.InameList(iname,Integer.parseInt(page));
-		
+		List<Item> ilist = svc.InameList(iname, Integer.parseInt(page));
+
 		/* req.setAttribute("key", key); */
 		req.setAttribute("ilist", ilist);
-		
+
 		Gson gson = new Gson();
-		
+
 		String jsonText = gson.toJson(ilist);
-		
+
 		System.out.println(jsonText);
-		
+
 		PrintWriter writer = resp.getWriter();
-		
+
 		writer.write(jsonText);
-		
+
 		writer.flush();
 
 	}

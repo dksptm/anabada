@@ -19,12 +19,12 @@ public class SelectSellItemListControl implements Control {
 		resp.setContentType("text/json;charset=utf-8");
 		String itemNum = req.getParameter("itemNum");
 		System.out.println("itemNum " + itemNum);
-		
+
 		ItemService svc = new ItemServiceImpl();
-        Item selectSellItemList = svc.selectSellItemList(Integer.parseInt(itemNum));
-        req.setAttribute("selectSellItemList", selectSellItemList);
-        System.out.println("selectSellItemList " + selectSellItemList);
-        
+		Item selectSellItemList = svc.selectSellItemList(Integer.parseInt(itemNum));
+		req.setAttribute("selectSellItemList", selectSellItemList);
+		System.out.println("selectSellItemList " + selectSellItemList);
+
 		String path = "WEB-INF/view/item/jsp/selectSellItemList.jsp";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);

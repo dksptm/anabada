@@ -16,19 +16,18 @@ import co.anabada.item.service.ItemServiceImpl;
 public class TotalCntControl implements Control {
 
 	@Override
-	public void exec(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json; charset=UTF-8");
-		
+
 		String cid = req.getParameter("cid");
 		ItemService svc = new ItemServiceImpl();
 		int total = svc.getCateCnt(cid);
-		
+
 		Gson gson = new GsonBuilder().create();
 		String jsonText = gson.toJson(total);
-		
+
 		resp.getWriter().print(jsonText);
-		
+
 	}
 
 }
