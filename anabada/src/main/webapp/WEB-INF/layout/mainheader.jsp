@@ -28,8 +28,8 @@
 						<div class="navbar-nav mx-auto">
 
 							<!-- 다른 메뉴들. -->
-							 <a href="itemList.do" class="nav-item nav-link">상품리스트</a>
-							<div class="nav-item dropdown">
+							 <!-- <a href="itemList.do" class="nav-item nav-link">상품리스트</a> -->
+							<%-- <div class="nav-item dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">페이지들</a>
 								<div class="dropdown-menu m-0 bg-secondary rounded-0">
 									<a href="reviewList.do?memberNum=${memeber.memberNum }" class="dropdown-item">리뷰리스트</a>
@@ -41,7 +41,7 @@
 									<a href="sellItemList.do?memberNum=${member.memberNum }" class="dropdown-item">나의판매(ㅈㅇ)</a>
 									<a href="negoForm.do?memberNum=${member.memberNum }" class="dropdown-item">네고(ㅈㅇ)</a>
 								</div>
-							</div> 
+							</div>  --%>
 						 </div> 
 						<!-- 중간메뉴 end.-->
 						

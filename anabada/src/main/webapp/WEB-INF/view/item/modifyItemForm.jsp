@@ -10,6 +10,7 @@
 
         <!-- Checkout Page Start -->
         <div class="container-fluid py-5">
+        
             <div class="container py-5">
                 <h1 class="row mb-4 justify-content-center">상품수정 하세요.</h1>
                 <form action="modifyItem.do" method="post" enctype="multipart/form-data" id="modifyItem">

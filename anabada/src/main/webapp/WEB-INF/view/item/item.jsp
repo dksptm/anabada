@@ -115,9 +115,9 @@ function addZzim(ino) {
 		.done((result) => {
       	console.log(result);
       	if(result.retCode ==='OK'){
-      		alert('찜하기성공!')
+      		alert('찜하기 성공!')
       	} else if (result.retCode === 'AR') {
-      		alert('찜하기실패!');
+      		alert('이미 추가된 상품입니다!');
       	}
       })
     .fail((error) => {

@@ -5,6 +5,7 @@
 <mapper namespace="co.anabada.item.mapper.ItemMapper">
 	<!-- ㅇㅈ -->
 
+	
 	<select id="selectItem" resultType="Item"> 
            select       i.item_num,
                         i.category_id,
@@ -20,7 +21,7 @@
                         c.category_name,
                         i.dselect,
                         i.pselect
-          from item i 
+          from vu_item i 
           join member m on (i.member_num = m.member_num)
           join category c on (c.category_id = i.category_id)
           where item_num = #{in}
@@ -37,6 +38,7 @@
                 select rownum rn, i.*
                 from   item i join category c on (i.category_id = c.category_id)
                 where (c.category_id = #{param1} or c.parent_category = #{param1})
+                and   item_status = '판매중'
                 and   rownum <![CDATA[ <= (#{param2} * 6) ]]>
                 ) ic
           WHERE ic.rn > (#{param2} - 1) * 6
@@ -50,7 +52,7 @@
        item_info,
        item_price
 FROM (SELECT rownum rn, i.*
-      FROM item i
+      FROM vu_item i
       WHERE i.item_name LIKE '%' || #{param1} || '%'
         AND rownum <![CDATA[<=(#{param2} * 6)]]>
       ) a
@@ -151,20 +153,20 @@ WHERE a.rn > (#{param2} - 1) * 6
 	
 	<select id="getTotalCnt" resultType="int" parameterType="co.anabada.common.SearchVO">
 		select count(*)
-		from item
+		from vu_item
 		where item_name like
 		'%'||#{keyword}||'%'
 	</select>
 	
 	<select id="getCateCnt">
 		select count(item_num)
-		from item i join category c on (i.category_id = c.category_id)
+		from vu_item i join category c on (i.category_id = c.category_id)
 		where c.category_id = #{cid} or c.parent_category = #{cid}
 	</select>
 	
 	<select id="getCateCnt2">
 		select count(item_num)
-		from item 
+		from vu_item
 		where item_name like '%'||#{cid}||'%'
 	</select>
 	
@@ -182,7 +184,7 @@ WHERE a.rn > (#{param2} - 1) * 6
 		       item_date
 		       <!-- from item -->
 		from (select /*+ INDEX_DESC(b PK_ITEM) */ rownum rn, b.*
-		from item b
+		from vu_item b
 		<where>
 			item_name like '%'||#{keyword}||'%'
           <![CDATA[

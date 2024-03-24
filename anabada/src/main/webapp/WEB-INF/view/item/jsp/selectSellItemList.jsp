@@ -204,7 +204,7 @@ main {
 				</div>
 				
 				<div class="product_info">
-					<img src="${selectSellItemList.itemImage }"
+					<img src="images/${selectSellItemList.itemImage }"
 						style="width: 150px; height: 150px;">
 					<div class="product_details">
 						<div>
@@ -216,7 +216,6 @@ main {
 					</div>
 				</div>
 			</div>
-			
 
 			<hr>
 

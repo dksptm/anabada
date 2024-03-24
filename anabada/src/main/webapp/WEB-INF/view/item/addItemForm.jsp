@@ -4,7 +4,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">상품등록(완료)</h1>
+            <h1 class="text-center text-white display-6">상품등록</h1>
         </div>
         <!-- Single Page Header End -->
 
