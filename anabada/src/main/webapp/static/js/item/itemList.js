@@ -68,7 +68,7 @@ $('#key').keypress(function(e) {
 			})
 				.done(total => {
 					console.log('Ktotal='+total )
-					createPageElement2(total);
+					createPageElement(total);
 				})
 				.fail(err => console.error(err));
 		}); //end forEach
