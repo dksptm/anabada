@@ -20,20 +20,20 @@ public class IdChk implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
-		
+
 		String id = req.getParameter("id");
 		MemberService mvc = new MemberServiceImpl();
 		Map<String, Object> map = new HashMap<>();
-		
-		if(mvc.idCheck(id)) {
+
+		if (mvc.idCheck(id)) {
 			map.put("retCode", "OK");
 		} else {
 			map.put("retCode", "NG");
 		}
-		
+
 		Gson gson = new GsonBuilder().create();
 		resp.getWriter().print(gson.toJson(map));
-		
+
 		System.out.println(map);
 	}
 

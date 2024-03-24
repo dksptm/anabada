@@ -7,7 +7,6 @@
         <div class="container-fluid page-header py-5">
             <h1 class="text-center text-white display-6">상품상세</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="#">item.do</a></li>
             </ol>
         </div>
         <!-- Single Page Header End -->
@@ -102,6 +101,8 @@
 <iframe name="contentFrame" id="contentFrame" style="width:100%; height:600px; border:none; display:none; position:fixed; left:0; top:0;"></iframe>
 <script>
 
+const mno = '${member.memberNum }';
+console.log('멤버!',mno);
 
 function addZzim(ino) {
 	console.log('아이템!', ino);
@@ -113,38 +114,29 @@ function addZzim(ino) {
 		})
 		.done((result) => {
       	console.log(result);
-     	 alert('찜하기성공!')
+      	if(result.retCode ==='OK'){
+      		alert('찜하기성공!')
+      	} else if (result.retCode === 'AR') {
+      		alert('찜하기실패!');
+      	}
       })
-      .fail((error) => {
-    	 console.log(error)
-    	 alert('찜하기실패!');
-      })
-}
+    .fail((error) => {
+	console.log(error)
+	alert('찜하기실패!');
+	})
+};
 
 	let istatus = "${item.itemStatus}";
 	if(istatus == '판매완료' || istatus == '판매취소') {
 		$('.dis').remove();
 	}
 	
-	const mno = "${member.memberNum }";
+	
 	const ino = "${item.itemNum }";
 	const seller = "${item.memberNum }"
 	console.log('멤버:', mno, ' 아이템:', ino, ' 셀러:', seller);
 	
-	function addZzim(ino) {
-		console.log('아이템!', ino);
-			$.ajax({
-				url: 'addCart.do',
-				type: 'post',
-				data: { ino : ino, mno : mno },
-				dataType: 'json'
-			})
-			.done((result) => {
-	      	console.log(result);
-	      })
-	      .fail((error) => console.error(err)) 
-		}
-	
+
 	function toggleFrame(url) {
 	    var iframe = document.getElementById('contentFrame');
 	    // 'iframe'의 현재 상태 및 URL 체크

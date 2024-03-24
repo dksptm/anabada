@@ -17,21 +17,22 @@ public class NegoFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		String itemNum = req.getParameter("itemNum");
 		System.out.println(itemNum);
 		NegoService svc = new NegoServiceImpl();
 		List<Nego> negoForm = svc.negoForm(Integer.parseInt(itemNum));
-		
+
 		System.out.println("negoForm: " + negoForm);
 		req.setAttribute("negoForm", negoForm);
 		req.setAttribute("itemNum", itemNum);
 		
+
 		String path = "WEB-INF/view/nego/jsp/negoForm.jsp";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
-				dispatch.forward(req, resp);
+		dispatch.forward(req, resp);
 	}
 
 }

@@ -18,14 +18,14 @@ import co.anabada.diary.service.DiaryService;
 import co.anabada.diary.service.DiaryServicelmpl;
 
 public class DiaryListControl implements Control {
-    @Override
-    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json;charset=utf-8");
-        
-        DiaryService dvc = new DiaryServicelmpl();
-        List<Diary> list = dvc.diaryList(new Diary()); 
+	@Override
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("application/json;charset=utf-8");
 
-        Gson gson = new GsonBuilder().create();
+		DiaryService dvc = new DiaryServicelmpl();
+		List<Diary> list = dvc.diaryList(new Diary());
+
+		Gson gson = new GsonBuilder().create();
 //        String json = gson.toJson(list.stream().map(diary -> {
 //            var event = new java.util.HashMap<String, Object>();
 //            event.put("name", diary.getDiaryName());
@@ -34,7 +34,7 @@ public class DiaryListControl implements Control {
 //            return event;
 //        }).toList());
 //        resp.getWriter().print(json);
-    }
+	}
 }
 
 //		resp.setContentType("application/json;charset=utf-8");

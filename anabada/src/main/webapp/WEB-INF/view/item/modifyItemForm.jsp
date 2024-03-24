@@ -79,8 +79,6 @@
 	                        </div>
 	                        <hr>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
-	                        	<button type="button" onclick="test1()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">사진테스트</button>
-	                        	<button type="button" onclick="test2()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">제출테스트</button>
 	                        	<button type="button" onclick="modifyFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품수정</button>
 								<button type="button" onclick="cancelFnc()" class="btn btn-outline-dark py-3 px-4 w-100 text-primary">취소</button>
 	                        </div>

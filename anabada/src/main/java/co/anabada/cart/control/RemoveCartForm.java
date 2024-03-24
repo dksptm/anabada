@@ -6,7 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import co.anabada.cart.service.CartService;
 import co.anabada.cart.service.CartServiceImpl;
 import co.anabada.common.Control;
@@ -18,7 +17,7 @@ public class RemoveCartForm implements Control {
 
 		String path = "cart/deleteForm.tiles";
 		req.getRequestDispatcher(path).forward(req, resp);
-		
+
 	}
 
 }

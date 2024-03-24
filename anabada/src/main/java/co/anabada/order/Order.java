@@ -32,6 +32,5 @@ public class Order {
 		private String sellerName;
 		private int total;
 
-		
-		
-}	
+
+}

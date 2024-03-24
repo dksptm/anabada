@@ -13,7 +13,7 @@ public class Member {
 	private String memberPhone;
 	private int memberScore;
 	private String accountNum;
-	
+
 	// signUpControl에서 사용하기 위함.
 	public Member(String memberId, String memberPassword, String memberName, String memberPhone) {
 		super();
@@ -21,15 +21,13 @@ public class Member {
 		this.memberPassword = memberPassword;
 		this.memberName = memberName;
 		this.memberPhone = memberPhone;
-	}	
-	
-	// myPage
-		private int itemNum;
-		private String itemName;
-		private int itemPrice;
-		private String itemStatus;
-		private String itemImage;
-		
-		
-}
+	}
 
+	// myPage
+	private int itemNum;
+	private String itemName;
+	private int itemPrice;
+	private String itemStatus;
+	private String itemImage;
+
+}

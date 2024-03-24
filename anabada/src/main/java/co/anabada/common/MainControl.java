@@ -15,12 +15,12 @@ public class MainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		ItemService ivc = new ItemServiceImpl();
 		List<Item> recentList = ivc.recentItem();
 		List<Item> likeList = ivc.likeItem();
-		
-		if(recentList.size() != 0 || likeList.size() != 0) {
+
+		if (recentList.size() != 0 || likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
 			String path = "main/main.tiles";

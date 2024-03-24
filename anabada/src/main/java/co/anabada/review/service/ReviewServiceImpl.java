@@ -12,23 +12,26 @@ import co.anabada.review.mapper.ReviewMapper;
 public class ReviewServiceImpl implements ReviewService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	ReviewMapper mapper = session.getMapper(ReviewMapper.class);
-	
+
 	@Override
 	public List<Review> reviewList(int mno) {
 		return mapper.reviewList(mno);
 	}
+
 	@Override
 	public Item addreviewList() {
 		return mapper.addreviewList();
 	}
+
 	@Override
 	public boolean addreview(Review review) {
 		return mapper.insertreview(review) == 1;
 	}
-		
+
 	public boolean removeReview(Review review) {
 		return mapper.deleteReview(review) == 1;
 	}
+
 	@Override
 	public Item breview() {
 		return mapper.breview();
