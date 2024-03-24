@@ -16,6 +16,7 @@
     i.item_name,
     i.item_image,
     i.item_price,
+    i.item_status,
     i.dselect,
     i.member_num ,
     m.member_name,
@@ -31,6 +32,7 @@ JOIN purchase p ON o.order_num = p.order_num
 JOIN item i ON o.item_num = i.item_num 
 JOIN member m ON o.member_num = m.member_num
 WHERE o.order_num = #{orderNum}
+
 		
 	</select>
 

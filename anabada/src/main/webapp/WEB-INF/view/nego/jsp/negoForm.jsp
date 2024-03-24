@@ -41,7 +41,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px; 
-            margin-bottom: 10px; /* Adjusted margin for consistency */
+            margin-bottom: 10px; 
         }
 
         #chat-box p {
@@ -56,17 +56,17 @@
         #input-area {
             width: 100%;
             padding: 0 10px;
-            box-sizing: border-box; /* Ensure padding is included in the width */
+            box-sizing: border-box; 
         }
 
         #chat-input, #AddnegoChat {
         	margin-bottom: 10px;
             width: 100%;
-            margin-bottom: 10px; /* Spacing between inputs */
+            margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Ensure padding is included in the input width */
+            box-sizing: border-box; 
         }
 
         #button-container {
@@ -82,7 +82,7 @@
             background-color: #007bff;
             color: white;
             cursor: pointer;
-            margin-left: 10px; /* Spacing between buttons */
+            margin-left: 10px; 
         }
 
         button:hover {
@@ -93,25 +93,28 @@
 <body>
 
 <div id="chat-container">
-    <p>상품번호: <c:out value="${negoForm[0].itemNum}"/></p>
+	
     <div id="chat-box">
         <c:forEach items="${negoForm}" var="nego">
             <p><c:out value="${nego.memberName}"/>: <c:out value="${nego.negoChat}"/></p>
         </c:forEach>
     </div>
     <div id="input-area">
-        <input type="text" id="memberName" value="${member.memberName}" readonly>
-        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="메시지를 입력하세요...">
+    	<input type="text" id="memberName" value="${member.memberName}" readonly>
+        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="Type a message...">
         <c:if test="${not empty negoForm}">
-            <input type="hidden" id="itemNum" value="${negoForm[0].itemNum}">
+            <input type="hidden" id="itemNum" value="${itemNum}">
             <input type="hidden" id="memberNum" value="${member.memberNum}">
         </c:if>
     </div>
     <div id="button-container">
         <button id="sendbtn">전송하기</button>
     </div>
+    
+    <p>상품번호 : ${itemNum }</p>
 </div>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $('#sendbtn').on('click', function() {
     let negoChat = $('#AddnegoChat').val().trim(); 
@@ -119,29 +122,31 @@ $('#sendbtn').on('click', function() {
         alert('메시지를 입력하세요.');
         return; 
     }
-    let itemNum = $('#itemNum').val();
-    let memberNum = $('#memberNum').val(); 
-    let param = {negoChat: negoChat, itemNum: itemNum, memberNum: memberNum}; 
-    
+    let itemNum = "${itemNum}";
+    let memberNum = "${member.memberNum}";
+    let memberName = "${member.memberName}"
+    let param = {negoChat: negoChat, itemNum: itemNum, memberNum: memberNum , memberName: memberName}; 
+    console.log(param);
     $.ajax({
         url: 'AddnegoChat.do',
         method: 'post',
         data: param,
         dataType: 'json'
     })
-        .done(function(result) {
-            if(result.retCode == 'OK') {
-                alert('등록완료');
-                $('#AddnegoChat').val('');
-                let newMessage = $('<p>').text(`${memberName}: ${negoChat}`); // 임시로 "You"를 사용
-                $('#chat-box').append(newMessage);
-                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
-                location.reload();
-            } else {
-                alert('등록실패');
-            }
-        })
-        .fail(function(err) {
+    .done(function(result) {
+        if(result.retCode == 'OK') {
+            alert('등록완료');
+            $('#AddnegoChat').val('');
+           
+            let newMessage = $('<p>').text(`나: ${negoChat}`); 
+            $('#chat-box').append(newMessage);
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+            location.reload();
+        } else {
+            alert('등록실패');
+        }
+    })
+    .fail(function(err) {
             console.log('err=>', err);
             alert('에러 발생');
         });
@@ -152,7 +157,7 @@ $('#sendbtn').on('click', function() {
 	        $.ajax({
 	            url: 'purchaseConfirm.do', 
 	            method: 'POST',
-	            data: { orderNum: orderNum },
+	            data: { itemNum: itemNum },
 	            dataType: 'json',
 	            success: function(response) {
 	                if (response.retCode == 'OK') {

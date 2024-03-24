@@ -27,6 +27,7 @@ public class NegoFormControl implements Control {
 		
 		System.out.println("negoForm: " + negoForm);
 		req.setAttribute("negoForm", negoForm);
+		req.setAttribute("itemNum", itemNum);
 		
 		String path = "WEB-INF/view/nego/jsp/negoForm.jsp";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);

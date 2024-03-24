@@ -21,6 +21,7 @@ public class SellItemListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
 		String memberNum = req.getParameter("memberNum");
+		String itemNum = req.getParameter("itemNum");
 		
 		System.out.println(memberNum);
 		

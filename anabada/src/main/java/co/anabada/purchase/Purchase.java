@@ -18,5 +18,6 @@ public class Purchase {
 	private int memberNum;
 	private int itemNum;
 	private String itemImage;
+	private String itemStatus;
 
 }

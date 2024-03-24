@@ -107,7 +107,7 @@
 	        iframe.src = url;
 	        //iframe.style.position = 'fixed';
 	        iframe.style.left = '0'; 
-	        iframe.style.top = '5%'; 
+	        iframe.style.top = '12%'; 
 	        iframe.style.width = '50%'; 
 	        iframe.style.height = '700px'; 
 	    }

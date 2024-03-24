@@ -34,6 +34,11 @@ public class AddnegoChatControl implements Control {
 		nego.setNegoChat(negoChat);
 		nego.setMemberName(memberName);
 		System.out.println("nego: " + nego);
+		
+		 System.out.println("itemNum " + itemNum);
+		    System.out.println("negoChat " + negoChat);
+		    System.out.println("memberNum " + memberNum);
+		
 		NegoService svc = new NegoServiceImpl();
 		Map<String, Object> map = new HashMap<>();
 		if (svc.AddnegoChat(nego)) {

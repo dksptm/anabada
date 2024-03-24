@@ -78,7 +78,7 @@
 	                    			class="btn btn-outline-dark me-auto col-3"
 	                    			${item.pselect eq 'negoNG' ? 'disabled' : '' }>
         							<i class="bi-cart-fill me-1"></i>
-       				 				네고하기
+       				 				네고하기 
    							</button>
 			            	<button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
 				            		class="btn btn-outline-dark me-auto col-3" 
