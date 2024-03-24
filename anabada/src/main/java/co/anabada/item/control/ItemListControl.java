@@ -21,10 +21,13 @@ public class ItemListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("application/json; charset=UTF-8");
-		
+		System.out.println("여기는 itemListControlo.java");
 		String page = req.getParameter("page");
+		System.out.println(page);
 		String radio = req.getParameter("radio");
+		System.out.println(radio);
 		String keyword = req.getParameter("keyword");
+		System.out.println(keyword);
 		
 		keyword = keyword == null ? "" : keyword;
 		page = page == null ? "1" : page;
@@ -37,18 +40,12 @@ public class ItemListControl implements Control {
 		
 		ItemService svc = new ItemServiceImpl();
 		
-		//pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
-		
-		
-
-		
 		pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
 		
 	    List<Item> itemList = svc.ItemList1(search);
 		
 		req.setAttribute("itemList", itemList);
-		//req.setAttribute("page", pageDTO);
-		//req.setAttribute("searchCondition", searchCond);
+
 		req.setAttribute("page", pageDTO);
 		req.setAttribute("radio", radio);
 		req.setAttribute("keyword", keyword);

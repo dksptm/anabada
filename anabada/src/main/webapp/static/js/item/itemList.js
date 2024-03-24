@@ -3,150 +3,78 @@
  */
 
 $('.btnbox').on('click', '.btn', function(e) {
-<<<<<<< HEAD
-	//console.log($(this).val());
 	let cname = $(this).val();
-
+	console.log(this);
 	$.ajax({
 		type: 'post',
 		url: './searchItem.do',
-		data: { cname },
-		success: function(result) {
-			$('#itemList').html('');
+		data: { cname }
+	}).done(function(result) {
+		console.log(result);
+		$('#itemList').html('');
 
-			result.forEach(prop => {
-				console.log(prop.itemPrice)
-
-				$('#itemList').append(
-					$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
-						$('<a>', { href: 'item.do?itemNum=' + prop.itemNum }).append(
-							$('<div>', { class: 'rounded position-relative fruite-item' }).append(
-								$('<div>', { class: 'fruite-img' }).append(
-									$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top', width: '100px', height: '200px' }),
-									$('<div>', { class: 'text-white bg-secondary px-3 py-1 rounded position-absolute', style: 'top: 10px; left: 10px;' }).text(prop.itemNum),
-									$('<div>', { class: 'p-4 border border-secondary border-top-0 rounded-bottom' }).append(
-										$('<h4>').text(prop.itemName),
-										$('<p>').text(prop.itemInfo),
-										$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-											$('<p>', { class: 'text-dark fs-5 fw-bold mb-0' }).text(prop.itemPrice + '원')
-											/*$('<a>',{class:'btn border border-secondary rounded-pill px-3 text-primary'}).append(
-												$('<i>',{class:'fa fa-shopping-bag me-2 text-primary'}).text('찜')
-											)*/
-										)
-									)
+		result.forEach(prop => {
+			console.log(prop)
+			$('#itemList').append(
+				$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4 vesitable' }).append(
+					$('<div>', { class: 'border border-primary rounded position-relative vesitable-item', onclick: "location.href ='item.do?itemNum='" + prop.itemNum }).append(
+						$('<div>', { class: 'vesitable-img' }).append(
+							$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top bg-light', onerror: "this.onerror=null; this.src='static/img/errimg.png';" }),
+							$('<div>', { class: 'text-white bg-primary px-3 py-1 rounded position-absolute', style: 'top: 10px; right: 10px;' }).text(prop.itemNum),
+							$('<div>', { class: 'p-4 rounded-bottom' }).append(
+								$('<h4>', { style: 'height:29px;overflow:hidden;' }).text(prop.itemName),
+								$('<p>', { style: 'height:85px;overflow:hidden;' }).text(prop.itemInfo),
+								$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
+									$('<p>', { class: 'text-dark fs-5 fw-bold mb-0 w-100' }).text('￦' + prop.itemPrice)
 								)
 							)
 						)
 					)
 				)
-			})
 
-		},
-		error: function(data) {
-			alert('error');
-		}
-	})
+			); //end #itemList 
+		}); //end forEach
+	}).fail(function(err) {
+		alert('error');
+	});
+});
 
-
-
-	/*$.ajax({
-		url: 'searchItem.do',
-		type: 'get',
-		dataType: 'json'
-	})
-		.done(result => {
-
-		})
-		.fail()*/
-
-
-})
-=======
-	let cname = $(this).val();
-    console.log(this);
-	$.ajax({
-		type: 'post',
-		url: './searchItem.do',
-		data: { cname },
-		success: function(result) {
-			console.log(result);
-			$('#itemList').html('');
-
-			result.forEach(prop => {
-				console.log(prop.page)
-
-				$('#itemList').append(
-					$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
-						$('<a>', { href: 'item.do?itemNum=' + prop.itemNum }).append(
-							$('<div>', { class: 'rounded position-relative fruite-item' }).append(
-								$('<div>', { class: 'fruite-img' }).append(
-									$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top', width: '100px', height: '200px' }),
-									$('<div>', { class: 'text-white bg-secondary px-3 py-1 rounded position-absolute', style: 'top: 10px; left: 10px;' }).text(prop.itemNum),
-									$('<div>', { class: 'p-4 border border-secondary border-top-0 rounded-bottom' }).append(
-										$('<h4>').text(prop.itemName),
-										$('<p>').text(prop.itemInfo),
-										$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-											$('<p>', { class: 'text-dark fs-5 fw-bold mb-0' }).text(prop.itemPrice + '원')
-										)
-									)
-								)
-							)
-						)
-					)
-				)//end #itemList 
-			})//end forEach
-
-		},
-		error: function(err) {
-			alert('error');
-		}
-	})
-})
-"${key}"
-$('#key').keydown(function(e){
+$('#key').keyup(function(e) {
 	let iname = $(this).val();
 	console.log(this);
 
 	$.ajax({
 		type: 'post',
 		url: 'inameList.do',
-		data: {iname },
-		success: function(result) {
-			console.log(result);
-			$('#itemList').html('');
+		data: { iname }
+	}).done(function(result) {
+		console.log(result); // 검색어에 해당하는 상품 찍혀야함
+		$('#itemList').html('');
 
-			result.forEach(prop => {
-				console.log(prop.itemName);
+		result.forEach(prop => {
+			console.log(prop.itemName);
 
-				$('#itemList').append(
-					$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4' }).append(
-						$('<a>', { href: 'item.do?itemNum=' + prop.itemNum }).append(
-							$('<div>', { class: 'rounded position-relative fruite-item' }).append(
-								$('<div>', { class: 'fruite-img' }).append(
-									$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top', width: '100px', height: '200px' }),
-									$('<div>', { class: 'text-white bg-secondary px-3 py-1 rounded position-absolute', style: 'top: 10px; left: 10px;' }).text(prop.itemNum),
-									$('<div>', { class: 'p-4 border border-secondary border-top-0 rounded-bottom' }).append(
-										$('<h4>').text(prop.itemName),
-										$('<p>').text(prop.itemInfo),
-										$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-											$('<p>', { class: 'text-dark fs-5 fw-bold mb-0' }).text(prop.itemPrice + '원')
-										)
-									)
+			$('#itemList').append(
+				$('<div>', { class: 'col-md-6 col-lg-6 col-xl-4 vesitable' }).append(
+					$('<div>', { class: 'border border-primary rounded position-relative vesitable-item', onclick: "location.href ='item.do?itemNum='" + prop.itemNum }).append(
+						$('<div>', { class: 'vesitable-img' }).append(
+							$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top bg-light', onerror: "this.onerror=null; this.src='static/img/errimg.png';" }),
+							$('<div>', { class: 'text-white bg-primary px-3 py-1 rounded position-absolute', style: 'top: 10px; right: 10px;' }).text(prop.itemNum),
+							$('<div>', { class: 'p-4 rounded-bottom' }).append(
+								$('<h4>', { style: 'height:29px;overflow:hidden;' }).text(prop.itemName),
+								$('<p>', { style: 'height:85px;overflow:hidden;' }).text(prop.itemInfo),
+								$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
+									$('<p>', { class: 'text-dark fs-5 fw-bold mb-0 w-100' }).text('￦' + prop.itemPrice)
 								)
 							)
 						)
 					)
 				)
-			})
 
-		},
-		error: function(err) {
-			alert('error');
-		}
-	})
-	
-})
+			); //end #itemList 
+		}); //end forEach
+	}).fail(function(err) {
+		alert('error');
+	});
+});
 
-
-	
->>>>>>> branch 'master' of https://github.com/dksptm/anabada.git

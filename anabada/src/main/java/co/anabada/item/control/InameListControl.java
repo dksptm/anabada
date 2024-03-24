@@ -19,21 +19,28 @@ public class InameListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("application/json; charset=UTF-8");
 		String iname = req.getParameter("iname");
-		String key = req.getParameter("keyword");
+		System.out.println("inameListControl(iname)= "+iname);
+	
+		
 		ItemService svc = new ItemServiceImpl();
 		List<Item> ilist = svc.InameList(iname);
 		
-		req.setAttribute("key", key);
+		/* req.setAttribute("key", key); */
 		req.setAttribute("ilist", ilist);
 		
 		Gson gson = new Gson();
 		
-		String jsonText1 = gson.toJson(ilist);
+		String jsonText = gson.toJson(ilist);
+		
+		System.out.println(jsonText);
 		
 		PrintWriter writer = resp.getWriter();
-		writer.write(jsonText1);
 		
+		writer.write(jsonText);
+		
+		writer.flush();
 
 	}
 

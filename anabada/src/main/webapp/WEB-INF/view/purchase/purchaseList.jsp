@@ -24,7 +24,6 @@
 						<th scope="col">삭제</th>
 					</tr>
 				</thead>
-				
 				<tbody>
 					<c:forEach var="purchase" items="${purchaselist }">
 						
