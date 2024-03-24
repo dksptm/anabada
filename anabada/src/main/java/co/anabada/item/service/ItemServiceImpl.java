@@ -17,8 +17,8 @@ public class ItemServiceImpl implements ItemService {
 
 	// 영재
 	@Override
-	public List<Item> ItemList(String cname) {
-		return mapper.ItemList(cname);
+	public List<Item> ItemList(String cname, int page) {
+		return mapper.ItemList(cname, page);
 	}
 	
 	@Override
@@ -50,17 +50,14 @@ public class ItemServiceImpl implements ItemService {
 	public boolean addItem(Item item) {
 		return mapper.insertItem(item) == 1;
 	}
-
 	@Override
 	public List<Item> recentItem() {
 		return mapper.recentItem();
 	}
-
 	@Override
 	public List<Item> likeItem() {
 		return mapper.likeItem();
 	}
-
 	@Override
 	public List<Category> cateList() {
 		return mapper.cateList();
@@ -68,6 +65,10 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public boolean changeItem(String sts, int ino) {
 		return mapper.changeItem(sts, ino) == 1;
+	}
+	@Override
+	public boolean modifyItem(Item item) {
+		return mapper.updateItem(item) == 1;
 	}
 	
 
@@ -78,8 +79,8 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public List<Item> InameList(String iname) {
-		return mapper.inameList(iname);
+	public List<Item> InameList(String iname, int page) {
+		return mapper.inameList(iname,page);
 	}
 
 
@@ -92,6 +93,12 @@ public class ItemServiceImpl implements ItemService {
 	public boolean sellItemCancle(int itemNum) {
 		return mapper.sellItemCancle(itemNum) == 1;
 	}
+
+	@Override
+	public int getCateCnt(String cid) {
+		return mapper.getCateCnt(cid);
+	}
+
 
 
 }

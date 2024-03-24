@@ -39,13 +39,11 @@ public class ItemListControl implements Control {
 		search.setKeyword(keyword);
 		
 		ItemService svc = new ItemServiceImpl();
+		List<Item> itemList = svc.ItemList1(search);
 		
 		pageDTO pageDTO = new pageDTO(Integer.parseInt(page), svc.itemTotalCnt(search));
 		
-	    List<Item> itemList = svc.ItemList1(search);
-		
 		req.setAttribute("itemList", itemList);
-
 		req.setAttribute("page", pageDTO);
 		req.setAttribute("radio", radio);
 		req.setAttribute("keyword", keyword);

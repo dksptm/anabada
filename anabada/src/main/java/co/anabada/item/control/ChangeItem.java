@@ -27,6 +27,8 @@ public class ChangeItem implements Control {
 			sts = "판매취소";
 		} else if(sts.equals("complete")) {
 			sts = "판매완료";
+		} else if(sts.equals("ing")) {
+			sts = "판매중";
 		} else {
 			sts = "오류";
 		}

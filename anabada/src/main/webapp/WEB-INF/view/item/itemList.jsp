@@ -66,7 +66,7 @@
 										</li>
 										<li>
 											<div class="d-flex justify-content-between fruite-name">
-												<input type="hidden" id="button1" name="button" value="상의"
+												<input type="button" id="button1" name="button" value="상의"
 													class="btn" />
 											</div>
 										</li>
@@ -114,7 +114,7 @@
 						
 							<!-- 상품반복 -->
 							<c:forEach items="${itemList }" var="item">
-								<div class="col-md-6 col-lg-6 col-xl-4 vesitable">
+								<div class="col-md-6 col-lg-6 col-xl-4 vesitable" id="getItem">
 									<div class="border border-primary rounded position-relative vesitable-item" OnClick="location.href ='item.do?itemNum=${item.itemNum}'">
 										<!-- 사진. -->
 										<div class="vesitable-img">
@@ -122,15 +122,15 @@
 													onerror="this.onerror=null; this.src='static/img/errimg.png';">
 										</div>
 										<!-- 사진상단 아이템번호. -->
-										<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">
+										<div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;" id="inum">
 											${item.itemNum }
 										</div>
 										<!-- 아이템정보. -->
 										<div class="p-4 rounded-bottom">
 											<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
-											<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
+											<p style="height:85px;overflow:hidden;" id="info">${item.itemInfo }</p>
 											<div class="d-flex justify-content-between flex-lg-wrap">
-												<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
+												<p class="text-dark fs-5 fw-bold mb-0 w-100" id="ip">￦ ${item.itemPrice }</p>
 											</div>
 										</div>
 									</div>

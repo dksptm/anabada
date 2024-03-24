@@ -4,13 +4,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">구매 완료된 상품 목록</h1>
+	<h1 class="text-center text-white display-6">현재 판매중인 상품목록</h1>
 </div>
 
 <!-- Cart Page Content -->
 <div class="container-fluid py-5">
 	<div class="container py-5">
-		<div id="messageArea">상품 구매 목록</div>
+		<div id="messageArea">현재 판매중 상태인 상품목록</div>
 		<!-- Message display area -->
 		<div class="table-responsive">
 			<table class="table">
@@ -38,7 +38,7 @@
 							</td>
 							<td>
 								<p class="mb-0 mt-4">
-									<img src="${item.itemImage }"
+									<img src="images/${item.itemImage }"
 										style="width: 50px; height: 50px;">
 								</p>
 							</td>

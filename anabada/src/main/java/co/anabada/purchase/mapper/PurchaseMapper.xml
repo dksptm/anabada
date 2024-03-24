@@ -5,43 +5,25 @@
 <mapper namespace="co.anabada.purchase.mapper.PurchaseMapper">
 
 	<select id="purchaseList" resultType="co.anabada.purchase.Purchase">
-
-		SELECT
-
-		o.order_num,
-
-		o.member_num,
-
-		o.order_date,
-
-		o.order_status,
-
-		i.item_name,
-
-		i.item_price,
-
-		i.item_image,
-
-		i.item_info,
-
-		i.item_status,
-
-		i.item_date,
-
-		p.total_price,
-
-		p.purchase_ok,
-
-		p.payment_date + 7
-
+        SELECT
+		       o.order_num,
+		       o.member_num,
+		       o.order_date,
+		       o.order_status,
+		       i.item_name,
+		       i.item_price,
+		       i.item_image,
+		       i.item_info,
+		       i.item_status,
+		       i.item_date,
+		       p.total_price,
+		       p.purchase_ok,
+		       p.payment_date + 7
 		FROM purchase p
-
-		JOIN anvd_order o ON (p.order_num = o.order_num)
-
-		JOIN item i ON (o.item_num = i.item_num)
-
+		      JOIN anvd_order o ON (p.order_num = o.order_num)
+		      JOIN item i ON (o.item_num = i.item_num)
+		where o.memberNum = #{memberNum}
 		ORDER BY o.order_date DESC
-
 	</select>
 
 	<delete id="deletePurchaseList" parameterType="int">
@@ -61,5 +43,6 @@
 		WHERE order_num = ${orderNum}
 
 	</update>
+
 
 </mapper>

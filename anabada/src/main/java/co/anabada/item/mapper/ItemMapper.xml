@@ -25,7 +25,24 @@
 		where item_num = #{in}
 	</select>
 
-	<select id="ItemList" resultType="Item">
+ <select id="ItemList" resultType="Item" parameterType="hashMap">
+          SELECT ic.rn
+                ,ic.item_num
+                ,ic.item_name
+                ,ic.item_image
+                ,ic.item_info
+                ,ic.item_price
+          FROM (
+                select rownum rn, i.*
+                from   item i join category c on (i.category_id = c.category_id)
+                where (c.category_id = #{param1} or c.parent_category = #{param1})
+                and   rownum <![CDATA[ <= (#{param2} * 6) ]]>
+                ) ic
+          WHERE ic.rn > (#{param2} - 1) * 6
+      </select>
+	
+<!-- 	<select id="inameList" resultType="Item">
+
 		select i.item_num,
 		i.item_image,
 		i.item_name,
@@ -40,9 +57,9 @@
 				category_name = #{categoryName}
 			</if>
 		</where>
-	</select>
+	</select> -->
 
-	<select id="inameList" resultType="Item">
+<select id="inameList" resultType="Item">
 
 		select i.item_num,
 		i.item_image,
@@ -59,11 +76,9 @@
 				item_name like '%'||#{keyword}||'%'
 			</if>
 		</where>
-	</select>
-
+	</select> 
 
 	<!-- ㅎㅈ -->
-
 	<select id="recentItem" resultType="Item">
 		SELECT item_num
 		,(select category_name from category c where c.category_id = a.category_id) AS
@@ -75,33 +90,29 @@
 		,item_info
 		,item_status
 		FROM (SELECT i.*
-		,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent
-		FROM item i
-		WHERE item_status = '판매중') a
-		WHERE recent <![CDATA[<= 10]]>
+                    ,ROW_NUMBER() OVER (ORDER BY item_date DESC) AS recent
+              FROM item i
+		      WHERE item_status = '판매중') a
+		WHERE a.recent <![CDATA[<= 10]]>
 	</select>
 
 	<select id="likeItem" resultType="Item">
 		SELECT item.item_num
-		,(select category_name from category c where
-		c.category_id = item.category_id) AS "category_name"
-		,member_num
-		,item_name
-		,item_price
-		,item_image
-		,item_info
-		,a.zzim
-		FROM
-		(SELECT COUNT(*)
-		AS zzim,
-		item_num
-		FROM
-		cart
-		GROUP BY item_num
-		ORDER BY zzim DESC) a, item
-		WHERE a.item_num =
-		item.item_num
-		AND rownum <![CDATA[<= 10]]>
+		       ,(select category_name from category c where c.category_id = item.category_id) AS "category_name"
+		       ,member_num
+		       ,item_name
+		       ,item_price
+		       ,item_image
+		       ,item_info
+		       ,a.zzim
+		FROM  (SELECT COUNT(*) AS zzim,
+		              item_num
+		       FROM   cart
+		       GROUP BY item_num
+		       ORDER BY zzim DESC) a, item
+		WHERE  a.item_num = item.item_num
+		AND    item.item_status = '판매중'
+		AND    rownum <![CDATA[<= 10]]>
 	</select>
 
 	<select id="cateList" resultType="co.anabada.item.Category">
@@ -156,14 +167,18 @@
 		item_status = '판매취소'
 		where item_num = #{itemNum}
 	</update>
-
-
-	<select id="getTotalCnt" resultType="int"
-		parameterType="co.anabada.common.SearchVO">
+	
+	<select id="getTotalCnt" resultType="int" parameterType="co.anabada.common.SearchVO">
 		select count(*)
 		from item
 		where item_name like
 		'%'||#{keyword}||'%'
+	</select>
+	
+	<select id="getCateCnt">
+		select count(item_num)
+		from item i join category c on (i.category_id = c.category_id)
+		where c.category_id = #{cid} or c.parent_category = #{cid}
 	</select>
 
 	<select id="ItemList1" resultType="item"
@@ -179,9 +194,8 @@
 		item_status,
 		item_date
 		<!-- from item -->
-		from (select /*+ INDEX_DESC(b SYS_C008616) */ rownum rn, b.*
-		from item
-		b
+		from (select /*+ INDEX_DESC(b PK_ITEM) */ rownum rn, b.*
+		from item b
 		<where>
 			item_name like '%'||#{keyword}||'%'
           <![CDATA[
@@ -227,6 +241,17 @@
 		SET item_status = #{param1}
 		WHERE item_num = #{param2}
 	</update>
-
+	
+	<update id="updateItem" parameterType="Item">
+        UPDATE item
+        SET    category_id = #{categoryId}
+              ,item_name = #{itemName}
+              ,item_price = #{itemPrice}
+              ,item_image = #{itemImage}
+              ,item_info = #{itemInfo}
+              ,dselect = #{dselect}
+              ,pselect = #{pselect}
+        WHERE item_num = #{itemNum}	
+	</update>
 
 </mapper>

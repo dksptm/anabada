@@ -8,6 +8,8 @@
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item active text-white">myPage.do</li>
 	</ol>
+		<br>
+		<p>${pageDTO }</p>
 </div>
 <!-- Single Page Header End -->
 
@@ -19,33 +21,59 @@
                     <h1 class="display-5 mb-5 text-dark">여기는 마이페이지.</h1>
                 </div>
                 <div class="">
-                    <div class="row img-border-radius bg-light rounded p-4">
+                    <div class="d-flex img-border-radius bg-light rounded">
                     	<!-- 내 상품 보여지는 공간. -->
-                        <div class="position-relative col-8 p-3">
+                        <div class="position-relative col-9 p-3">
                             <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
                             <div class="mb-4 pb-4 border-bottom border-secondary">
-                            	<h4 class="text-dark">${member.memberName }님의 판매상품</h4>
+                            	<h4 class="text-dark py-2">${member.memberName }님의 판매상품</h4>
                             </div>
+                            <!-- 상품리스트. -->
                             <div class="d-flex align-items-center flex-nowrap">
-                                <div class="ms-4 d-flex">
-                                	<ul class="col-12">
+                                <div class="row g-1 justify-content-center">
                                 	<c:forEach items="${myList }" var="item">
-                                		<li>
-		                                <div class="bg-secondary rounded" style="width:100px;display:inline-block;">
-		                                    <img src="images/${item.itemImage }" class="img-fluid rounded" style="width:100%;higth:100%;object-fit:cover;" alt="">
+                                	<div class="col-4 vesitable" onclick="location.href='item.do?itemNum=${item.itemNum}'">
+                                		<div class="border border-primary rounded position-relative vesitable-item">
+	                                    <br>
+	                                    <span class="mb-0 px-2 h5">${item.itemName } </span>
+		                                <span class="m-0 px-2 h5">${item.itemPrice }원 </span>
+		                                <br><br>
+		                                <div class="vesitable-img border rounded">
+		                                    <img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light" 
+		                                    		onerror="this.onerror=null; this.src='static/img/errimg.png';">
 		                                </div>
-	                                    <span class="mb-0">${item.itemName }</span>
-		                                <span class="m-0 pb-3">${item.itemPrice }원</span>
-		                                </li>
+		                                </div>
+                                     </div>
                                      </c:forEach>
-                                     </ul>
                                 </div>
                             </div>
+                            <!-- 페이지내이션. -->
+                            <br><br>
+                            <div class="d-flex justify-content-center">
+								<div class="pagination">
+								<c:if test="${pageDTO.prev }">
+								  <a href="myPage.do?mno=${member.memberNum}&page=${pageDTO.startPage - 1 }"> &laquo; </a>
+								</c:if>
+								<c:forEach begin="${pageDTO.startPage }" end="${pageDTO.endPage }" var="p">
+								  <c:choose>
+								    <c:when test="${p eq pageDTO.page }">
+									  <a href="myPage.do?mno=${member.memberNum}&page=${p }" class="active">${p }</a>
+									</c:when>
+									<c:otherwise>
+									  <a href="myPage.do?mno=${member.memberNum}&page=${p }">${p }</a>
+									</c:otherwise>
+								  </c:choose>
+								</c:forEach>
+								<c:if test="${pageDTO.next }">
+								  <a href="myPage.do?mno=${member.memberNum}&page=${pageDTO.endPage + 1 }"> &raquo; </a>
+								</c:if>
+								</div>
+							</div>
                         </div>
                         <!-- 내 정보 등 링크연결 공간. -->
-                        <div class="col-4 p-3 text-end">
+                        <div class="col-3 p-3 text-end">
                         	<div class="col-lg-12">
-                            	<h4 class="mb-4 text-dark">마이페이지</h4>
+                            	<h4 class="mb-4 text-dark py-2">마이페이지</h4>
                             	<hr>
                                 <div>
                                     <h5 class="text-dark text-end">나의 정보</h5>
@@ -66,4 +94,7 @@
             </div>
         </div>
         <!-- 마이페이지 End -->
+        
+        <script>
+        </script>
 

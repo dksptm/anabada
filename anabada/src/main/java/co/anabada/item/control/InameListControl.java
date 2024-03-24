@@ -22,10 +22,11 @@ public class InameListControl implements Control {
 		resp.setContentType("application/json; charset=UTF-8");
 		String iname = req.getParameter("iname");
 		System.out.println("inameListControl(iname)= "+iname);
+		String page = req.getParameter("page");
 	
 		
 		ItemService svc = new ItemServiceImpl();
-		List<Item> ilist = svc.InameList(iname);
+		List<Item> ilist = svc.InameList(iname,Integer.parseInt(page));
 		
 		/* req.setAttribute("key", key); */
 		req.setAttribute("ilist", ilist);
