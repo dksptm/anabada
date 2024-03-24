@@ -23,7 +23,7 @@ $(document).ready(function(e) {
 
 
 
-$('#key').keypress(function(e) {
+/*$('#key').keypress(function(e) {
 	
 	let iname = $(this).val();
 	console.log(iname);
@@ -77,7 +77,7 @@ $('#key').keypress(function(e) {
        alert('err')
 	});
 	
-})
+})*/
 
 function itemLink(ino) {
 	location.href = 'item.do?itemNum=' + ino;
@@ -145,10 +145,10 @@ function searchList(cname, page) {
 
 }
 
-/*$(document).ready(function(e) {
+$(document).ready(function(e) {
 
 	$('#key').keyup(function(e) {
-	if (cname != $(this).val()) {
+	if (iname != $(this).val()) {
 			page = 1;
 		}
 		iname = $(this).val();
@@ -202,8 +202,7 @@ function search(iname, page) {
 			alert('error');
 		});
 
-}*/
-
+}
 
 // 페이지네이션.
 function createPageElement(total) {
@@ -233,6 +232,33 @@ function createPageElement(total) {
 	}
 	pagingFunc();
 }
+function createPageElement2(total) {
+	let pagination = $('div.pagination');
+	pagination.addClass('abc');
+	pagination.html('');
+
+	let totalCnt = total;
+	let startPage, endPage;
+	let next, prev;
+	let realEnd = Math.ceil(totalCnt / 6);
+	endPage = Math.ceil(page / 5) * 5;
+	startPage = endPage - 4;
+	endPage = endPage > realEnd ? realEnd : endPage;
+	next = endPage < realEnd ? true : false;
+	prev = startPage > 1;
+
+	if (prev) {
+		$('<a />').attr('href', 'javascript:void(0);').attr('data-pno', startPage - 1).html('&laquo;').appendTo(pagination);
+	}
+	for (let p = startPage; p <= endPage; p++) {
+		let aTag = $('<a />').attr('href', 'javascript:void(0);').attr('data-pno', p).text(p).appendTo(pagination);
+		if (p == page) aTag.addClass('active');
+	}
+	if (next) {
+		$('<a />').attr('href', 'javascript:void(0);').attr('data-pno', endPage + 1).html('&raquo;').appendTo(pagination);
+	}
+	pagingFunc2();
+}
 
 
 function pagingFunc() {
@@ -244,6 +270,19 @@ function pagingFunc() {
 				page = item.dataset.pno;
 				console.log('pagingFunc page ' + page + ', cname ' + cname);
 				searchList(cname, page);
+			})
+		});
+}
+
+function pagingFunc2() {
+	document.querySelectorAll('.pagination>a') // NodeList로 반환.
+		.forEach(item => {
+			console.log('item=' +item)
+			item.addEventListener('click', function(e) {
+				e.preventDefault(); // 링크의 기능 차단.(a태그는 무조건 링크라서)
+				page = item.dataset.pno;
+				console.log('pagingFunc page ' + page + ', iname ' + iname);
+				search(iname, page);
 			})
 		});
 }
