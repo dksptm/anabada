@@ -20,6 +20,7 @@ em.warning {
 <!-- Single Page Header End -->
 
 
+
 <!-- Checkout Page Start -->
 <div class="container-fluid py-5">
 	<div class="container py-5">
@@ -52,8 +53,7 @@ em.warning {
 					<div class="form-item">
 						<p>review_comment<sup>*</sup></p>
 						<textarea name="review_comment" rows="5" cols="80" placeholder="다른 구매자들에게 도움이 되는 후기를 남겨주세요."></textarea><em></em>
-					<!-- 	<input type="textarea" class="form-control" name="review_comment"
-							id="member_name" required><em></e -->
+					
 					</div>
 					<hr>
 					<div

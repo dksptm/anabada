@@ -8,38 +8,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.anabada.common.Control;
+import co.anabada.common.pageDTO;
 import co.anabada.item.Item;
 import co.anabada.member.service.MemberService;
 import co.anabada.member.service.MemberServiceImpl;
 
-public class MypageControl implements Control {
 
+public class MypageControl implements Control {
+	//효주수정start.
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		String mno = req.getParameter("mno");
-		
+		String page = req.getParameter("page");
+		page = page == null ? "1" : page;
+		System.out.println("실행?");
 		
 		MemberService mvc = new MemberServiceImpl();
-		List<Item> myList = mvc.mySellItems(Integer.parseInt(mno));
 		
+		int total = mvc.countMySell(Integer.parseInt(mno));
+		pageDTO pageDTO = new pageDTO(Integer.parseInt(page), total);
+		
+		List<Item> myList = mvc.mySellItems(Integer.parseInt(mno), Integer.parseInt(page));
+
 		if(myList != null) {
 			String path = "member/myPage.tiles";
 			req.setAttribute("myList", myList);
+			req.setAttribute("pageDTO", pageDTO);
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
 			String path = "member/myPage.tiles";
 			req.setAttribute("myList", null);
 			req.getRequestDispatcher(path).forward(req, resp);
 		}
-		//resp.setContentType("text/json;charset=uft-8");
-		
-		/*MemberService svc = new MemberServiceImpl();
-		List<Member> myList = svc.myList(Integer.parseInt(memberNum));*/
-		
-		//System.out.println(myList);
-//		req.setAttribute("myList", myList);
 		
 	}
-
+	//효주수정end.
 }
+

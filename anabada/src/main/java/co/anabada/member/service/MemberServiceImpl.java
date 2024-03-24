@@ -38,8 +38,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Item> mySellItems(int mno) {
-		return mapper.perMemSellItems(mno);
+	public List<Item> mySellItems(int mno, int page) {
+		return mapper.perMemSellItems(mno, page);
+	}
+	@Override
+	public int countMySell(int mno) {
+		return mapper.countPerMemSellItems(mno);
 	}
 	
 	// 진경.
@@ -62,4 +66,5 @@ public class MemberServiceImpl implements MemberService {
 	public Member loginMemByNum(int mno) {
 		return mapper.selectMemByNum(mno);
 	}
+
 }

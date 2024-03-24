@@ -41,14 +41,7 @@
 											<p>${review.reviewComment }</p>
 											<button type="button" onclick="reviewDel(${review.reviewNum })"
 												class="btn btn-success">삭제</button>
-											
-											<%-- 	<c:choose>
-											<c:when test="${review.memberName eq memberName }">
-											<button id="deleteReBtn" type="button" class="btn btn-warning">삭제</button>
-											</c:when>
-											<c:otherwise>
-											</c:otherwise>
-										</c:choose> --%>
+						
 										</div>
 									</div>
 								</div>
