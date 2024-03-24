@@ -94,6 +94,10 @@ public class ItemServiceImpl implements ItemService {
 	public int getCateCnt(String cid) {
 		return mapper.getCateCnt(cid);
 	}
+	@Override
+	public int getCateCnt2(String cid) {
+		return mapper.getCateCnt2(cid);
+	}
 
 	@Override
 	public Item selectSellItemList(int itemNum) {

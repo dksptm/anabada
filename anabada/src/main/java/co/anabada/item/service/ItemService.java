@@ -20,6 +20,7 @@ public interface ItemService {
 	
 	// 카테고리 검색 후 토탈카운트.
 	int getCateCnt(String cid);
+	int getCateCnt2(String cid);
 	
 	// 효주.
 	boolean addItem(Item item);

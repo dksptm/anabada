@@ -21,6 +21,7 @@ public interface ItemMapper {
 	
 	// 카테고리 리스트를 위한 토탈카운트.
 	int getCateCnt(String cid);
+	int getCateCnt2(String cid);
 	
 	// 효주.
 	int insertItem(Item item);
