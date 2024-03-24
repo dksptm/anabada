@@ -13,7 +13,7 @@
                m.member_name
         FROM nego_chat n
         JOIN item i ON n.item_num = i.item_num
-        JOIN member m ON i.member_num = m.member_num
+        JOIN member m ON n.member_num = m.member_num
         WHERE n.item_num = #{itemNum}
     </select>
   
@@ -21,10 +21,12 @@
   	
   	<insert id="AddnegoChat" parameterType="int">
        insert into nego_chat (nego_num,
+       						  member_num,
                               item_num,
                               nego_chat,
                               nego_chat_Date)
     values(nego_num_seq.nextval,
+    	   ${memberNum},
            ${itemNum},
            #{negoChat},
            sysdate)

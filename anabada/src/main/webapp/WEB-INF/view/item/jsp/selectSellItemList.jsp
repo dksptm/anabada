@@ -216,19 +216,7 @@ main {
 					</div>
 				</div>
 			</div>
-			<c:choose>
-				<c:when test="">
-					<span><button type="button"
-							onclick="orderCancle(1);"
-							class=" btn btn--stripe btn--large ">판매취소</button></span>
-				</c:when>
-
-				<c:otherwise>
-					<span><button type="button" disabled
-							onclick="orderCancle();"
-							class=" btn btn--stripe btn--large ">판매확정</button></span>
-				</c:otherwise>
-			</c:choose>
+			
 
 			<hr>
 
@@ -244,7 +232,9 @@ main {
 			<div class="info_section">
 				<span class="info_title">찜 횟수</span> <span class="info_content">${selectSellItemList.zzim }</span>
 			</div>
-			
+			<span><button type="button" 
+							onclick="location.href='negoForm.do?itemNum=${selectSellItemList.itemNum }'"
+							class=" btn btn--stripe btn--large ">네고확인</button></span>									
 		</div>
 		<div class="button-container">
    

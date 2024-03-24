@@ -25,11 +25,14 @@ public class AddnegoChatControl implements Control {
 		
 		String itemNum = req.getParameter("itemNum");
 		String negoChat = req.getParameter("negoChat");
-		
+		String memberNum = req.getParameter("memberNum");
+		String memberName = req.getParameter("memberName");
 		
 		Nego nego = new Nego();
 		nego.setItemNum(Integer.parseInt(itemNum));
+		nego.setMemberNum(Integer.parseInt(memberNum));
 		nego.setNegoChat(negoChat);
+		nego.setMemberName(memberName);
 		System.out.println("nego: " + nego);
 		NegoService svc = new NegoServiceImpl();
 		Map<String, Object> map = new HashMap<>();

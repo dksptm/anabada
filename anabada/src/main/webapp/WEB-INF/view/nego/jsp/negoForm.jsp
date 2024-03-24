@@ -93,49 +93,50 @@
 <body>
 
 <div id="chat-container">
-    <p>상품번호: ${negoForm[0].itemNum}</p>
+    <p>상품번호: <c:out value="${negoForm[0].itemNum}"/></p>
     <div id="chat-box">
-       <%--  <c:forEach items="${negoForm}" var="chat">
-            <p style="margin: 0; padding: 10px; background-color: #e7f5ff; border-radius: 20px; max-width: 70%; word-break: break-word;">
-                ${negoForm.negoChat}
-            </p>
-        </c:forEach> --%>
+        <c:forEach items="${negoForm}" var="nego">
+            <p><c:out value="${nego.memberName}"/>: <c:out value="${nego.negoChat}"/></p>
+        </c:forEach>
     </div>
     <div id="input-area">
-        <input type="text" id="username" value="${member.memberName}">
-        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="Type a message...">
+        <input type="text" id="memberName" value="${member.memberName}" readonly>
+        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="메시지를 입력하세요...">
         <c:if test="${not empty negoForm}">
-    <input type="hidden" id="itemNum" value="${negoForm[0].itemNum}">
-</c:if>
+            <input type="hidden" id="itemNum" value="${negoForm[0].itemNum}">
+            <input type="hidden" id="memberNum" value="${member.memberNum}">
+        </c:if>
     </div>
     <div id="button-container">
         <button id="sendbtn">전송하기</button>
-        <button type="button" onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});" class="btn btn--stripe btn--large">구매확정</button>
     </div>
 </div>
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-   $('#sendbtn').on('click', function() {
+$('#sendbtn').on('click', function() {
     let negoChat = $('#AddnegoChat').val().trim(); 
     if(negoChat === '') {
         alert('메시지를 입력하세요.');
+        return; 
     }
     let itemNum = $('#itemNum').val();
-        
-        let param = {negoChat: negoChat, itemNum: itemNum};
-        $.ajax({
-            url: 'AddnegoChat.do',
-            method: 'post',
-            data: param,
-            dataType: 'json'
-        })
+    let memberNum = $('#memberNum').val(); 
+    let param = {negoChat: negoChat, itemNum: itemNum, memberNum: memberNum}; 
+    
+    $.ajax({
+        url: 'AddnegoChat.do',
+        method: 'post',
+        data: param,
+        dataType: 'json'
+    })
         .done(function(result) {
             if(result.retCode == 'OK') {
                 alert('등록완료');
                 $('#AddnegoChat').val('');
-                let newMessage = $('<p>').text(negoChat);
+                let newMessage = $('<p>').text(`${memberName}: ${negoChat}`); // 임시로 "You"를 사용
                 $('#chat-box').append(newMessage);
                 $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                location.reload();
             } else {
                 alert('등록실패');
             }
