@@ -21,6 +21,7 @@ public interface MemberService {
 	List<Member> myList(int memberNum);
 	List<Member> myInfoList(int memberNum);
 	
-	// 계좌수정
+	// 수정
 	boolean modifyAcc(Member member);
+	boolean modifyPw(Member member);
 }

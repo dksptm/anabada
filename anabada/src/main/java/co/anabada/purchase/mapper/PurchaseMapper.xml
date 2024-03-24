@@ -23,6 +23,7 @@
 		JOIN anvd_order o ON (p.order_num = o.order_num)
 		JOIN item i ON (o.item_num = i.item_num)
 		ORDER BY o.order_date DESC
+
 	</select>
 
 	<delete id="deletePurchaseList" parameterType="int">

@@ -31,7 +31,6 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.selectMember(member);
 	}
 
-
 	@Override
 	public boolean idCheck(String id) {
 		return mapper.countMemberId(id) == 0;
@@ -65,6 +64,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Member loginMemByNum(int mno) {
 		return mapper.selectMemByNum(mno);
+	}
+
+	@Override
+	public boolean modifyPw(Member member) {
+		 return mapper.updatePw(member) == 1;
 	}
 
 }

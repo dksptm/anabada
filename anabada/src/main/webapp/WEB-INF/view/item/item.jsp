@@ -102,6 +102,25 @@
 <iframe name="contentFrame" id="contentFrame" style="width:100%; height:600px; border:none; display:none; position:fixed; left:0; top:0;"></iframe>
 <script>
 
+
+function addZzim(ino) {
+	console.log('아이템!', ino);
+		$.ajax({
+			url: 'addCart.do',
+			type: 'post',
+			data: { ino : ino, mno : mno },
+			dataType: 'json'
+		})
+		.done((result) => {
+      	console.log(result);
+     	 alert('찜하기성공!')
+      })
+      .fail((error) => {
+    	 console.log(error)
+    	 alert('찜하기실패!');
+      })
+}
+
 	let istatus = "${item.itemStatus}";
 	if(istatus == '판매완료' || istatus == '판매취소') {
 		$('.dis').remove();

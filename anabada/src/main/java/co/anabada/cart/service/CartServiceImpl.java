@@ -28,4 +28,9 @@ public class CartServiceImpl implements CartService {
 	public List<Cart> cartList(int memberNum) {
 		return mapper.cartList(memberNum);
 	}
+
+	@Override
+	public boolean countCart(Cart cart) {
+		return mapper.countCart(cart) == 0;
+	}
 }

@@ -13,4 +13,5 @@ public interface CartMapper {
 	// 삭제
 	int deleteCart(Cart cart);
 	
+	int countCart(Cart cart);
 }
