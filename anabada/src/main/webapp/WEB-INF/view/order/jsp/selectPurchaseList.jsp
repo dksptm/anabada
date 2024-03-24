@@ -205,7 +205,7 @@ main {
 				</div>
 				
 				<div class="product_info">
-					<img src="${selectPurchaseOrder.itemImage }"
+					<img src="images/${selectPurchaseOrder.itemImage }"
 						style="width: 150px; height: 150px;">
 					<div class="product_details">
 						<div>
@@ -218,7 +218,7 @@ main {
 				</div>
 			</div>
 			<c:choose>
-				<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
+				<c:when test="${selectPurchaseOrder.orderStatus eq '주문진행'}">
 					<span><button type="button"
 							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
 							class=" btn btn--stripe btn--large ">주문취소</button></span>
@@ -227,40 +227,29 @@ main {
 				<c:otherwise>
 					<span><button type="button" disabled
 							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
-							class=" btn btn--stripe btn--large ">주문취소</button></span>
+							class=" btn btn--stripe btn--large ">주문완료된 상품</button></span>
 				</c:otherwise>
 			</c:choose>
 
 			<hr>
 
 			<h2>입금정보</h2>
-			<div class="info_section">
-				<span class="info_title">입금은행</span> <span class="info_content">1</span>
-			</div>
-
+			
 			<div class="info_section">
 				<span class="info_title">계좌번호</span> <span class="info_content">${selectPurchaseOrder.accountNum }</span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">예금주</span> <span class="info_content">1
+				<span class="info_title">예금주</span> <span class="info_content">${selectPurchaseOrder.sellerName }
 				</span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">입금요청액</span> <span class="info_content"></span>
+				<span class="info_title">입금요청액</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">입금기한</span> <span class="info_content">1</span>
-			</div>
-
-			<hr>
-
-
-			<h2>판매자 정보</h2>
-			<div class="info_section">
-				<span class="info_title">아이디</span> <span class="info_content">${selectPurchaseOrder.memberId}</span>
+				<span class="info_title">입금기한</span> <span class="info_content">${selectPurchaseOrder.orderDate} </span>
 			</div>
 
 			<hr>
@@ -271,10 +260,6 @@ main {
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">결제일시</span> <span class="info_content">1</span>
-			</div>
-
-			<div class="info_section">
 				<span class="info_title">결제수단</span> <span class="info_content">${selectPurchaseOrder.paymentType }</span>
 			</div>
 			<div class="info_section">
@@ -282,13 +267,13 @@ main {
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">결제금액${selectPurchaseOrder}</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
+				<span class="info_title">상품금액</span> <span class="info_content">${selectPurchaseOrder.itemPrice}</span>
 			</div>
 
 		</div>
 		<div class="button-container">
     <c:choose>
-        <c:when test="${selectPurchaseOrder.itemStatus eq '판매진행'}">
+        <c:when test="${selectPurchaseOrder.orderStatus eq '주문진행'}">
             <span><button type="button" onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});" class="btn btn--stripe btn--large">구매확정</button></span>
         </c:when>
         <c:otherwise>
@@ -299,11 +284,11 @@ main {
     </c:choose>
    
     <c:choose>
-        <c:when test="${selectPurchaseOrder.itemStatus eq '판매완료'}">
-            <span><button type="button" onclick="location.href='addreviewForm.do?itemNum=${selectPurchaseOrder.itemNum}'" class="btn btn--stripe btn--large">리뷰쓰기</button></span>
+        <c:when test="${selectPurchaseOrder.orderStatus eq '주문완료'}">
+            <span><button type="button" onclick="location.href='addreviewForm.do?memberNum=${selectPurchaseOrder.memberNum}&orderNum=${selectPurchaseOrder.orderNum}'" class="btn btn--stripe btn--large">리뷰쓰기</button></span>
         </c:when>
         <c:otherwise>
-           <span><button type="button" onclick="location.href='cartList.do?memberNum=${selectPurchaseOrder.memberNum}'" class="btn btn--stripe btn--large">장바구니</button></span>
+           <span><button type="button" onclick="location.href='cartList.do?itemNum=${selectPurchaseOrder.itemNum}&orderNum=${selectPurchaseOrder.orderNum}'" class="btn btn--stripe btn--large">장바구니</button></span>
         </c:otherwise>
     </c:choose>
 </div>
@@ -337,7 +322,7 @@ function orderCancle(orderNum) {
 
 
 function purchaseConfirm(orderNum) {
-    if (confirm('구매를 확정하시겠습니까?')) {
+    if (confirm('주문을 완료 하시겠습니까?')) {
         $.ajax({
             url: 'purchaseConfirm.do', 
             method: 'POST',
@@ -345,10 +330,10 @@ function purchaseConfirm(orderNum) {
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
-                    alert('구매가 확정되었습니다.');
+                    alert('주문이 확정되었습니다.');
                     location.reload();
                 } else {
-                    alert('구매 확정을 할 수 없습니다.');
+                    alert('주문을 할 수 없습니다.');
                 }
             },
             error: function(xhr, status, error) {

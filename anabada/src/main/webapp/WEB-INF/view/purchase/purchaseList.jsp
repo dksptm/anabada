@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">구매 상품 목록</h1>
+	<h1 class="text-center text-white display-6">구매내역</h1>
 </div>
 
 <!-- Cart Page Content -->
@@ -29,7 +29,7 @@
 						<tr>
 						<td>
 								<p class="mb-0 mt-4">
-									<img src="${purchase.itemImage }"
+									<img src="images/${purchase.itemImage }"
 										style="width: 50px; height: 50px;">
 								</p>
 							</td>
@@ -40,7 +40,7 @@
 								<p class="mb-0 mt-4">${purchase.totalPrice }원</p>
 							</td>
 							<td>
-								<p class="mb-0 mt-4">${purchase.itemStatus }</p>
+								<p class="mb-0 mt-4">${purchase.orderStatus }</p>
 							</td>
 							<td
 								onClick="toggleIframe('selectPurchaseList.do?orderNum=${purchase.orderNum}');"

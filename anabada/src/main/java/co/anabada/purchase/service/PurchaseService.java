@@ -5,10 +5,11 @@ import java.util.List;
 import co.anabada.purchase.Purchase;
 
 public interface PurchaseService {
-	List<Purchase> purchaseList();
 
 	boolean removePurchaseList(int orderNum);
 
 	boolean purchaseConfirm(int orderNum);
+
+	List<Purchase> purchaseList(int memberNum);
 
 }

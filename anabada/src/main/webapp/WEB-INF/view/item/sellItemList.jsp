@@ -40,13 +40,13 @@
 
 
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">현재 판매중인 상품목록</h1>
+	<h1 class="text-center text-white display-6">판매내역</h1>
 </div>
 
 <!-- Cart Page Content -->
 <div class="container-fluid py-5">
 	<div class="container py-5">
-		<div id="messageArea">현재 판매중 상태인 상품목록</div>
+		<div id="messageArea"></div>
 		<!-- Message display area -->
 		<div class="table-responsive">
 			<table class="table">

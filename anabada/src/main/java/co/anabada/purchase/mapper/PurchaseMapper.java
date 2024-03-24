@@ -6,10 +6,11 @@ import co.anabada.purchase.Purchase;
 
 public interface PurchaseMapper {
 
-	List<Purchase> purchaseList();
 
 	int deletePurchaseList(int orderNum);
 
 	int purchaseConfirm(int orderNum);
+
+	List<Purchase> purchaseList(int memberNum);
 
 }

@@ -26,6 +26,7 @@ public class Order {
 		private String	orderStatus; 	// 주문상태 - 주문진행/ 주문확인 / 주문취소 / 주문완료
 		private String  purchaseOk;
 		private String  itemStatus;
+		private String  totalPirce;
 		//효주.
 		private int sellerNum;
 		private String sellerAcc;
