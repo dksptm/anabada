@@ -11,7 +11,7 @@
 	</ol>
 </div>
 
-<!-- Fruits Shop Start-->
+<!-- 상품리스트 -->
 <div class="container-fluid fruite py-5">
 	<div class="container py-5">
 		<h1 class="mb-4">avabada shop</h1>
@@ -172,6 +172,3 @@
 
 </script>
 <script src="static/js/item/itemList.js"></script>
-
-
-<!-- Fruits Shop End-->

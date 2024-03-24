@@ -31,10 +31,6 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.ItemList();
 	}
 
-	/*
-	 * @Override public int itemTotalCnt(SearchVO search) { return
-	 * mapper.getTotalCnt(search); }
-	 */
 	@Override
 	public int itemTotalCnt(SearchVO search) {
 		return mapper.getTotalCnt(search);
@@ -99,6 +95,10 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.getCateCnt(cid);
 	}
 
+	@Override
+	public Item selectSellItemList(int itemNum) {
+		return mapper.selectSellItemList(itemNum);
+	}
 
 
 }

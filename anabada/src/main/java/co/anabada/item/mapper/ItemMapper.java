@@ -37,6 +37,7 @@ public interface ItemMapper {
 	List<Item> sellItemList(int memberNum);
 	
 	int sellItemCancle(int itemNum);
+	Item selectSellItemList(int itemNum);
 	
 	
 }

@@ -5,8 +5,8 @@
 <mapper namespace="co.anabada.order.mapper.OrderMapper">
 
 	<select id="selectPurchaseOrder" resultType="Order" parameterType="int">
-       
-      SELECT
+		 
+		SELECT
     o.order_num,
     o.payment_type,
     o.delivery_how,
@@ -31,8 +31,9 @@ JOIN purchase p ON o.order_num = p.order_num
 JOIN item i ON o.item_num = i.item_num 
 JOIN member m ON o.member_num = m.member_num
 WHERE o.order_num = #{orderNum}
-      
-   </select>
+		
+	</select>
+
 	
 		
 	<update id="orderCancle" parameterType="int">

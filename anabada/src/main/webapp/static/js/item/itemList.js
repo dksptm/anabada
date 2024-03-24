@@ -7,10 +7,10 @@ console.log('itemList.js')
 let page = 1;
 let cname = 'all';
 
-$(document).ready(function(e) {
-
-	$('.btnbox').on('click', '.btn', function(e) {
-		if (cname != $(this).val()) {
+$(document).ready(function(e){
+		
+	$('.btnbox').on('click', '.btn', function(e){
+		if(cname != $(this).val()){
 			page = 1;
 		}
 		cname = $(this).val();
@@ -19,57 +19,7 @@ $(document).ready(function(e) {
 		searchList(cname, page);
 	})
 })
-$(document).ready(function(e) {
 
-	$('#key').keyup(function(e) {
-		if (iname != $(this).val()) {
-			page = 1;
-		}
-		cname = $(this).val();
-		console.log('iname ' + iname);
-		console.log('page ' + page);
-		searchList1(iname, page);
-	})
-})
-
-/*$('#key').keyup(function(e) {
->>>>>>> refs/heads/032401
-	let iname = $(this).val();
-
-	$.ajax({
-		type: 'post',
-		url: 'inameList.do',
-		data: { iname }
-	}).done(function(result) {
-		console.log(result); // 검색어에 해당하는 상품 찍혀야함
-		$('#itemList').html('');
-
-		result.forEach(prop => {
-			console.log(prop.itemName);
-
-			$('#itemList').append(
-				$('<div>').addClass('col-md-6 col-lg-6 col-xl-4 vesitable').append(
-					$('<div>').addClass('border border-primary rounded position-relative vesitable-item').prop('onclick', 'itemLink('+prop.itemNum+')').append(
-						$('<div>', { class: 'vesitable-img' }).append(
-							$('<img>', { src: 'images/' + prop.itemImage, class: 'img-fluid w-100 rounded-top bg-light', onerror: "this.onerror=null; this.src='static/img/errimg.png';" }),
-							$('<div>', { class: 'text-white bg-primary px-3 py-1 rounded position-absolute', style: 'top: 10px; right: 10px;' }).text(prop.itemNum),
-							$('<div>', { class: 'p-4 rounded-bottom' }).append(
-								$('<h4>', { style: 'height:29px;overflow:hidden;' }).text(prop.itemName),
-								$('<p>', { style: 'height:85px;overflow:hidden;' }).text(prop.itemInfo),
-								$('<div>', { class: 'd-flex justify-content-between flex-lg-wrap' }).append(
-									$('<p>', { class: 'text-dark fs-5 fw-bold mb-0 w-100' }).text('￦' + prop.itemPrice)
-								)
-							)
-						)
-					)
-				)
-
-			); //end #itemList 
-		}); //end forEach
-	}).fail(function(err) {
-		alert('error');
-	});
-});*/
 
 function itemLink(ino) {
 	location.href = 'item.do?itemNum=' + ino;
@@ -79,7 +29,7 @@ function itemLink(ino) {
 function searchList(cname, page) {
 	console.log('searchList cname ' + cname);
 	console.log('searchList page ' + page);
-	if (cname == '상의') {
+	if(cname == '상의') {
 		cname = 't';
 	} else if (cname == '하의') {
 		cname = 'p';
@@ -95,92 +45,46 @@ function searchList(cname, page) {
 		location.href = 'itemList.do';
 		return;
 	}
-
+	
 	$.ajax({
 		type: 'post',
 		url: './searchItem.do',
 		data: { cname, page },
 		dataType: 'json'
 	})
-		.done(function(result) {
-			let clone = $('#getItem').eq(0).clone(true);
-			$('#itemList').html('');
-
-			$(result).each(function(idx, ele) {
-				clone.find('img').attr('src', 'images/' + ele.itemImage);
-				clone.find('#inum').text(ele.itemNum);
-				clone.find('h4').text(ele.itemName);
-				clone.find('#info').text(ele.itemInfo);
-				clone.find('#ip').text(ele.itemPrice);
-				$('#itemList').append(clone);
-				clone = $('#getItem').eq(0).clone(true);
-			})
-
-			$('.pagination').children().remove();
-			$.ajax({
-				url: 'totalCnt.do?cid=' + cname,
-				method: 'get',
-				dataType: 'json'
-			})
-				.done(total => {
-					createPageElement(total);
-				})
-				.fail(err => console.error(err));
-
+	.done(function(result) {
+		let clone = $('#getItem').eq(0).clone(true);
+		$('#itemList').html('');
+		
+		$(result).each(function(idx, ele){
+			clone.find('div.vesitable-item').attr('onclick', 'itemLink('+ ele.itemNum +')');
+			clone.find('img').attr('src', 'images/' + ele.itemImage);
+			clone.find('#inum').text(ele.itemNum);
+			clone.find('h4').text(ele.itemName);
+			clone.find('#info').text(ele.itemInfo);
+			clone.find('#ip').text(ele.itemPrice);
+			$('#itemList').append(clone);
+			clone = $('#getItem').eq(0).clone(true);
 		})
-		.fail(function(err) {
-			alert('error');
-		});
-
-}
-
-
-
-function searc(cname, page) {
-	console.log('searchList cname ' + cname);
-	console.log('searchList page ' + page);
-
-
-
-	$.ajax({
-		type: 'post',
-		url: './itemList.do',
-		data: { cname, page },
-		dataType: 'json'
+		
+		$('.pagination').children().remove();
+		$.ajax({
+			url: 'totalCnt.do?cid=' + cname,
+			method: 'get',
+			dataType: 'json'
+		})
+		.done(total => {
+			createPageElement(total);
+		})
+		.fail(err => console.error(err));
+		
 	})
-		.done(function(result) {
-			let clone = $('#getItem').eq(0).clone(true);
-			$('#itemList').html('');
-
-			$(result).each(function(idx, ele) {
-				clone.find('img').attr('src', 'images/' + ele.itemImage);
-				clone.find('#inum').text(ele.itemNum);
-				clone.find('h4').text(ele.itemName);
-				clone.find('#info').text(ele.itemInfo);
-				clone.find('#ip').text(ele.itemPrice);
-				$('#itemList').append(clone);
-				clone = $('#getItem').eq(0).clone(true);
-			})
-
-			$('.pagination').children().remove();
-			$.ajax({
-				url: 'totalCnt.do?cid=' + cname,
-				method: 'get',
-				dataType: 'json'
-			})
-				.done(total => {
-					createPageElement(total);
-				})
-				.fail(err => console.error(err));
-
-		})
-		.fail(function(err) {
-
-		});
-
+	.fail(function(err) {	
+		alert('error');
+	});
+	
 }
-
-
+	
 // 페이지네이션.
 function createPageElement(total) {
 	let pagination = $('div.pagination');
@@ -210,15 +114,15 @@ function createPageElement(total) {
 	pagingFunc();
 }
 
-function pagingFunc() {
+function pagingFunc(){
 	document.querySelectorAll('.pagination>a') // NodeList로 반환.
-		.forEach(item => {
-			item.addEventListener('click', function(e) {
-				e.preventDefault(); // 링크의 기능 차단.(a태그는 무조건 링크라서)
-				page = item.dataset.pno;
-				console.log('pagingFunc page ' + page + ', cname ' + cname);
-				searchList(cname, page);
-			})
-		});
+		    .forEach(item => { 
+				item.addEventListener('click', function(e){
+					e.preventDefault(); // 링크의 기능 차단.(a태그는 무조건 링크라서)
+					page = item.dataset.pno; 
+					console.log('pagingFunc page ' + page + ', cname ' + cname);
+					searchList(cname, page);
+				})
+			});	
 }
 
