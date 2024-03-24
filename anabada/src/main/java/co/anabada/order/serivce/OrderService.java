@@ -13,4 +13,6 @@ public interface OrderService  {
 	// 효주.
 	boolean addOrder(Order odr);
 	Order odrComResult(int orderNum);
+
+	
 }

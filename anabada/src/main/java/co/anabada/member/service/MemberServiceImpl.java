@@ -31,15 +31,18 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.selectMember(member);
 	}
 
-
 	@Override
 	public boolean idCheck(String id) {
 		return mapper.countMemberId(id) == 0;
 	}
 
 	@Override
-	public List<Item> mySellItems(int mno) {
-		return mapper.perMemSellItems(mno);
+	public List<Item> mySellItems(int mno, int page) {
+		return mapper.perMemSellItems(mno, page);
+	}
+	@Override
+	public int countMySell(int mno) {
+		return mapper.countPerMemSellItems(mno);
 	}
 	
 	// 진경.
@@ -67,4 +70,5 @@ public class MemberServiceImpl implements MemberService {
 	public boolean modifyPw(Member member) {
 		 return mapper.updatePw(member) == 1;
 	}
+
 }

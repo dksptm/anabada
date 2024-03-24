@@ -14,7 +14,8 @@ public interface MemberService {
 	Member loginMemByNum(int mno);
 	boolean idCheck(String id);
 	// myPage(효주)
-	List<Item> mySellItems(int mno);
+	List<Item> mySellItems(int mno, int page);
+	int countMySell(int mno);
 	
 	// myPage
 	List<Member> myList(int memberNum);

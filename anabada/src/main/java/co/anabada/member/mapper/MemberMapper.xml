@@ -34,14 +34,27 @@
 	</insert>
 	
 	<select id="perMemSellItems" resultType="Item">
-        SELECT item_num
-              ,item_name
-              ,item_price
-              ,item_image
-              ,item_info
-              ,item_status
-        FROM  item
-        WHERE member_num = ${mno}
+        SELECT rn,
+               item_num,
+               category_id,
+	           member_num,
+	           item_name,
+	           item_price,
+	           item_image,
+	           item_info,
+	           item_status,
+	           item_date
+        FROM  (select /*+ INDEX_DESC(i PK_ITEM) */ rownum rn, i.*
+               from item i 
+               where member_num = #{param1}
+               and  rownum <![CDATA[ <= (#{param2} * 6) ]]>
+               ) a
+        WHERE  a.rn > (#{param2} - 1) * 6
+	</select>
+	<select id="countPerMemSellItems">
+        SELECT count(*)
+        FROM item
+        WHERE member_num = #{mno}
 	</select>
 
 	<select id="selectMember" parameterType="string">

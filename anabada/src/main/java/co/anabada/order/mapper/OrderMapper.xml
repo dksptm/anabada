@@ -4,9 +4,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.order.mapper.OrderMapper">
 
-   <select id="selectPurchaseOrder" resultType="Order" parameterType="int">
-       
-      SELECT
+	<select id="selectPurchaseOrder" resultType="Order" parameterType="int">
+		 
+		SELECT
     o.order_num,
     o.payment_type,
     o.delivery_how,
@@ -31,21 +31,22 @@ JOIN purchase p ON o.order_num = p.order_num
 JOIN item i ON o.item_num = i.item_num 
 JOIN member m ON o.member_num = m.member_num
 WHERE o.order_num = #{orderNum}
-      
-   </select>
-   
-      
-   <update id="orderCancle" parameterType="int">
-      UPDATE anvd_order
-      SET   order_status = '주문취소'
-      WHERE order_num = ${orderNum}
-   </update>
+		
+	</select>
 
-   <insert id="insertOrder" parameterType="order">
-     <selectKey resultType="int" keyProperty="orderNum" order="AFTER">
-         SELECT odr_num_seq.currval
-         FROM   dual
-       </selectKey>
+	
+		
+	<update id="orderCancle" parameterType="int">
+		UPDATE anvd_order
+		SET	order_status = '주문취소'
+		WHERE order_num = ${orderNum}
+	</update>
+
+	<insert id="insertOrder" parameterType="order">
+	  <selectKey resultType="int" keyProperty="orderNum" order="AFTER">
+  	    SELECT odr_num_seq.currval
+  	    FROM   dual
+  	  </selectKey>
         INSERT INTO anvd_order (order_num
                                ,item_num
                                ,member_num
@@ -62,10 +63,10 @@ WHERE o.order_num = #{orderNum}
                ,#{deliveryFee}
                ,#{deliveryAddress}
                ,#{paymentType})
-   </insert>
-   
-   <select id="selectOdrCom" resultType="order">
-   SELECT * FROM vu_odr_com WHERE order_num = #{orderNum}
-   </select>   
+	</insert>
+	
+	<select id="selectOdrCom" resultType="order">
+	SELECT * FROM vu_odr_com WHERE order_num = #{orderNum}
+	</select>	
 
 </mapper>

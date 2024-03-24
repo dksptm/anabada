@@ -4,7 +4,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">상품수정(완료)</h1>
+            <h1 class="text-center text-white display-6"><c:out value="${ino }" />번 상품수정</h1>
         </div>
         <!-- Single Page Header End -->
 
@@ -12,18 +12,19 @@
         <div class="container-fluid py-5">
             <div class="container py-5">
                 <h1 class="row mb-4 justify-content-center">상품수정 하세요.</h1>
-                <form action="addItem.do" method="post" enctype="multipart/form-data" id="addItem">
-                	<input type="hidden" value="${member.memberNum }" name="mem_num">
-                	<input type="hidden" value="판매중" name="status">
+                <form action="modifyItem.do" method="post" enctype="multipart/form-data" id="modifyItem">
+                	<input type="hidden" value="${ino }" name="ino">
                 	<input type="hidden" value="" name="dselect">
                 	<input type="hidden" value="" name="pselect">
+                	<input type="hidden" value="" name="imgFlag">
+                	<input type="hidden" value="" name="firstImg">
                     <div class="row g-5 justify-content-center">
                         <div class="col-md-12 col-lg-6 col-xl-7">
                             <div class="row justify-content-between">
                                 <div class="col-md-12 col-lg-6">
                                     <div class="form-item w-100">
                                         <label class="form-label my-3" for="name">상품명<sup>*</sup></label>
-                                        <input type="text" class="form-control" name="name" id="name">
+                                        <input type="text" class="form-control" name="name" id="name" value="${item.itemName }">
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-lg-6">
@@ -37,12 +38,17 @@
                             </div>
                             <div class="form-item">
                                 <label class="form-label my-3" for="price">판매가격<sup>*</sup></label>
-                                <input type="number" class="form-control" name="price" id="price" placeholder="￦">
+                                <input type="number" class="form-control" name="price" id="price" value="${item.itemPrice }">
                             </div>
                             <div class="form-item">
                                 <label class="form-label my-3" for="info">상품설명<sup>*</sup></label><br>
-                                <input type="file" class="btn btn-outline-info" name="img" id="img"><br><br>
-                                <textarea name="info" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="실제 촬영한 사진과 함께 상세한 설명을 해주세요."></textarea>
+                                <img src="images/${item.itemImage }" alt="itemimg" style="width:100px;higth:100px;object-fit:contain;">
+                                <button type="button" class="btn btn-outline-info btnslide">사진수정</button>
+                                <div id="slideinput">
+                                	<input type="file" class="btn btn-outline-info" name="imgModify" id="imgModify">
+                                </div>
+                                <br><br>
+                                <textarea name="info" class="form-control" spellcheck="false" cols="30" rows="11">${item.itemInfo }</textarea>
                             </div>
 	                        <hr>
 	                        <div class="form-item">
@@ -72,31 +78,11 @@
 	                        	</table>
 	                        </div>
 	                        <hr>
-	                        <!-- <div class="row justify-content-between">
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="form-item w-100">
-                                        <label class="form-label my-3" for="acc">은행명<sup>*</sup></label>
-                        				<select class="form-select" name="acc" id="acc"> 
-  											<option>선택하세요</option>
-  											<option>대구은행</option>
-  											<option>신한은행</option>
-  											<option>우리은행</option>
-  											<option>국민은행</option>
-  											<option>기타</option>
-										</select>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-lg-6">
-                                    <div class="form-item w-100">
-                                        <label class="form-label my-3" for="account2">계좌번호<sup>*</sup></label>
-                                        <input type="text" class="form-control" name="account2" id="account2">
-                                    </div>
-                                </div>
-                            </div> -->
-	                        <hr>
 	                        <div class="d-flex text-center align-items-center justify-content-between pt-4">
-	                        	<button type="button" onclick="mdfFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품수정</button>
-								<button type="reset" class="btn btn-outline-dark py-3 px-4 w-100 text-primary">나가기</button>
+	                        	<button type="button" onclick="test1()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">사진테스트</button>
+	                        	<button type="button" onclick="test2()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">제출테스트</button>
+	                        	<button type="button" onclick="modifyFnc()" class="btn border-secondary py-3 px-4 me-4 w-100 text-primary" style="background-color: #F2EFE5;">상품수정</button>
+								<button type="button" onclick="cancelFnc()" class="btn btn-outline-dark py-3 px-4 w-100 text-primary">취소</button>
 	                        </div>
                         </div>
                     </div>
@@ -107,7 +93,8 @@
 		
         <script>
          const mem = "${member.memberNum }";
-         console.log(mem);
-         let memAcc = "${member.accountNum }";
+         const seller = "${seller }";
+         const ino = "${ino }";
+         const img = "${item.itemImage }";
         </script>
         <script src="static/js/item/modifyitem.js"></script>
