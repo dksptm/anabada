@@ -44,5 +44,34 @@
 
 	</update>
 
+	<select id="myOPList" parameterType="hashMap">
+     SELECT order_num
+            ,order_type
+            ,order_status
+            ,payment_type
+            ,delivery_how
+            ,item_num
+            ,account_num
+            ,seller_name
+            ,seller_num
+            ,member_num
+            ,total
+            ,delivery_address
+            ,delivery_fee
+            ,item_price
+            ,order_date
+     FROM vu_odr_com
+     <where>
+     	<choose>
+		    <when test="#{param1} == '' || #{param1} == null">
+		    	seller_num = #{param2}
+		    </when>
+		    <when test="#{param2} == '' || #{param2} == null">
+		    	member_num = #{param1}
+		    </when>
+	 	</choose>
+	 </where>
+	 ORDER BY 1;
+	</select>
 
 </mapper>
