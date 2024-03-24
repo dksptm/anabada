@@ -105,12 +105,17 @@ function addZzim(ino) {
 		})
 		.done((result) => {
       	console.log(result);
-     	 alert('찜하기성공!')
+      	if(result.retCode ==='OK'){
+      		alert('찜하기성공!')
+      	} else if (result.retCode === 'AR') {
+      		alert('찜하기실패!');
+      	}
       })
-      .fail((error) => {
-    	 console.log(error)
-    	 alert('찜하기실패!');
-      })
-}
+    .fail((error) => {
+	console.log(error)
+	alert('찜하기실패!');
+})
+};
+
 </script>
 <!-- <script src="static/js/item/addZzim.js"></script> -->

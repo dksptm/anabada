@@ -34,9 +34,9 @@
 					<div class="card-body p-0">
 						<div class="d-flex align-items-center">
 							<div class="p-5">
-								<h2 class="fw-bolder">리뷰번호:${review.reviewNum }</h2>
+								<h2 class="fw-bolder"> 리뷰번호:${review.reviewNum }</h2>
 								<%-- 		<h2>${review.memberNum }님의후기</h2> --%>
-								<p>작성날짜 :${review.reviewDate } || 작성자 :${member.memberName }</p>
+								<p>후기점수: ${review.reviewScore }점 || 작성날짜 :${review.reviewDate } || 작성자 :${member.memberName }</p>
 								<p>${review.reviewComment }</p>
 								<button type="button" onclick="reviewDel(${review.reviewNum })"
 									class="btn btn-success">삭제</button>
