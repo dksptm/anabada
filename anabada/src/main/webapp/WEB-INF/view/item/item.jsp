@@ -42,7 +42,6 @@
                         
                         <!-- 하단버튼: 로그인/판매자/판매중아닐때/판매중일때 다 다르게 나오도록. -->
                         <c:choose>
-                        
                         <c:when test="${empty member }">
                         	<span>구매하려면 로그인하세요.</span>
                         	<button onclick ="location.href='loginForm.do'" class="btn btn-outline-dark me-auto col-3" type="button">
@@ -75,58 +74,82 @@
                         
                         <c:otherwise>
                         <div class="d-flex fs-5 mb-5" id="btnC">
-	                        <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=nego'" 
-	                        		class="btn btn-outline-dark me-auto col-3" 
-	                        		type="button" 
-	                        		${item.pselect eq 'negoNG' ? 'disabled' : '' }>
-		                        <i class="bi-cart-fill me-1"></i>
-		                        네고하기
-			                </button>
-			                <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
-			                		class="btn btn-outline-dark me-auto col-3" 
-			                		type="button">
-		                        <i class="bi-cart-fill me-1"></i>
-		                        바로결제
-			                </button>
-		                    <button class="btn btn-outline-dark col-3" type="button"  onclick="addZzim(${item.itemNum })">
-		                    	<i class="fas fa-heart"></i>
-		                        찜하기
-		                	</button>
+	                    	<button type="button" onclick="toggleFrame('negoForm.do?itemNum=${item.itemNum}');" 
+	                    			class="btn btn-outline-dark me-auto col-3"
+	                    			${item.pselect eq 'negoNG' ? 'disabled' : '' }>
+        							<i class="bi-cart-fill me-1"></i>
+       				 				네고하기
+   							</button>
+			            	<button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
+				            		class="btn btn-outline-dark me-auto col-3" 
+				            		type="button">
+				                    <i class="bi-cart-fill me-1"></i>
+		        		            바로결제
+			            	</button>
+		                	<button class="btn btn-outline-dark col-3" type="button"  onclick="addZzim(${item.itemNum })">
+		                		<i class="fas fa-heart"></i>
+		                    	찜하기
+		               		</button>
                         </div>
                         </c:otherwise>
-                        
                         </c:choose>
-                        
+                        <!-- 하단버튼 end. -->
                     </div>
                 </div>
             </div>
         </section>
 
-
+<iframe name="contentFrame" id="contentFrame" style="width:100%; height:600px; border:none; display:none; position:fixed; left:0; top:0;"></iframe>
 <script>
-let istatus = "${item.itemStatus}";
-if(istatus == '판매완료' || istatus == '판매취소') {
-	$('.dis').remove();
-}
 
-const mno = "${member.memberNum }";
-const ino = "${item.itemNum }";
-const seller = "${item.memberNum }"
-console.log('멤버:', mno, ' 아이템:', ino, ' 셀러:', seller);
-
-function addZzim(ino) {
-	console.log('아이템!', ino);
-		$.ajax({
-			url: 'addCart.do',
-			type: 'post',
-			data: { ino : ino, mno : mno },
-			dataType: 'json'
-		})
-		.done((result) => {
-      	console.log(result);
-      })
-      .fail((error) => console.error(err)) 
+	let istatus = "${item.itemStatus}";
+	if(istatus == '판매완료' || istatus == '판매취소') {
+		$('.dis').remove();
 	}
+	
+	const mno = "${member.memberNum }";
+	const ino = "${item.itemNum }";
+	const seller = "${item.memberNum }"
+	console.log('멤버:', mno, ' 아이템:', ino, ' 셀러:', seller);
+	
+	function addZzim(ino) {
+		console.log('아이템!', ino);
+			$.ajax({
+				url: 'addCart.do',
+				type: 'post',
+				data: { ino : ino, mno : mno },
+				dataType: 'json'
+			})
+			.done((result) => {
+	      	console.log(result);
+	      })
+	      .fail((error) => console.error(err)) 
+		}
+	
+	function toggleFrame(url) {
+	    var iframe = document.getElementById('contentFrame');
+	    // 'iframe'의 현재 상태 및 URL 체크
+	    if (iframe.style.display === 'block' && iframe.src.includes(url)) {
+	        // 이미 'iframe'이 표시중이며, 같은 URL을 로드하려는 경우 'iframe' 숨김
+	        iframe.style.display = 'none';
+	        iframe.src = '';
+	    } else {
+	        // 'iframe'을 표시하고, 주어진 URL 로드
+	        iframe.style.display = 'block';
+	        iframe.src = url;
+	        // 'iframe'의 위치 조정
+	        iframe.style.left = '0px'; // 화면의 왼쪽에 위치
+	        iframe.style.top = '80px'; // 화면 상단에서 적당한 여백을 둠
+	        iframe.style.width = '30%'; // iframe의 너비 조정
+	        iframe.style.height = '100%'; // 화면 높이에 맞게 조정
+	    }
+	}
+	
+	// 페이지 로드 시 'iframe'을 숨김
+	window.onload = function() {
+	    document.getElementById('contentFrame').style.display = 'none';
+	}
+
 </script>
 <script src="static/js/item/item.js"></script> 
 <!-- <script src="static/js/item/addZzim.js"></script> -->

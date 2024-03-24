@@ -29,7 +29,7 @@ public class OrderForm implements Control {
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else if (oty.equals("nego")) {
 			req.setAttribute("item", item);
-			String path = "order/negoForm.tiles";
+			String path = "WEB-INF/view/nego/jsp/negoForm.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
 			req.setAttribute("message", "주문연결 오류");

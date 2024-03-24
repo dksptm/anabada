@@ -11,8 +11,7 @@
 
 <title>구매내역 상세 페이지</title>
 <style>
-<<<<<<< HEAD
-
+/* CSS Reset */
 body, h1, h2, div, span {
 	margin: 10;
 	padding: 0;
@@ -196,7 +195,7 @@ main {
 			<section class="title">
 				<h1>구매내역 상세</h1>
 			</section>
-
+			
 			<div class="order_info_wrapper">
 				<div class="order_info">
 					<span class="info_title">주문번호</span> <span>${selectPurchaseOrder.orderNum}</span>
@@ -204,7 +203,7 @@ main {
 					<span class="info_title">구매일자</span> <span><fmt:formatDate
 							value="${selectPurchaseOrder.orderDate}" pattern="yyyy년 MM월 dd일" /></span>
 				</div>
-
+				
 				<div class="product_info">
 					<img src="${selectPurchaseOrder.itemImage }"
 						style="width: 150px; height: 150px;">
@@ -298,7 +297,7 @@ main {
             
         </c:otherwise>
     </c:choose>
-    
+   
     <c:choose>
         <c:when test="${selectPurchaseOrder.purchaseOk eq '구매확정'}">
             <span><button type="button" onclick="location.href='addreviewForm.do?orderNum=${selectPurchaseOrder.orderNum}'" class="btn btn--stripe btn--large">리뷰쓰기</button></span>

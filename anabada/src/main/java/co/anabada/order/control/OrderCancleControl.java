@@ -21,6 +21,7 @@ public class OrderCancleControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		resp.setContentType("text/json;charset=utf-8");
+		
 		String orderNum = req.getParameter("orderNum");
 		System.out.println("orderCancle:" + orderNum);
 		

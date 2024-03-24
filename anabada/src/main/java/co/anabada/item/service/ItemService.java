@@ -39,6 +39,10 @@ public interface ItemService {
 	
 	
 	
+	Item selectSellItemList(int itemNum);
+	
+	
+	
 	
 	
 }

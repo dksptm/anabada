@@ -1,5 +1,6 @@
 package co.anabada.nego.service;
 
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -13,7 +14,15 @@ public class NegoServiceImpl implements NegoService {
 	NegoMapper mapper = session.getMapper(NegoMapper.class);
 	
 	@Override
-	public Nego negoForm(int itemNum) {
+	public List<Nego> negoForm(int itemNum) {
 		return mapper.negoForm(itemNum);
+	} 
+
+	@Override
+	public boolean AddnegoChat(Nego nego) {
+		return mapper.AddnegoChat(nego) == 1;
+		
 	}
+
+
 }
