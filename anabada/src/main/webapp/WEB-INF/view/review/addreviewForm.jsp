@@ -32,7 +32,7 @@ em.warning {
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item">
 					 <label class="form-label my-3" for="member_pw" required><sup>*</sup>주문 번호<sup>*</sup></label>
-						<p>${orderNum }1001</p>
+						<p>${orderNum }</p>
 						<em></em> 
 						<hr>
 					</div>

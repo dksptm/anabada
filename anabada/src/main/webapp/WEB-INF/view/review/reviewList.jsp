@@ -8,7 +8,7 @@
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
-	<h1 class="text-center text-white display-6">후기</h1>
+	<h1 class="text-center text-white display-6">후기목록</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
 		<li class="breadcrumb-item active text-white"></li>
 	</ol>
@@ -21,7 +21,7 @@
 		<div class="container px-5 mb-5">
 			<div class="text-center mb-5">
 				<h1 class="display-5 fw-bolder mb-0">
-					<span class="text-gradient d-inline">후기목록</span>
+					<span class="text-gradient d-inline"></span>
 				</h1>
 			</div>
 		</div>
