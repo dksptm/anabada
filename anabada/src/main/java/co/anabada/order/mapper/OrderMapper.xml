@@ -33,6 +33,7 @@ JOIN member m ON o.member_num = m.member_num
 WHERE o.order_num = #{orderNum}
 		
 	</select>
+
 	
 		
 	<update id="orderCancle" parameterType="int">

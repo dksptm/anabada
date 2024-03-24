@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>구매내역 상세 페이지</title>
+<title>판매내역 상세 페이지</title>
 <style>
 /* CSS Reset */
 body, h1, h2, div, span {
@@ -193,172 +193,54 @@ main {
 	<main>
 		<div class="detail_box">
 			<section class="title">
-				<h1>구매내역 상세</h1>
+				<h1>판매내역 상세</h1>
 			</section>
 			
 			<div class="order_info_wrapper">
 				<div class="order_info">
-					<span class="info_title">주문번호</span> <span>${selectPurchaseOrder.orderNum}</span>
+					<span class="info_title">상품번호</span> <span>${selectSellItemList.itemNum }</span>
 
-					<span class="info_title">구매일자</span> <span><fmt:formatDate
-							value="${selectPurchaseOrder.orderDate}" pattern="yyyy년 MM월 dd일" /></span>
+					<span class="info_title">판매일자</span> <span>${selectSellItemList.itemDate }</span>
 				</div>
 				
 				<div class="product_info">
-					<img src="${selectPurchaseOrder.itemImage }"
+					<img src="${selectSellItemList.itemImage }"
 						style="width: 150px; height: 150px;">
 					<div class="product_details">
 						<div>
-							<span class="info_title">상품명</span> <span>${selectPurchaseOrder.itemName}</span>
+							<span class="info_title">상품명</span> <span>${selectSellItemList.itemName }</span>
 						</div>
 						<div>
-							<span class="info_title">상품가격</span> <span>${selectPurchaseOrder.itemPrice}</span>
+							<span class="info_title">상품가격</span> <span>${selectSellItemList.itemPrice }</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<c:choose>
-				<c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
-					<span><button type="button"
-							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
-							class=" btn btn--stripe btn--large ">주문취소</button></span>
-				</c:when>
-
-				<c:otherwise>
-					<span><button type="button" disabled
-							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
-							class=" btn btn--stripe btn--large ">주문취소</button></span>
-				</c:otherwise>
-			</c:choose>
+			
 
 			<hr>
 
-			<h2>입금정보</h2>
+			<h2>정보</h2>
 			<div class="info_section">
-				<span class="info_title">입금은행</span> <span class="info_content">1</span>
+				<span class="info_title">별점</span> <span class="info_content">${selectSellItemList.reviewScore }</span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">계좌번호</span> <span class="info_content">${selectPurchaseOrder.accountNum }</span>
+				<span class="info_title">판매상태</span> <span class="info_content">${selectSellItemList.itemStatus }</span>
 			</div>
-
+			
 			<div class="info_section">
-				<span class="info_title">예금주</span> <span class="info_content">1
-				</span>
+				<span class="info_title">찜 횟수</span> <span class="info_content">${selectSellItemList.zzim }</span>
 			</div>
-
-			<div class="info_section">
-				<span class="info_title">입금요청액</span> <span class="info_content"></span>
-			</div>
-
-			<div class="info_section">
-				<span class="info_title">입금기한</span> <span class="info_content">1</span>
-			</div>
-
-			<hr>
-
-
-			<h2>판매자 정보</h2>
-			<div class="info_section">
-				<span class="info_title">아이디</span> <span class="info_content">${selectPurchaseOrder.memberId}</span>
-			</div>
-
-			<hr>
-
-			<h2>거래정보</h2>
-			<div class="info_section">
-				<span class="info_title">거래방법</span> <span class="info_content">${selectPurchaseOrder.deliveryHow }</span>
-			</div>
-
-			<div class="info_section">
-				<span class="info_title">결제일시</span> <span class="info_content">1</span>
-			</div>
-
-			<div class="info_section">
-				<span class="info_title">결제수단</span> <span class="info_content">${selectPurchaseOrder.paymentType }</span>
-			</div>
-			<div class="info_section">
-				<span class="info_title">배송비</span> <span class="info_content">${selectPurchaseOrder.deliveryFee }</span>
-			</div>
-
-			<div class="info_section">
-				<span class="info_title">결제금액</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
-			</div>
-
+			<span><button type="button" 
+							onclick="location.href='negoForm.do?itemNum=${selectSellItemList.itemNum }'"
+							class=" btn btn--stripe btn--large ">네고확인</button></span>									
 		</div>
 		<div class="button-container">
-    <c:choose>
-        <c:when test="${selectPurchaseOrder.purchaseOk eq '구매진행'}">
-            <span><button type="button" onclick="purchaseConfirm(${selectPurchaseOrder.orderNum});" class="btn btn--stripe btn--large">구매확정</button></span>
-        </c:when>
-        <c:otherwise>
-        
-        <span><button type="button" onclick="location.href='itemList.do'" class="btn btn--stripe btn--large">계속 쇼핑</button></span>
-            
-        </c:otherwise>
-    </c:choose>
    
-    <c:choose>
-        <c:when test="${selectPurchaseOrder.purchaseOk eq '구매확정'}">
-            <span><button type="button" onclick="location.href='addreviewForm.do?orderNum=${selectPurchaseOrder.orderNum}'" class="btn btn--stripe btn--large">리뷰쓰기</button></span>
-        </c:when>
-        <c:otherwise>
-           <span><button type="button" onclick="location.href='cartList.do?memberNum=${member.memberNum}'" class="btn btn--stripe btn--large">장바구니</button></span>
-        </c:otherwise>
-    </c:choose>
 </div>
 	</main>
 </body>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<script>
-function orderCancle(orderNum) {
-    if (confirm('구매를 취소하시겠습니까?')) {
-        $.ajax({
-            url: 'orderCancle.do',
-            method: 'POST',
-            data: { orderNum: orderNum },
-            dataType: 'json',
-            success: function(response) {
-                if (response.retCode == 'OK') {
-                   alert(response);
-                	alert('구매가 취소되었습니다.');
-                    location.reload();
-                } else {
-                	alert('구매를 취소할 수 없습니다.....');
-                }
-            },
-            error: function(xhr, status, error) {
-            	alert('에러에러에러.');
-            }
-        });
-    }
-}
-
-
-function purchaseConfirm(orderNum) {
-    if (confirm('구매를 확정하시겠습니까?')) {
-        $.ajax({
-            url: 'purchaseConfirm.do', 
-            method: 'POST',
-            data: { orderNum: orderNum },
-            dataType: 'json',
-            success: function(response) {
-                if (response.retCode == 'OK') {
-                    alert('구매가 확정되었습니다.');
-                    location.reload();
-                } else {
-                    alert('구매 확정을 할 수 없습니다.');
-                }
-            },
-            error: function(xhr, status, error) {
-                alert('처리 중 오류가 발생했습니다.');
-            }
-        });
-    }
-}
-
-</script>
 </html>
 
 
