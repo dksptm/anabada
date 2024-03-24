@@ -7,7 +7,7 @@
 <div class="container-fluid page-header py-5">
 	<h1 class="text-center text-white display-6">찜목록</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
-		<li class="breadcrumb-item active text-white">cartList.do</li>
+		<li class="breadcrumb-item active text-white"></li>
 	</ol>
 </div>
 <!-- Single Page Header End -->
@@ -39,8 +39,8 @@
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">
-									<img src="itemimages/${cart.itemImage }"
-										class="img-fluid me-5 rounded-circle"
+									<img class="img-fluid me-5 rounded-circle"
+										src="images/${cart.itemImage }"
 										style="width: 80px; height: 80px;" alt="">
 								</div>
 							</th>

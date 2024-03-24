@@ -27,25 +27,21 @@
 		</div>
 
 	</section>
-				<div class="row gx-5 justify-content-center">
-					<div class="col-lg-11 col-xl-9 col-xxl-8">
-						<!-- Project Card 1-->
-						<c:forEach var="review" items="${list }">
-							<div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-								<div class="card-body p-0">
-									<div class="d-flex align-items-center">
-										<div class="p-5">
-											<h2 class="fw-bolder">리뷰번호:${review.reviewNum }</h2>
-											<%-- 		<h2>${review.memberNum }님의후기</h2> --%>
-											<p>작성날짜 :${review.reviewDate }  ||  작성자 :${member.memberName }</p>
-											<p>${review.reviewComment }</p>
-											<button type="button" onclick="reviewDel(${review.reviewNum })"
-												class="btn btn-success">삭제</button>
-						
-										</div>
-									</div>
-								</div>
 
+	<div class="row gx-5 justify-content-center">
+		<div class="col-lg-11 col-xl-9 col-xxl-8">
+			<!-- Project Card 1-->
+			<c:forEach var="review" items="${list }">
+				<div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+					<div class="card-body p-0">
+						<div class="d-flex align-items-center">
+							<div class="p-5">
+								<h2 class="fw-bolder"> 리뷰번호:${review.reviewNum }</h2>
+								<%-- 		<h2>${review.memberNum }님의후기</h2> --%>
+								<p>후기점수: ${review.reviewScore }점 || 작성날짜 :${review.reviewDate } || 작성자 :${member.memberName }</p>
+								<p>${review.reviewComment }</p>
+								<button type="button" onclick="reviewDel(${review.reviewNum })"
+									class="btn btn-success">삭제</button>
 							</div>
 						</div>
 					</div>
