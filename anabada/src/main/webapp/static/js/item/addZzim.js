@@ -16,7 +16,7 @@ function addZzim(ino) {
       	console.log(result);
       	location.reload();
       })
-      .fail((error) => console.error(err)) 
+      .fail((error) => console.error(error)) 
 	}
 
 

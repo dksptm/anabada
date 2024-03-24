@@ -14,10 +14,12 @@ public interface MemberMapper {
 	int countMemberId(String id);
 	
 	// myPagy(효주)
-	List<Item> perMemSellItems(int mno);
+	List<Item> perMemSellItems(int mno, int page);
+	int countPerMemSellItems(int mno);
 	
 	// myPage
 	List<Member> myList(int memberNum);
 	List<Member> myInfoList(int memberNum);
 	int updateAcc(Member member);
+	int updatePw(Member member);
 }

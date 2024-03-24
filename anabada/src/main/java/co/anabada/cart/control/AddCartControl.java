@@ -21,27 +21,31 @@ public class AddCartControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		String mno = req.getParameter("mno");
 		String ino = req.getParameter("ino");
 		System.out.println(mno);
-		
+
 		Cart cart = new Cart();
 
-		cart.setCartNum(Integer.parseInt(mno));
-		cart.setCartNum(Integer.parseInt(ino));
-		
-		
+		cart.setMemberNum(Integer.parseInt(mno)); // mno 값을 설정합니다.
+		cart.setItemNum(Integer.parseInt(ino));
+
 		CartService svc = new CartServiceImpl();
 		Map<String, Object> map = new HashMap<>();
-		
-		if(svc.addCart(cart)) {
-			map.put("retCode","OK");
-			map.put("retVal", cart);
+
+		if (svc.countCart(cart)) {
+			if (svc.addCart(cart)) {
+				map.put("retCode", "OK");
+				map.put("retVal", cart);
+			} else {
+				map.put("retCode", "NG");
+			}
 		} else {
-			map.put("retCode","NG");
-		}	
-			Gson gson = new GsonBuilder().create();
-			resp.getWriter().print(gson.toJson(map));
+			map.put("retCode", "AR");
+		}
+
+		Gson gson = new GsonBuilder().create();
+		resp.getWriter().print(gson.toJson(map));
 	}
 }

@@ -6,35 +6,34 @@
 
 	<select id="selectPurchaseOrder" resultType="Order" parameterType="int">
 		 
-		 SELECT
-		o.order_num,
-		o.payment_type,
-        o.delivery_how,
-        o.order_type,
-        o.order_status,
-        o.member_num,
-		i.item_name,
-		i.item_image,
-		i.item_price,
-		i.dselect,
-        i.member_num,
-		m.account_num,
-		m.member_name,
-		m.member_id,
-        m.member_phone,
-		m.member_num,
-		p.due_date,
-		p.payment_date,
-		p.purchase_ok,
-        p.purchase_num,
-        o.delivery_fee
-		FROM anvd_order o JOIN purchase p ON (o.order_num = p.order_num)
-		JOIN item i ON (o.member_num = i.member_num)
-		JOIN member m ON (o.member_num = m.member_num)
-		where o.order_num = ${orderNum}
-		AND  p.purchase_ok = '구매진행'
+		SELECT
+    o.order_num,
+    o.payment_type,
+    o.delivery_how,
+    o.order_type,
+    o.order_status,
+    o.member_num ,
+    i.item_name,
+    i.item_image,
+    i.item_price,
+    i.dselect,
+    i.member_num ,
+    m.member_name,
+    m.member_id,
+    m.member_phone,
+    p.due_date,
+    p.payment_date,
+    p.purchase_ok,
+    p.purchase_num,
+    o.delivery_fee
+FROM anvd_order o
+JOIN purchase p ON o.order_num = p.order_num
+JOIN item i ON o.item_num = i.item_num 
+JOIN member m ON o.member_num = m.member_num
+WHERE o.order_num = #{orderNum}
 		
 	</select>
+
 	
 		
 	<update id="orderCancle" parameterType="int">

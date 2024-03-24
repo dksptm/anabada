@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f0f0;
         }
-
+ 		
         #chat-container {
             display: flex;
             flex-direction: column;
@@ -58,7 +59,8 @@
             box-sizing: border-box; /* Ensure padding is included in the width */
         }
 
-        #chat-input, #username {
+        #chat-input, #AddnegoChat {
+        	margin-bottom: 10px;
             width: 100%;
             margin-bottom: 10px; /* Spacing between inputs */
             padding: 10px;
@@ -89,77 +91,84 @@
     </style>
 </head>
 <body>
-    <div id="chat-container">
-	<p>주문번호: 1</p>
-        <div id="chat-box"></div>
-        <div id="input-area">
-            <input type="text" id="username" placeholder="Your name...">
-            <input type="text" id="negoContents" name="negoContents" placeholder="Type a message...">
-        </div>
-        <div id="button-container">
-            <button id="sendbtn">전송하기</button>
-            <button id="confirm-btn">구매확정</button>
-        </div>
+
+<div id="chat-container">
+    <p>상품번호: <c:out value="${negoForm[0].itemNum}"/></p>
+    <div id="chat-box">
+        <c:forEach items="${negoForm}" var="nego">
+            <p><c:out value="${nego.memberName}"/>: <c:out value="${nego.negoChat}"/></p>
+        </c:forEach>
     </div>
+    <div id="input-area">
+        <input type="text" id="memberName" value="${member.memberName}" readonly>
+        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="메시지를 입력하세요...">
+        <c:if test="${not empty negoForm}">
+            <input type="hidden" id="itemNum" value="${negoForm[0].itemNum}">
+            <input type="hidden" id="memberNum" value="${member.memberNum}">
+        </c:if>
+    </div>
+    <div id="button-container">
+        <button id="sendbtn">전송하기</button>
+    </div>
+</div>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$('#sendbtn').on('click', function() {
+    let negoChat = $('#AddnegoChat').val().trim(); 
+    if(negoChat === '') {
+        alert('메시지를 입력하세요.');
+        return; 
+    }
+    let itemNum = $('#itemNum').val();
+    let memberNum = $('#memberNum').val(); 
+    let param = {negoChat: negoChat, itemNum: itemNum, memberNum: memberNum}; 
+    
+    $.ajax({
+        url: 'AddnegoChat.do',
+        method: 'post',
+        data: param,
+        dataType: 'json'
+    })
+        .done(function(result) {
+            if(result.retCode == 'OK') {
+                alert('등록완료');
+                $('#AddnegoChat').val('');
+                let newMessage = $('<p>').text(`${memberName}: ${negoChat}`); // 임시로 "You"를 사용
+                $('#chat-box').append(newMessage);
+                $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+                location.reload();
+            } else {
+                alert('등록실패');
+            }
+        })
+        .fail(function(err) {
+            console.log('err=>', err);
+            alert('에러 발생');
+        });
+    });
+   
+   function purchaseConfirm(orderNum) {
+	    if (confirm('구매를 확정하시겠습니까?')) {
+	        $.ajax({
+	            url: 'purchaseConfirm.do', 
+	            method: 'POST',
+	            data: { orderNum: orderNum },
+	            dataType: 'json',
+	            success: function(response) {
+	                if (response.retCode == 'OK') {
+	                    alert('구매가 확정되었습니다.');
+	                    location.reload();
+	                } else {
+	                    alert('구매 확정을 할 수 없습니다.');
+	                }
+	            },
+	            error: function(xhr, status, error) {
+	                alert('처리 중 오류가 발생했습니다.');
+	            }
+	        });
+	    }
+	}
+</script>
+
 </body>
 </html>
-   
-    <script> 
-        $('#sendbtn').on('click', funtion() {
-        	let negoContents = $('#negoContents').val();
-        	
-        	let param = {negoContents: negoContents, contentDate: contentDate}
-        	function sendbtn (param={negoContents: 'negoContents', contentDate: 'contentDate'},successCall,errorCall){
-        	$.ajax({
-        		url:'addContents.do',
-        		method:'post',
-        		data:param,
-        		dataType:'json'
-        	 })
-        	 .done(successCall)
-        	 .fail(errorCall)
-            }
-        	sendbtn(param, function(result) {
-        		if(result.recode == 'OK') {
-        			alert('등록완료');
-        			$('#negoContents').val('');
-        			location.reload();
-        		}else{
-        			alert('등록실패');
-        		}
-        	},function(err) {
-        		console.log('err=>', err)
-        	})
-        	
-       		});
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    document.getElementById('send-btn').addEventListener('click', function() {
-            const chatBox = document.getElementById('chat-box');
-            const chatInput = document.getElementById('chat-input');
-            
-            const newMessage = document.createElement('p');
-            newMessage.textContent = chatInput.value;
-            
-            chatBox.appendChild(newMessage);
-            chatInput.value = ''; 
-        });
-    
-        
-        
-        
-        </script>
-    
-    
-    
-    
-    
