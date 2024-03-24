@@ -20,4 +20,5 @@ public interface MemberMapper {
 	List<Member> myList(int memberNum);
 	List<Member> myInfoList(int memberNum);
 	int updateAcc(Member member);
+	int updatePw(Member member);
 }

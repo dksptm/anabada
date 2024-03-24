@@ -101,5 +101,11 @@
 	 SET account_num = #{accountNum}
 	 WHERE member_num = #{memberNum}
 	</update>
-
+	
+	<update id = "updatePw" parameterType="member">
+	 UPDATE member 
+	 SET member_password = #{memberPassword}
+	 WHERE member_num = #{memberNum}
+	</update>
+	
 </mapper>

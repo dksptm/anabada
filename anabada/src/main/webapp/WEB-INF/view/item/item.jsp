@@ -105,11 +105,12 @@ function addZzim(ino) {
 		})
 		.done((result) => {
       	console.log(result);
-      	//location.reload();
+     	 alert('찜하기성공!')
       })
-      .fail((error) => console.error(err)) 
-	}
-
-
+      .fail((error) => {
+    	 console.log(error)
+    	 alert('찜하기실패!');
+      })
+}
 </script>
 <!-- <script src="static/js/item/addZzim.js"></script> -->

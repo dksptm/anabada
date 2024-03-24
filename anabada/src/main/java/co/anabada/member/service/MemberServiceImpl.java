@@ -62,4 +62,9 @@ public class MemberServiceImpl implements MemberService {
 	public Member loginMemByNum(int mno) {
 		return mapper.selectMemByNum(mno);
 	}
+
+	@Override
+	public boolean modifyPw(Member member) {
+		 return mapper.updatePw(member) == 1;
+	}
 }

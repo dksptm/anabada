@@ -41,7 +41,7 @@
 		JOIN item i ON (o.item_num = i.item_num)
 
 		ORDER BY o.order_date DESC
-
+		
 	</select>
 
 	<delete id="deletePurchaseList" parameterType="int">

@@ -68,38 +68,25 @@
 
 
 <script>
+// 찜목록삭제 
 let mno = '${member.memberNum }';
-//console.log('멤버!',mno);
+console.log('멤버!',mno);
 
 function cartDelete(cno){
-    //console.log(cno);
+    console.log(cno);
     $.ajax({
         url: "removeCart.do",
         method: "get",
         data: { cno: cno ,  mno: mno }, 
         dataType: 'json',
     })
-<<<<<<< HEAD
-  })
-  .fail(err => console.log(err))
+    .done((result) => {
+    	console.log(result);
+    	alert('삭제완료!')
+    	location.reload();
+    })
+    .fail((error) => console.error(err)) 
+} 
 
-  
-//아이템 삭제.
-$(".deleteBtn").on('click', function() {
-	let cartNum = $(this).data("cartNum");
-	console.log(cartNum);
-	fetch("removeCart.do?cartNum=" + cartNum)
-		.then(result => result.json())
-		.then(result => {
-		if (result.retCode == "OK") {
-			alert('삭제됨');
-			location.reload();
-		} else {
-			alert('삭제 중 오류 발생')
-			}
-		})
-	})
-//end of 아이템 삭제.
-  
 
 </script>

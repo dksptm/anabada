@@ -32,7 +32,7 @@ th {
 	<div class="container">
 	<%-- <p>${myInfoList }</p> --%>
 		 <div>
-			<h1>내 정보 ${memAcc } </h1>
+			<h1>내 정보 ${memPw } </h1>
 			<table>
 				<thead>
 					<tr>
@@ -40,20 +40,19 @@ th {
 						<th>이름</th>
 						<th>연락처</th>
 						<th>계좌</th>
-						
+						<th>비밀번호</th>
 					</tr>
 				</thead>
 				<tbody class= "" >
 						<c:forEach items="${myInfoList }" var="my">
-						<tr>
-							<td>${my.memberNum}</td>
-							<td>${my.memberName}</td>
-							<td>${my.memberPhone}</td>
-							<td>${my.accountNum}</td>
-							
+						<tr> 
+							<td>${my.memberNum }</td>
+							<td>${my.memberName }</td>
+							<td>${my.memberPhone }</td>
+							<td>${my.accountNum } <button type="button" onclick="accUpdate()" class="btn btn-success">수정</button></td>
+							<td>${my.memberPassword }<button type="button" onclick="pwUpdate()" class="btn btn-success">수정</button></td>
 						</tr>
 						</c:forEach>
-						<tr><td colspan="4"><button type="button" onclick="accUpdate()" class="btn btn-success">계좌수정하기</button></td></tr>
 				</tbody>
 			</table>
 		</div>
@@ -64,26 +63,46 @@ let mno = '${member.memberNum }';
 console.log('여기서?',mno);
 
 function accUpdate() {
-	let inputAcc = prompt("수정할 계좌번호를 입력해주세요\n대구은행 111-1111");
+	let inputAcc = prompt("수정할 계좌번호를 입력해주세요\n ex)대구은행 111-1111");
 	console.log(inputAcc);
 	
 	$.ajax({
 		url: 'modifyAcc.do',
-		type:'get',
+		type:'post',
 		data: { acc: inputAcc, mno: mno },
 		dataType: 'json',
 	})
 	.done((result) => {
 		if(result.retCode == 'OK') {
+			alert('수정성공!');
 			window.location.replace('myInfo.do?memberNum='+mno);
 		} else {
 			alert('수정실패');
 		}
 	})
 	.fail((err) => console.log(err))
-}
+};
 
+//
+function pwUpdate() {
+	let inputPw = prompt("수정할 비밀번호를 입력해주세요\n ");
+	console.log(inputPw);
+	
+	$.ajax({
+		url: 'modifyPw.do',
+		type:'post',
+		data: { pw : inputPw, mno: mno },
+		dataType: 'json',
+	})
+	.done((result) => {
+		if(result.retCode == 'OK') {
+			alert('수정성공!')
+			window.location.replace('myInfo.do?memberNum='+mno);
+		} else {
+			alert('수정실패');
+		}
+	})
+	.fail((err) => console.log(err))
+};
 </script>
-
-
 

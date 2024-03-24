@@ -54,7 +54,7 @@
                                         <a href="sellItemList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">판매내역</h5><a>
                                         <a href="purchaseList.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">구매내역</h5><a>
                                         <a href="reviewList.do?mno=${member.memberNum }"><h5 class="text-primary text-end">리뷰내역</h5><a>
-                                        <a href="myInfo.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">계좌수정</h5><a>
+                                        <a href="myInfo.do?memberNum=${member.memberNum }"><h5 class="text-primary text-end">개인정보</h5><a>
                                 	</div>
                                 </div>
                                 <br><br>

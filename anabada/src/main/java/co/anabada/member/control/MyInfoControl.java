@@ -27,6 +27,8 @@ public class MyInfoControl implements Control {
 		
 		HttpSession session = req.getSession();
 		session.setAttribute("memAcc", mem.getAccountNum());
+		session.setAttribute("memPw", mem.getMemberPassword());
+		
 		
 		req.setAttribute("myInfoList", myInfoList);
 		//System.out.println(memberNum);
@@ -37,15 +39,7 @@ public class MyInfoControl implements Control {
 		 dispatch.forward(req, resp);
 		
 		 
-	
-	
-		/*
-		 * System.out.println(myInfoList); 
-		 * req.setAttribute("myInfoList", myInfoList);
-		 * 
-		 * RequestDispatcher dispatch = req.getRequestDispatcher(path);
-		 * dispatch.forward(req, resp);
-		 */
+
 	}
 
 }
