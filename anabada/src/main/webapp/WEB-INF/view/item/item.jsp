@@ -65,14 +65,12 @@
                         	<span>현재 ${item.itemStatus }인 상품입니다.</span>
                         </c:when>
                         <c:otherwise>
-                        <div class="d-flex fs-5 mb-5" id="btns">
-	                        <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=nego'" 
-	                        		class="btn btn-outline-dark me-auto col-3" 
-	                        		type="button" 
-	                        		${item.pselect eq 'negoNG' ? 'disabled' : '' }>
-		                        <i class="bi-cart-fill me-1"></i>
-		                        네고하기
-			                </button>
+                        	<div class="d-flex fs-5 mb-5" id="btns">
+	                        <a href="javascript:void(0);" onclick="toggleFrame('negoForm.do?itemNum=${item.itemNum}');" class="btn btn-outline-dark me-auto col-3">
+        					<i class="bi-cart-fill me-1"></i>
+       						 네고하기
+   							</a>
+			               
 			                <button onclick ="location.href='orderForm.do?ino=${item.itemNum }&oty=baro'" 
 			                		class="btn btn-outline-dark me-auto col-3" type="button">
 		                        <i class="bi-cart-fill me-1"></i>
@@ -90,7 +88,7 @@
             </div>
         </section>
 
-
+<iframe name="contentFrame" id="contentFrame" style="width:100%; height:600px; border:none; display:none; position:fixed; left:0; top:0;"></iframe>
 <script>
 let mno = '${member.memberNum }';
 console.log('멤버!',mno);
@@ -109,6 +107,31 @@ function addZzim(ino) {
       })
       .fail((error) => console.error(err)) 
 	}
+
+
+function toggleFrame(url) {
+    var iframe = document.getElementById('contentFrame');
+    // 'iframe'의 현재 상태 및 URL 체크
+    if (iframe.style.display === 'block' && iframe.src.includes(url)) {
+        // 이미 'iframe'이 표시중이며, 같은 URL을 로드하려는 경우 'iframe' 숨김
+        iframe.style.display = 'none';
+        iframe.src = '';
+    } else {
+        // 'iframe'을 표시하고, 주어진 URL 로드
+        iframe.style.display = 'block';
+        iframe.src = url;
+        // 'iframe'의 위치 조정
+        iframe.style.left = '0px'; // 화면의 왼쪽에 위치
+        iframe.style.top = '80px'; // 화면 상단에서 적당한 여백을 둠
+        iframe.style.width = '30%'; // iframe의 너비 조정
+        iframe.style.height = '100%'; // 화면 높이에 맞게 조정
+    }
+}
+
+// 페이지 로드 시 'iframe'을 숨김
+window.onload = function() {
+    document.getElementById('contentFrame').style.display = 'none';
+}
 
 
 </script>

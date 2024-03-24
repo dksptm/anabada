@@ -93,5 +93,10 @@ public class ItemServiceImpl implements ItemService {
 		return mapper.sellItemCancle(itemNum) == 1;
 	}
 
+	@Override
+	public Item selectSellItemList(int itemNum) {
+		return mapper.selectSellItemList(itemNum);
+	}
+
 
 }

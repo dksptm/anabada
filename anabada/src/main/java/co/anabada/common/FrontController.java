@@ -26,6 +26,7 @@ import co.anabada.item.control.ChangeItem;
 import co.anabada.item.control.InameListControl;
 import co.anabada.item.control.ItemControl;
 import co.anabada.item.control.ItemListControl;
+import co.anabada.item.control.SelectSellItemListControl;
 import co.anabada.item.control.SellItemCancleControl;
 import co.anabada.item.control.SellItemListControl;
 import co.anabada.item.control.ShopInfoControl;
@@ -38,7 +39,7 @@ import co.anabada.member.control.MyInfoControl;
 import co.anabada.member.control.MypageControl;
 import co.anabada.member.control.SignUpControl;
 import co.anabada.member.control.SignUpForm;
-import co.anabada.nego.control.NegoContentAddControl;
+import co.anabada.nego.control.AddnegoChatControl;
 import co.anabada.nego.control.NegoFormControl;
 import co.anabada.order.control.AddOrderControl;
 import co.anabada.order.control.OrderCancleControl;
@@ -122,12 +123,13 @@ public class FrontController extends HttpServlet {
 		controls.put("/purchaseList.do", new PurchaseListControl());
 		controls.put("/deletePurchase.do", new deletePurchaseControl());
 		controls.put("/sellItemList.do" , new SellItemListControl());
+		controls.put("/SelectSellItemList.do", new SelectSellItemListControl());
 		controls.put("/deleteSellItem.do", new SellItemCancleControl());
 		controls.put("/selectPurchaseList.do", new selectPurchaseOrderForm());
 		controls.put("/orderCancle.do", new OrderCancleControl());
 		controls.put("/purchaseConfirm.do", new PurchaseConfirmControl());
 		controls.put("/negoForm.do", new NegoFormControl());
-		controls.put("/addContents.do", new NegoContentAddControl());
+		controls.put("/AddnegoChat.do", new AddnegoChatControl());
 	}
 	
 	@Override

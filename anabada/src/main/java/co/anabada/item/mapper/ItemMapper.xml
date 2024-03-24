@@ -216,5 +216,26 @@
         WHERE  item_num = #{param2}		
 	</update>
 
+ <select id="selectSellItemList" resultType="Item" parameterType="int" >
+        SELECT
+            i.item_num,
+            i.category_id,
+            i.item_image,
+            i.member_num,
+            i.item_name,
+            i.item_price,
+            i.item_info,
+            i.item_status,
+            i.item_date,
+            i.dselect,
+            i.pselect,
+            m.member_num
+        FROM
+            item i
+            JOIN member m ON i.member_num = m.member_num
+        WHERE
+            i.item_num = #{itemNum}
+    </select>
+
 
 </mapper>
