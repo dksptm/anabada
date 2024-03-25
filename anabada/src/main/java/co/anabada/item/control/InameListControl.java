@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
 import co.anabada.item.Item;
@@ -19,21 +20,23 @@ public class InameListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("application/json; charset=UTF-8");
 		String iname = req.getParameter("iname");
-		String key = req.getParameter("keyword");
+		System.out.println("inameListControl(iname)= " + iname);
+		String page = req.getParameter("page");
+
 		ItemService svc = new ItemServiceImpl();
-		List<Item> ilist = svc.InameList(iname);
+
+		List<Item> ilist = svc.InameList(iname,Integer.parseInt(page));
 		
-		req.setAttribute("key", key);
-		req.setAttribute("ilist", ilist);
 		
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().create();
+
+		String jsonText = gson.toJson(ilist);
+
 		
-		String jsonText1 = gson.toJson(ilist);
-		
-		PrintWriter writer = resp.getWriter();
-		writer.write(jsonText1);
-		
+		resp.getWriter().print(jsonText);
+
 
 	}
 

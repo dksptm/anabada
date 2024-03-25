@@ -49,12 +49,6 @@
                                     <span class="mb-2"> / 상품금액: ${order.itemPrice }상품</span>
                                 </div>
                             </div>
-                            <div class="d-flex p-4 rounded bg-white">
-                                <div>
-                                    <p>로그인 회원번호 : <c:out value="${member.memberNum }" /></p>
-                                    <p>로그인 회원번호 : <c:out value="${order.memberNum }" /></p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -17,20 +17,20 @@ public class ReviewListControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/json;charset=utf-8");
 		String mno = req.getParameter("mno");
-		
+
 		ReviewService svc = new ReviewServiceImpl();
 		List<Review> list = svc.reviewList(Integer.parseInt(mno));
-		
+
 		req.setAttribute("list", list);
-		
-		//JSP
+
+		// JSP
 		String path = "review/reviewList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
-		
+
 	}
 
 }

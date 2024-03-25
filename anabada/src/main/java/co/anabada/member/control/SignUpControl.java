@@ -16,11 +16,12 @@ public class SignUpControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		String meberId = req.getParameter("member_id");
-		Member member = new Member(meberId, req.getParameter("member_pw"), req.getParameter("member_name"), req.getParameter("member_phone"));
+		Member member = new Member(meberId, req.getParameter("member_pw"), req.getParameter("member_name"),
+				req.getParameter("member_phone"));
 		MemberService mvc = new MemberServiceImpl();
-		
+
 		try {
 			if (mvc.signUpMember(member)) {
 				String path = "member/loginForm.tiles";
@@ -40,7 +41,7 @@ public class SignUpControl implements Control {
 				String path = "main/error.tiles";
 				req.getRequestDispatcher(path).forward(req, resp);
 			}
-		} catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("message", "Exception e");
 			String path = "main/error.tiles";

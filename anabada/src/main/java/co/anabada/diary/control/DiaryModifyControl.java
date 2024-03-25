@@ -16,31 +16,31 @@ import co.anabada.diary.Diary;
 import co.anabada.diary.service.DiaryService;
 import co.anabada.diary.service.DiaryServicelmpl;
 
-public class DiaryModifyControl implements Control { //일정수정
+public class DiaryModifyControl implements Control { // 일정수정
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("application/json;charset=utf-8");
-		String diaryNum = req.getParameter("diaryNum"); 
+		String diaryNum = req.getParameter("diaryNum");
 		String diaryName = req.getParameter("diaryName");
 		String diaryContent = req.getParameter("diaryContent");
 		String diaryType = req.getParameter("diaryType");
 		String diaryModify = req.getParameter("diaryModify");
-		
-		/*		  ---------------------------	     */
+
+		/* --------------------------- */
 		Diary diary = new Diary();
 		diary.setDiaryNum(Integer.parseInt(diaryNum));
 		diary.setDiaryName(diaryName);
 		diary.setDiaryContent(diaryContent);
 		diary.setDiaryType(diaryType);
 		diary.setDiaryModify(diaryModify);
-		
-		/*		  ---------------------------	     */
+
+		/* --------------------------- */
 		DiaryService dvc = new DiaryServicelmpl();
 		Map<String, Object> map = new HashMap<>();
-		
-		/*		  ---------------------------	     */
+
+		/* --------------------------- */
 		if (dvc.modifyDiary(diary)) {
 			map.put("retCode", "OK");
 			map.put("retVal", diary);

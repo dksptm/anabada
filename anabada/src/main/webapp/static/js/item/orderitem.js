@@ -7,7 +7,6 @@ console.log('orderitem.js');
 let ptype = 'err';
 
 $(document).ready(function(){
-	console.log('일단 처음에 ', ino, mno)
 	
 	// 일단 안보이게.
 	$('#jusot').slideUp();	
@@ -42,12 +41,11 @@ $(document).ready(function(){
 });
 
 function orderBtn() {
-	console.log(ptype);
 	let str;
 	if(ptype == 'payj'){
-		str = '거래방법: 직거래, 결제방법: 네이버페이 OK?'
+		str = '거래방법: 직거래, 결제방법: 기타결제 OK?'
 	} else if(ptype == 'payt'){
-		str = '거래방법: 택배발송, 결제방법: 네이버페이 OK?'
+		str = '거래방법: 택배발송, 결제방법: 기타결제 OK?'
 	} else if(ptype == 'depositj'){
 		str = '거래방법: 직거래, 결제방법: 무통장입금 OK?'
 	} else if(ptype == 'depositt'){
@@ -60,7 +58,6 @@ function orderBtn() {
 		let dfee = dhow == '택배발송' ? 3000 : 0;
 		let daddr = dhow == '택배발송' ? $('#tjuso').val() : '' ;
 		let pty = ptype == 'payj' || ptype == 'payt' ? '페이' : '입금';
-		console.log('넘어오나요? ',ino, mno, oty, dhow, dfee, daddr, pty);
 		$.ajax({
 			url: 'addOrder.do',
 			method: 'post',
@@ -70,7 +67,6 @@ function orderBtn() {
 		.done((result) => {
 			if(result.retCode == 'OK'){
 				alert('주문성공!');
-				alert('주문번호=>' + result.odrNo);
 				window.location.href='/anabada/orderComplete.do?odrNo=' + result.odrNo;
 			} else {
 				alert('주문실패!');

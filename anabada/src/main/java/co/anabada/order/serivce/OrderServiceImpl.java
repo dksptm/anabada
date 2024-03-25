@@ -1,6 +1,7 @@
 package co.anabada.order.serivce;
 
 import org.apache.ibatis.session.SqlSession;
+
 import co.anabada.common.DataSource;
 import co.anabada.order.Order;
 import co.anabada.order.mapper.OrderMapper;
@@ -8,7 +9,7 @@ import co.anabada.order.mapper.OrderMapper;
 public class OrderServiceImpl implements OrderService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	OrderMapper mapper = session.getMapper(OrderMapper.class);
-	
+
 	@Override
 	public Order selectPurchaseOrder(int OrderNum) {
 		return mapper.selectPurchaseOrder(OrderNum);
@@ -16,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public boolean orderCancle(int orderNum) {
-		return mapper.orderCancle(orderNum)==1;
+		return mapper.orderCancle(orderNum) == 1;
 	}
 
 	// 효주.
@@ -29,5 +30,5 @@ public class OrderServiceImpl implements OrderService {
 	public Order odrComResult(int orderNum) {
 		return mapper.selectOdrCom(orderNum);
 	}
-	
+
 }

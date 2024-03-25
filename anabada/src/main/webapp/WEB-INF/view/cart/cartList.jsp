@@ -7,7 +7,7 @@
 <div class="container-fluid page-header py-5">
 	<h1 class="text-center text-white display-6">찜목록</h1>
 	<ol class="breadcrumb justify-content-center mb-0">
-		<li class="breadcrumb-item active text-white">cartList.do</li>
+		<li class="breadcrumb-item active text-white"></li>
 	</ol>
 </div>
 <!-- Single Page Header End -->
@@ -39,7 +39,8 @@
 							</td>
 							<th scope="row">
 								<div class="d-flex align-items-center">
-									<img src="itemimages/${cart.itemImage }"
+
+									<img src="images/${cart.itemImage }"
 										class="img-fluid me-5 rounded-circle"
 										style="width: 80px; height: 80px;" alt="">
 								</div>
@@ -65,41 +66,26 @@
 </div>
 <!-- Tastimonial End -->
 
-
-
 <script>
+// 찜목록삭제 
 let mno = '${member.memberNum }';
-//console.log('멤버!',mno);
+console.log('멤버!',mno);
 
 function cartDelete(cno){
-    //console.log(cno);
+    console.log(cno);
     $.ajax({
         url: "removeCart.do",
         method: "get",
         data: { cno: cno ,  mno: mno }, 
         dataType: 'json',
     })
-<<<<<<< HEAD
-  })
-  .fail(err => console.log(err))
+    .done((result) => {
+    	console.log(result);
+    	alert('삭제완료!')
+    	location.reload();
+    })
+    .fail((error) => console.error(err)) 
+} 
 
-  
-//아이템 삭제.
-$(".deleteBtn").on('click', function() {
-	let cartNum = $(this).data("cartNum");
-	console.log(cartNum);
-	fetch("removeCart.do?cartNum=" + cartNum)
-		.then(result => result.json())
-		.then(result => {
-		if (result.retCode == "OK") {
-			alert('삭제됨');
-			location.reload();
-		} else {
-			alert('삭제 중 오류 발생')
-			}
-		})
-	})
-//end of 아이템 삭제.
-  
 
 </script>

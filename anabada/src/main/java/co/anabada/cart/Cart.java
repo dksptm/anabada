@@ -10,8 +10,8 @@ public class Cart {
 	private String itemName;
 	private int itemPrice;
 	private String itemImage;
-	
+
 	private String memberName;
 	private int memberNum;
-	
+
 }

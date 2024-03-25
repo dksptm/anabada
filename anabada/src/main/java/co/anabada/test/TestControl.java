@@ -18,21 +18,19 @@ public class TestControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/json;charset=utf-8");
-		
+
 		MemberService svc = new MemberServiceImpl();
 		List<Member> list = svc.memberList();
-		
+
 		req.setAttribute("list", list);
-		
+
 		// JSP.
 		String path = "member/test.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);
-		
-		//=> 줄여서 req.getRequestDispatcher(path).forward(req, resp); 
-		
 
-		
+		// => 줄여서 req.getRequestDispatcher(path).forward(req, resp);
+
 	}
 
 }

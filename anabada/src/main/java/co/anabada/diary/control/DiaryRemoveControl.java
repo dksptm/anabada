@@ -15,19 +15,19 @@ import co.anabada.common.Control;
 import co.anabada.diary.service.DiaryService;
 import co.anabada.diary.service.DiaryServicelmpl;
 
-public class DiaryRemoveControl implements Control{
+public class DiaryRemoveControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/json;charset=utf-8");
 		String diaryNum = req.getParameter("diaryNum");
-		
-		/*		  ---------------------------	     */
+
+		/* --------------------------- */
 		DiaryService dvc = new DiaryServicelmpl();
 		Map<String, String> map = new HashMap<>();
-		
-		/*		  ---------------------------		 */
+
+		/* --------------------------- */
 		if (dvc.removeDiary(Integer.parseInt(diaryNum))) {
 			map.put("retCode", "OK");
 			map.put("retMsg", "삭제되었습니다");
@@ -39,5 +39,5 @@ public class DiaryRemoveControl implements Control{
 		String json = gson.toJson(map);
 		resp.getWriter().print(json);
 	}
-	
+
 }

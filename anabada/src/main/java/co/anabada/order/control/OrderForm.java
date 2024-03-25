@@ -17,19 +17,19 @@ public class OrderForm implements Control {
 		req.setCharacterEncoding("UTF-8");
 		String ino = req.getParameter("ino");
 		String oty = req.getParameter("oty");
-		
+
 		System.out.println(oty + "  " + ino);
-		
+
 		ItemService ivc = new ItemServiceImpl();
 		Item item = ivc.getItem(Integer.parseInt(ino));
-		
-		if(oty.equals("baro")) {
+
+		if (oty.equals("baro")) {
 			req.setAttribute("item", item);
 			String path = "order/orderForm.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else if (oty.equals("nego")) {
 			req.setAttribute("item", item);
-			String path = "order/negoForm.tiles";
+			String path = "WEB-INF/view/nego/jsp/negoForm.jsp";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
 			req.setAttribute("message", "주문연결 오류");

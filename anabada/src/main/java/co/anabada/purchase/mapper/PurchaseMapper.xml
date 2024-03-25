@@ -5,42 +5,7 @@
 <mapper namespace="co.anabada.purchase.mapper.PurchaseMapper">
 
 	<select id="purchaseList" resultType="co.anabada.purchase.Purchase">
-
-		SELECT
-
-		o.order_num,
-
-		o.member_num,
-
-		o.order_date,
-
-		o.order_status,
-
-		i.item_name,
-
-		i.item_price,
-
-		i.item_image,
-
-		i.item_info,
-
-		i.item_status,
-
-		i.item_date,
-
-		p.total_price,
-
-		p.purchase_ok,
-
-		p.payment_date + 7
-
-		FROM purchase p
-
-		JOIN anvd_order o ON (p.order_num = o.order_num)
-
-		JOIN item i ON (o.item_num = i.item_num)
-
-		ORDER BY o.order_date DESC
+        select * from vu_odr_com where member_num = #{memberNum}
 
 	</select>
 
@@ -54,12 +19,42 @@
 
 	<update id="purchaseConfirm" parameterType="int">
 
-		UPDATE purchase
+		UPDATE anvd_order
 
-		SET purchase_ok = '구매확정'
+		SET order_status = '주문완료'
 
 		WHERE order_num = ${orderNum}
 
 	</update>
+
+	<select id="myOPList" parameterType="hashMap">
+     SELECT order_num
+            ,order_type
+            ,order_status
+            ,payment_type
+            ,delivery_how
+            ,item_num
+            ,account_num
+            ,seller_name
+            ,seller_num
+            ,member_num
+            ,total
+            ,delivery_address
+            ,delivery_fee
+            ,item_price
+            ,order_date
+     FROM vu_odr_com
+     <where>
+     	<choose>
+		    <when test="#{param1} == '' || #{param1} == null">
+		    	seller_num = #{param2}
+		    </when>
+		    <when test="#{param2} == '' || #{param2} == null">
+		    	member_num = #{param1}
+		    </when>
+	 	</choose>
+	 </where>
+	 ORDER BY 1;
+	</select>
 
 </mapper>

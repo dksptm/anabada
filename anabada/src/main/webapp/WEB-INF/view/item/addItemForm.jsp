@@ -4,7 +4,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">상품등록(완료)</h1>
+            <h1 class="text-center text-white display-6">상품등록</h1>
         </div>
         <!-- Single Page Header End -->
 
@@ -55,7 +55,7 @@
 	                        <div class="form-item">
 	                            <input class="form-check-input bg-primary" type="checkbox" id="jik" value="jik">
 	                        	<label class="form-check-label me-5" for="jik">직거래</label>
-		                        <button type="button" id="jido" class="btn btn-outline-info btn-sm">장소추가</button>
+		                        <!-- <button type="button" id="jido" class="btn btn-outline-info btn-sm">장소추가</button> -->
 	                        </div>
 	                        <hr>
 	                        <div class="form-item">

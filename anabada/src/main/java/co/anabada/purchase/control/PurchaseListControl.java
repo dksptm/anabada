@@ -13,24 +13,26 @@ import co.anabada.purchase.Purchase;
 import co.anabada.purchase.service.PurchaseService;
 import co.anabada.purchase.service.PurchaseServiceImpl;
 
-
 public class PurchaseListControl implements Control {
-			
-	 @Override
-	    public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	        	resp.setContentType("text/json;charset=utf-8");
 
-	            PurchaseService svc = new PurchaseServiceImpl();
-	            List<Purchase> purchaselist = svc.purchaseList();
-	            req.setAttribute("purchaselist", purchaselist);
-	            
-	            System.out.println(purchaselist);
-	            
-	            String path = "purchase/purchaseList.tiles";
-	            RequestDispatcher dispatch = req.getRequestDispatcher(path);
-	            dispatch.forward(req, resp);
-	       
-	 }
+	@Override
+	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/json;charset=utf-8");
+
+		String memberNum = req.getParameter("memberNum");
+		String orderNum = req.getParameter("orderNum");
+		PurchaseService svc = new PurchaseServiceImpl();
+		List<Purchase> purchaselist = svc.purchaseList(Integer.parseInt(memberNum));
+		req.setAttribute("purchaselist", purchaselist);
+		req.setAttribute("memberNum", memberNum);
+		System.out.println("memberNum : " + memberNum);
+		req.setAttribute("orderNum", orderNum);
+		System.out.println("orderNum : " + orderNum);
+		System.out.println(purchaselist);
+
+		String path = "purchase/purchaseList.tiles";
+		RequestDispatcher dispatch = req.getRequestDispatcher(path);
+		dispatch.forward(req, resp);
+
+	}
 }
-	 
-	

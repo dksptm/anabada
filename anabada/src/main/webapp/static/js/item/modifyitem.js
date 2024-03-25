@@ -1,17 +1,25 @@
 /**
- * addItemForm.jsp -> additem.js 
+ * 
  */
 
-console.log('additem.js');
+console.log('modifyitem.js');
 
 $(document).ready(function(){
-
+	console.log(img);
+	
+	$('#slideinput').slideUp();
+	$('.btnslide').on('click', function(){
+		console.log("슬라이드 다운!")
+		$('#slideinput').slideToggle();
+	})
+	
 	if(mem == ''){
 		alert('로그인 후 이용가능.');
 		window.location.href='/anabada/loginForm.do';
-	} 
-	// 판매자의 account 가져오기.
-	
+	} else if (mem != seller){
+		alert('권한없음.');
+		window.location.href='/anabada/item.do?itemNum=' + ino;
+	}
 	
 	// 카테고리 가져오기
 	$.ajax({
@@ -32,19 +40,58 @@ $(document).ready(function(){
 	
 });
 
-function selectFnc(){
+function test1(){
+	let imgFlag = $('#imgModify').val() == '' ? false : true;
+	if(imgFlag) {
+		$('input[name=imgFlag]').val('YES');
+		$('input[name=firstImg]').val(img);
+	} else {
+		$('input[name=imgFlag]').val('NO');
+	}
+	console.log($('input[name=imgFlag]').val());
+	console.log($('input[name=firstImg]').val());
+}
+
+function test2() {
+	let imgFlag = $('#imgModify').val() == '' ? false : true;
+	if(imgFlag) {
+		$('input[name=imgFlag]').val('YES');
+		$('input[name=firstImg]').val(img);
+	} else {
+		$('input[name=imgFlag]').val('NO');
+	}
+	alert(imgFlag);
+	alert($('input[name=imgFlag]').val());
+	let form = $('#modifyItem');
+	form.submit();	
+}
+
+function modifyFnc(){
+	// 사진을 수정할껀지 확인.
+	let imgFlag = $('#imgModify').val() != '' ? true : false;
+	if(imgFlag) {
+		$('input[name=imgFlag]').val('YES');
+		$('input[name=firstImg]').val(img);
+	} else {
+		$('input[name=imgFlag]').val('NO');
+		$('input[name=firstImg]').val(img);
+	}
+	//alert('사진수정여부? ' + imgFlag);
+	//alert('imgFlag? ' + $('input[name=imgFlag]').val());
+	
+	// 모두 입력됐는지 확인.
 	let chkName = $('#name').val().trim() == '' ? false : true;
 	let chkCate = $('#myCate').val() == '선택하세요' ? false : true;
 	let chkPrice = $('#price').val().trim() == '' ? false : true;
-	let chkImg = $('#img').val().trim() == '' ? false : true;
 	let chkInfo = $('textarea[name=info]').val().trim() == '' ? false : true;
-	console.log(chkCate);
-	console.log($('#myCate').val());
-	if(!chkName || !chkCate || !chkPrice || !chkImg || !chkInfo){
-		alert('모든항목 입력.');
+	if(!chkName || !chkCate || !chkPrice || !chkInfo){
+		alert('모든항목 입력하세요.');
 		return false;
+	} else {
+		alert('모든항목 입력완료.');
 	}
 	
+	// 선택사항(거래방법과 네고가능여부) 체크됐는지 확인.	
 	let taek = $('#taek').is(':checked') ? $('#taek').val() : null;
 	let jik = $('#jik').is(':checked') ? $('#jik').val() : null;
 	if(!taek && !jik){
@@ -64,10 +111,8 @@ function selectFnc(){
 		return false;
 	}
 	$('input:hidden[name=pselect]').val(pay);
-	//console.log($('input[name=d_select]').val())
-	//console.log($('input:hidden[name=p_select]').val())
-	//console.log($('#a').val());
-	//console.log($('#b').val());
-	let form = $('#addItem');
-	form.submit();	
+	
+	// 제출하기.
+	let form = $('#modifyItem');
+	form.submit();		
 }

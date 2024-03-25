@@ -20,6 +20,7 @@ em.warning {
 <!-- Single Page Header End -->
 
 
+
 <!-- Checkout Page Start -->
 <div class="container-fluid py-5">
 	<div class="container py-5">
@@ -30,12 +31,13 @@ em.warning {
 			<div class="row g-3 justify-content-center">
 				<div class="col-md-12 col-lg-6 col-xl-7">
 					<div class="form-item">
-					 <label class="form-label my-3" for="member_pw" required>order_num<sup>*</sup></label>
+					 <label class="form-label my-3" for="member_pw" required><sup>*</sup>주문 번호<sup>*</sup></label>
 						<p>${orderNum }</p>
 						<em></em> 
+						<hr>
 					</div>
 					<div class="form-item">
-						<label class="form-label my-3" for="member_pw2" required>review_score
+						<label class="form-label my-3" for="member_pw2" required><sup>*</sup>후기 점수
 							<sup>*</sup>
 						</label> 
 					</div>
@@ -50,10 +52,11 @@ em.warning {
 						<input type="radio" value="5" class="" name="review_score"
 							id="member_pw2" required>5<em></em>
 					<div class="form-item">
-						<p>review_comment<sup>*</sup></p>
+					<hr>
+						<p><sup>*</sup>리뷰 작성<sup>*</sup></p>
+						
 						<textarea name="review_comment" rows="5" cols="80" placeholder="다른 구매자들에게 도움이 되는 후기를 남겨주세요."></textarea><em></em>
-					<!-- 	<input type="textarea" class="form-control" name="review_comment"
-							id="member_name" required><em></e -->
+					
 					</div>
 					<hr>
 					<div

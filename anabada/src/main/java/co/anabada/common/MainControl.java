@@ -15,24 +15,18 @@ public class MainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		ItemService ivc = new ItemServiceImpl();
 		List<Item> recentList = ivc.recentItem();
 		List<Item> likeList = ivc.likeItem();
-		
-		//영재
-//		Item item = new Item();
-//		item = ivc.Item();
-		
-		if(recentList.size() != 0 || likeList.size() != 0) {
+
+		if (recentList.size() != 0 || likeList.size() != 0) {
 			req.setAttribute("recentList", recentList);
 			req.setAttribute("likeList", likeList);
-			//영재
-//			req.setAttribute("item", item);
 			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {
-			req.setAttribute("recentList", null);
-			req.setAttribute("likeList", null);
+			req.setAttribute("message", "아직 등록된 상품이 없습니다.");
 			String path = "main/main.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		}

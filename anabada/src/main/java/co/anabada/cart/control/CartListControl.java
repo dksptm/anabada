@@ -19,13 +19,13 @@ public class CartListControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		String memberNum = req.getParameter("memberNum");
-		
+
 		CartService svc = new CartServiceImpl();
 		List<Cart> cartList = svc.cartList(Integer.parseInt(memberNum));
-		
+
 		req.setAttribute("list", cartList);
-		
-		//JSP
+
+		// JSP
 		String path = "cart/cartList.tiles";
 		RequestDispatcher dispatch = req.getRequestDispatcher(path);
 		dispatch.forward(req, resp);

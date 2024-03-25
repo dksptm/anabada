@@ -1,7 +1,6 @@
 package co.anabada.item.control;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
 import co.anabada.item.Item;
@@ -19,26 +19,19 @@ public class searchItemControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("application/json; charset=UTF-8");
-		
+		resp.setContentType("text/json; charset=UTF-8");
+
 		String cname = req.getParameter("cname");
+		String page = req.getParameter("page");
+
 		ItemService svc = new ItemServiceImpl();
-		List<Item> list = svc.ItemList(cname);
-		
-		req.setAttribute("list", list);
-		
-		Gson gson = new Gson();
+		List<Item> list = svc.ItemList(cname, Integer.parseInt(page));
+		// req.setAttribute("list", list);
+
+		Gson gson = new GsonBuilder().create();
 		String jsonText = gson.toJson(list);
-		
-		System.out.println(jsonText);
-		
-		PrintWriter writer = resp.getWriter();
-		
-		writer.write(jsonText);
-		
-		writer.flush();
-		
-		
+
+		resp.getWriter().print(jsonText);
 
 	}
 
