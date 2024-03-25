@@ -154,7 +154,7 @@ function addZzim(ino) {
 	        iframe.src = url;
 	        // 'iframe'의 위치 조정
 	        iframe.style.left = '0px'; // 화면의 왼쪽에 위치
-	        iframe.style.top = '80px'; // 화면 상단에서 적당한 여백을 둠
+	        iframe.style.top = '17%'; // 화면 상단에서 적당한 여백을 둠
 	        iframe.style.width = '30%'; // iframe의 너비 조정
 	        iframe.style.height = '100%'; // 화면 높이에 맞게 조정
 	    }
