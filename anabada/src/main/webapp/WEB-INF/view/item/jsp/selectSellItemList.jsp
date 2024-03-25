@@ -222,7 +222,7 @@ main {
 
 			<h2>정보</h2>
 			<div class="info_section">
-				<span class="info_title">주문번호</span> <span class="info_content">${selectSellItemList.orderNum }</span>
+				<span class="info_title">주문번호</span> <span class="info_content">${selectSellItemList.orderNum == 0  ? '판매자가 직접 예약중으로 변경한 상품입니다.': selectSellItemList.orderNum}</span>
 			</div>
 
 			<div class="info_section">
