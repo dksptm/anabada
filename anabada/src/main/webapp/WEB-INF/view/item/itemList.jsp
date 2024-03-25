@@ -30,8 +30,8 @@
 						<!-- </form> -->
 					</div>
 					<div class="col-6"></div>
-					<div class="col-xl-3">
-						<!-- 정렬 -->
+					<!-- <div class="col-xl-3">
+						정렬
 						<div
 							class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
 							<label for="fruits">정렬</label> <select id="fruits"
@@ -43,7 +43,7 @@
 								<option value="audi">높은 가격순</option>
 							</select>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 
