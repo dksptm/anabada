@@ -2,6 +2,7 @@
  * itemList
  */
 
+
 console.log('itemList.js')
 
 let page = 1;
@@ -105,7 +106,6 @@ $(document).ready(function(e) {
 function search(iname, page) {
 	console.log('searchList cname= ' + iname);
 	console.log('searchList page= ' + page);
-	
 
 	$.ajax({
 		type: 'post',

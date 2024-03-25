@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 		<!-- Hero Start -->
 		<div class="container-fluid py-5 mb-5 hero-header">
@@ -77,7 +78,11 @@
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
 								<div class="flex-lg-wrap">
 									<i class="fas fa-heart"></i><span>${item.zzim }</span>
-									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
+								</div>
+								<div>
+								<p>￦
+								<fmt:formatNumber value="${item.itemPrice }" pattern="#,###" />
+								</p>
 								</div>
 							</div>
 						</div>
@@ -108,7 +113,9 @@
 								<h4 style="height:29px;overflow:hidden;">${item.itemName }</h4>
 								<p style="height:85px;overflow:hidden;">${item.itemInfo }</p>
 								<div class="d-flex justify-content-between flex-lg-wrap">
-									<p class="text-dark fs-5 fw-bold mb-0 w-100">￦ ${item.itemPrice }</p>
+								<p>￦
+								<fmt:formatNumber value="${item.itemPrice }" pattern="#,###" />
+								</p>
 								</div>
 							</div>
 						</div>

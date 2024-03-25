@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 .modal{
             position:absolute;
@@ -72,7 +73,7 @@
 								<p class="mb-0 mt-4">${item.itemName }</p>
 							</td>
 							<td>
-								<p class="mb-0 mt-4">${item.itemPrice }원</p>
+								<p class="mb-0 mt-4"><fmt:formatNumber value="${item.itemPrice }" pattern="#,###" />원</p>
 							</td>
 							<td>
 								<p class="mb-0 mt-4">${item.itemStatus }</p>

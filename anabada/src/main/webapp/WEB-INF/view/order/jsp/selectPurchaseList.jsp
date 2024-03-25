@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -263,11 +264,11 @@ main {
 				<span class="info_title">결제수단</span> <span class="info_content">${selectPurchaseOrder.paymentType }</span>
 			</div>
 			<div class="info_section">
-				<span class="info_title">배송비</span> <span class="info_content">${selectPurchaseOrder.deliveryFee }</span>
+				<span class="info_title">배송비</span> <span class="info_content"><fmt:formatNumber value="${selectPurchaseOrder.deliveryFee }" pattern="#,###" /></span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">상품금액</span> <span class="info_content">${selectPurchaseOrder.itemPrice}</span>
+				<span class="info_title">상품금액</span> <span class="info_content"><fmt:formatNumber value="${selectPurchaseOrder.itemPrice}" pattern="#,###" /></span>
 			</div>
 
 		</div>

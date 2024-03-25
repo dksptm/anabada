@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <!-- Single Page Header start -->
@@ -23,7 +24,10 @@
                         <div class="small mb-1">${item.itemNum }</div>
                         <h1 class="display-5 fw-bolder">${item.itemName }</h1>
                         <div class="fs-5 mb-5">
-                            <span>￦ ${item.itemPrice }</span>
+                                <p>￦
+								<fmt:formatNumber value="${item.itemPrice }" pattern="#,###" />
+								</p>
+
                         </div>
                         <div class="fs-5 mb-5">
 	                        <p class="lead">${item.itemInfo }</p>

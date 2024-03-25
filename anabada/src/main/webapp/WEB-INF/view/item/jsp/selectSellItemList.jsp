@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -211,7 +212,7 @@ main {
 							<span class="info_title">상품명</span> <span>${selectSellItemList.itemName }</span>
 						</div>
 						<div>
-							<span class="info_title">상품가격</span> <span>${selectSellItemList.itemPrice }</span>
+							<span class="info_title">상품가격</span> <span><fmt:formatNumber value="${selectSellItemList.itemPrice }" pattern="#,###" /> 원</span>
 						</div>
 					</div>
 				</div>
