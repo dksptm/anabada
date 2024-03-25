@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.anabada.common.Control;
+import co.anabada.item.service.ItemService;
+import co.anabada.item.service.ItemServiceImpl;
 import co.anabada.order.serivce.OrderService;
 import co.anabada.order.serivce.OrderServiceImpl;
 
@@ -24,11 +26,14 @@ public class OrderCancleControl implements Control {
 
 		String orderNum = req.getParameter("orderNum");
 		System.out.println("orderCancle:" + orderNum);
+		String itemNum = req.getParameter("itemNum");
 
 		OrderService svc = new OrderServiceImpl();
+		ItemService ivc = new ItemServiceImpl();
 		Map<String, String> map = new HashMap<>();
 
 		if (svc.orderCancle(Integer.parseInt(orderNum))) {
+			if(ivc.changeItem("판매중", Integer.parseInt(itemNum)));
 			map.put("retCode", "OK");
 			map.put("retMsg", "주문이 취소하였습니다..");
 		} else {

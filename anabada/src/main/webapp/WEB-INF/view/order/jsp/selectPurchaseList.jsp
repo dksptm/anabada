@@ -224,11 +224,16 @@ main {
 							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
 							class=" btn btn--stripe btn--large ">주문취소</button></span>
 				</c:when>
+				<c:when test="${selectPurchaseOrder.orderStatus eq '주문완료'}">
+					<span><button type="button"
+							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
+							class=" btn btn--stripe btn--large ">주문완료된 상품</button></span>
+				</c:when>
 
 				<c:otherwise>
 					<span><button type="button" disabled
 							onclick="orderCancle(${selectPurchaseOrder.orderNum});"
-							class=" btn btn--stripe btn--large ">주문완료된 상품</button></span>
+							class=" btn btn--stripe btn--large ">주문취소된 상품</button></span>
 				</c:otherwise>
 			</c:choose>
 
@@ -300,12 +305,17 @@ main {
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script>
+
+
+
 function orderCancle(orderNum) {
+	
     if (confirm('구매를 취소하시겠습니까?')) {
+    	let itemNum = "${selectPurchaseOrder.itemNum}";
         $.ajax({
             url: 'orderCancle.do',
             method: 'POST',
-            data: { orderNum: orderNum },
+            data: { orderNum: orderNum, itemNum:itemNum},
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
@@ -325,11 +335,12 @@ function orderCancle(orderNum) {
 
 
 function purchaseConfirm(orderNum) {
+	let itemNum = "${selectPurchaseOrder.itemNum}";
     if (confirm('주문을 완료 하시겠습니까?')) {
         $.ajax({
             url: 'purchaseConfirm.do', 
             method: 'POST',
-            data: { orderNum: orderNum },
+            data: { orderNum: orderNum , itemNum:itemNum},
             dataType: 'json',
             success: function(response) {
                 if (response.retCode == 'OK') {
