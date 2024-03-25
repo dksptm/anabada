@@ -57,7 +57,7 @@ function orderBtn() {
 		let dhow = ptype == 'payj' || ptype == 'depositj' ? '직거래' : '택배발송';
 		let dfee = dhow == '택배발송' ? 3000 : 0;
 		let daddr = dhow == '택배발송' ? $('#tjuso').val() : '' ;
-		let pty = ptype == 'payj' || ptype == 'payt' ? '페이' : '입금';
+		let pty = ptype == 'payj' || ptype == 'payt' ? '기타결제' : '계좌입금';
 		$.ajax({
 			url: 'addOrder.do',
 			method: 'post',

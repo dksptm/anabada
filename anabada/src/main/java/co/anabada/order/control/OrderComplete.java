@@ -22,6 +22,7 @@ public class OrderComplete implements Control {
 		if (order != null) {
 			req.setAttribute("odrNo", odrNo);
 			req.setAttribute("order", order);
+			System.out.println(order);
 			String path = "order/orderComplete.tiles";
 			req.getRequestDispatcher(path).forward(req, resp);
 		} else {

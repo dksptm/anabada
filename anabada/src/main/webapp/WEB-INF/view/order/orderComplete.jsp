@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 	<div class="container-fluid page-header py-5">
 		<h1 class="text-center text-white display-6">주문완료페이지</h1>
 		<ol class="breadcrumb justify-content-center mb-0">
-			<li class="breadcrumb-item active text-white">orderComplete.do</li>
 		</ol>
 	</div>
 
@@ -25,9 +25,13 @@
                                 <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
                                 <div>
                                     <h4>입금정보</h4>
-                                    <span class="mb-2">입금계좌: ${order.sellerAcc } </span>
+                                    <span class="mb-2">입금계좌: ${order.accountNum } </span>
                                     <span class="mb-2"> / 예금주: ${order.sellerName }</span>
-                                    <span class="mb-2"> / 입금요청액: ${order.total }</span>
+                                    <span class="mb-2">/ 입금요청액: 
+                                    <span>￦
+									<fmt:formatNumber value="${order.totalPrice }" pattern="#,###" />
+									</span>
+									</span>
                                 </div>
                             </div>
                             <div class="d-flex p-4 rounded mb-4 bg-white">
@@ -44,9 +48,9 @@
                                 <div>
                                     <h4>거래정보</h4>
                                     <span class="mb-2">거래방법: ${order.orderType }</span>
-                                    <span class="mb-2"> / 거래일시: ${order.orderDate }</span>
+                                    <span class="mb-2"> / 거래일시: <fmt:formatDate value="${order.orderDate }" pattern="yyyy년 MM월 dd일 hh시" /></span>
                                     <span class="mb-2"> / 결제수단: ${order.paymentType }</span>
-                                    <span class="mb-2"> / 상품금액: ${order.itemPrice }상품</span>
+                                    <span class="mb-2"> / 상품금액: <fmt:formatNumber value="${order.itemPrice}" pattern="#,###" />원</span>
                                 </div>
                             </div>
                         </div>

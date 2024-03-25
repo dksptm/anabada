@@ -246,11 +246,13 @@ main {
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">입금요청액</span> <span class="info_content">${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }</span>
+				<span class="info_title">입금요청액</span> <span class="info_content"><fmt:formatNumber value="${selectPurchaseOrder.itemPrice + selectPurchaseOrder.deliveryFee }" pattern="#,###" /></span>
 			</div>
 
 			<div class="info_section">
-				<span class="info_title">입금기한</span> <span class="info_content">${selectPurchaseOrder.orderDate} </span>
+			
+			
+				<span class="info_title">입금기한</span> <span class="info_content"> <fmt:formatDate value="${selectPurchaseOrder.gihan}" pattern="yyyy년 MM월 dd일" /></span>
 			</div>
 
 			<hr>

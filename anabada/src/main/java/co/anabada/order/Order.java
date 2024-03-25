@@ -29,9 +29,9 @@ public class Order {
 		private String  totalPirce;
 		//효주.
 		private int sellerNum;
-		private String sellerAcc;
 		private String sellerName;
-		private int total;
+		private int totalPrice;
+		private Date gihan;
 
 
 }
