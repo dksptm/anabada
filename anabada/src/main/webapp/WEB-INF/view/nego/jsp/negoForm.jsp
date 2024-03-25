@@ -51,6 +51,8 @@
             border-radius: 20px;
             max-width: 70%;
             word-break: break-word;
+            margin-left: 10px
+            
         }
 
         #input-area {
@@ -58,7 +60,7 @@
             padding: 0 10px;
             box-sizing: border-box; 
         }
-
+	
         #chat-input, #AddnegoChat {
         	margin-bottom: 10px;
             width: 100%;
@@ -74,7 +76,14 @@
             justify-content: flex-end;
             padding: 0 10px 10px 10px;
         }
-
+		#memberName {
+			margin-bottom : 10px;
+			 width: 30%;
+			 padding : 3px;
+			 border: 1px solid #ccc;
+            border-radius: 4px;
+		}
+		
         button {
             padding: 10px 15px;
             border: none;
@@ -101,7 +110,7 @@
     </div>
     <div id="input-area">
     	<input type="text" id="memberName" value="${member.memberName}" readonly>
-        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="Type a message...">
+        <input type="text" id="AddnegoChat" name="AddnegoChat" placeholder="메시지를 입력하세요...">
         <c:if test="${not empty negoForm}">
             <input type="hidden" id="itemNum" value="${itemNum}">
             <input type="hidden" id="memberNum" value="${member.memberNum}">
