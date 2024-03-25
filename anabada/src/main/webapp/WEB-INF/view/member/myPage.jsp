@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
@@ -35,7 +36,7 @@
                                 		<div class="border border-primary rounded position-relative vesitable-item">
 	                                    <br>
 	                                    <span class="mb-0 px-2 h5">${item.itemName } </span>
-		                                <span class="m-0 px-2 h5">${item.itemPrice }원 </span>
+		                                <span class="m-0 px-2 h5">￦<fmt:formatNumber value="${item.itemPrice }" pattern="#,###" /></span>
 		                                <br><br>
 		                                <div class="vesitable-img border rounded">
 		                                    <img src="images/${item.itemImage }" class="img-fluid w-100 rounded-top bg-light" 
