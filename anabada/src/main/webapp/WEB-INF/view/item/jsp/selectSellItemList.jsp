@@ -221,7 +221,7 @@ main {
 
 			<h2>정보</h2>
 			<div class="info_section">
-				<span class="info_title">평점</span> <span class="info_content">★★★★</span>
+				<span class="info_title">주문번호</span> <span class="info_content">${selectSellItemList.orderNum }</span>
 			</div>
 
 			<div class="info_section">
@@ -229,7 +229,7 @@ main {
 			</div>
 			
 			<div class="info_section">
-				<span class="info_title">찜 횟수</span> <span class="info_content">13</span>
+				<span class="info_title">찜 횟수</span> <span class="info_content">${selectSellItemList.zzim }</span>
 			</div>
 			<span><button type="button" 
 							onclick="location.href='negoForm.do?itemNum=${selectSellItemList.itemNum }'"

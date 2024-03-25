@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.anabada.order.mapper.OrderMapper">
 
-	<select id="selectPurchaseOrder" resultType="Order" parameterType="int">
+	<select id="selectPurchaseOrder" resultType="order" parameterType="int">
 		 
 		 SELECT * FROM vu_odr_com where order_num = #{orderNum}
 		 

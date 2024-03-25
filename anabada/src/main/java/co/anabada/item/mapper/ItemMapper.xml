@@ -140,7 +140,6 @@ WHERE a.rn > (#{param2} - 1) * 6
 		FROM item i
 		JOIN member m ON i.member_num = m.member_num
 		where i.member_num = ${memberNum}
-		AND i.item_status = '판매중'
 		ORDER BY item_date DESC
 	</select>
 
@@ -242,7 +241,7 @@ WHERE a.rn > (#{param2} - 1) * 6
         WHERE item_num = #{itemNum}	
 	</update>
 
-	<select id="selectSellItemList" resultType="Item" parameterType="int" >
+	<select id="selectSellItemList" resultType="co.anabada.item.Item" parameterType="int" >
         SELECT
             i.item_num,
             i.category_id,
@@ -255,7 +254,9 @@ WHERE a.rn > (#{param2} - 1) * 6
             i.item_date,
             i.dselect,
             i.pselect,
-            m.member_num
+            (select order_num from anvd_order o where i.item_num = o.item_num) order_num,
+            m.member_num,
+            (SELECT COUNT(*) AS zzim FROM   cart c GROUP BY item_num having i.item_num = c.item_num) zzim
         FROM
             item i
             JOIN member m ON i.member_num = m.member_num
